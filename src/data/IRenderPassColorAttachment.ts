@@ -10,7 +10,7 @@ export interface IRenderPassColorAttachment
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferTexture2D
      */
-    readonly view?: IAttachmentView;
+    readonly view?: ITextureView;
 
     /**
      * 清除后填充值。
@@ -48,8 +48,6 @@ export interface IRenderPassColorAttachment
      */
     readonly loadOp?: ILoadOp;
 }
-
-export type IAttachmentView = ITextureView;
 
 export type IColor = [red: number, green: number, blue: number, alpha: number];
 
