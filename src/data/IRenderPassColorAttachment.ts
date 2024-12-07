@@ -1,3 +1,4 @@
+import { IRenderbuffer } from "./IRenderbuffer";
 import { ITextureView } from "./ITextureView";
 
 export interface IRenderPassColorAttachment
@@ -10,7 +11,7 @@ export interface IRenderPassColorAttachment
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferTexture2D
      */
-    readonly view?: ITextureView;
+    readonly view?: IColorAttachmentView;
 
     /**
      * 清除后填充值。
@@ -48,6 +49,8 @@ export interface IRenderPassColorAttachment
      */
     readonly loadOp?: ILoadOp;
 }
+
+export type IColorAttachmentView = IRenderbuffer | ITextureView;
 
 export type IColor = [red: number, green: number, blue: number, alpha: number];
 
