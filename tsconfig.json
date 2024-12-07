@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "CommonJS",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "declarationMap": true,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "emitDeclarationOnly": true,
+        "types": [
+            "@webgpu/types"
+        ],
+        "lib": [
+            "ESNext",
+            "DOM",
+        ],
+        "outDir": "lib"
+    },
+    "include": [
+        "src/**/*.ts"
+    ]
+}

@@ -1,0 +1,71 @@
+{
+  "name": "@feng3d/render-api",
+  "version": "0.0.1",
+  "description": "渲染接口",
+  "author": "feng",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "module": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "dev": "cd examples && npm run dev",
+    "clean": "rimraf \"{lib,dist,public}\"",
+    "build": "vite build",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "types": "tsc",
+    "watch": "tsc -w",
+    "lint": "eslint --ext .js --ext .ts src test examples/src --ignore-path .gitignore --max-warnings 0",
+    "lintfix": "npm run lint -- --fix",
+    "docs": "typedoc",
+    "examples": "cd examples && npm run build",
+    "release": "npm run clean && npm run lint && npm run build && npm run types && npm publish",
+    "prepublishOnly": "node scripts/prepublish.js",
+    "postpublish": "node scripts/postpublish.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/feng3d/renderer.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/",
+    "lib",
+    "src",
+    "readme",
+    "tsconfig.json"
+  ],
+  "workspaces": [
+    ".",
+    "./examples"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.17.0",
+    "@typescript-eslint/parser": "5.17.0",
+    "@vitest/ui": "^0.32.2",
+    "cross-env": "7.0.3",
+    "eslint": "8.12.0",
+    "rimraf": "3.0.2",
+    "tslib": "^2.4.0",
+    "typedoc": "^0.24.8",
+    "typescript": "5.1.3",
+    "vite": "^4.3.9",
+    "vitest": "^0.32.2"
+  },
+  "dependencies": {
+    "@feng3d/glsl2wgsl": "^0.0.2",
+    "@feng3d/watcher": "^0.8.3",
+    "@feng3d/webgl": "0.0.2",
+    "@feng3d/webgpu": "0.0.1",
+    "@webgpu/types": "0.1.49"
+  }
+}
