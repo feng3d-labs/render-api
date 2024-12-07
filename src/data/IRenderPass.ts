@@ -1,3 +1,5 @@
+import { IRenderPassDescriptor } from "./IRenderPassDescriptor";
+
 /**
  * WebGL渲染通道
  *
@@ -10,10 +12,10 @@ export interface IRenderPass
      */
     readonly __type?: "RenderPass";
 
-    // /**
-    //  * WebGL渲染通道描述
-    //  */
-    // readonly descriptor?: IGLRenderPassDescriptor;
+    /**
+     * 渲染通道描述
+     */
+    readonly descriptor?: IRenderPassDescriptor;
 
     // /**
     //  * 渲染对象列表，默认为 []。
