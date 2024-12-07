@@ -1,14 +1,16 @@
+import { ITextureView } from "./ITextureView";
+
 export interface IRenderPassColorAttachment
 {
-    // /**
-    //  * 颜色附件视图。
-    //  *
-    //  * 如果没有设置，默认为画布；否则使用 帧缓冲 。
-    //  *
-    //  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer
-    //  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferTexture2D
-    //  */
-    // readonly view?: IGLAttachmentView;
+    /**
+     * 颜色附件视图。
+     *
+     * 如果没有设置，默认为画布；否则使用 帧缓冲 。
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferTexture2D
+     */
+    readonly view?: IAttachmentView;
 
     /**
      * 清除后填充值。
@@ -47,7 +49,7 @@ export interface IRenderPassColorAttachment
     readonly loadOp?: ILoadOp;
 }
 
-// export type IGLAttachmentView = IGLRenderbuffer | IGLTextureView;
+export type IAttachmentView = ITextureView;
 
 export type IColor = [red: number, green: number, blue: number, alpha: number];
 
