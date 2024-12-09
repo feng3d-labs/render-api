@@ -36,7 +36,7 @@ export interface ITexture
 /**
  * 纹理尺寸，包含纹理的宽度、高度以及深度或者层数。
  */
-export type ITextureSize = [width: number, height?: number, depthOrArrayLayers?: number];
+export type ITextureSize = readonly [width: number, height?: number, depthOrArrayLayers?: number];
 
 export type ITextureDimension = "1d" | "2d" | "2d-array" | "cube" | "cube-array" | "3d";
 
