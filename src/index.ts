@@ -1,3 +1,5 @@
+export * from "./utils/getTexImageSourceSize";
+
 export * from "./data/ICanvasContext";
 export * from "./data/ICanvasTexture";
 export * from "./data/ICommandEncoder";
@@ -8,4 +10,3 @@ export * from "./data/ISubmit";
 export * from "./data/ITexture";
 export * from "./data/IRenderbuffer";
 export * from "./data/ITextureView";
-
