@@ -30,9 +30,11 @@ export interface ITexture
     /**
      * The width, height, and depth or layer count of the texture.
      *
+     * 如果没有设置初始值则引擎自动从 source 属性中获取。
+     * 
      * 修改尺寸将会引发纹理销毁，使用时重新创建新纹理。
      */
-    size: ITextureSize;
+    size?: ITextureSize;
 }
 
 /**
