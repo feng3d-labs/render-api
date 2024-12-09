@@ -21,7 +21,22 @@ export interface ITexture
      * 纹理格式。 默认为 "rgba8unorm"，
      */
     readonly format?: ITextureFormat;
+
+    /**
+     * The number of mip levels the texture will contain.
+     */
+    readonly mipLevelCount?: number;
+
+    /**
+     * The width, height, and depth or layer count of the texture.
+     */
+    size?: ITextureSize;
 }
+
+/**
+ * 纹理尺寸，包含纹理的宽度、高度以及深度或者层数。
+ */
+export type ITextureSize = [width: number, height?: number, depthOrArrayLayers?: number];
 
 export type ITextureDimension = "1d" | "2d" | "2d-array" | "cube" | "cube-array" | "3d";
 
