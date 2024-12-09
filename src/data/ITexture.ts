@@ -29,8 +29,10 @@ export interface ITexture
 
     /**
      * The width, height, and depth or layer count of the texture.
+     *
+     * 修改尺寸将会引发纹理销毁，使用时重新创建新纹理。
      */
-    size?: ITextureSize;
+    size: ITextureSize;
 }
 
 /**
