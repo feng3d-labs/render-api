@@ -1,4 +1,4 @@
-import { ITextureSize } from "../data/ITexture";
+import { IImageSize } from "../data/ITexture";
 
 /**
  * 获取纹理的图片资源尺寸。
@@ -6,7 +6,7 @@ import { ITextureSize } from "../data/ITexture";
  * @param texImageSource 纹理的图片资源。
  * @returns 
  */
-export function getTexImageSourceSize(texImageSource: TexImageSource): ITextureSize
+export function getTexImageSourceSize(texImageSource: TexImageSource): IImageSize
 {
     let width: number;
     let height: number;
