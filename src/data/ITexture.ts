@@ -1,5 +1,4 @@
 import { ICanvasTexture } from "./ICanvasTexture";
-import { ITextureSource } from "./ITextureSource";
 
 /**
  * 类似纹理，包含画布纹理以及正常纹理。
@@ -57,6 +56,54 @@ export interface ITexture
 }
 
 /**
+ * 纹理资源。
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage3D
+ * 
+ * ### WebGPU
+ * 
+ * @see GPUQueue.copyExternalImageToTexture
+ * @see GPUQueue.writeTexture
+ */
+export type ITextureSource = ITextureImageSource | ITextureBufferSource;
+
+/**
+ * 纹理的图片资源。
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage3D
+ * 
+ * ### WebGPU
+ * 
+ * @see GPUQueue.copyExternalImageToTexture
+ */
+export interface ITextureImageSource
+{
+
+}
+
+/**
+ * 纹理的数据资源。
+ * 
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage3D
+ * 
+ * ### WebGPU
+ * 
+ * @see GPUQueue.writeTexture
+ */
+export interface ITextureBufferSource
+{
+
+}
+
+/**
+ * 图片像素坐标。
+ */
+export type IImageOrigin = readonly [x: number, y: number];
+
+/**
  * 图片尺寸
  */
 export type IImageSize = readonly [width: number, height: number];
@@ -71,6 +118,9 @@ export type ITextureSize = readonly [width: number, height: number, depthOrArray
  */
 export type ITextureOrigin = readonly [x: number, y: number, depthOrArrayLayers?: number];
 
+/**
+ * 纹理规格维度。
+ */
 export type ITextureDimension = "1d" | "2d" | "2d-array" | "cube" | "cube-array" | "3d";
 
 /**
