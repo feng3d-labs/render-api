@@ -1,4 +1,5 @@
 import { ICanvasTexture } from "./ICanvasTexture";
+import { ITextureSource } from "./ITextureSource";
 
 /**
  * 类似纹理，包含画布纹理以及正常纹理。
@@ -18,6 +19,19 @@ export interface ITexture
      * 修改尺寸将会引发纹理销毁，使用时重新创建新纹理。
      */
     size: ITextureSize;
+
+    /**
+     * 纹理资源。
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage3D
+     * 
+     * ### WebGPU
+     * 
+     * @see GPUQueue.copyExternalImageToTexture
+     * @see GPUQueue.writeTexture
+     */
+    sources?: readonly ITextureSource[];
 
     /**
      * 纹理维度，默认为 "2d" 。
