@@ -89,6 +89,13 @@ export interface ITextureImageSource
      * 读取图片上的像素坐标。
      */
     imageOrigin?: IImageOrigin;
+
+    /**
+     * Extents of the content to write from `source` to `destination`.
+     * 
+     * 写入尺寸。
+     */
+    size?: ITextureSize
 }
 
 /**
