@@ -80,7 +80,15 @@ export type ITextureSource = ITextureImageSource | ITextureBufferSource;
  */
 export interface ITextureImageSource
 {
+    /**
+     * 图片资源。
+     */
+    image: TexImageSource;
 
+    /**
+     * 读取图片上的像素坐标。
+     */
+    imageOrigin?: IImageOrigin;
 }
 
 /**
