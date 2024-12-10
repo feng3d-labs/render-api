@@ -11,6 +11,15 @@ export type ITextureLike = ICanvasTexture | ITexture;
 export interface ITexture
 {
     /**
+     * The width, height, and depth or layer count of the texture.
+     *
+     * 由于通过初始化时写入的资源自动计算尺寸处理所有情况难度很大且容易出错，该属性在初始化时必须设置。
+     * 
+     * 修改尺寸将会引发纹理销毁，使用时重新创建新纹理。
+     */
+    size: ITextureSize;
+
+    /**
      * 纹理维度，默认为 "2d" 。
      * 
      * WebGL中不支持 "1d" "cube-array"。
@@ -26,15 +35,6 @@ export interface ITexture
      * The number of mip levels the texture will contain.
      */
     readonly mipLevelCount?: number;
-
-    /**
-     * The width, height, and depth or layer count of the texture.
-     *
-     * 如果没有设置初始值则引擎自动从 source 属性中获取。
-     * 
-     * 修改尺寸将会引发纹理销毁，使用时重新创建新纹理。
-     */
-    size?: ITextureSize;
 
     /**
      * 是否生成mipmap
