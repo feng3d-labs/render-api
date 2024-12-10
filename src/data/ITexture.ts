@@ -96,6 +96,14 @@ export interface ITextureImageSource
     mipLevel?: number;
 
     /**
+     * Defines the origin of the copy - the minimum corner of the texture sub-region to copy to/from.
+     * Together with `copySize`, defines the full copy sub-region.
+     * 
+     * 写入纹理的位置。
+     */
+    textureOrigin?: ITextureOrigin;
+
+    /**
      * Extents of the content to write from `source` to `destination`.
      * 
      * 写入尺寸。
