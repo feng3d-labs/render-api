@@ -91,6 +91,11 @@ export interface ITextureImageSource
     imageOrigin?: IImageOrigin;
 
     /**
+     * 写入纹理的mipmap层级索引。
+     */
+    mipLevel?: number;
+
+    /**
      * Extents of the content to write from `source` to `destination`.
      * 
      * 写入尺寸。
