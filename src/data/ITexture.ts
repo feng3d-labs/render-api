@@ -146,24 +146,21 @@ export interface ITextureDataSource
     readonly __type: "TextureDataSource";
 
     /**
-     * 数据图片，表示图片的数据，或者以数据形式表示的图片。
+     * 纹理数据。
      */
     data: ArrayBufferView;
+
+    /**
+     * Layout of the content in `data`.
+     *
+     * 纹理数据布局。
+     */
+    dataLayout?: ITextureDataLayout,
 
     /**
      * 读取数据图片上的像素坐标。
      */
     dataImageOrigin?: IDataImageOrigin;
-
-    /**
-     * 图片宽度。
-     */
-    dataImageWidth?: number;
-
-    /**
-     * 单张图片高度
-     */
-    dataImageHeight?: number;
 
     /**
      * 写入mipmap级别。
@@ -189,12 +186,37 @@ export interface ITextureDataSource
 }
 
 /**
+ * 纹理数据布局。
+ */
+export interface ITextureDataLayout
+{
+    /**
+     * 默认为 0。一般用于跳过文件头部非纹理数据部分。
+     * 
+     * 注：WebGL1不支持。
+     */
+    offset?: number;
+
+    /**
+     * 图片宽度。
+     * 
+     * 当
+     */
+    width?: number;
+
+    /**
+     * 单张图片高度。只在纹理为2d纹理数组或者3d纹理时生效。
+     */
+    height?: number;
+}
+
+/**
  * 图片中的坐标。
  */
 export type IImageOrigin = readonly [x: number, y: number];
 
 /**
- * 数据图片中的坐标。depthOrArrayLayers 表示数据中包含有多张图片中的第几张。
+ * 数据图片中的坐标。depthOrArrayLayers 表示数据中包含有多张图片中的第几张，只在纹理为2d纹理数组或者3d纹理时生效。
  */
 export type IDataImageOrigin = readonly [x: number, y: number, depthOrArrayLayers?: number];
 
