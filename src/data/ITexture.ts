@@ -66,7 +66,7 @@ export interface ITexture
  * @see GPUQueue.copyExternalImageToTexture
  * @see GPUQueue.writeTexture
  */
-export type ITextureSource = ITextureImageSource | ITextureBufferSource;
+export type ITextureSource = ITextureImageSource | ITextureDataSource;
 
 /**
  * 纹理的图片资源。
@@ -133,9 +133,29 @@ export interface ITextureImageSource
  * 
  * @see GPUQueue.writeTexture
  */
-export interface ITextureBufferSource
+export interface ITextureDataSource
 {
+    /**
+     * 写入mipmap级别。
+     *
+     * 默认为 0。
+     */
+    mipLevel?: number,
 
+    /**
+     * Defines the origin of the copy - the minimum corner of the texture sub-region to copy to/from.
+     * Together with `copySize`, defines the full copy sub-region.
+     * 
+     * 写入纹理的位置。
+     */
+    textureOrigin?: ITextureOrigin;
+
+    /**
+     * Extents of the content to write from `source` to `destination`.
+     * 
+     * 写入尺寸。
+     */
+    size?: ITextureSize
 }
 
 /**
