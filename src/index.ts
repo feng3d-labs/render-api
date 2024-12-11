@@ -1,4 +1,5 @@
 export * from "./utils/getTexImageSourceSize";
+export * from "./utils/getTextureBytesPerPixel";
 
 export * from "./data/ICanvasContext";
 export * from "./data/ICanvasTexture";
