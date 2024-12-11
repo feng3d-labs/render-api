@@ -229,6 +229,8 @@ export type IImageSize = readonly [width: number, height: number];
 
 /**
  * 纹理尺寸，包含纹理的宽度、高度以及深度或者层数。
+ *
+ * depthOrArrayLayers: 当纹理为3d纹理时表示深度，2d纹理数组时表示数组索引，cube纹理时表示6个面的索引。
  */
 export type ITextureSize = readonly [width: number, height: number, depthOrArrayLayers?: number];
 
