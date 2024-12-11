@@ -146,6 +146,26 @@ export interface ITextureDataSource
     readonly __type: "TextureDataSource";
 
     /**
+     * 数据图片，表示图片的数据，或者以数据形式表示的图片。
+     */
+    data: ArrayBufferView;
+
+    /**
+     * 读取数据图片上的像素坐标。
+     */
+    dataImageOrigin?: IDataImageOrigin;
+
+    /**
+     * 图片宽度。
+     */
+    dataImageWidth?: number;
+
+    /**
+     * 单张图片高度
+     */
+    dataImageHeight?: number;
+
+    /**
      * 写入mipmap级别。
      *
      * 默认为 0。
@@ -169,9 +189,14 @@ export interface ITextureDataSource
 }
 
 /**
- * 图片像素坐标。
+ * 图片中的坐标。
  */
 export type IImageOrigin = readonly [x: number, y: number];
+
+/**
+ * 数据图片中的坐标。depthOrArrayLayers 表示数据中包含有多张图片中的第几张。
+ */
+export type IDataImageOrigin = readonly [x: number, y: number, depthOrArrayLayers?: number];
 
 /**
  * 图片尺寸
