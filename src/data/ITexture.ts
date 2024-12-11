@@ -200,7 +200,7 @@ export interface ITextureDataLayout
     /**
      * 图片宽度。
      * 
-     * 当
+     * 默认值为 ITextureDataSource.size[0] 。
      */
     width?: number;
 
