@@ -191,7 +191,7 @@ export interface ITextureDataSource
 export interface ITextureDataLayout
 {
     /**
-     * 默认为 0。一般用于跳过文件头部非纹理数据部分。
+     * 默认为 0。字节偏移，一般用于跳过文件头部非纹理数据部分。
      * 
      * 注：WebGL1不支持。
      */
@@ -206,6 +206,8 @@ export interface ITextureDataLayout
 
     /**
      * 单张图片高度。只在纹理为2d纹理数组或者3d纹理时生效。
+     * 
+     * 默认值为 ITextureDataSource.size[1] 。
      */
     height?: number;
 }
