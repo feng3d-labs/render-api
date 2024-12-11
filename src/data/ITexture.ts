@@ -81,6 +81,11 @@ export type ITextureSource = ITextureImageSource | ITextureDataSource;
 export interface ITextureImageSource
 {
     /**
+     * 数据类型。
+     */
+    readonly __type?: "TextureImageSource";
+
+    /**
      * 图片资源。
      */
     image: TexImageSource;
@@ -135,6 +140,11 @@ export interface ITextureImageSource
  */
 export interface ITextureDataSource
 {
+    /**
+     * 数据类型。
+     */
+    readonly __type: "TextureDataSource";
+
     /**
      * 写入mipmap级别。
      *
