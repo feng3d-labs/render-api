@@ -1,5 +1,3 @@
-import { ICanvasTexture } from "./ICanvasTexture";
-
 /**
  * 纹理
  */
