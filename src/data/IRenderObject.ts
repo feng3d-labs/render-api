@@ -1,3 +1,4 @@
+import { IRenderPipeline } from "./IRenderPipeline";
 
 /**
  * 渲染对象，包含一次渲染时包含的所有数据。
@@ -9,10 +10,10 @@ export interface IRenderObject
      */
     readonly __type?: "RenderObject";
 
-    // /**
-    //  * 渲染程序
-    //  */
-    // pipeline: IGLRenderPipeline;
+    /**
+     * 渲染程序
+     */
+    readonly pipeline: IRenderPipeline;
 
     // /**
     //  * 顶点属性数据列表
