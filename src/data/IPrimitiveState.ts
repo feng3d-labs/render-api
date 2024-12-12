@@ -21,22 +21,21 @@ export interface IPrimitiveState
      */
     readonly topology?: IPrimitiveTopology;
 
-    // /**
-    //  * Defines which polygon orientation will be culled, if any.
-    //  *
-    //  * WebGPU 默认 `"none"` ,不进行剔除。
-    //  */
-    // readonly cullMode?: GPUCullMode;
+    /**
+     * Defines which polygon orientation will be culled, if any.
+     *
+     * 剔除面。
+     * 
+     * WebGPU 默认 `"none"` ,不进行剔除。
+     */
+    readonly cullFace?: ICullFace;
 
-    // /**
-    //  * Defines which polygons are considered front-facing.
-    //  */
-    // readonly frontFace?: GPUFrontFace;
-    // /**
-    //  * If true, indicates that depth clipping is disabled.
-    //  * Requires the {@link GPUFeatureName#"depth-clip-control"} feature to be enabled.
-    //  */
-    // readonly unclippedDepth?: boolean;
+    /**
+     * Defines which polygons are considered front-facing.
+     * 
+     * 默认 "ccw"。
+     */
+    readonly frontFace?: IFrontFace;
 }
 
 export type IPrimitiveTopology = IPrimitiveTopologyMap[keyof IPrimitiveTopologyMap];
@@ -49,3 +48,14 @@ export interface IPrimitiveTopologyMap
     "triangle-list": "triangle-list",
     "triangle-strip": "triangle-strip",
 }
+
+export type ICullFace = ICullFaceMap[keyof ICullFaceMap];
+
+export interface ICullFaceMap
+{
+    "none": "none",
+    "front": "front",
+    "back": "back",
+}
+
+export type IFrontFace = "ccw" | "cw";
