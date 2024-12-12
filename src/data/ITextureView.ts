@@ -3,7 +3,7 @@ import { ITexture } from "./ITexture";
 /**
  * 如需扩展 ITextureLike，则需在 ITextureMap 中添加类型。
  */
-export interface ITextureMap
+export interface ITextureLikeMap
 {
     /**
      * 正常纹理。
@@ -16,7 +16,7 @@ export interface ITextureMap
  * 
  * 如需扩展 ITextureLike，则需在 ITextureMap 中添加类型。
  */
-export type ITextureLike = ITextureMap[keyof ITextureMap];
+export type ITextureLike = ITextureLikeMap[keyof ITextureLikeMap];
 
 /**
  * 纹理视图。
