@@ -2,6 +2,8 @@ import { IRenderPass } from "./IRenderPass";
 
 /**
  * 命令编码器。
+ * 
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/GPUCommandEncoder
  */
 export interface ICommandEncoder
 {

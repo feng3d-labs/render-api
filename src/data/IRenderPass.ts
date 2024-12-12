@@ -17,10 +17,10 @@ export interface IRenderPass
      */
     readonly descriptor?: IRenderPassDescriptor;
 
-    // /**
-    //  * 渲染对象列表，默认为 []。
-    //  */
-    // readonly renderObjects?: readonly IGLRenderPassObject[];
+    /**
+     * 渲染对象列表
+     */
+    readonly renderObjects?: readonly IRenderPassObject[];
 
     // /**
     //  * 渲染不被遮挡查询结果。具体数据保存在各子项的"result"属性中。
@@ -30,4 +30,8 @@ export interface IRenderPass
     // occlusionQueryResults?: IGLOcclusionQuery[];
 }
 
-// export type IGLRenderPassObject = IGLRenderObject | IGLViewport | IGLScissorRect | IGLOcclusionQuery;
+export type IRenderPassObject = IRenderPassObjectMap[keyof IRenderPassObjectMap];
+
+export interface IRenderPassObjectMap
+{
+}
