@@ -26,14 +26,18 @@ export interface IPrimitiveState
      *
      * 剔除面。
      * 
-     * WebGPU 默认 `"none"` ,不进行剔除。
+     * 默认 `"none"` ,不进行剔除。
+     * 
+     * * `none` 关闭剔除面功能
+     * * `front` 剔除正面
+     * * `back` 剔除背面
      */
     readonly cullFace?: ICullFace;
 
     /**
      * Defines which polygons are considered front-facing.
      * 
-     * 默认 "ccw"。
+     * 正向方向。默认 "ccw"，表示三角形逆时针方向为正面。
      */
     readonly frontFace?: IFrontFace;
 }
