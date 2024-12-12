@@ -1,3 +1,4 @@
+import { IRenderObject } from "./IRenderObject";
 import { IRenderPassDescriptor } from "./IRenderPassDescriptor";
 
 /**
@@ -34,4 +35,5 @@ export type IRenderPassObject = IRenderPassObjectMap[keyof IRenderPassObjectMap]
 
 export interface IRenderPassObjectMap
 {
+    IRenderObject: IRenderObject;
 }
