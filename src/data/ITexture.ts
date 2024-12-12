@@ -50,16 +50,14 @@ export interface ITexture
 
 /**
  * 纹理资源。
- *
- * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
- * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage3D
- * 
- * ### WebGPU
- * 
- * @see GPUQueue.copyExternalImageToTexture
- * @see GPUQueue.writeTexture
  */
-export type ITextureSource = ITextureImageSource | ITextureDataSource;
+export type ITextureSource = ITextureSourceMap[keyof ITextureSourceMap];
+
+export interface ITextureSourceMap
+{
+    ITextureImageSource: ITextureImageSource;
+    ITextureDataSource: ITextureDataSource;
+}
 
 /**
  * 纹理的图片资源。
