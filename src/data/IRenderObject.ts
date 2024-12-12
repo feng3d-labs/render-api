@@ -11,7 +11,7 @@ export interface IRenderObject
     readonly __type?: "RenderObject";
 
     /**
-     * 渲染程序
+     * 渲染管线描述。
      */
     readonly pipeline: IRenderPipeline;
 
