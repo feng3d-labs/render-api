@@ -1,5 +1,8 @@
 import { ITextureView } from "./ITextureView";
 
+/**
+ * 渲染通道颜色附件。
+ */
 export interface IRenderPassColorAttachment
 {
     /**
