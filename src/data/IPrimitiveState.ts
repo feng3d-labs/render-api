@@ -1,5 +1,7 @@
 
 /**
+ * 图元拓扑结构。
+ * 
  * {@link GPUPrimitiveState}
  * 
  * `stripIndexFormat` 将由引擎自动设置。
