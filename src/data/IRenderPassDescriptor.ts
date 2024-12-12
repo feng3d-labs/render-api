@@ -1,4 +1,5 @@
 import { IRenderPassColorAttachment } from "./IRenderPassColorAttachment";
+import { IRenderPassDepthStencilAttachment } from "./IRenderPassDepthStencilAttachment";
 
 /**
  * 渲染通道描述
@@ -10,10 +11,10 @@ export interface IRenderPassDescriptor
      */
     readonly colorAttachments?: readonly IRenderPassColorAttachment[];
 
-    // /**
-    //  * 深度模板附件。
-    //  */
-    // readonly depthStencilAttachment?: IGLRenderPassDepthStencilAttachment;
+    /**
+     * 深度模板附件。
+     */
+    readonly depthStencilAttachment?: IRenderPassDepthStencilAttachment;
 
     /**
      * 采用次数。

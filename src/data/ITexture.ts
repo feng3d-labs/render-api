@@ -74,6 +74,8 @@ export type ITextureSource = ITextureImageSource | ITextureDataSource;
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage3D
  * 
+ * 注：不再支持参数 `border`
+ * 
  * ### WebGPU
  * 
  * @see GPUQueue.copyExternalImageToTexture
