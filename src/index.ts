@@ -9,5 +9,4 @@ export * from "./data/IRenderPassColorAttachment";
 export * from "./data/IRenderPassDescriptor";
 export * from "./data/ISubmit";
 export * from "./data/ITexture";
-export * from "./data/IRenderbuffer";
 export * from "./data/ITextureView";
