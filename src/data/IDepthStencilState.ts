@@ -40,6 +40,18 @@ export interface IDepthStencilState
     readonly stencilBack?: IStencilFaceState;
 
     /**
+     * 模板测试时如果使用 "replace" ，则使用该值填充模板值。
+     * 
+     * 默认为 0 。
+     * 
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/stencilFunc
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/stencilFuncSeparate
+     * 
+     * @see https://www.orillusion.com/zh/webgpu.html#dom-gpurenderpassencoder-setstencilreference
+     */
+    readonly stencilReference?: number;
+
+    /**
      * 掩码控制在执行模板比较测试时读取哪些 depthStencilAttachment 模板值位。
      * 
      * 默认为 0xFFFFFFFF 。
@@ -57,6 +69,8 @@ export interface IDepthStencilState
      * 添加到每个片元的恒定深度偏差。
      * 
      * 默认为 0 。
+     * 
+     * 对应WebGL中的 WebGLRenderingContextBase.polygonOffset 函数的 units 参数。
     */
     readonly depthBias?: number;
 
@@ -64,6 +78,8 @@ export interface IDepthStencilState
      * 与片元的斜率成比例的深度偏差。
      * 
      * 默认为 0 。
+     * 
+     * 对应WebGL中的 WebGLRenderingContextBase.polygonOffset 函数的 factor 参数。
      */
     readonly depthBiasSlopeScale?: number;
 }
