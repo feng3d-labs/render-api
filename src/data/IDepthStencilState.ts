@@ -66,11 +66,4 @@ export interface IDepthStencilState
      * 默认为 0 。
      */
     readonly depthBiasSlopeScale?: number;
-
-    /**
-     * 片元的最大深度偏差。
-     * 
-     * 默认为 0 。
-     */
-    readonly depthBiasClamp?: number;
 }
