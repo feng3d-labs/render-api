@@ -13,13 +13,18 @@ export interface IRenderPipeline
     readonly primitive?: IPrimitiveState;
 
     /**
-     * 描述顶点着色器源码入口点以及顶点属性缓冲区布局。
+     * 顶点着色器阶段描述。
      */
     readonly vertex: IVertexState;
+
+    /**
+     * 片段着色器阶段描述。
+     */
+    readonly fragment?: IFragmentState;
 }
 
 /**
- * 顶点程序阶段。
+ * 顶点着色器阶段描述。
  */
 export interface IVertexState
 {
@@ -27,4 +32,23 @@ export interface IVertexState
      * 着色器代码。
      */
     readonly code: string;
+}
+
+/**
+ * 片段着色器阶段描述。
+ *
+ * {@link GPUFragmentState}
+ */
+export interface IFragmentState
+{
+    /**
+     * 着色器代码。
+     */
+    readonly code: string;
+
+    /**
+     * A list of {@link GPUColorTargetState} defining the formats and behaviors of the color targets
+     * this pipeline writes to.
+     */
+    // readonly targets?: readonly IGPUColorTargetState[];
 }
