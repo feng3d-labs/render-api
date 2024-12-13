@@ -1,4 +1,4 @@
-import { IStencilFaceState } from "./IStencilFaceState";
+import { ICompareFunction, IStencilFaceState } from "./IStencilFaceState";
 
 /**
  * 深度模板阶段描述。
@@ -23,7 +23,7 @@ export interface IDepthStencilState
      *
      * 默认 `'less'` 。
      */
-    readonly depthCompare?: GPUCompareFunction;
+    readonly depthCompare?: ICompareFunction;
 
     /**
      * 定义了如何为朝前的图元执行模板比较和操作。
@@ -44,21 +44,21 @@ export interface IDepthStencilState
      * 
      * 默认为 0xFFFFFFFF 。
      */
-    readonly stencilReadMask?: GPUStencilValue;
+    readonly stencilReadMask?: number;
 
     /**
      * 掩码控制可以写入哪些 depthStencilAttachment 模板值位。
      * 
      * 默认为 0xFFFFFFFF 。
      */
-    readonly stencilWriteMask?: GPUStencilValue;
+    readonly stencilWriteMask?: number;
 
     /**
      * 添加到每个片元的恒定深度偏差。
      * 
      * 默认为 0 。
     */
-    readonly depthBias?: GPUDepthBias;
+    readonly depthBias?: number;
 
     /**
      * 与片元的斜率成比例的深度偏差。
