@@ -21,6 +21,27 @@ export interface IRenderPipeline
      * 片段着色器阶段描述。
      */
     readonly fragment?: IFragmentState;
+
+    /**
+     * 描述可选的深度模板的测试、运算以及偏差。
+     */
+    readonly depthStencil?: IDepthStencilState;
+}
+
+/**
+ * 深度模板状态。
+ */
+export interface IDepthStencilState
+{
+    // /**
+    //  * 深度状态。
+    //  */
+    // depth?: IGLDepthState;
+
+    // /**
+    //  * 模板状态。
+    //  */
+    // stencil?: IGLStencilState;
 }
 
 /**
