@@ -1,4 +1,5 @@
 import { IBlendComponent } from "./IBlendComponent";
+import { IColor } from "./IRenderPassColorAttachment";
 
 /**
  * 混合状态。
@@ -18,8 +19,10 @@ export interface IBlendState
      * 
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendColor
      * @see https://gpuweb.github.io/gpuweb/#dom-renderstate-blendconstant-slot
+     * 
+     * 注：只取 renderPipeline.fragment?.targets?.[0]?.blend.constantColor 值。
      */
-    readonly constantColor?: [r: number, g: number, b: number, a: number];
+    readonly constantColor?: IColor;
 
     /**
      * 为颜色通道定义相应渲染目标的混合行为。

@@ -1,4 +1,5 @@
 import { IBlendState } from "../data/IBlendState";
+import { IColor } from "../data/IRenderPassColorAttachment";
 
 /**
  * 当混合系数用到了混合常量值时设置混合常量值。
@@ -6,7 +7,7 @@ import { IBlendState } from "../data/IBlendState";
  * @param blend 
  * @returns 
  */
-export function getBlendConstantColor(blend: IBlendState)
+export function getBlendConstantColor(blend: IBlendState): IColor
 {
     const { color, alpha, constantColor } = blend;
 
