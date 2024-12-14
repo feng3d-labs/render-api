@@ -19,7 +19,7 @@ export interface IRenderObject
     /**
      * 顶点属性数据映射。
      */
-    readonly vertices?: IVertexAttributes;
+    vertices?: IVertexAttributes;
 
     // /**
     //  * 顶点索引数据
