@@ -1,6 +1,3 @@
-export * from "./utils/getTexImageSourceSize";
-export * from "./utils/getTextureBytesPerPixel";
-
 export * from "./data/IBlendComponent";
 export * from "./data/IBlendState";
 export * from "./data/ICanvasContext";
@@ -22,3 +19,6 @@ export * from "./data/ITexture";
 export * from "./data/ITextureView";
 export * from "./data/IVertexState";
 
+export * from "./utils/getBlendConstantColor";
+export * from "./utils/getTexImageSourceSize";
+export * from "./utils/getTextureBytesPerPixel";
