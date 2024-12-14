@@ -9,6 +9,8 @@ import { IColor } from "../data/IRenderPassColorAttachment";
  */
 export function getBlendConstantColor(blend: IBlendState): IColor
 {
+    if (!blend) return undefined;
+
     const { color, alpha, constantColor } = blend;
 
     // 当混合系数用到了混合常量值时设置混合常量值。
