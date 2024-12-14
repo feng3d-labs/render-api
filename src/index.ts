@@ -17,8 +17,10 @@ export * from "./data/IStencilFaceState";
 export * from "./data/ISubmit";
 export * from "./data/ITexture";
 export * from "./data/ITextureView";
+export * from "./data/IVertexAttributes";
 export * from "./data/IVertexState";
 
 export * from "./utils/getBlendConstantColor";
 export * from "./utils/getTexImageSourceSize";
 export * from "./utils/getTextureBytesPerPixel";
+

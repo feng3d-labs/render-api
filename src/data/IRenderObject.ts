@@ -1,4 +1,5 @@
 import { IRenderPipeline } from "./IRenderPipeline";
+import { IVertexAttributes } from "./IVertexAttributes";
 
 /**
  * 渲染对象，包含一次渲染时包含的所有数据。
@@ -15,10 +16,10 @@ export interface IRenderObject
      */
     readonly pipeline: IRenderPipeline;
 
-    // /**
-    //  * 顶点属性数据列表
-    //  */
-    // vertices?: IGLVertexAttributes;
+    /**
+     * 顶点属性数据映射。
+     */
+    readonly vertices?: IVertexAttributes;
 
     // /**
     //  * 顶点索引数据
