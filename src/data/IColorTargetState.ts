@@ -1,5 +1,10 @@
 import { IBlendState } from "./IBlendState";
 
+/**
+ * 属性 `format` 将由渲染通道中附件给出。
+ * 
+ * @see https://gpuweb.github.io/gpuweb/#dictdef-gpucolortargetstate
+ */
 export interface IColorTargetState
 {
     /**
