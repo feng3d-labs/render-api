@@ -24,7 +24,7 @@ export interface IRenderObject
     /**
      * 顶点索引数据。
      */
-    readonly indices?: IIndicesDataTypes;
+    indices?: IIndicesDataTypes;
 
     // /**
     //  * Uniform渲染数据
