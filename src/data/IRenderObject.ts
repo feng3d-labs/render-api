@@ -21,10 +21,10 @@ export interface IRenderObject
      */
     vertices?: IVertexAttributes;
 
-    // /**
-    //  * 顶点索引数据
-    //  */
-    // indices?: IGLIndicesDataTypes;
+    /**
+     * 顶点索引数据。
+     */
+    readonly indices?: IIndicesDataTypes;
 
     // /**
     //  * Uniform渲染数据
@@ -52,3 +52,8 @@ export interface IRenderObject
     //  */
     // transformFeedback?: IGLTransformFeedback;
 }
+
+/**
+ * 顶点索引数据类型。
+ */
+export type IIndicesDataTypes = Uint16Array | Uint32Array;
