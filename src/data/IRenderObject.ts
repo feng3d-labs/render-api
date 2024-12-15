@@ -38,6 +38,11 @@ export interface IRenderObject
     //  */
     // drawVertex?: IGLDrawVertex;
 
+    /**
+     * 根据顶点数据绘制图元。
+     */
+    readonly drawVertex?: IDrawVertex;
+
     // /**
     //  * 根据索引数据绘制图元。
     //  *
@@ -57,3 +62,29 @@ export interface IRenderObject
  * 顶点索引数据类型。
  */
 export type IIndicesDataTypes = Uint16Array | Uint32Array;
+
+/**
+ * Draws primitives.
+ *
+ * 根据顶点数据绘制图元。
+ *
+ * @see GPURenderCommandsMixin.draw
+ */
+export interface IDrawVertex
+{
+    /**
+     * The number of vertices to draw.
+     */
+    readonly vertexCount: number;
+
+    /**
+     * The number of instances to draw.
+     */
+    readonly instanceCount?: number;
+
+    /**
+     * Offset into the vertex buffers, in vertices, to begin drawing from.
+     */
+    readonly firstVertex?: number;
+}
+
