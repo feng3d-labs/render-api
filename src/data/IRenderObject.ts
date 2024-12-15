@@ -68,6 +68,7 @@ export type IIndicesDataTypes = Uint16Array | Uint32Array;
  *
  * 根据顶点数据绘制图元。
  *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawVertex
  * @see GPURenderCommandsMixin.draw
  */
 export interface IDrawVertex
@@ -79,11 +80,15 @@ export interface IDrawVertex
 
     /**
      * The number of instances to draw.
+     * 
+     * 默认为 1 。
      */
     readonly instanceCount?: number;
 
     /**
      * Offset into the vertex buffers, in vertices, to begin drawing from.
+     * 
+     * 默认为 0。
      */
     readonly firstVertex?: number;
 }
