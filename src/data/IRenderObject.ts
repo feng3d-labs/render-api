@@ -87,9 +87,23 @@ export interface IDrawVertex
 export interface IDrawIndexed
 {
     /**
-     * 默认渲染所有顶点索引。
+     * The number of indices to draw.
+     * 
+     * 绘制的顶点索引数量。
      */
-    indexCount?: number;
-    instanceCount?: number;
-    firstIndex?: number;
+    readonly indexCount: number;
+
+    /**
+     * The number of instances to draw.
+     * 
+     * 默认为 1 。
+     */
+    readonly instanceCount?: number;
+
+    /**
+     * Offset into the index buffer, in indices, begin drawing from.
+     * 
+     * 默认为 0 。
+     */
+    readonly firstIndex?: number;
 }
