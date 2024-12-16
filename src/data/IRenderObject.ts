@@ -31,31 +31,19 @@ export interface IRenderObject
     //  */
     // uniforms?: LazyObject<IGLUniforms>;
 
-    // /**
-    //  * 绘制一定数量顶点。
-    //  *
-    //  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawVertex
-    //  */
-    // drawVertex?: IGLDrawVertex;
-
     /**
      * 根据顶点数据绘制图元。
+     * 
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawVertex
      */
     readonly drawVertex?: IDrawVertex;
 
-    // /**
-    //  * 根据索引数据绘制图元。
-    //  *
-    //  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements
-    //  */
-    // drawIndexed?: IGLDrawIndexed;
-
-    // /**
-    //  * 回写顶点着色器中输出到缓冲区。
-    //  *
-    //  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/bindTransformFeedback
-    //  */
-    // transformFeedback?: IGLTransformFeedback;
+    /**
+     * 根据索引数据绘制图元。
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements
+     */
+    readonly drawIndexed?: IDrawIndexed;
 }
 
 /**
@@ -93,3 +81,15 @@ export interface IDrawVertex
     readonly firstVertex?: number;
 }
 
+/**
+ * 根据索引数据绘制图元。
+ */
+export interface IDrawIndexed
+{
+    /**
+     * 默认渲染所有顶点索引。
+     */
+    indexCount?: number;
+    instanceCount?: number;
+    firstIndex?: number;
+}
