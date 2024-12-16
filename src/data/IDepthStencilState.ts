@@ -15,6 +15,8 @@ export interface IDepthStencilState
      * 指示这个 GPURenderPipeline 是否可以修改 depthStencilAttachment 深度值。
      *
      * 默认为 `true` 。
+     * 
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/depthMask
      */
     readonly depthWriteEnabled?: boolean;
 
@@ -22,6 +24,8 @@ export interface IDepthStencilState
      * 用于测试片元深度与 depthStencilAttachment 深度值的比较操作。
      *
      * 默认 `'less'` 。
+     * 
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/depthFunc
      */
     readonly depthCompare?: ICompareFunction;
 
