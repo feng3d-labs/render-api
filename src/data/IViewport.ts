@@ -12,21 +12,37 @@
  * * 0.0 ≤ maxDepth ≤ 1.0
  * * minDepth ≤ maxDepth
  * 
+ * {@link WebGLRenderingContextBase.viewport}
+ * 
  * @see https://gpuweb.github.io/gpuweb/#dom-gpurenderpassencoder-setviewport
+ * 
  */
 export interface IViewport
 {
     /**
-     * 视窗X轴最小值（像素）。
+     * 是否为Y轴朝上。
+     * 
+     * WebGL中Y轴朝上，WebGPU中Y轴朝下。
+     * 
+     * 默认为 ture。
+     */
+    isYup?: boolean;
+
+    /**
+     * 视窗水平坐标（像素）。
      * 
      * x ≥ 0
+     * 
+     * 默认为 0 。
      */
     x: number,
 
     /**
-     * 视窗Y轴最小值（像素）。
+     * 视窗垂直坐标（像素）。
      * 
      * y ≥ 0
+     * 
+     * 默认为 0 。
      */
     y: number,
 
@@ -34,6 +50,8 @@ export interface IViewport
      * 视窗宽度（像素）。
      * 
      * width ≥ 0
+     * 
+     * 默认为画布宽度或者渲染通道的附件宽度。
      */
     width: number,
 
@@ -41,6 +59,8 @@ export interface IViewport
      * 视窗高度（像素）。
      * 
      * height ≥ 0
+     * 
+     * 默认为画布高度或者渲染通道的附件高度。
      */
     height: number,
 }
