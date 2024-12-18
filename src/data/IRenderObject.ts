@@ -1,4 +1,5 @@
 import { IRenderPipeline } from "./IRenderPipeline";
+import { IScissorRect } from "./IScissorRect";
 import { IVertexAttributes } from "./IVertexAttributes";
 import { IViewport } from "./IViewport";
 
@@ -18,6 +19,11 @@ export interface IRenderObject
      * 描述渲染在画布的哪个区域，默认整个画布。
      */
     viewport?: IViewport;
+
+    /**
+     * 光栅化阶段中使用的剪刀矩形。
+     */
+    scissorRect?: IScissorRect;
 
     /**
      * 渲染管线描述。
