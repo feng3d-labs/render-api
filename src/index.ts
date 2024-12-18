@@ -19,6 +19,7 @@ export * from "./data/ITexture";
 export * from "./data/ITextureView";
 export * from "./data/IVertexAttributes";
 export * from "./data/IVertexState";
+export * from "./data/IViewport";
 
 export * from "./utils/getBlendConstantColor";
 export * from "./utils/getTexImageSourceSize";

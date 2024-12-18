@@ -1,5 +1,6 @@
 import { IRenderPipeline } from "./IRenderPipeline";
 import { IVertexAttributes } from "./IVertexAttributes";
+import { IViewport } from "./IViewport";
 
 /**
  * 渲染对象，包含一次渲染时包含的所有数据。
@@ -10,6 +11,13 @@ export interface IRenderObject
      * 数据类型。
      */
     readonly __type?: "RenderObject";
+
+    /**
+     * 视窗。
+     *
+     * 描述渲染在画布的哪个区域，默认整个画布。
+     */
+    viewport?: IViewport;
 
     /**
      * 渲染管线描述。
