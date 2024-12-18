@@ -32,11 +32,11 @@ export interface ITextureView
      * mipmap级别。
      *
      * 默认为 0。
-    */
+     */
     readonly baseMipLevel?: number;
 
     /**
-     * 纹理数组中的层次。
+     * 3d纹理的深度索引、纹理数组中的层次、立方体纹理的面索引。
      *
      * 默认为 0。
      */

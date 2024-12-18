@@ -8,7 +8,7 @@ export interface IRenderPassDepthStencilAttachment
     /**
      * 深度附件视图。
      *
-     * 如果没有设置，默认为画布；否则使用 帧缓冲 。
+     * 如果没有设置，默认为画布；否则使用 纹理视图 。
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferTexture2D

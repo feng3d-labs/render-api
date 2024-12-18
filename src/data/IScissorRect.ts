@@ -20,29 +20,47 @@
 export interface IScissorRect
 {
     /**
-     * 数据是否来着WebGL。
-     *
-     * WebGL以左下角为起始点，WebGPU以左上角为起点。
+     * 是否为Y轴朝上。
+     * 
+     * WebGL中Y轴朝上，WebGPU中Y轴朝下。
+     * 
+     * 默认为 ture。
      */
-    readonly fromWebGL?: boolean;
+    readonly isYup?: boolean;
 
     /**
-     * 剪刀盒X轴最小值（像素）。
+     * 剪刀盒横向坐标（像素）。
+     * 
+     * x ≥ 0
+     * 
+     * 默认为 0 。
      */
     readonly x: number,
 
     /**
-     * 剪刀盒Y轴最小值（像素）。
+     * 剪刀盒纵向坐标（像素）。
+     * 
+     * y ≥ 0
+     * 
+     * 默认为 0 。
      */
     readonly y: number,
 
     /**
      * 剪刀盒宽度（像素）。
+     * 
+     * width ≥ 0
+     * 
+     * 默认为画布宽度或者渲染通道的附件宽度。
      */
     readonly width: number,
 
     /**
      * 剪刀盒高度（像素）。
+     * 
+     * height ≥ 0
+     * 
+     * 默认为画布高度或者渲染通道的附件高度。
      */
     readonly height: number,
 }
