@@ -1,5 +1,6 @@
 export * from "./data/IBlendComponent";
 export * from "./data/IBlendState";
+export * from "./data/IBuffer";
 export * from "./data/ICanvasContext";
 export * from "./data/ICanvasTexture";
 export * from "./data/IColorTargetState";
@@ -22,6 +23,7 @@ export * from "./data/ITextureView";
 export * from "./data/IVertexAttributes";
 export * from "./data/IVertexState";
 export * from "./data/IViewport";
+export * from "./data/TypedArray";
 
 export * from "./utils/getBlendConstantColor";
 export * from "./utils/getTexImageSourceSize";
