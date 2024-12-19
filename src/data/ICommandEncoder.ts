@@ -1,3 +1,4 @@
+import { ICopyTextureToTexture } from "./ICopyTextureToTexture";
 import { IRenderPass } from "./IRenderPass";
 
 /**
@@ -24,6 +25,11 @@ export interface IPassEncoderMap
      * 渲染通道。
      */
     IRenderPass: IRenderPass;
+
+    /**
+     * 纹理之间拷贝。
+     */
+    ICopyTextureToTexture: ICopyTextureToTexture;
 }
 
 /**

@@ -4,6 +4,7 @@ export * from "./data/ICanvasContext";
 export * from "./data/ICanvasTexture";
 export * from "./data/IColorTargetState";
 export * from "./data/ICommandEncoder";
+export * from "./data/ICopyTextureToTexture";
 export * from "./data/IDepthStencilState";
 export * from "./data/IFragmentState";
 export * from "./data/IPrimitiveState";
