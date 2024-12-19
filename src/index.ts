@@ -24,6 +24,7 @@ export * from "./data/IVertexAttributes";
 export * from "./data/IVertexState";
 export * from "./data/IViewport";
 export * from "./data/TypedArray";
+export * from "./data/UnReadonly";
 
 export * from "./utils/getBlendConstantColor";
 export * from "./utils/getTexImageSourceSize";

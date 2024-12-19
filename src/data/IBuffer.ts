@@ -16,7 +16,7 @@ export interface IBuffer
      * 
      * 如果没有设置，引擎将设置为 data 的字节长度。
      */
-    readonly size?: number;
+    readonly size: number;
 
     /**
      * 缓冲区数据。
