@@ -12,9 +12,9 @@ import { TypedArray } from "./TypedArray";
 export interface IBuffer
 {
     /**
-     * 缓冲区尺寸。
+     * 缓冲区尺寸，单位为字节。
      * 
-     * 如果没有设置，引擎将设置为 data 的字节长度。
+     * 尺寸必须为4的倍数。
      */
     readonly size: number;
 
