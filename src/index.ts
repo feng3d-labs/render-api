@@ -15,6 +15,7 @@ export * from "./data/IRenderPassColorAttachment";
 export * from "./data/IRenderPassDepthStencilAttachment";
 export * from "./data/IRenderPassDescriptor";
 export * from "./data/IRenderPipeline";
+export * from "./data/ISampler";
 export * from "./data/IScissorRect";
 export * from "./data/IStencilFaceState";
 export * from "./data/ISubmit";
