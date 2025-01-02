@@ -13,10 +13,10 @@ export interface ITexture
     size: ITextureSize;
 
     /**
-     * 纹理资源。
+     * 初始化纹理资源。
      *
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage3D
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texImage2D
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/texImage3D
      * 
      * ### WebGPU
      * 
@@ -24,6 +24,24 @@ export interface ITexture
      * @see GPUQueue.writeTexture
      */
     sources?: readonly ITextureSource[];
+
+    /**
+     * 初始化纹理后是否生成mipmap
+     */
+    readonly generateMipmap?: boolean;
+
+    /**
+     * 写入纹理资源。
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/texSubImage3D
+     * 
+     * ### WebGPU
+     * 
+     * @see GPUQueue.copyExternalImageToTexture
+     * @see GPUQueue.writeTexture
+     */
+    writeTextures?: readonly ITextureSource[];
 
     /**
      * 纹理维度，默认为 "2d" 。
@@ -41,11 +59,6 @@ export interface ITexture
      * The number of mip levels the texture will contain.
      */
     readonly mipLevelCount?: number;
-
-    /**
-     * 是否生成mipmap
-     */
-    readonly generateMipmap?: boolean;
 }
 
 /**
