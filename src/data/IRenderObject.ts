@@ -41,10 +41,10 @@ export interface IRenderObject
      */
     indices?: IIndicesDataTypes;
 
-    // /**
-    //  * Uniform渲染数据
-    //  */
-    // uniforms?: IUniforms;
+    /**
+     * Uniform变量数据
+     */
+    uniforms?: IUniforms;
 
     /**
      * 根据顶点数据绘制图元。
@@ -123,8 +123,19 @@ export interface IDrawIndexed
     readonly firstIndex?: number;
 }
 
-// export interface IUniforms
-// {
-//     [key: string]: Lazy<IUniformType>;
-// }
+/**
+ * Uniform 类型
+ */
+export type IUniformType = IUniformTypeMap[keyof IUniformTypeMap];
 
+/**
+ * Uniform 数据
+ */
+export interface IUniforms
+{
+    [key: string]: Lazy<IUniformType>;
+}
+
+export interface IUniformTypeMap
+{
+}
