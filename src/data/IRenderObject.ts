@@ -44,7 +44,7 @@ export interface IRenderObject
     /**
      * Uniform变量数据
      */
-    uniforms?: IUniforms;
+    readonly uniforms?: IUniforms;
 
     /**
      * 根据顶点数据绘制图元。
@@ -126,14 +126,14 @@ export interface IDrawIndexed
 /**
  * Uniform 类型
  */
-export type IUniformType = IUniformTypeMap[keyof IUniformTypeMap];
+export type IUniformType = Lazy<IUniformTypeMap[keyof IUniformTypeMap]>;
 
 /**
  * Uniform 数据
  */
 export interface IUniforms
 {
-    [key: string]: Lazy<IUniformType>;
+    [key: string]: IUniformType;
 }
 
 export interface IUniformTypeMap
