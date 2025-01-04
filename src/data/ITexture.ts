@@ -4,6 +4,13 @@
 export interface ITexture
 {
     /**
+     * 标签。
+     * 
+     * 用于调试。
+     */
+    readonly label?: string;
+
+    /**
      * The width, height, and depth or layer count of the texture.
      *
      * 由于通过初始化时写入的资源自动计算尺寸处理所有情况难度很大且容易出错，该属性在初始化时必须设置。

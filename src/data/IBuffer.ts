@@ -12,6 +12,13 @@ import { TypedArray } from "./TypedArray";
 export interface IBuffer
 {
     /**
+     * 标签。
+     * 
+     * 用于调试。
+     */
+    readonly label?: string;
+
+    /**
      * 缓冲区尺寸，单位为字节。
      * 
      * 尺寸必须为4的倍数。

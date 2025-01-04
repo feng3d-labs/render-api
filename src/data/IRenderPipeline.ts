@@ -8,6 +8,14 @@ import { IVertexState } from "./IVertexState";
  */
 export interface IRenderPipeline
 {
+
+    /**
+     * 标签。
+     * 
+     * 用于调试。
+     */
+    readonly label?: string;
+
     /**
      * Describes the primitive-related properties of the pipeline.
      * 

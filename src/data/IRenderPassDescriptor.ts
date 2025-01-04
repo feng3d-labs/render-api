@@ -7,6 +7,13 @@ import { IRenderPassDepthStencilAttachment } from "./IRenderPassDepthStencilAtta
 export interface IRenderPassDescriptor
 {
     /**
+     * 标签。
+     * 
+     * 用于调试。
+     */
+    readonly label?: string;
+    
+    /**
      * 颜色附件
      */
     readonly colorAttachments?: readonly IRenderPassColorAttachment[];

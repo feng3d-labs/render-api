@@ -24,6 +24,13 @@ export type ITextureLike = ITextureLikeMap[keyof ITextureLikeMap];
 export interface ITextureView
 {
     /**
+     * 标签。
+     * 
+     * 用于调试。
+     */
+    readonly label?: string;
+
+    /**
      * 产生视图的纹理。
      */
     readonly texture: ITextureLike;
