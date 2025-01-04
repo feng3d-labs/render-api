@@ -1,3 +1,4 @@
+import { Lazy } from "../types";
 import { IRenderPipeline } from "./IRenderPipeline";
 import { IScissorRect } from "./IScissorRect";
 import { IVertexAttributes } from "./IVertexAttributes";
@@ -43,7 +44,7 @@ export interface IRenderObject
     // /**
     //  * Uniform渲染数据
     //  */
-    // uniforms?: LazyObject<IGLUniforms>;
+    // uniforms?: IUniforms;
 
     /**
      * 根据顶点数据绘制图元。
@@ -121,3 +122,9 @@ export interface IDrawIndexed
      */
     readonly firstIndex?: number;
 }
+
+// export interface IUniforms
+// {
+//     [key: string]: Lazy<IUniformType>;
+// }
+
