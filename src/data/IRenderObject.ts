@@ -1,4 +1,3 @@
-import { Lazy } from "../types";
 import { IRenderPipeline } from "./IRenderPipeline";
 import { IScissorRect } from "./IScissorRect";
 import { IVertexAttributes } from "./IVertexAttributes";
@@ -126,7 +125,7 @@ export interface IDrawIndexed
 /**
  * Uniform 类型
  */
-export type IUniformType = Lazy<IUniformTypeMap[keyof IUniformTypeMap]>;
+export type IUniformType = IUniformTypeMap[keyof IUniformTypeMap];
 
 /**
  * Uniform 数据
