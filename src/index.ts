@@ -27,8 +27,6 @@ export * from "./data/IViewport";
 export * from "./data/TypedArray";
 export * from "./data/UnReadonly";
 
-export * from "./types";
-
 export * from "./utils/getBlendConstantColor";
 export * from "./utils/getTexImageSourceSize";
 export * from "./utils/getTextureBytesPerPixel";
