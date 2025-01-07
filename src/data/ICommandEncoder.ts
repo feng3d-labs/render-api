@@ -1,3 +1,4 @@
+import { ICopyBufferToBuffer } from "./ICopyBufferToBuffer";
 import { ICopyTextureToTexture } from "./ICopyTextureToTexture";
 import { IRenderPass } from "./IRenderPass";
 
@@ -30,6 +31,8 @@ export interface IPassEncoderMap
      * 纹理之间拷贝。
      */
     ICopyTextureToTexture: ICopyTextureToTexture;
+
+    ICopyBufferToBuffer: ICopyBufferToBuffer;
 }
 
 /**
