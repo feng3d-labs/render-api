@@ -2,6 +2,7 @@ import { IRenderPipeline } from "./IRenderPipeline";
 import { IScissorRect } from "./IScissorRect";
 import { IVertexAttributes } from "./IVertexAttributes";
 import { IViewport } from "./IViewport";
+import { TypedArray } from "./TypedArray";
 
 /**
  * 渲染对象，包含一次渲染时包含的所有数据。
@@ -137,4 +138,29 @@ export interface IUniforms
 
 export interface IUniformTypeMap
 {
+    /**
+     * 缓冲区绑定。
+     */
+    IBufferBinding: IBufferBinding;
 }
+
+/**
+ * 缓冲区绑定。
+ * 
+ * WebGL 统一块(Uniform Block) 数据
+ * WebGPU 缓冲区绑定（GPUBufferBinding）
+ * 
+ * @see GPUBufferBinding
+ */
+export interface IBufferBinding
+{
+    [name: string]: IBufferBindingItem;
+
+    /**
+     * 如果未设置引擎将自动生成。
+    */
+    readonly bufferView?: TypedArray;
+}
+
+export type IUniformDataItem = number | number[] | number[][] | TypedArray | TypedArray[];
+export type IBufferBindingItem = IUniformDataItem | { [key: string]: IBufferBindingItem };
