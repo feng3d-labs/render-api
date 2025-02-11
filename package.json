@@ -1,6 +1,6 @@
 {
   "name": "@feng3d/render-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "渲染接口",
   "author": "feng",
   "license": "MIT",
@@ -15,7 +15,6 @@
     }
   },
   "scripts": {
-    "dev": "cd examples && npm run dev",
     "clean": "rimraf \"{lib,dist,public}\"",
     "build": "vite build",
     "test": "vitest",
