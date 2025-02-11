@@ -8,11 +8,11 @@ export interface IRenderPassDescriptor
 {
     /**
      * 标签。
-     * 
+     *
      * 用于调试。
      */
     readonly label?: string;
-    
+
     /**
      * 颜色附件
      */
@@ -20,7 +20,7 @@ export interface IRenderPassDescriptor
 
     /**
      * 深度模板附件。
-     * 
+     *
      * 当使用深度附件时，必须设置，使用默认值可设置为 `{}` 。
      */
     readonly depthStencilAttachment?: IRenderPassDepthStencilAttachment;

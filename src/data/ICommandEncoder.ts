@@ -4,7 +4,7 @@ import { IRenderPass } from "./IRenderPass";
 
 /**
  * 命令编码器。
- * 
+ *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/GPUCommandEncoder
  */
 export interface ICommandEncoder
@@ -37,7 +37,7 @@ export interface IPassEncoderMap
 
 /**
  * 通道编码器。
- * 
+ *
  * 如需扩展 IPassEncoder ，请在 IPassEncoderMap 中进行添加。
  */
 export type IPassEncoder = IPassEncoderMap[keyof IPassEncoderMap];

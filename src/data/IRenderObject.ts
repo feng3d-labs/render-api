@@ -48,7 +48,7 @@ export interface IRenderObject
 
     /**
      * 根据顶点数据绘制图元。
-     * 
+     *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawVertex
      */
     readonly drawVertex?: IDrawVertex;
@@ -83,14 +83,14 @@ export interface IDrawVertex
 
     /**
      * The number of instances to draw.
-     * 
+     *
      * 默认为 1 。
      */
     readonly instanceCount?: number;
 
     /**
      * Offset into the vertex buffers, in vertices, to begin drawing from.
-     * 
+     *
      * 默认为 0。
      */
     readonly firstVertex?: number;
@@ -103,21 +103,21 @@ export interface IDrawIndexed
 {
     /**
      * The number of indices to draw.
-     * 
+     *
      * 绘制的顶点索引数量。
      */
     readonly indexCount: number;
 
     /**
      * The number of instances to draw.
-     * 
+     *
      * 默认为 1 。
      */
     readonly instanceCount?: number;
 
     /**
      * Offset into the index buffer, in indices, begin drawing from.
-     * 
+     *
      * 默认为 0 。
      */
     readonly firstIndex?: number;
@@ -146,10 +146,10 @@ export interface IUniformTypeMap
 
 /**
  * 缓冲区绑定。
- * 
+ *
  * WebGL 统一块(Uniform Block) 数据
  * WebGPU 缓冲区绑定（GPUBufferBinding）
- * 
+ *
  * @see GPUBufferBinding
  */
 export interface IBufferBinding

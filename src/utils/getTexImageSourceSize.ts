@@ -2,9 +2,9 @@ import { IImageSize } from "../data/ITexture";
 
 /**
  * 获取纹理的图片资源尺寸。
- * 
+ *
  * @param texImageSource 纹理的图片资源。
- * @returns 
+ * @returns
  */
 export function getTexImageSourceSize(texImageSource: TexImageSource): IImageSize
 {
@@ -25,5 +25,6 @@ export function getTexImageSourceSize(texImageSource: TexImageSource): IImageSiz
         width = texImageSource.width;
         height = texImageSource.height;
     }
+
     return [width, height];
 }

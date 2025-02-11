@@ -2,7 +2,7 @@ import { IBlendState } from "./IBlendState";
 
 /**
  * 属性 `format` 将由渲染通道中附件给出。
- * 
+ *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpucolortargetstate
  */
 export interface IColorTargetState
@@ -10,9 +10,9 @@ export interface IColorTargetState
     /**
      * The blending behavior for this color target. If left undefined, disables blending for this
      * color target.
-     * 
+     *
      * 定义如何混合到目标颜色中。
-     * 
+     *
      * 默认 `undefined`，表示不进行混合。
      */
     readonly blend?: IBlendState;
@@ -23,7 +23,7 @@ export interface IColorTargetState
      * [red: boolean, green: boolean, blue: boolean, alpha: boolean]
      *
      * 默认 [true,true,true,true]
-     * 
+     *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/colorMask
      */
     readonly writeMask?: IWriteMask;

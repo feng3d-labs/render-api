@@ -1,4 +1,3 @@
-
 export type TypedArray = TypedArrayMap[keyof TypedArrayMap];
 
 export interface TypedArrayMap

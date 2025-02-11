@@ -5,7 +5,7 @@ export interface ITexture
 {
     /**
      * 标签。
-     * 
+     *
      * 用于调试。
      */
     readonly label?: string;
@@ -14,7 +14,7 @@ export interface ITexture
      * The width, height, and depth or layer count of the texture.
      *
      * 由于通过初始化时写入的资源自动计算尺寸处理所有情况难度很大且容易出错，该属性在初始化时必须设置。
-     * 
+     *
      * 修改尺寸将会引发纹理销毁，使用时重新创建新纹理。
      */
     size: ITextureSize;
@@ -24,9 +24,9 @@ export interface ITexture
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texImage2D
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/texImage3D
-     * 
+     *
      * ### WebGPU
-     * 
+     *
      * @see GPUQueue.copyExternalImageToTexture
      * @see GPUQueue.writeTexture
      */
@@ -42,9 +42,9 @@ export interface ITexture
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/texSubImage3D
-     * 
+     *
      * ### WebGPU
-     * 
+     *
      * @see GPUQueue.copyExternalImageToTexture
      * @see GPUQueue.writeTexture
      */
@@ -52,7 +52,7 @@ export interface ITexture
 
     /**
      * 纹理维度，默认为 "2d" 。
-     * 
+     *
      * WebGL中不支持 "1d" "cube-array"。
      */
     readonly dimension?: ITextureDimension;
@@ -84,11 +84,11 @@ export interface ITextureSourceMap
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage3D
- * 
+ *
  * 注：不再支持参数 `border`
- * 
+ *
  * ### WebGPU
- * 
+ *
  * @see GPUQueue.copyExternalImageToTexture
  */
 export interface ITextureImageSource
@@ -116,21 +116,21 @@ export interface ITextureImageSource
     /**
      * Defines the origin of the copy - the minimum corner of the texture sub-region to copy to/from.
      * Together with `copySize`, defines the full copy sub-region.
-     * 
+     *
      * 写入纹理的位置。
      */
     textureOrigin?: ITextureOrigin;
 
     /**
      * Extents of the content to write from `source` to `destination`.
-     * 
+     *
      * 写入尺寸。
      */
     size?: ITextureSize
 
     /**
      * 是否Y轴翻转图片。
-     * 
+     *
      * 注：WebGL（先翻转，再拷贝）与WebGPU（先拷贝，再翻转）处理方式不一样。此次已WebGL为准。当拷贝全图时，效果一致。
      */
     flipY?: boolean;
@@ -143,12 +143,12 @@ export interface ITextureImageSource
 
 /**
  * 纹理的数据资源。
- * 
+ *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage3D
- * 
+ *
  * ### WebGPU
- * 
+ *
  * @see GPUQueue.writeTexture
  */
 export interface ITextureDataSource
@@ -185,14 +185,14 @@ export interface ITextureDataSource
     /**
      * Defines the origin of the copy - the minimum corner of the texture sub-region to copy to/from.
      * Together with `copySize`, defines the full copy sub-region.
-     * 
+     *
      * 写入纹理的位置。
      */
     textureOrigin?: ITextureOrigin;
 
     /**
      * Extents of the content to write from `source` to `destination`.
-     * 
+     *
      * 写入尺寸。
      */
     size?: ITextureSize
@@ -205,21 +205,21 @@ export interface ITextureDataLayout
 {
     /**
      * 默认为 0。字节偏移，一般用于跳过文件头部非纹理数据部分。
-     * 
+     *
      * 注：WebGL1不支持。
      */
     offset?: number;
 
     /**
      * 图片宽度。
-     * 
+     *
      * 默认值为 ITextureDataSource.size[0] 。
      */
     width?: number;
 
     /**
      * 单张图片高度。只在纹理为2d纹理数组或者3d纹理时生效。
-     * 
+     *
      * 默认值为 ITextureDataSource.size[1] 。
      */
     height?: number;

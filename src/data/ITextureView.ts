@@ -13,7 +13,7 @@ export interface ITextureLikeMap
 
 /**
  * 类似纹理，包含画布纹理以及正常纹理。
- * 
+ *
  * 如需扩展 ITextureLike，则需在 ITextureMap 中添加类型。
  */
 export type ITextureLike = ITextureLikeMap[keyof ITextureLikeMap];
@@ -25,7 +25,7 @@ export interface ITextureView
 {
     /**
      * 标签。
-     * 
+     *
      * 用于调试。
      */
     readonly label?: string;

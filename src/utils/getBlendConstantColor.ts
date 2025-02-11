@@ -3,9 +3,9 @@ import { IColor } from "../data/IRenderPassColorAttachment";
 
 /**
  * 当混合系数用到了混合常量值时设置混合常量值。
- * 
- * @param blend 
- * @returns 
+ *
+ * @param blend
+ * @returns
  */
 export function getBlendConstantColor(blend: IBlendState): IColor
 {
