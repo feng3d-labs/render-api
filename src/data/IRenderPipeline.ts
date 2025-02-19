@@ -37,4 +37,6 @@ export interface IRenderPipeline
      * 深度模板阶段描述。
      */
     readonly depthStencil?: IDepthStencilState;
+
+    _version?: number;
 }

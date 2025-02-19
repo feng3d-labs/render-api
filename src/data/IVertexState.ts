@@ -6,5 +6,5 @@ export interface IVertexState
     /**
      * 着色器代码。
      */
-    readonly code: string;
+    code: string;
 }

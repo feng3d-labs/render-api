@@ -59,6 +59,8 @@ export interface IRenderObject
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements
      */
     readonly drawIndexed?: IDrawIndexed;
+
+    _version?: number;
 }
 
 /**
