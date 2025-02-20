@@ -33,3 +33,4 @@ export * from "./data/UnReadonly";
 export * from "./utils/getBlendConstantColor";
 export * from "./utils/getTexImageSourceSize";
 export * from "./utils/getTextureBytesPerPixel";
+export * from "./utils/VertexAttribute";

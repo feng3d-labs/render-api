@@ -1,8 +1,9 @@
+import { IVertexFormat } from "../data/IVertexAttributes";
 
 /**
- * 顶点格式信息映射。
+ * 顶点属性格式信息映射。
  */
-export const vertexFormatMap: Record<GPUVertexFormat, IVertexFormatInfo> = {
+export const vertexFormatMap: Record<IVertexFormat, IVertexAttributeFormatInfo> = {
     "uint8x2": { "numComponents": 2, "type": "UNSIGNED_BYTE", "normalized": false, "dataType": "unsigned int", "byteSize": 2, "wgslType": "vec2<u32>", "typedArrayConstructor": Uint8Array },
     "uint8x4": { "numComponents": 4, "type": "UNSIGNED_BYTE", "normalized": false, "dataType": "unsigned int", "byteSize": 4, "wgslType": "vec4<u32>", "typedArrayConstructor": Uint8Array },
     "sint8x2": { "numComponents": 2, "type": "BYTE", "normalized": false, "dataType": "signed int", "byteSize": 2, "wgslType": "vec2<i32>", "typedArrayConstructor": Int8Array },
@@ -40,43 +41,6 @@ export const vertexFormatMap: Record<GPUVertexFormat, IVertexFormatInfo> = {
  * 有类型数组构造器。
  */
 export type TypedArrayConstructor = Int8ArrayConstructor | Uint8ArrayConstructor | Int16ArrayConstructor | Uint16ArrayConstructor | Int32ArrayConstructor | Uint32ArrayConstructor | Float32ArrayConstructor;
-
-/**
- * WebGPU顶点格式
- */
-export type GPUVertexFormat =
-
-    | "uint8x2"
-    | "uint8x4"
-    | "sint8x2"
-    | "sint8x4"
-    | "unorm8x2"
-    | "unorm8x4"
-    | "snorm8x2"
-    | "snorm8x4"
-    | "uint16x2"
-    | "uint16x4"
-    | "sint16x2"
-    | "sint16x4"
-    | "unorm16x2"
-    | "unorm16x4"
-    | "snorm16x2"
-    | "snorm16x4"
-    | "float16x2"
-    | "float16x4"
-    | "float32"
-    | "float32x2"
-    | "float32x3"
-    | "float32x4"
-    | "uint32"
-    | "uint32x2"
-    | "uint32x3"
-    | "uint32x4"
-    | "sint32"
-    | "sint32x2"
-    | "sint32x3"
-    | "sint32x4"
-    | "unorm10-10-10-2";
 
 /**
  * GPU顶点数据类型
@@ -135,9 +99,9 @@ export type IGLVertexAttributeTypes = "FLOAT" | "BYTE" | "SHORT" | "UNSIGNED_BYT
 
 
 /**
- * 顶点格式信息
+ * 顶点属性格式信息
  */
-export type IVertexFormatInfo = {
+export type IVertexAttributeFormatInfo = {
 
     /**
      * 部件数量。

@@ -47,6 +47,9 @@ export interface IPrimitiveState
     readonly frontFace?: IFrontFace;
 }
 
+/**
+ * 图元拓扑结构。
+ */
 export type IPrimitiveTopology = IPrimitiveTopologyMap[keyof IPrimitiveTopologyMap];
 
 export interface IPrimitiveTopologyMap

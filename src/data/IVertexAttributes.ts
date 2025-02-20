@@ -56,6 +56,9 @@ export type IVertexDataTypes = | Float32Array
     | Uint8Array
     | Int8Array;
 
+/**
+ * 顶点数据格式。
+ */
 export type IVertexFormat =
     | "uint8x2"
     | "uint8x4"
