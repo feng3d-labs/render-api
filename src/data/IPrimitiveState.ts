@@ -17,8 +17,14 @@ export interface IPrimitiveState
      * * `triangle-strip` 绘制三角形条带。
      *
      * 默认 `triangle-list` ,默认每三个顶点绘制一个三角形。
+     * 
+     * 图形拓扑结构。
+     *
+     * 以下仅在WebGL生效
+     * * LINE_LOOP 绘制循环连线。
+     * * TRIANGLE_FAN  绘制三角扇形。
      */
-    readonly topology?: IPrimitiveTopology;
+    topology?: IPrimitiveTopology;
 
     /**
      * Defines which polygon orientation will be culled, if any.

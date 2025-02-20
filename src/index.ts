@@ -1,3 +1,5 @@
+export * from "./consts/vertexFormatMap";
+
 export * from "./data/IBlendComponent";
 export * from "./data/IBlendState";
 export * from "./data/IBuffer";
@@ -31,4 +33,3 @@ export * from "./data/UnReadonly";
 export * from "./utils/getBlendConstantColor";
 export * from "./utils/getTexImageSourceSize";
 export * from "./utils/getTextureBytesPerPixel";
-

@@ -15,7 +15,7 @@ export interface IColorTargetState
      *
      * 默认 `undefined`，表示不进行混合。
      */
-    readonly blend?: IBlendState;
+    blend?: IBlendState;
 
     /**
      * 控制那些颜色分量是否可以被写入到颜色中。

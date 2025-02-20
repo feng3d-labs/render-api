@@ -1,3 +1,4 @@
+import { ShaderMacro } from "../Macro";
 import { IRenderPipeline } from "./IRenderPipeline";
 import { IScissorRect } from "./IScissorRect";
 import { IVertexAttributes } from "./IVertexAttributes";
@@ -29,7 +30,7 @@ export interface IRenderObject
     /**
      * 渲染管线描述。
      */
-    readonly pipeline: IRenderPipeline;
+    pipeline: IRenderPipeline;
 
     /**
      * 顶点属性数据映射。
@@ -61,6 +62,11 @@ export interface IRenderObject
     readonly drawIndexed?: IDrawIndexed;
 
     _version?: number;
+
+    /**
+     * shader 中的 宏
+     */
+    shaderMacro?: ShaderMacro;
 }
 
 /**
@@ -164,5 +170,8 @@ export interface IBufferBinding
     readonly bufferView?: TypedArray;
 }
 
-export type IUniformDataItem = number | number[] | number[][] | TypedArray | TypedArray[];
+export type IUniformDataItem = number | number[] | number[][] | TypedArray | TypedArray[]
+    | { toArray(): number[] | Float32Array }
+    | { toArray(): number[] | Float32Array }[]
+    ;
 export type IBufferBindingItem = IUniformDataItem | { [key: string]: IBufferBindingItem };
