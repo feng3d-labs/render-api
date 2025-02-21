@@ -1,6 +1,6 @@
 import { IDepthStencilState } from "./IDepthStencilState";
 import { IFragmentState } from "./IFragmentState";
-import { IPrimitiveState } from "./IPrimitiveState";
+import { PrimitiveState } from "./PrimitiveState";
 import { IVertexState } from "./IVertexState";
 
 /**

@@ -1,5 +1,5 @@
 import { ShaderMacro } from "../Macro";
-import { IGeometry } from "./IGeometry";
+import { Geometry } from "./Geometry";
 import { IRenderPipeline } from "./IRenderPipeline";
 import { IScissorRect } from "./IScissorRect";
 import { IUniforms } from "./IUniforms";
@@ -35,7 +35,7 @@ export interface IRenderObject
     /**
      * 渲染几何数据。
      */
-    geometry: IGeometry;
+    geometry: Geometry;
 
     /**
      * Uniform变量数据

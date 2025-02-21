@@ -1,4 +1,4 @@
-import { IVertexFormat } from "../data/IVertexAttributes";
+import { IVertexFormat } from "../data/VertexAttributes";
 
 /**
  * 顶点属性格式信息映射。

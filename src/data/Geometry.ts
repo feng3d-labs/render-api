@@ -1,5 +1,5 @@
-import { IPrimitiveState } from "./IPrimitiveState";
-import { IVertexAttributes } from "./IVertexAttributes";
+import { PrimitiveState } from "./PrimitiveState";
+import { VertexAttribute, VertexAttributes } from "./VertexAttributes";
 
 /**
  * 几何数据。
@@ -9,21 +9,20 @@ import { IVertexAttributes } from "./IVertexAttributes";
  * - 顶点索引数据
  * - 如何渲染
  * - 拓扑结构
- * - 正面
  */
-export interface IGeometry
+export class Geometry
 {
     /**
      * Describes the primitive-related properties of the pipeline.
      *
      * 图元拓扑结构。
      */
-    readonly primitive?: IPrimitiveState;
+    primitive?: PrimitiveState = new PrimitiveState();
 
     /**
      * 顶点属性数据映射。
      */
-    vertices?: IVertexAttributes;
+    vertices?: VertexAttributes = {};
 
     /**
      * 顶点索引数据。
@@ -33,7 +32,69 @@ export interface IGeometry
     /**
      * 绘制。
      */
-    readonly draw: IDraw;
+    get draw(): IDraw
+    {
+        if (this._draw) return this._draw;
+
+        const instanceCount = this.getInstanceCount();
+
+        if (this.indices)
+        {
+            return {
+                __type: "DrawIndexed",
+                indexCount: this.indices.length,
+                firstIndex: 0,
+                instanceCount,
+            };
+        }
+
+        return {
+            __type: "DrawVertex",
+            vertexCount: this.getNumVertex(),
+            instanceCount,
+        };
+    }
+    set draw(value: IDraw)
+    {
+        this._draw = value;
+    }
+    protected _draw?: IDraw;
+
+    /**
+     * 获取顶点数量。
+     *
+     * @returns 顶点数量。 
+     */
+    getNumVertex?()
+    {
+        const attributes = this.vertices;
+        const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => v.stepMode !== "instance");
+
+        const count = VertexAttribute.getVertexCount(vertexList[0]);
+
+        // 验证所有顶点属性数据的顶点数量一致。
+        console.assert(vertexList.length > 0 && vertexList.every((v) => count === VertexAttribute.getVertexCount(v)));
+
+        return count;
+    }
+
+    /**
+     * 获取实例数量。
+     *
+     * @returns 实例数量。
+     */
+    getInstanceCount?()
+    {
+        const attributes = this.vertices;
+        const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => v.stepMode === "instance");
+
+        const count = VertexAttribute.getVertexCount(vertexList[0]);
+
+        // 验证所有顶点属性数据的顶点数量一致。
+        console.assert(vertexList.length > 0 && vertexList.every((v) => count === VertexAttribute.getVertexCount(v)));
+
+        return count;
+    }
 }
 
 /**
