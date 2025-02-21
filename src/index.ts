@@ -13,6 +13,7 @@ export * from "./data/CopyTextureToTexture";
 export * from "./data/DepthStencilState";
 export * from "./data/FragmentState";
 export * from "./data/Geometry";
+export * from "./data/TextureImageSource";
 export * from "./data/PrimitiveState";
 export * from "./data/RenderObject";
 export * from "./data/RenderPass";
@@ -32,7 +33,4 @@ export * from "./data/UnReadonly";
 export * from "./data/VertexAttributes";
 export * from "./data/VertexState";
 export * from "./data/Viewport";
-
-export * from "./utils/getTexImageSourceSize";
-export * from "./utils/getTextureBytesPerPixel";
 

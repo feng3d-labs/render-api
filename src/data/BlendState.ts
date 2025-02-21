@@ -49,9 +49,11 @@ export class BlendState
      * @param blend
      * @returns
      */
-    getBlendConstantColor?(): IColor
+    static getBlendConstantColor?(blendState: BlendState): IColor
     {
-        const { color, alpha, constantColor } = this;
+        if (!blendState) return undefined;
+
+        const { color, alpha, constantColor } = blendState;
 
         // 当混合系数用到了混合常量值时设置混合常量值。
         if (0

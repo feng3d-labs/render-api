@@ -1,3 +1,5 @@
+import { TextureImageSource } from "./TextureImageSource";
+
 /**
  * 纹理
  */
@@ -66,6 +68,21 @@ export class Texture
      * The number of mip levels the texture will contain.
      */
     readonly mipLevelCount?: number;
+
+
+    /**
+     * 获取纹理每个像素占用的字节数量。
+     *
+     * @param format
+     */
+    static getTextureBytesPerPixel(format: ITextureFormat = "rgba8unorm")
+    {
+        const bytesPerPixel = formatMap[format]?.bytesPerPixel;
+
+        console.assert(!!bytesPerPixel, `未处理格式 ${format} ，无法查询到该格式中每个像素占用的字节数量！`);
+
+        return bytesPerPixel;
+    }
 }
 
 /**
@@ -75,70 +92,8 @@ export type ITextureSource = ITextureSourceMap[keyof ITextureSourceMap];
 
 export interface ITextureSourceMap
 {
-    ITextureImageSource: ITextureImageSource;
+    ITextureImageSource: TextureImageSource;
     ITextureDataSource: ITextureDataSource;
-}
-
-/**
- * 纹理的图片资源。
- *
- * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
- * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage3D
- *
- * 注：不再支持参数 `border`
- *
- * ### WebGPU
- *
- * @see GPUQueue.copyExternalImageToTexture
- */
-export interface ITextureImageSource
-{
-    /**
-     * 数据类型。
-     */
-    readonly __type?: "TextureImageSource";
-
-    /**
-     * 图片资源。
-     */
-    image: TexImageSource;
-
-    /**
-     * 读取图片上的像素坐标。
-     */
-    imageOrigin?: IImageOrigin;
-
-    /**
-     * 写入纹理的mipmap层级索引。
-     */
-    mipLevel?: number;
-
-    /**
-     * Defines the origin of the copy - the minimum corner of the texture sub-region to copy to/from.
-     * Together with `copySize`, defines the full copy sub-region.
-     *
-     * 写入纹理的位置。
-     */
-    textureOrigin?: ITextureOrigin;
-
-    /**
-     * Extents of the content to write from `source` to `destination`.
-     *
-     * 写入尺寸。
-     */
-    size?: ITextureSize
-
-    /**
-     * 是否Y轴翻转图片。
-     *
-     * 注：WebGL（先翻转，再拷贝）与WebGPU（先拷贝，再翻转）处理方式不一样。此次已WebGL为准。当拷贝全图时，效果一致。
-     */
-    flipY?: boolean;
-
-    /**
-     * 是否需要预乘透明度。
-     */
-    premultipliedAlpha?: boolean;
 }
 
 /**
@@ -357,3 +312,108 @@ export type ITextureFormat =
     | "astc-12x10-unorm-srgb"
     | "astc-12x12-unorm"
     | "astc-12x12-unorm-srgb";
+
+const formatMap: {
+    [key: string]: {
+        /**
+         * 每个像素占用的字节数量
+         */
+        bytesPerPixel: number
+    }
+} = {
+    r8unorm: { bytesPerPixel: 1 },
+    r8snorm: { bytesPerPixel: 1 },
+    r8uint: { bytesPerPixel: 1 },
+    r8sint: { bytesPerPixel: 1 },
+    r16uint: { bytesPerPixel: 2 },
+    r16sint: { bytesPerPixel: 2 },
+    r16float: { bytesPerPixel: 2 },
+    rg8unorm: { bytesPerPixel: 2 },
+    rg8snorm: { bytesPerPixel: 2 },
+    rg8uint: { bytesPerPixel: 2 },
+    rg8sint: { bytesPerPixel: 2 },
+    r32uint: { bytesPerPixel: 4 },
+    r32sint: { bytesPerPixel: 4 },
+    r32float: { bytesPerPixel: 4 },
+    rg16uint: { bytesPerPixel: 4 },
+    rg16sint: { bytesPerPixel: 4 },
+    rg16float: { bytesPerPixel: 4 },
+    rgba8unorm: { bytesPerPixel: 4 },
+    "rgba8unorm-srgb": { bytesPerPixel: 4 },
+    rgba8snorm: { bytesPerPixel: 4 },
+    rgba8uint: { bytesPerPixel: 4 },
+    rgba8sint: { bytesPerPixel: 4 },
+    bgra8unorm: { bytesPerPixel: 4 },
+    "bgra8unorm-srgb": { bytesPerPixel: 4 },
+    rgb9e5ufloat: { bytesPerPixel: 4 },
+    rgb10a2uint: { bytesPerPixel: 4 },
+    rgb10a2unorm: { bytesPerPixel: 4 },
+    rg11b10ufloat: { bytesPerPixel: 4 },
+    rg32uint: { bytesPerPixel: 8 },
+    rg32sint: { bytesPerPixel: 8 },
+    rg32float: { bytesPerPixel: 8 },
+    rgba16uint: { bytesPerPixel: 8 },
+    rgba16sint: { bytesPerPixel: 8 },
+    rgba16float: { bytesPerPixel: 8 },
+    rgba32uint: { bytesPerPixel: 16 },
+    rgba32sint: { bytesPerPixel: 16 },
+    rgba32float: { bytesPerPixel: 16 },
+    stencil8: { bytesPerPixel: 1 },
+    depth16unorm: { bytesPerPixel: 2 },
+    depth24plus: { bytesPerPixel: 3 },
+    "depth24plus-stencil8": { bytesPerPixel: 4 },
+    depth32float: { bytesPerPixel: 4 },
+    "depth32float-stencil8": { bytesPerPixel: 5 },
+    "bc1-rgba-unorm": undefined,
+    "bc1-rgba-unorm-srgb": undefined,
+    "bc2-rgba-unorm": undefined,
+    "bc2-rgba-unorm-srgb": undefined,
+    "bc3-rgba-unorm": undefined,
+    "bc3-rgba-unorm-srgb": undefined,
+    "bc4-r-unorm": undefined,
+    "bc4-r-snorm": undefined,
+    "bc5-rg-unorm": undefined,
+    "bc5-rg-snorm": undefined,
+    "bc6h-rgb-ufloat": undefined,
+    "bc6h-rgb-float": undefined,
+    "bc7-rgba-unorm": undefined,
+    "bc7-rgba-unorm-srgb": undefined,
+    "etc2-rgb8unorm": undefined,
+    "etc2-rgb8unorm-srgb": undefined,
+    "etc2-rgb8a1unorm": undefined,
+    "etc2-rgb8a1unorm-srgb": undefined,
+    "etc2-rgba8unorm": undefined,
+    "etc2-rgba8unorm-srgb": undefined,
+    "eac-r11unorm": undefined,
+    "eac-r11snorm": undefined,
+    "eac-rg11unorm": undefined,
+    "eac-rg11snorm": undefined,
+    "astc-4x4-unorm": undefined,
+    "astc-4x4-unorm-srgb": undefined,
+    "astc-5x4-unorm": undefined,
+    "astc-5x4-unorm-srgb": undefined,
+    "astc-5x5-unorm": undefined,
+    "astc-5x5-unorm-srgb": undefined,
+    "astc-6x5-unorm": undefined,
+    "astc-6x5-unorm-srgb": undefined,
+    "astc-6x6-unorm": undefined,
+    "astc-6x6-unorm-srgb": undefined,
+    "astc-8x5-unorm": undefined,
+    "astc-8x5-unorm-srgb": undefined,
+    "astc-8x6-unorm": undefined,
+    "astc-8x6-unorm-srgb": undefined,
+    "astc-8x8-unorm": undefined,
+    "astc-8x8-unorm-srgb": undefined,
+    "astc-10x5-unorm": undefined,
+    "astc-10x5-unorm-srgb": undefined,
+    "astc-10x6-unorm": undefined,
+    "astc-10x6-unorm-srgb": undefined,
+    "astc-10x8-unorm": undefined,
+    "astc-10x8-unorm-srgb": undefined,
+    "astc-10x10-unorm": undefined,
+    "astc-10x10-unorm-srgb": undefined,
+    "astc-12x10-unorm": undefined,
+    "astc-12x10-unorm-srgb": undefined,
+    "astc-12x12-unorm": undefined,
+    "astc-12x12-unorm-srgb": undefined,
+};
