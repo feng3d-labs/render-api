@@ -48,18 +48,11 @@ export interface IRenderObject
     readonly uniforms?: IUniforms;
 
     /**
-     * 根据顶点数据绘制图元。
+     * 绘制。
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawVertex
      */
-    readonly drawVertex?: IDrawVertex;
-
-    /**
-     * 根据索引数据绘制图元。
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements
-     */
-    readonly drawIndexed?: IDrawIndexed;
+    readonly draw: IDrawVertex | IDrawIndexed;
 
     _version?: number;
 
@@ -85,6 +78,11 @@ export type IIndicesDataTypes = Uint16Array | Uint32Array;
 export interface IDrawVertex
 {
     /**
+     * 数据类型。
+     */
+    readonly __type: "DrawVertex";
+
+    /**
      * The number of vertices to draw.
      */
     readonly vertexCount: number;
@@ -106,9 +104,17 @@ export interface IDrawVertex
 
 /**
  * 根据索引数据绘制图元。
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements
+ * @see GPURenderCommandsMixin.drawIndexed
  */
 export interface IDrawIndexed
 {
+    /**
+     * 数据类型。
+     */
+    readonly __type: "DrawIndexed";
+
     /**
      * The number of indices to draw.
      *
