@@ -10,7 +10,7 @@
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpucolortargetstate
  */
-export interface IBlendComponent
+export class BlendComponent
 {
     /**
      * 混合方式。
@@ -21,7 +21,7 @@ export interface IBlendComponent
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquation
      */
-    readonly operation?: IBlendOperation;
+    readonly operation?: IBlendOperation = "add";
 
     /**
      * 源混合因子。
@@ -30,7 +30,7 @@ export interface IBlendComponent
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
      */
-    readonly srcFactor?: IBlendFactor;
+    readonly srcFactor?: IBlendFactor = "one";
 
     /**
      * 目标混合因子。
@@ -39,7 +39,7 @@ export interface IBlendComponent
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
      */
-    readonly dstFactor?: IBlendFactor;
+    readonly dstFactor?: IBlendFactor = "zero";
 }
 
 export type IBlendOperation = "add" | "subtract" | "reverse-subtract" | "min" | "max";

@@ -1,4 +1,4 @@
-import { IBlendState } from "../data/IBlendState";
+import { BlendState } from "../data/BlendState";
 import { IColor } from "../data/IRenderPassColorAttachment";
 
 /**
@@ -7,7 +7,7 @@ import { IColor } from "../data/IRenderPassColorAttachment";
  * @param blend
  * @returns
  */
-export function getBlendConstantColor(blend: IBlendState): IColor
+export function getBlendConstantColor(blend: BlendState): IColor
 {
     if (!blend) return undefined;
 

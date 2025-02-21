@@ -1,4 +1,4 @@
-import { IBlendState } from "./IBlendState";
+import { BlendState } from "./BlendState";
 
 /**
  * 属性 `format` 将由渲染通道中附件给出。
@@ -15,7 +15,7 @@ export interface IColorTargetState
      *
      * 默认 `undefined`，表示不进行混合。
      */
-    blend?: IBlendState;
+    blend?: BlendState;
 
     /**
      * 控制那些颜色分量是否可以被写入到颜色中。

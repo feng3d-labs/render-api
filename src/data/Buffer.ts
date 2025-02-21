@@ -9,7 +9,7 @@ import { TypedArray } from "./TypedArray";
  *
  * {@link GPUBuffer}
  */
-export interface IBuffer
+export class Buffer
 {
     /**
      * 标签。

@@ -1,8 +1,9 @@
 export * from "./consts/vertexFormatMap";
 
-export * from "./data/IBlendComponent";
-export * from "./data/IBlendState";
-export * from "./data/IBuffer";
+export * from "./data/BlendComponent";
+export * from "./data/BlendState";
+export * from "./data/Geometry";
+export * from "./data/Buffer";
 export * from "./data/ICanvasContext";
 export * from "./data/ICanvasTexture";
 export * from "./data/IColorTargetState";
@@ -11,8 +12,6 @@ export * from "./data/ICopyBufferToBuffer";
 export * from "./data/ICopyTextureToTexture";
 export * from "./data/IDepthStencilState";
 export * from "./data/IFragmentState";
-export * from "./data/Geometry";
-export * from "./data/PrimitiveState";
 export * from "./data/IRenderObject";
 export * from "./data/IRenderPass";
 export * from "./data/IRenderPassColorAttachment";
@@ -26,11 +25,12 @@ export * from "./data/ISubmit";
 export * from "./data/ITexture";
 export * from "./data/ITextureView";
 export * from "./data/IUniforms";
-export * from "./data/VertexAttributes";
 export * from "./data/IVertexState";
 export * from "./data/IViewport";
+export * from "./data/PrimitiveState";
 export * from "./data/TypedArray";
 export * from "./data/UnReadonly";
+export * from "./data/VertexAttributes";
 
 export * from "./utils/getBlendConstantColor";
 export * from "./utils/getTexImageSourceSize";

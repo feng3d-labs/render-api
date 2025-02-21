@@ -1,4 +1,4 @@
-import { IBuffer } from "./IBuffer";
+import { Buffer } from "./Buffer";
 
 /**
  * GPU缓冲区之间拷贝。
@@ -16,7 +16,7 @@ export interface ICopyBufferToBuffer
     /**
      * 源缓冲区。
      */
-    source: IBuffer,
+    source: Buffer,
 
     /**
      * 默认为0。
@@ -26,7 +26,7 @@ export interface ICopyBufferToBuffer
     /**
      * 目标缓冲区。
      */
-    destination: IBuffer,
+    destination: Buffer,
 
     /**
      * 默认为0。
