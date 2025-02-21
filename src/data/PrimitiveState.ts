@@ -61,6 +61,11 @@ export interface IPrimitiveTopologyMap
     "triangle-strip": "triangle-strip",
 }
 
+/**
+ * * `FRONT_AND_BACK` 剔除正面与背面，仅在WebGL中生效！
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/cullFace
+ */
 export type ICullFace = ICullFaceMap[keyof ICullFaceMap];
 
 export interface ICullFaceMap
@@ -70,4 +75,7 @@ export interface ICullFaceMap
     "back": "back",
 }
 
+/**
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/frontFace
+ */
 export type IFrontFace = "ccw" | "cw";
