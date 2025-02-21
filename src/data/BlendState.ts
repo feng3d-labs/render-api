@@ -33,4 +33,52 @@ export class BlendState
      * 为alpha通道定义相应渲染目标的混合行为。
      */
     readonly alpha?: BlendComponent = new BlendComponent();
+
+    constructor(blend?: BlendState)
+    {
+        if (!blend) return;
+
+        if (blend.constantColor) this.constantColor = blend.constantColor;
+        if (blend.color) this.color = BlendComponent.getInstance(blend.color);
+        if (blend.alpha) this.alpha = BlendComponent.getInstance(blend.alpha);
+    }
+
+    /**
+     * 当混合系数用到了混合常量值时设置混合常量值。
+     *
+     * @param blend
+     * @returns
+     */
+    getBlendConstantColor?(): IColor
+    {
+        const { color, alpha, constantColor } = this;
+
+        // 当混合系数用到了混合常量值时设置混合常量值。
+        if (0
+            || color?.srcFactor === "constant"
+            || color?.srcFactor === "one-minus-constant"
+            || color?.dstFactor === "constant"
+            || color?.dstFactor === "one-minus-constant"
+            || alpha?.srcFactor === "constant"
+            || alpha?.srcFactor === "one-minus-constant"
+            || alpha?.dstFactor === "constant"
+            || alpha?.dstFactor === "one-minus-constant"
+        )
+        {
+            return constantColor ?? [0, 0, 0, 0];
+        }
+
+        return undefined;
+    }
+
+    static getInstance(blend: BlendState): BlendState
+    {
+        if (!blend) return undefined;
+
+        if (blend instanceof BlendState)
+        {
+            return blend;
+        }
+        return new BlendState(blend);
+    }
 }

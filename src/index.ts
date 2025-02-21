@@ -33,7 +33,6 @@ export * from "./data/VertexAttributes";
 export * from "./data/VertexState";
 export * from "./data/Viewport";
 
-export * from "./utils/getBlendConstantColor";
 export * from "./utils/getTexImageSourceSize";
 export * from "./utils/getTextureBytesPerPixel";
 

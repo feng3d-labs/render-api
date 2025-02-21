@@ -12,6 +12,7 @@
  */
 export class BlendComponent
 {
+
     /**
      * 混合方式。
      *
@@ -40,6 +41,24 @@ export class BlendComponent
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
      */
     readonly dstFactor?: IBlendFactor = "zero";
+
+    constructor(blend?: BlendComponent)
+    {
+        if (!blend) return;
+
+        if (blend.operation) this.operation = blend.operation;
+        if (blend.srcFactor) this.srcFactor = blend.srcFactor;
+        if (blend.dstFactor) this.dstFactor = blend.dstFactor;
+    }
+
+    static getInstance(alpha: BlendComponent): BlendComponent
+    {
+        if (alpha === undefined) return undefined;
+
+        if (alpha instanceof BlendComponent) return alpha;
+
+        return new BlendComponent(alpha);
+    }
 }
 
 export type IBlendOperation = "add" | "subtract" | "reverse-subtract" | "min" | "max";
