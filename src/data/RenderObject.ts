@@ -3,7 +3,7 @@ import { Geometry } from "./Geometry";
 import { ScissorRect } from "./ScissorRect";
 import { Uniforms } from "./Uniforms";
 import { Viewport } from "./Viewport";
-import { RenderPipeline } from "./RenderPipeline";
+import { Material } from "./Material";
 
 /**
  * 渲染对象，包含一次渲染时包含的所有数据。
@@ -30,7 +30,7 @@ export class RenderObject
     /**
      * 渲染管线描述。
      */
-    pipeline: RenderPipeline;
+    pipeline: Material;
 
     /**
      * 渲染几何数据。

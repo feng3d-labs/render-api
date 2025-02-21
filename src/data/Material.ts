@@ -3,11 +3,12 @@ import { FragmentState } from "./FragmentState";
 import { VertexState } from "./VertexState";
 
 /**
- * 渲染管线。
+ * 材质。
+ * 
+ * 对应WebGPU的Pipeline。
  */
-export class RenderPipeline
+export class Material
 {
-
     /**
      * 标签。
      *

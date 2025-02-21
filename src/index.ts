@@ -20,7 +20,7 @@ export * from "./data/RenderPass";
 export * from "./data/RenderPassColorAttachment";
 export * from "./data/RenderPassDepthStencilAttachment";
 export * from "./data/RenderPassDescriptor";
-export * from "./data/RenderPipeline";
+export * from "./data/Material";
 export * from "./data/Sampler";
 export * from "./data/ScissorRect";
 export * from "./data/StencilFaceState";
