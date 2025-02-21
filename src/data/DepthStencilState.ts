@@ -1,4 +1,4 @@
-import { ICompareFunction, IStencilFaceState } from "./IStencilFaceState";
+import { ICompareFunction, StencilFaceState } from "./StencilFaceState";
 
 /**
  * 深度模板阶段描述。
@@ -34,14 +34,14 @@ export class DepthStencilState
      *
      * 默认为 {}。
      */
-    readonly stencilFront?: IStencilFaceState = new IStencilFaceState();
+    readonly stencilFront?: StencilFaceState = new StencilFaceState();
 
     /**
      * 定义了如何为朝后的图元执行模板比较和操作。
      *
      * 默认为 {}。
      */
-    readonly stencilBack?: IStencilFaceState = new IStencilFaceState();
+    readonly stencilBack?: StencilFaceState = new StencilFaceState();
 
     /**
      * 模板测试时如果使用 "replace" ，则使用该值填充模板值。

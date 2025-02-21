@@ -17,7 +17,7 @@
  * @see https://www.orillusion.com/zh/webgpu.html#dom-gpurenderpassencoder-setscissorrect
  *
  */
-export interface IScissorRect
+export class ScissorRect
 {
     /**
      * 是否为Y轴朝上。
@@ -26,7 +26,7 @@ export interface IScissorRect
      *
      * 默认为 ture。
      */
-    readonly isYup?: boolean;
+    readonly isYup?: boolean = true;
 
     /**
      * 剪刀盒横向坐标（像素）。
@@ -35,7 +35,7 @@ export interface IScissorRect
      *
      * 默认为 0 。
      */
-    readonly x: number,
+    readonly x?: number = 0;
 
     /**
      * 剪刀盒纵向坐标（像素）。
@@ -44,7 +44,7 @@ export interface IScissorRect
      *
      * 默认为 0 。
      */
-    readonly y: number,
+    readonly y?: number = 0;
 
     /**
      * 剪刀盒宽度（像素）。
@@ -53,7 +53,7 @@ export interface IScissorRect
      *
      * 默认为画布宽度或者渲染通道的附件宽度。
      */
-    readonly width: number,
+    readonly width: number;
 
     /**
      * 剪刀盒高度（像素）。
@@ -62,5 +62,5 @@ export interface IScissorRect
      *
      * 默认为画布高度或者渲染通道的附件高度。
      */
-    readonly height: number,
+    readonly height: number;
 }

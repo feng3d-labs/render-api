@@ -1,7 +1,7 @@
 /**
  * 纹理
  */
-export interface ITexture
+export class Texture
 {
     /**
      * 标签。
@@ -55,12 +55,12 @@ export interface ITexture
      *
      * WebGL中不支持 "1d" "cube-array"。
      */
-    readonly dimension?: ITextureDimension;
+    readonly dimension?: ITextureDimension = "2d";
 
     /**
      * 纹理格式。 默认为 "rgba8unorm"，
      */
-    readonly format?: ITextureFormat;
+    readonly format?: ITextureFormat = "rgba8unorm";
 
     /**
      * The number of mip levels the texture will contain.

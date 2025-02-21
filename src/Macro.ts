@@ -1,7 +1,7 @@
 /**
  * 着色器宏定义
  */
-export interface ShaderMacro
+export class ShaderMacro
 {
     /**
      * UV中的U缩放

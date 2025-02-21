@@ -1,6 +1,6 @@
 import { CopyBufferToBuffer } from "./CopyBufferToBuffer";
 import { CopyTextureToTexture } from "./CopyTextureToTexture";
-import { IRenderPass } from "./IRenderPass";
+import { RenderPass } from "./RenderPass";
 
 /**
  * 命令编码器。
@@ -32,7 +32,7 @@ export interface IPassEncoderMap
     /**
      * 渲染通道。
      */
-    IRenderPass: IRenderPass;
+    IRenderPass: RenderPass;
 
     /**
      * 纹理之间拷贝。

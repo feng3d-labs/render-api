@@ -1,17 +1,17 @@
 import { TypedArray } from "./TypedArray";
 
 /**
- * Uniform 类型
- */
-export type IUniformType = IUniformTypeMap[keyof IUniformTypeMap];
-
-/**
  * Uniform 数据
  */
-export interface IUniforms
+export class Uniforms
 {
     [key: string]: IUniformType;
 }
+
+/**
+ * Uniform 类型
+ */
+export type IUniformType = IUniformTypeMap[keyof IUniformTypeMap];
 
 export interface IUniformTypeMap
 {

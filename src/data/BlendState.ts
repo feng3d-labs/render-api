@@ -1,5 +1,5 @@
 import { BlendComponent } from "./BlendComponent";
-import { IColor } from "./IRenderPassColorAttachment";
+import { IColor } from "./RenderPassColorAttachment";
 
 /**
  * 混合状态。

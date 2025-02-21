@@ -1,4 +1,4 @@
-import { ITextureFormat } from "../data/ITexture";
+import { ITextureFormat } from "../data/Texture";
 
 /**
  * 获取纹理每个像素占用的字节数量。

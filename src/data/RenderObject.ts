@@ -1,19 +1,19 @@
 import { ShaderMacro } from "../Macro";
 import { Geometry } from "./Geometry";
-import { IRenderPipeline } from "./IRenderPipeline";
-import { IScissorRect } from "./IScissorRect";
-import { IUniforms } from "./IUniforms";
+import { ScissorRect } from "./ScissorRect";
+import { Uniforms } from "./IUniforms";
 import { IViewport } from "./IViewport";
+import { RenderPipeline } from "./RenderPipeline";
 
 /**
  * 渲染对象，包含一次渲染时包含的所有数据。
  */
-export interface IRenderObject
+export class RenderObject
 {
     /**
      * 数据类型。
      */
-    readonly __type?: "RenderObject";
+    readonly __type?: "RenderObject" = "RenderObject";
 
     /**
      * 视窗。
@@ -25,12 +25,12 @@ export interface IRenderObject
     /**
      * 光栅化阶段中使用的剪刀矩形。
      */
-    scissorRect?: IScissorRect;
+    scissorRect?: ScissorRect;
 
     /**
      * 渲染管线描述。
      */
-    pipeline: IRenderPipeline;
+    pipeline: RenderPipeline;
 
     /**
      * 渲染几何数据。
@@ -40,12 +40,12 @@ export interface IRenderObject
     /**
      * Uniform变量数据
      */
-    readonly uniforms?: IUniforms;
+    readonly uniforms?: Uniforms = new Uniforms();
 
     _version?: number;
 
     /**
      * shader 中的 宏
      */
-    shaderMacro?: ShaderMacro;
+    shaderMacro?: ShaderMacro = new ShaderMacro();
 }

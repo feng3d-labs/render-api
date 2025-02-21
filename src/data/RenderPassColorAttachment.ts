@@ -1,9 +1,9 @@
-import { ITextureView } from "./ITextureView";
+import { TextureView } from "./TextureView";
 
 /**
  * 渲染通道颜色附件。
  */
-export interface IRenderPassColorAttachment
+export class RenderPassColorAttachment
 {
     /**
      * 颜色附件视图。
@@ -18,7 +18,7 @@ export interface IRenderPassColorAttachment
      * 注：引擎运行中该属性可能是 IGLRenderbuffer 类型，用于处理多重采样。
      *
      */
-    readonly view?: ITextureView;
+    readonly view?: TextureView = new TextureView();
 
     /**
      * 清除后填充值。
@@ -37,7 +37,7 @@ export interface IRenderPassColorAttachment
      * They are converted [$to a texel value of texture format$] matching the render attachment.
      * If conversion fails, a validation error is generated.
      */
-    readonly clearValue?: IColor;
+    readonly clearValue?: IColor = [0, 0, 0, 0];
 
     /**
      * 是否清除颜色附件。
@@ -54,7 +54,7 @@ export interface IRenderPassColorAttachment
      * executing the render pass.
      * Note: It is recommended to prefer clearing; see {@link GPULoadOp#"clear"} for details.
      */
-    readonly loadOp?: ILoadOp;
+    readonly loadOp?: ILoadOp = "clear";
 }
 
 export type IColor = [red: number, green: number, blue: number, alpha: number];

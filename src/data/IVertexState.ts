@@ -1,7 +1,7 @@
 /**
  * 顶点着色器阶段描述。
  */
-export interface IVertexState
+export class IVertexState
 {
     /**
      * 着色器代码。

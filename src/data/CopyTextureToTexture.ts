@@ -1,5 +1,5 @@
-import { ITextureOrigin, ITextureSize } from "./ITexture";
-import { ITextureLike } from "./ITextureView";
+import { ITextureOrigin, ITextureSize } from "./Texture";
+import { ITextureLike } from "./TextureView";
 
 /**
  * GPU纹理间拷贝。

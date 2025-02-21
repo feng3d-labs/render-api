@@ -1,12 +1,11 @@
 import { DepthStencilState } from "./DepthStencilState";
 import { FragmentState } from "./FragmentState";
-import { PrimitiveState } from "./PrimitiveState";
 import { IVertexState } from "./IVertexState";
 
 /**
  * 渲染管线。
  */
-export interface IRenderPipeline
+export class RenderPipeline
 {
 
     /**

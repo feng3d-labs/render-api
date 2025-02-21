@@ -1,4 +1,4 @@
-import { IImageSize } from "../data/ITexture";
+import { IImageSize } from "../data/Texture";
 
 /**
  * 获取纹理的图片资源尺寸。

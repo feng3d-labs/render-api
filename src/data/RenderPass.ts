@@ -1,27 +1,27 @@
-import { IRenderObject } from "./IRenderObject";
-import { IRenderPassDescriptor } from "./IRenderPassDescriptor";
+import { RenderPassDescriptor } from "./RenderPassDescriptor";
+import { RenderObject } from "./RenderObject";
 
 /**
  * WebGL渲染通道
  *
  * 包含渲染通道描述以及需要渲染的对象列表。
  */
-export interface IRenderPass
+export class RenderPass
 {
     /**
      * 数据类型。
      */
-    readonly __type?: "RenderPass";
+    readonly __type?: "RenderPass" = "RenderPass";
 
     /**
      * 渲染通道描述
      */
-    readonly descriptor?: IRenderPassDescriptor;
+    readonly descriptor?: RenderPassDescriptor = new RenderPassDescriptor();
 
     /**
      * 渲染对象列表
      */
-    readonly renderObjects?: readonly IRenderPassObject[];
+    readonly renderObjects?: readonly IRenderPassObject[] = [];
 
     // /**
     //  * 渲染不被遮挡查询结果。具体数据保存在各子项的"result"属性中。
@@ -35,5 +35,5 @@ export type IRenderPassObject = IRenderPassObjectMap[keyof IRenderPassObjectMap]
 
 export interface IRenderPassObjectMap
 {
-    IRenderObject: IRenderObject;
+    IRenderObject: RenderObject;
 }

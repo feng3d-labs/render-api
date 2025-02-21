@@ -1,10 +1,10 @@
-import { IRenderPassColorAttachment } from "./IRenderPassColorAttachment";
-import { IRenderPassDepthStencilAttachment } from "./IRenderPassDepthStencilAttachment";
+import { RenderPassColorAttachment } from "./RenderPassColorAttachment";
+import { RenderPassDepthStencilAttachment } from "./RenderPassDepthStencilAttachment";
 
 /**
  * 渲染通道描述
  */
-export interface IRenderPassDescriptor
+export class RenderPassDescriptor
 {
     /**
      * 标签。
@@ -16,14 +16,14 @@ export interface IRenderPassDescriptor
     /**
      * 颜色附件
      */
-    readonly colorAttachments?: readonly IRenderPassColorAttachment[];
+    readonly colorAttachments?: readonly RenderPassColorAttachment[] = [];
 
     /**
      * 深度模板附件。
      *
      * 当使用深度附件时，必须设置，使用默认值可设置为 `{}` 。
      */
-    readonly depthStencilAttachment?: IRenderPassDepthStencilAttachment;
+    readonly depthStencilAttachment?: RenderPassDepthStencilAttachment;
 
     /**
      * 采用次数。
@@ -37,5 +37,5 @@ export interface IRenderPassDescriptor
      * WebGPU:
      * 是否开启多重采样。WebGPU貌似只支持4重采样。如果在颜色附件中没有给出支持多重采样的纹理时则引擎将会自动为其添加。
      */
-    readonly sampleCount?: 4;
+    readonly sampleCount?: 4 = 4;
 }

@@ -1,5 +1,5 @@
 import { BlendState } from "../data/BlendState";
-import { IColor } from "../data/IRenderPassColorAttachment";
+import { IColor } from "../data/RenderPassColorAttachment";
 
 /**
  * 当混合系数用到了混合常量值时设置混合常量值。
