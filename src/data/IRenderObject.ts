@@ -52,7 +52,7 @@ export interface IRenderObject
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawVertex
      */
-    readonly draw: IDrawVertex | IDrawIndexed;
+    readonly draw: IDraw;
 
     _version?: number;
 
@@ -61,6 +61,8 @@ export interface IRenderObject
      */
     shaderMacro?: ShaderMacro;
 }
+
+export type IDraw = IDrawVertex | IDrawIndexed;
 
 /**
  * 顶点索引数据类型。
