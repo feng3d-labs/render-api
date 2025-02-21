@@ -3,7 +3,7 @@
  * @see HTMLCanvasElement.getContext
  * @see GPUCanvasContext.configure
  */
-export interface ICanvasContext
+export class CanvasContext
 {
     /**
      * 画布id

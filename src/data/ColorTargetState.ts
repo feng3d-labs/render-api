@@ -5,7 +5,7 @@ import { BlendState } from "./BlendState";
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpucolortargetstate
  */
-export interface IColorTargetState
+export class ColorTargetState
 {
     /**
      * The blending behavior for this color target. If left undefined, disables blending for this
@@ -15,7 +15,7 @@ export interface IColorTargetState
      *
      * 默认 `undefined`，表示不进行混合。
      */
-    blend?: BlendState;
+    blend?: BlendState = new BlendState();
 
     /**
      * 控制那些颜色分量是否可以被写入到颜色中。
@@ -26,7 +26,7 @@ export interface IColorTargetState
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/colorMask
      */
-    readonly writeMask?: IWriteMask;
+    readonly writeMask?: IWriteMask = [true, true, true, true];
 }
 
 export type IWriteMask = [red: boolean, green: boolean, blue: boolean, alpha: boolean];

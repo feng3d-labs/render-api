@@ -1,4 +1,4 @@
-import { IColorTargetState } from "./IColorTargetState";
+import { ColorTargetState } from "./ColorTargetState";
 
 /**
  * 片段着色器阶段描述。
@@ -20,5 +20,5 @@ export interface IFragmentState
      *
      * 注：WebGL中没法分别对每个颜色附件进行设置，统一使用第一项（targets[0]）设置！
      */
-    readonly targets?: readonly IColorTargetState[];
+    readonly targets?: readonly ColorTargetState[];
 }
