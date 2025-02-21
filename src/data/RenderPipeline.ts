@@ -1,6 +1,6 @@
 import { DepthStencilState } from "./DepthStencilState";
 import { FragmentState } from "./FragmentState";
-import { IVertexState } from "./IVertexState";
+import { VertexState } from "./VertexState";
 
 /**
  * 渲染管线。
@@ -18,7 +18,7 @@ export class RenderPipeline
     /**
      * 顶点着色器阶段描述。
      */
-    readonly vertex: IVertexState;
+    readonly vertex: VertexState;
 
     /**
      * 片段着色器阶段描述。

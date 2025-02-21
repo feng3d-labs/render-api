@@ -1,8 +1,8 @@
 import { ShaderMacro } from "../Macro";
 import { Geometry } from "./Geometry";
 import { ScissorRect } from "./ScissorRect";
-import { Uniforms } from "./IUniforms";
-import { IViewport } from "./IViewport";
+import { Uniforms } from "./Uniforms";
+import { Viewport } from "./Viewport";
 import { RenderPipeline } from "./RenderPipeline";
 
 /**
@@ -20,7 +20,7 @@ export class RenderObject
      *
      * 描述渲染在画布的哪个区域，默认整个画布。
      */
-    viewport?: IViewport;
+    viewport?: Viewport;
 
     /**
      * 光栅化阶段中使用的剪刀矩形。

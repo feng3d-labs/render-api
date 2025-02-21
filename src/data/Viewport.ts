@@ -17,7 +17,7 @@
  * @see https://gpuweb.github.io/gpuweb/#dom-gpurenderpassencoder-setviewport
  *
  */
-export interface IViewport
+export class Viewport
 {
     /**
      * 是否为Y轴朝上。
@@ -26,7 +26,7 @@ export interface IViewport
      *
      * 默认为 ture。
      */
-    isYup?: boolean;
+    isYup?: boolean = true;
 
     /**
      * 视窗水平坐标（像素）。
@@ -35,7 +35,7 @@ export interface IViewport
      *
      * 默认为 0 。
      */
-    x: number,
+    x?: number = 0;
 
     /**
      * 视窗垂直坐标（像素）。
@@ -44,7 +44,7 @@ export interface IViewport
      *
      * 默认为 0 。
      */
-    y: number,
+    y?: number = 0;
 
     /**
      * 视窗宽度（像素）。
@@ -53,7 +53,7 @@ export interface IViewport
      *
      * 默认为画布宽度或者渲染通道的附件宽度。
      */
-    width: number,
+    width: number;
 
     /**
      * 视窗高度（像素）。
@@ -62,5 +62,5 @@ export interface IViewport
      *
      * 默认为画布高度或者渲染通道的附件高度。
      */
-    height: number,
+    height: number;
 }
