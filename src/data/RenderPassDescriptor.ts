@@ -21,7 +21,7 @@ export class RenderPassDescriptor
     /**
      * 深度模板附件。
      *
-     * 当使用深度附件时，必须设置，使用默认值可设置为 `{}` 。
+     * 当使用深度附件时，必须设置 。
      */
     readonly depthStencilAttachment?: RenderPassDepthStencilAttachment;
 
