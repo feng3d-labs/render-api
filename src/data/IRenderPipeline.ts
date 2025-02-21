@@ -17,13 +17,6 @@ export interface IRenderPipeline
     readonly label?: string;
 
     /**
-     * Describes the primitive-related properties of the pipeline.
-     *
-     * 图元拓扑结构。
-     */
-    readonly primitive?: IPrimitiveState;
-
-    /**
      * 顶点着色器阶段描述。
      */
     readonly vertex: IVertexState;
