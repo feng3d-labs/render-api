@@ -6,22 +6,22 @@ import { ITextureLike } from "./ITextureView";
  *
  * {@link GPUCommandEncoder.copyTextureToTexture}
  */
-export interface ICopyTextureToTexture
+export class CopyTextureToTexture
 {
     /**
      * 数据类型。
      */
-    readonly __type: "CopyTextureToTexture";
+    readonly __type: "CopyTextureToTexture" = "CopyTextureToTexture";
 
     /**
      * Combined with `copySize`, defines the region of the source texture subresources.
      */
-    source: IImageCopyTexture,
+    source: ImageCopyTexture;
 
     /**
      * Combined with `copySize`, defines the region of the destination texture subresources.
      */
-    destination: IImageCopyTexture,
+    destination: ImageCopyTexture;
 
     /**
      * 拷贝的尺寸。
@@ -35,7 +35,7 @@ export interface ICopyTextureToTexture
  * {@link GPUCommandEncoder.copyTextureToTexture}
  * {@link GPUImageCopyTexture}
  */
-export interface IImageCopyTexture
+export class ImageCopyTexture
 {
     /**
      * Texture to copy to/from.

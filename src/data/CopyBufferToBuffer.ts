@@ -6,32 +6,32 @@ import { Buffer } from "./Buffer";
  * {@link WebGL2RenderingContextBase.copyBufferSubData}
  * {@link GPUCommandEncoder.copyBufferToBuffer}
  */
-export interface ICopyBufferToBuffer
+export class CopyBufferToBuffer
 {
     /**
      * 数据类型。
      */
-    readonly __type: "CopyBufferToBuffer";
+    readonly __type: "CopyBufferToBuffer" = "CopyBufferToBuffer";
 
     /**
      * 源缓冲区。
      */
-    source: Buffer,
+    source: Buffer;
 
     /**
      * 默认为0。
      */
-    sourceOffset?: number,
+    sourceOffset?: number = 0;
 
     /**
      * 目标缓冲区。
      */
-    destination: Buffer,
+    destination: Buffer;
 
     /**
      * 默认为0。
      */
-    destinationOffset?: number,
+    destinationOffset?: number = 0;
 
     /**
      * 默认为源缓冲区尺寸。

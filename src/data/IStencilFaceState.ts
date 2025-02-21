@@ -3,7 +3,7 @@
  *
  * @see https://www.orillusion.com/zh/webgpu.html#dictdef-gpustencilfacestate
  */
-export interface IStencilFaceState
+export class IStencilFaceState
 {
     /**
      * 在测试片元与 depthStencilAttachment 模板值时使用的 GPUCompareFunction。

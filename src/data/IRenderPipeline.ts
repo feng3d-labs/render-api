@@ -1,5 +1,5 @@
-import { IDepthStencilState } from "./IDepthStencilState";
-import { IFragmentState } from "./IFragmentState";
+import { DepthStencilState } from "./DepthStencilState";
+import { FragmentState } from "./FragmentState";
 import { PrimitiveState } from "./PrimitiveState";
 import { IVertexState } from "./IVertexState";
 
@@ -24,12 +24,12 @@ export interface IRenderPipeline
     /**
      * 片段着色器阶段描述。
      */
-    readonly fragment?: IFragmentState;
+    readonly fragment?: FragmentState;
 
     /**
      * 深度模板阶段描述。
      */
-    readonly depthStencil?: IDepthStencilState;
+    readonly depthStencil?: DepthStencilState;
 
     _version?: number;
 }
