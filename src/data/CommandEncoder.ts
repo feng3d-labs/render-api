@@ -15,7 +15,31 @@ export class CommandEncoder extends Data
      *
      * 包括计算通道编码器、渲染通道编码器 以及 GPU中缓存与纹理之间拷贝。
      */
-    passEncoders: IPassEncoder[] = [];
+    get passEncoders(): IPassEncoder[]
+    {
+        return this._passEncoders;
+    }
+    set passEncoders(value: IPassEncoder[])
+    {
+        if (!value) this._passEncoders = [];
+        this._passEncoders = value.map((v) =>
+        {
+            if (v.__type === "RenderPass")
+            {
+                return RenderPass.getInstance(v);
+            }
+            if (v.__type === "CopyTextureToTexture")
+            {
+                return CopyTextureToTexture.getInstance(v);
+            }
+            if (v.__type === "CopyBufferToBuffer")
+            {
+                return CopyBufferToBuffer.getInstance(v);
+            }
+            return v;
+        });
+    }
+    protected _passEncoders?: IPassEncoder[] = [];
 }
 
 /**
