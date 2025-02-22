@@ -7,6 +7,7 @@ import { RenderPassDescriptor } from "./RenderPassDescriptor";
  *
  * 包含渲染通道描述以及需要渲染的对象列表。
  */
+@Data.reg
 export class RenderPass extends Data
 {
     /**

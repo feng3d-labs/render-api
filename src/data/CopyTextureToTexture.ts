@@ -7,6 +7,7 @@ import { ITextureLike } from "./TextureView";
  *
  * {@link GPUCommandEncoder.copyTextureToTexture}
  */
+@Data.reg
 export class CopyTextureToTexture extends Data
 {
     /**

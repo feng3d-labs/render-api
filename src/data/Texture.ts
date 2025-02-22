@@ -4,8 +4,11 @@ import { TextureImageSource } from "./TextureImageSource";
 /**
  * 纹理
  */
+@Data.reg
 export class Texture extends Data
 {
+    __type__?: "Texture" = "Texture";
+
     /**
      * 标签。
      *

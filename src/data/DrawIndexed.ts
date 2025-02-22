@@ -6,6 +6,7 @@ import { Data } from "./Data";
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements
  * @see GPURenderCommandsMixin.drawIndexed
  */
+@Data.reg
 export class DrawIndexed extends Data
 {
     /**

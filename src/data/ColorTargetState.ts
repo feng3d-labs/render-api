@@ -6,8 +6,11 @@ import { Data } from "./Data";
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpucolortargetstate
  */
+@Data.reg
 export class ColorTargetState extends Data
 {
+    __type__?: "ColorTargetState" = "ColorTargetState";
+
     /**
      * The blending behavior for this color target. If left undefined, disables blending for this
      * color target.

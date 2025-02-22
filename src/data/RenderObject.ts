@@ -1,16 +1,19 @@
 import { ShaderMacro } from "../Macro";
+import { Data } from "./Data";
 import { Geometry } from "./Geometry";
+import { Material } from "./Material";
 import { ScissorRect } from "./ScissorRect";
 import { Uniforms } from "./Uniforms";
 import { Viewport } from "./Viewport";
-import { Material } from "./Material";
-import { Data } from "./Data";
 
 /**
  * 渲染对象，包含一次渲染时包含的所有数据。
  */
+@Data.reg
 export class RenderObject extends Data
 {
+    __type__?: "RenderObject" = "RenderObject";
+    
     /**
      * 数据类型。
      */

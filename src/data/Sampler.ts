@@ -11,8 +11,11 @@ import { ICompareFunction } from "./StencilFaceState";
  * @see https://www.orillusion.com/zh/webgpu.html#dictdef-gpusamplerdescriptor
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/samplerParameter
  */
+@Data.reg
 export class Sampler extends Data
 {
+    __type__?: "Sampler" = "Sampler";
+
     /**
      * 标签。
      *

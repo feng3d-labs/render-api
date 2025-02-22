@@ -6,7 +6,10 @@ import { Data } from "./Data";
  *
  * 注：只在WebGPU上支持。
  */
+@Data.reg
 export class CanvasTexture extends Data
 {
+    __type__?: "CanvasTexture" = "CanvasTexture";
+
     context: CanvasContext;
 }

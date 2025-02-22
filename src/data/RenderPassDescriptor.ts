@@ -5,8 +5,11 @@ import { RenderPassDepthStencilAttachment } from "./RenderPassDepthStencilAttach
 /**
  * 渲染通道描述
  */
+@Data.reg
 export class RenderPassDescriptor extends Data
 {
+    __type__?: "RenderPassDescriptor" = "RenderPassDescriptor";
+
     /**
      * 标签。
      *

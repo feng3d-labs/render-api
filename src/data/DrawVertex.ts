@@ -8,6 +8,7 @@ import { Data } from "./Data";
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawVertex
  * @see GPURenderCommandsMixin.draw
  */
+@Data.reg
 export class DrawVertex extends Data
 {
     /**

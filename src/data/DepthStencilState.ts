@@ -10,8 +10,11 @@ import { ICompareFunction, StencilFaceState } from "./StencilFaceState";
  *
  * @see https://www.orillusion.com/zh/webgpu.html#depth-stencil-state
  */
+@Data.reg
 export class DepthStencilState extends Data
 {
+    __type__?: "DepthStencilState" = "DepthStencilState";
+
     /**
      * 指示这个 GPURenderPipeline 是否可以修改 depthStencilAttachment 深度值。
      *

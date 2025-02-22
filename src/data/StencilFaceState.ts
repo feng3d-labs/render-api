@@ -5,8 +5,11 @@ import { Data } from "./Data";
  *
  * @see https://www.orillusion.com/zh/webgpu.html#dictdef-gpustencilfacestate
  */
+@Data.reg
 export class StencilFaceState extends Data
 {
+    __type__?: "StencilFaceState" = "StencilFaceState";
+
     /**
      * 在测试片元与 depthStencilAttachment 模板值时使用的 GPUCompareFunction。
      *

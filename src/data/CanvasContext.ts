@@ -5,8 +5,11 @@ import { Data } from "./Data";
  * @see HTMLCanvasElement.getContext
  * @see GPUCanvasContext.configure
  */
+@Data.reg
 export class CanvasContext extends Data
 {
+    __type__?: "CanvasContext" = "CanvasContext";
+
     /**
      * 画布id
      */

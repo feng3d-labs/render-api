@@ -30,7 +30,7 @@ export * from "./data/Submit";
 export * from "./data/Texture";
 export * from "./data/TextureImageSource";
 export * from "./data/TextureView";
-export * from "./data/TypedArray";
+export * from "./types/TypedArray";
 export * from "./data/Uniforms";
 export * from "./types/UnReadonly";
 export * from "./data/VertexAttributes";

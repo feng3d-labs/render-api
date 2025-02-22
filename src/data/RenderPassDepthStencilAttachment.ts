@@ -4,8 +4,11 @@ import { TextureView } from "./TextureView";
 /**
  * 深度模板附件。
  */
+@Data.reg
 export class RenderPassDepthStencilAttachment extends Data
 {
+    __type__?: "RenderPassDepthStencilAttachment" = "RenderPassDepthStencilAttachment";
+
     /**
      * 深度附件视图。
      *

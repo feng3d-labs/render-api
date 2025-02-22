@@ -8,8 +8,11 @@ import { RenderPass } from "./RenderPass";
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/GPUCommandEncoder
  */
+@Data.reg
 export class CommandEncoder extends Data
 {
+    __type__?: "CommandEncoder" = "CommandEncoder";
+
     /**
      * 通道编码器列表。
      *

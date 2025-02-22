@@ -12,8 +12,11 @@ import { Data } from "./Data";
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpucolortargetstate
  */
+@Data.reg
 export class BlendComponent extends Data
 {
+    __type__?: "BlendComponent" = "BlendComponent";
+
     /**
      * 混合方式。
      *

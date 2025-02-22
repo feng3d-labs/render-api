@@ -4,8 +4,13 @@ import { Data } from "./Data";
 /**
  * 顶点属性数据映射。
  */
+@Data.reg
 export class VertexAttributes extends Data
 {
+    // __type__?: "VertexAttributes" = "VertexAttributes";
+
+    // [name: `a_${string}`]: VertexAttribute;
+
     [name: string]: VertexAttribute;
 }
 

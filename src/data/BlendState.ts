@@ -11,8 +11,11 @@ import { IColor } from "./RenderPassColorAttachment";
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpublendstate
  */
+@Data.reg
 export class BlendState extends Data
 {
+    __type__?: "BlendState" = "BlendState";
+
     /**
      * 混合时使用的常量值，默认为 [0,0,0,0]。
      *

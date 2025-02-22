@@ -4,8 +4,13 @@ import { Data } from "./Data";
 /**
  * Uniform 数据
  */
+@Data.reg
 export class Uniforms extends Data
 {
+    // __type__?: "Uniforms" = "Uniforms";
+
+    // [key: `u_${string}`]: IUniformType;
+    
     [key: string]: IUniformType;
 }
 

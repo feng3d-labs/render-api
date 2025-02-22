@@ -13,8 +13,11 @@ import { VertexAttribute, VertexAttributes } from "./VertexAttributes";
  * - 如何渲染
  * - 拓扑结构
  */
+@Data.reg
 export class Geometry extends Data
 {
+    __type__?: "Geometry" = "Geometry";
+
     /**
      * Describes the primitive-related properties of the pipeline.
      *

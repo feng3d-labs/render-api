@@ -7,6 +7,7 @@ import { Data } from "./Data";
  * {@link WebGL2RenderingContextBase.copyBufferSubData}
  * {@link GPUCommandEncoder.copyBufferToBuffer}
  */
+@Data.reg
 export class CopyBufferToBuffer extends Data
 {
     /**

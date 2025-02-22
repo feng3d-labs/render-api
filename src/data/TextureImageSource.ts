@@ -13,6 +13,7 @@ import { IImageOrigin, IImageSize, ITextureOrigin, ITextureSize } from "./Textur
  *
  * @see GPUQueue.copyExternalImageToTexture
  */
+@Data.reg
 export class TextureImageSource extends Data
 {
     /**

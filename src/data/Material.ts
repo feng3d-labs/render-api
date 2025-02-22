@@ -8,8 +8,11 @@ import { VertexState } from "./VertexState";
  * 
  * 对应WebGPU的Pipeline。
  */
+@Data.reg
 export class Material extends Data
 {
+    __type__?: "Material" = "Material";
+
     /**
      * 标签。
      *

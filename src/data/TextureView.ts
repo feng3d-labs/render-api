@@ -4,8 +4,11 @@ import { Texture } from "./Texture";
 /**
  * 纹理视图。
  */
+@Data.reg
 export class TextureView extends Data
 {
+    __type__?: "TextureView" = "TextureView";
+
     /**
      * 标签。
      *

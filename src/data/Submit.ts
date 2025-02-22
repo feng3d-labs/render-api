@@ -6,8 +6,11 @@ import { Data } from "./Data";
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/GPUQueue/submit
  */
+@Data.reg
 export class Submit extends Data
 {
+    __type__?: "Submit" = "Submit";
+
     /**
      * 命令编码器列表。
      */

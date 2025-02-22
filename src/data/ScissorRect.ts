@@ -17,8 +17,11 @@ import { Data } from "./Data";
  * @see https://www.orillusion.com/zh/webgpu.html#dom-gpurenderpassencoder-setscissorrect
  *
  */
+@Data.reg
 export class ScissorRect extends Data
 {
+    __type__?: "ScissorRect" = "ScissorRect";
+    
     /**
      * 是否为Y轴朝上。
      *

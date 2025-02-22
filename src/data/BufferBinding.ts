@@ -1,5 +1,4 @@
-import { Data } from "./Data";
-import { TypedArray } from "./TypedArray";
+import { TypedArray } from "../types/TypedArray";
 
 /**
  * 缓冲区绑定。
@@ -9,7 +8,7 @@ import { TypedArray } from "./TypedArray";
  *
  * @see GPUBufferBinding
  */
-export class BufferBinding extends Data
+export class BufferBinding
 {
     [name: string]: IBufferBindingItem;
 

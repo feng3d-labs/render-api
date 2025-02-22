@@ -7,8 +7,11 @@ import { Data } from "./Data";
  *
  * `stripIndexFormat` 将由引擎自动设置。
  */
+@Data.reg
 export class PrimitiveState extends Data
 {
+    __type__?: "PrimitiveState" = "PrimitiveState";
+
     /**
      * The type of primitive to be constructed from the vertex inputs.
      *

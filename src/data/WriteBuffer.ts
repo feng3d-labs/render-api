@@ -1,8 +1,11 @@
+import { TypedArray } from "../types/TypedArray";
 import { Data } from "./Data";
-import { TypedArray } from "./TypedArray";
 
+@Data.reg
 export class WriteBuffer extends Data
 {
+    __type__?: "WriteBuffer" = "WriteBuffer";
+
     /**
      * GPU缓冲区写入起始位置。
      */

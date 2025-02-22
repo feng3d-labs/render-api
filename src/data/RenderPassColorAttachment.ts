@@ -4,8 +4,11 @@ import { TextureView } from "./TextureView";
 /**
  * 渲染通道颜色附件。
  */
+@Data.reg
 export class RenderPassColorAttachment extends Data
 {
+    __type__?: "RenderPassColorAttachment" = "RenderPassColorAttachment";
+
     /**
      * 颜色附件视图。
      *

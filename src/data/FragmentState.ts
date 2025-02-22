@@ -6,8 +6,11 @@ import { Data } from "./Data";
  *
  * {@link GPUFragmentState}
  */
+@Data.reg
 export class FragmentState extends Data
 {
+    __type__?: "FragmentState" = "FragmentState";
+
     /**
      * 着色器代码。
      */
