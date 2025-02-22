@@ -13,8 +13,6 @@ import { Data } from "./Data";
  * * x+width ≤ this.[[attachment_size]].width.
  * * y+height ≤ this.[[attachment_size]].height.
  *
- * {@link GPURenderPassEncoder.setScissorRect}
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/scissor
  * @see https://www.orillusion.com/zh/webgpu.html#dom-gpurenderpassencoder-setscissorrect
  *
