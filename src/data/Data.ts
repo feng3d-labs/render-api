@@ -49,13 +49,12 @@ export class Data
 
     /**
      * 使用 @Data.type(Type) 类型标记。
-     * @param type
+     * @param type 类定义或者解析数据的函数。
      */
-    static type(type: new () => any)
+    static type(type: (new () => any) | ((...args: any[]) => any))
     {
         return function (target: any, propertyKey: any)
         {
-            console.assert(!!type?.["getInstance"], `类型 ${type.name} 未注册，请使用 @Data.reg 进行注册！`);
             // 实现类型标记逻辑
             target.constructor.propertyType = target.constructor.propertyType || {};
             target.constructor.propertyType[propertyKey] = type;
@@ -98,11 +97,13 @@ export class Data
             {
                 if (Array.isArray(value))
                 {
-                    target[key] = value.map((v) => propertyType.getInstance(v));
+                    target[key] = value.map((v) =>
+                        (propertyType.getInstance ? propertyType.getInstance(v) : propertyType(v))
+                    );
                     return;
                 }
 
-                target[key] = propertyType.getInstance(value);
+                target[key] = propertyType.getInstance ? propertyType.getInstance(value) : propertyType(value);
                 return;
             }
 

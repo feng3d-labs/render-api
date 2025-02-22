@@ -1,4 +1,4 @@
-import { CommandEncoder, CopyBufferToBuffer, Data, Submit, TextureImageSource } from "@feng3d/render-api";
+import { CommandEncoder, CopyBufferToBuffer, Data, RenderPass, Submit, TextureImageSource } from "@feng3d/render-api";
 import { assert, describe, it } from "vitest";
 
 describe("Data", () =>
@@ -122,6 +122,8 @@ describe("Data", () =>
         assert.equal(instance.constructor, Submit);
 
         assert.equal(instance.commandEncoders[0].constructor, CommandEncoder);
+
+        assert.equal(instance.commandEncoders[0].passEncoders[0].constructor, RenderPass);
 
     });
 });

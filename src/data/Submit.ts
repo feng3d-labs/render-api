@@ -14,14 +14,6 @@ export class Submit extends Data
     /**
      * 命令编码器列表。
      */
-    get commandEncoders(): CommandEncoder[]
-    {
-        return this._commandEncoders;
-    }
-    set commandEncoders(value: CommandEncoder[])
-    {
-        if (!value) return;
-        this._commandEncoders = value.map((v) => CommandEncoder.getInstance(v));
-    }
-    protected _commandEncoders?: CommandEncoder[];
+    @Data.type(CommandEncoder)
+    commandEncoders: CommandEncoder[];
 }

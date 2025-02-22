@@ -3,6 +3,8 @@ import { CopyTextureToTexture } from "./CopyTextureToTexture";
 import { Data } from "./Data";
 import { RenderPass } from "./RenderPass";
 
+
+
 /**
  * 命令编码器。
  *
@@ -18,32 +20,27 @@ export class CommandEncoder extends Data
      *
      * 包括计算通道编码器、渲染通道编码器 以及 GPU中缓存与纹理之间拷贝。
      */
-    get passEncoders(): IPassEncoder[]
-    {
-        return this._passEncoders;
-    }
-    set passEncoders(value: IPassEncoder[])
-    {
-        if (!value) this._passEncoders = [];
-        this._passEncoders = value.map((v) =>
-        {
-            if (v.__type__ === "RenderPass")
-            {
-                return RenderPass.getInstance(v);
-            }
-            if (v.__type__ === "CopyTextureToTexture")
-            {
-                return CopyTextureToTexture.getInstance(v);
-            }
-            if (v.__type__ === "CopyBufferToBuffer")
-            {
-                return CopyBufferToBuffer.getInstance(v);
-            }
-            return v;
-        });
-    }
-    protected _passEncoders?: IPassEncoder[] = [];
+    @Data.type(getPassEncoder)
+    passEncoders: IPassEncoder[]
 }
+
+function getPassEncoder(v: IPassEncoder)
+{
+    if (v.__type__ === "RenderPass" || !v.__type__)
+    {
+        return RenderPass.getInstance(v);
+    }
+    if (v.__type__ === "CopyTextureToTexture")
+    {
+        return CopyTextureToTexture.getInstance(v);
+    }
+    if (v.__type__ === "CopyBufferToBuffer")
+    {
+        return CopyBufferToBuffer.getInstance(v);
+    }
+    return v;
+}
+
 
 /**
  * 通道编码器。
