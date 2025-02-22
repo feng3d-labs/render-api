@@ -1,3 +1,4 @@
+import { Data } from "./Data";
 import { IImageOrigin, IImageSize, ITextureOrigin, ITextureSize } from "./Texture";
 
 /**
@@ -12,7 +13,7 @@ import { IImageOrigin, IImageSize, ITextureOrigin, ITextureSize } from "./Textur
  *
  * @see GPUQueue.copyExternalImageToTexture
  */
-export class TextureImageSource
+export class TextureImageSource extends Data
 {
     /**
      * 数据类型。
@@ -60,23 +61,6 @@ export class TextureImageSource
      * 是否需要预乘透明度。
      */
     premultipliedAlpha?: boolean;
-
-    static getInstance(source: TextureImageSource)
-    {
-        if (!source) return undefined;
-        if (source instanceof TextureImageSource) return source;
-
-        let instance = TextureImageSource.cache.get(source);
-
-        if (!instance)
-        {
-            instance = new TextureImageSource();
-            Object.assign(instance, source);
-        }
-
-        return instance;
-    }
-    private static cache = new Map<TextureImageSource, TextureImageSource>();
 
     /**
      * 获取纹理的图片资源尺寸。

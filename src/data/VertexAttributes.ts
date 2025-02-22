@@ -28,7 +28,7 @@ export class VertexAttribute
     /**
      * 所在顶点数据中的偏移字节数。
      */
-    readonly offset?: number;
+    readonly offset?: number = 0;
 
     /**
      * The stride, in bytes, between elements of this array.
@@ -44,8 +44,7 @@ export class VertexAttribute
      *
      * 默认 `"vertex"` 。
      */
-    readonly stepMode?: IVertexStepMode;
-
+    readonly stepMode?: IVertexStepMode = "vertex";
 
     /**
      * 获取顶点属性数据的顶点数量。 
@@ -61,7 +60,7 @@ export class VertexAttribute
         }
 
         // 单个顶点属性数据尺寸。
-        const attributeSize = vertexFormatMap[attribute.format].byteSize;
+        const attributeSize = VertexAttribute.getVertexByteSize(attribute);
         const offset = attribute.offset || 0;
         // 一个顶点数据尺寸，可能包括多个顶点属性（例如一个position 和 uv 共 3*4 + 2*4 = 20 字节）。
         const arrayStride = attribute.arrayStride || attributeSize;
@@ -69,6 +68,18 @@ export class VertexAttribute
         const attributeCount = (attribute.data.byteLength - offset) / arrayStride;
 
         return attributeCount;
+    }
+
+    /**
+     * 获取顶点属性数据的字节尺寸。
+     *
+     * @param attribute 顶点属性数据。
+     */
+    static getVertexByteSize(attribute: VertexAttribute)
+    {
+        const attributeSize = vertexFormatMap[attribute.format].byteSize;
+
+        return attributeSize;
     }
 }
 
