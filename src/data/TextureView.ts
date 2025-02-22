@@ -19,6 +19,7 @@ export class TextureView extends Data
     /**
      * 产生视图的纹理。
      */
+    @Data.type(Texture)
     readonly texture: ITextureLike;
 
     /**

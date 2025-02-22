@@ -7,15 +7,12 @@ import { Data } from "./Data";
 @Data.reg
 export class VertexAttributes extends Data
 {
-    // __type__?: "VertexAttributes" = "VertexAttributes";
+    __type__?: any = "VertexAttributes";
 
     // [name: `a_${string}`]: VertexAttribute;
 
     [name: string]: VertexAttribute;
 }
-
-// @ts-ignore
-VertexAttributes.prototype["__type__"] = "VertexAttributes";
 
 /**
  * 顶点属性数据。

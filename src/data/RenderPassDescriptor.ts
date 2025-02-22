@@ -20,6 +20,7 @@ export class RenderPassDescriptor extends Data
     /**
      * 颜色附件
      */
+    @Data.type(RenderPassColorAttachment)
     readonly colorAttachments?: readonly RenderPassColorAttachment[] = [];
 
     /**
@@ -27,6 +28,7 @@ export class RenderPassDescriptor extends Data
      *
      * 当使用深度附件时，必须设置 。
      */
+    @Data.type(RenderPassDepthStencilAttachment)
     readonly depthStencilAttachment?: RenderPassDepthStencilAttachment;
 
     /**

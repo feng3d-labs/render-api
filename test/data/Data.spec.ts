@@ -1,4 +1,4 @@
-import { CommandEncoder, CopyBufferToBuffer, Data, RenderPass, Submit, TextureImageSource } from "@feng3d/render-api";
+import { CommandEncoder, CopyBufferToBuffer, Data, RenderPass, RenderPassColorAttachment, RenderPassDescriptor, Submit, TextureImageSource } from "@feng3d/render-api";
 import { assert, describe, it } from "vitest";
 
 describe("Data", () =>
@@ -63,7 +63,6 @@ describe("Data", () =>
             arr: [{ __type__: "B", b: false }, { b: true }, new B()],
         });
 
-        console.log(a);
         assert.equal(a.constructor, AA);
         assert.equal(a.b!.constructor, B);
         assert.equal(a.arr![0]!.constructor, B);
@@ -118,12 +117,16 @@ describe("Data", () =>
         };
 
         const instance = Submit.getInstance(submit);
-        console.log(instance);
-        assert.equal(instance.constructor, Submit); 
+        assert.equal(instance.constructor, Submit);
 
         assert.equal(instance.commandEncoders[0].constructor, CommandEncoder);
 
         assert.equal(instance.commandEncoders[0].passEncoders[0].constructor, RenderPass);
+
+        const renderpass = instance.commandEncoders[0].passEncoders[0] as RenderPass
+
+        assert.equal(renderpass.descriptor!.constructor, RenderPassDescriptor);
+        assert.equal(renderpass.descriptor!.colorAttachments![0].constructor, RenderPassColorAttachment);
 
     });
 });

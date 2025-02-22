@@ -7,15 +7,10 @@ import { Data } from "./Data";
 @Data.reg
 export class Uniforms extends Data
 {
-    // __type__?: "Uniforms" = "Uniforms";
-
-    // [key: `u_${string}`]: IUniformType;
+    __type__?: any = "Uniforms";
 
     [key: string]: IUniformType;
 }
-
-// @ts-ignore
-Uniforms.prototype["__type__"] = "Uniforms";
 
 /**
  * Uniform 类型
