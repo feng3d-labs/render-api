@@ -23,11 +23,13 @@ export class Geometry extends Data
      *
      * 图元拓扑结构。
      */
+    @Data.type(PrimitiveState)
     primitive?: PrimitiveState = new PrimitiveState();
 
     /**
      * 顶点属性数据映射。
      */
+    @Data.type(VertexAttributes)
     vertices?: VertexAttributes = new VertexAttributes();
 
     /**
@@ -71,7 +73,10 @@ export class Geometry extends Data
         {
             this._draw = DrawVertex.getInstance(value);
         }
-        this._draw = value;
+        else
+        {
+            this._draw = DrawIndexed.getInstance(value);
+        }
     }
     protected _draw?: IDraw;
 

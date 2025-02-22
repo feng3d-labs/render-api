@@ -1,4 +1,5 @@
 import { Data } from "./Data";
+import { TextureDataSource } from "./ITextureDataSource";
 import { TextureImageSource } from "./TextureImageSource";
 
 /**
@@ -36,6 +37,7 @@ export class Texture extends Data
      * @see GPUQueue.copyExternalImageToTexture
      * @see GPUQueue.writeTexture
      */
+    @Data.type(TextureImageSource)
     sources?: readonly TextureSource[];
 
     /**
@@ -54,6 +56,7 @@ export class Texture extends Data
      * @see GPUQueue.copyExternalImageToTexture
      * @see GPUQueue.writeTexture
      */
+    @Data.type(TextureImageSource)
     writeTextures?: readonly TextureSource[];
 
     /**
@@ -97,64 +100,7 @@ export type TextureSource = ITextureSourceMap[keyof ITextureSourceMap];
 export interface ITextureSourceMap
 {
     ITextureImageSource: TextureImageSource;
-    ITextureDataSource: ITextureDataSource;
-}
-
-/**
- * 纹理的数据资源。
- *
- * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
- * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage3D
- *
- * ### WebGPU
- *
- * @see GPUQueue.writeTexture
- */
-export interface ITextureDataSource
-{
-    /**
-     * 数据类型。
-     */
-    readonly __type__: "TextureDataSource";
-
-    /**
-     * 纹理数据。
-     */
-    data: ArrayBufferView;
-
-    /**
-     * Layout of the content in `data`.
-     *
-     * 纹理数据布局。
-     */
-    dataLayout?: ITextureDataLayout,
-
-    /**
-     * 读取数据图片上的像素坐标。
-     */
-    dataImageOrigin?: IDataImageOrigin;
-
-    /**
-     * 写入mipmap级别。
-     *
-     * 默认为 0。
-     */
-    mipLevel?: number,
-
-    /**
-     * Defines the origin of the copy - the minimum corner of the texture sub-region to copy to/from.
-     * Together with `copySize`, defines the full copy sub-region.
-     *
-     * 写入纹理的位置。
-     */
-    textureOrigin?: ITextureOrigin;
-
-    /**
-     * Extents of the content to write from `source` to `destination`.
-     *
-     * 写入尺寸。
-     */
-    size?: ITextureSize
+    ITextureDataSource: TextureDataSource;
 }
 
 /**

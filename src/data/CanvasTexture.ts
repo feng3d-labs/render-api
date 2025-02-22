@@ -11,5 +11,6 @@ export class CanvasTexture extends Data
 {
     __type__?: "CanvasTexture" = "CanvasTexture";
 
+    @Data.type(CanvasContext)
     context: CanvasContext;
 }

@@ -38,6 +38,7 @@ export class DepthStencilState extends Data
      *
      * 默认为 {}。
      */
+    @Data.type(StencilFaceState)
     readonly stencilFront?: StencilFaceState = new StencilFaceState();
 
     /**
@@ -45,6 +46,7 @@ export class DepthStencilState extends Data
      *
      * 默认为 {}。
      */
+    @Data.type(StencilFaceState)
     readonly stencilBack?: StencilFaceState = new StencilFaceState();
 
     /**

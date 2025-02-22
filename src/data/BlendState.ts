@@ -31,12 +31,14 @@ export class BlendState extends Data
     /**
      * 为颜色通道定义相应渲染目标的混合行为。
      */
-    readonly color?: BlendComponent = new BlendComponent();
+    @Data.type(BlendComponent)
+    readonly color?: BlendComponent;
 
     /**
      * 为alpha通道定义相应渲染目标的混合行为。
      */
-    readonly alpha?: BlendComponent = new BlendComponent();
+    @Data.type(BlendComponent)
+    readonly alpha?: BlendComponent;
 
     /**
      * 当混合系数用到了混合常量值时设置混合常量值。

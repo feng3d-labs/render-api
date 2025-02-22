@@ -17,7 +17,8 @@ export class RenderPassDepthStencilAttachment extends Data
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferTexture2D
      */
-    readonly view?: TextureView = new TextureView();
+    @Data.type(TextureView)
+    readonly view?: TextureView;
 
     /**
      * 清除后填充深度值。

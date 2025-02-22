@@ -19,7 +19,8 @@ export class ColorTargetState extends Data
      *
      * 默认 `undefined`，表示不进行混合。
      */
-    blend?: BlendState = new BlendState();
+    @Data.type(BlendState)
+    blend?: BlendState;
 
     /**
      * 控制那些颜色分量是否可以被写入到颜色中。

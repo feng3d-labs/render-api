@@ -3,8 +3,6 @@ import { CopyTextureToTexture } from "./CopyTextureToTexture";
 import { Data } from "./Data";
 import { RenderPass } from "./RenderPass";
 
-
-
 /**
  * 命令编码器。
  *

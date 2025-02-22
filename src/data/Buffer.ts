@@ -40,5 +40,6 @@ export class Buffer extends Data
      *
      * {@link GPUQueue.writeBuffer}
      */
+    @Data.type(WriteBuffer)
     writeBuffers?: WriteBuffer[];
 }

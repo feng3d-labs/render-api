@@ -42,6 +42,7 @@ export class Data
         console.assert(!!cls[getInstance], `对象 ${cls} 需要继承 ${Data.name} 或者 实现 static ${getInstance} 方法！`);
         //
         const __type__ = new cls().__type__;
+        
         console.assert(!!__type__, `类型 ${cls.name} 属性 __type__ 未定义。`);
         //
         Data.classMap.set(__type__, cls);

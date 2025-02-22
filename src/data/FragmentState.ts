@@ -24,5 +24,6 @@ export class FragmentState extends Data
      *
      * 注：WebGL中没法分别对每个颜色附件进行设置，统一使用第一项（targets[0]）设置！
      */
+    @Data.type(ColorTargetState)
     readonly targets?: readonly ColorTargetState[] = [];
 }

@@ -18,6 +18,7 @@ export class CopyBufferToBuffer extends Data
     /**
      * 源缓冲区。
      */
+    @Data.type(Buffer)
     source: Buffer;
 
     /**
