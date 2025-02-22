@@ -49,7 +49,7 @@ export class BlendState
      * @param blend
      * @returns
      */
-    static getBlendConstantColor?(blendState: BlendState): IColor
+    static getBlendConstantColor(blendState: BlendState): IColor
     {
         if (!blendState) return undefined;
 

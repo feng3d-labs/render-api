@@ -1,3 +1,5 @@
+import { DrawIndexed } from "./DrawIndexed";
+import { DrawVertex } from "./DrawVertex";
 import { PrimitiveState } from "./PrimitiveState";
 import { VertexAttribute, VertexAttributes } from "./VertexAttributes";
 
@@ -22,7 +24,7 @@ export class Geometry
     /**
      * 顶点属性数据映射。
      */
-    vertices?: VertexAttributes = {};
+    vertices?: VertexAttributes = new VertexAttributes();
 
     /**
      * 顶点索引数据。
@@ -36,7 +38,7 @@ export class Geometry
     {
         if (this._draw) return this._draw;
 
-        const instanceCount = this.getInstanceCount();
+        const instanceCount = Geometry.getInstanceCount(this);
 
         if (this.indices)
         {
@@ -50,12 +52,21 @@ export class Geometry
 
         return {
             __type: "DrawVertex",
-            vertexCount: this.getNumVertex(),
+            vertexCount: Geometry.getNumVertex(this),
             instanceCount,
         };
     }
     set draw(value: IDraw)
     {
+        if (!value)
+        {
+            this._draw = undefined;
+            return;
+        }
+        if (value.__type === "DrawVertex")
+        {
+            this._draw = DrawVertex.getInstance(value);
+        }
         this._draw = value;
     }
     protected _draw?: IDraw;
@@ -65,9 +76,9 @@ export class Geometry
      *
      * @returns 顶点数量。 
      */
-    getNumVertex?()
+    static getNumVertex(geometry: Geometry)
     {
-        const attributes = this.vertices;
+        const attributes = geometry.vertices;
         const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => v.stepMode !== "instance");
 
         const count = VertexAttribute.getVertexCount(vertexList[0]);
@@ -83,9 +94,9 @@ export class Geometry
      *
      * @returns 实例数量。
      */
-    getInstanceCount?()
+    static getInstanceCount(geometry: Geometry)
     {
-        const attributes = this.vertices;
+        const attributes = geometry.vertices;
         const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => v.stepMode === "instance");
 
         const count = VertexAttribute.getVertexCount(vertexList[0]);
@@ -105,74 +116,4 @@ export type IIndicesDataTypes = Uint16Array | Uint32Array;
 /**
  * 绘制图形。
  */
-export type IDraw = IDrawVertex | IDrawIndexed;
-
-/**
- * Draws primitives.
- *
- * 根据顶点数据绘制图元。
- *
- * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawVertex
- * @see GPURenderCommandsMixin.draw
- */
-export interface IDrawVertex
-{
-    /**
-     * 数据类型。
-     */
-    readonly __type: "DrawVertex";
-
-    /**
-     * The number of vertices to draw.
-     */
-    readonly vertexCount: number;
-
-    /**
-     * The number of instances to draw.
-     *
-     * 默认为 1 。
-     */
-    readonly instanceCount?: number;
-
-    /**
-     * Offset into the vertex buffers, in vertices, to begin drawing from.
-     *
-     * 默认为 0。
-     */
-    readonly firstVertex?: number;
-}
-
-/**
- * 根据索引数据绘制图元。
- *
- * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements
- * @see GPURenderCommandsMixin.drawIndexed
- */
-export interface IDrawIndexed
-{
-    /**
-     * 数据类型。
-     */
-    readonly __type: "DrawIndexed";
-
-    /**
-     * The number of indices to draw.
-     *
-     * 绘制的顶点索引数量。
-     */
-    readonly indexCount: number;
-
-    /**
-     * The number of instances to draw.
-     *
-     * 默认为 1 。
-     */
-    readonly instanceCount?: number;
-
-    /**
-     * Offset into the index buffer, in indices, begin drawing from.
-     *
-     * 默认为 0 。
-     */
-    readonly firstIndex?: number;
-}
+export type IDraw = DrawVertex | DrawIndexed;

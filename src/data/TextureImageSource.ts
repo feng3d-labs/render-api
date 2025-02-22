@@ -61,26 +61,22 @@ export class TextureImageSource
      */
     premultipliedAlpha?: boolean;
 
-    constructor(source?: TextureImageSource)
-    {
-        if (!source) return;
-
-        this.image = source.image;
-        this.imageOrigin = source.imageOrigin;
-        this.mipLevel = source.mipLevel;
-        this.textureOrigin = source.textureOrigin;
-        this.size = source.size;
-        this.flipY = source.flipY;
-        this.premultipliedAlpha = source.premultipliedAlpha;
-    }
-
     static getInstance(source: TextureImageSource)
     {
         if (!source) return undefined;
         if (source instanceof TextureImageSource) return source;
 
-        return new TextureImageSource(source);
+        let instance = TextureImageSource.cache.get(source);
+
+        if (!instance)
+        {
+            instance = new TextureImageSource();
+            Object.assign(instance, source);
+        }
+
+        return instance;
     }
+    private static cache = new Map<TextureImageSource, TextureImageSource>();
 
     /**
      * 获取纹理的图片资源尺寸。
@@ -88,7 +84,7 @@ export class TextureImageSource
      * @param texImageSource 纹理的图片资源。
      * @returns
      */
-    static getTexImageSourceSize?(source: TextureImageSource): IImageSize
+    static getTexImageSourceSize(source: TextureImageSource): IImageSize
     {
         const texImageSource = source.image;
 
