@@ -28,18 +28,7 @@ export class BlendState extends Data
     /**
      * 为颜色通道定义相应渲染目标的混合行为。
      */
-    get color(): BlendComponent
-    {
-        return this._color;
-    }
-    set color(value: BlendComponent)
-    {
-        if (!value) this._color = undefined;
-        if (value === this._color) return;
-        this._color = BlendComponent.getInstance(value);
-    }
-
-    protected _color?: BlendComponent;
+    readonly color?: BlendComponent = new BlendComponent();
 
     /**
      * 为alpha通道定义相应渲染目标的混合行为。

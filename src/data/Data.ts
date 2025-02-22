@@ -16,6 +16,8 @@ export class Data
 
         const __type__ = source['__type__'];
 
+        console.assert(cls !== Data as any || !!__type__, `直接使用 Data.getInstance 时，必须定义属性 __type__ ！`);
+
         if (__type__)
         {
             cls = Data.classMap.get(__type__);
@@ -23,7 +25,10 @@ export class Data
         }
 
         instance = new cls();
-        Object.assign(instance, source);
+
+        this['assign'](instance, source);
+
+        Data.cache.set(source, instance);
 
         return instance;
     }
@@ -45,6 +50,56 @@ export class Data
     static getCls(__type__: string)
     {
         return Data.classMap.get(__type__);
+    }
+
+    static assign(target: any, source: any)
+    {
+        Object.keys(source).forEach((key) =>
+        {
+            setValue(target, source, key);
+        });
+
+        function setValue(target: any, source: any, key: string)
+        {
+            const value = source[key];
+
+            // 基本类型
+            if (!value || typeof value !== 'object')
+            {
+                target[key] = value;
+                return;
+            }
+
+            // 处理数据类型
+            if (value['__type__'])
+            {
+                target[key] = Data.getInstance(value);
+                return;
+            }
+
+            // 处理数组
+            if (Array.isArray(value))
+            {
+                target[key] = [];
+                target[key].length = value.length;
+                value.forEach((_item, i) =>
+                {
+                    setValue(target[key], value, i as any);
+                });
+                return;
+            }
+
+            // 处理对象
+            const oldValue = target[key];
+            if (oldValue?.constructor?.getInstance)
+            {
+                target[key] = oldValue.constructor.getInstance(value);
+                return;
+            }
+
+            // 默认处理
+            target[key] = value;
+        }
     }
 
     protected static cache = new Map();
