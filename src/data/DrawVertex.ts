@@ -1,3 +1,4 @@
+import { Data } from "./Data";
 
 /**
  * Draws primitives.
@@ -7,7 +8,7 @@
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawVertex
  * @see GPURenderCommandsMixin.draw
  */
-export class DrawVertex
+export class DrawVertex extends Data
 {
     /**
      * 数据类型。
@@ -32,18 +33,4 @@ export class DrawVertex
      * 默认为 0。
      */
     readonly firstVertex?: number = 0;
-
-    constructor(draw: DrawVertex)
-    {
-        if (!draw) return;
-
-        Object.assign(this, draw);
-    }
-
-    static getInstance(draw: DrawVertex)
-    {
-        if (draw instanceof DrawVertex) return draw;
-
-        return new DrawVertex(draw);
-    }
 }

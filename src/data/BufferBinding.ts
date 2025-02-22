@@ -1,3 +1,4 @@
+import { Data } from "./Data";
 import { TypedArray } from "./TypedArray";
 
 /**
@@ -8,7 +9,7 @@ import { TypedArray } from "./TypedArray";
  *
  * @see GPUBufferBinding
  */
-export class BufferBinding
+export class BufferBinding extends Data
 {
     [name: string]: IBufferBindingItem;
 

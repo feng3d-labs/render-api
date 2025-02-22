@@ -1,3 +1,4 @@
+import { Data } from "./Data";
 import { TypedArray } from "./TypedArray";
 import { WriteBuffer } from "./WriteBuffer";
 
@@ -10,7 +11,7 @@ import { WriteBuffer } from "./WriteBuffer";
  *
  * {@link GPUBuffer}
  */
-export class Buffer
+export class Buffer extends Data
 {
     /**
      * 标签。

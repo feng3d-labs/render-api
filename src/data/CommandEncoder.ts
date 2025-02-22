@@ -1,5 +1,6 @@
 import { CopyBufferToBuffer } from "./CopyBufferToBuffer";
 import { CopyTextureToTexture } from "./CopyTextureToTexture";
+import { Data } from "./Data";
 import { RenderPass } from "./RenderPass";
 
 /**
@@ -7,7 +8,7 @@ import { RenderPass } from "./RenderPass";
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/GPUCommandEncoder
  */
-export class CommandEncoder
+export class CommandEncoder extends Data
 {
     /**
      * 通道编码器列表。

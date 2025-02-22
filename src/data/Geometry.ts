@@ -1,3 +1,4 @@
+import { Data } from "./Data";
 import { DrawIndexed } from "./DrawIndexed";
 import { DrawVertex } from "./DrawVertex";
 import { PrimitiveState } from "./PrimitiveState";
@@ -12,7 +13,7 @@ import { VertexAttribute, VertexAttributes } from "./VertexAttributes";
  * - 如何渲染
  * - 拓扑结构
  */
-export class Geometry
+export class Geometry extends Data
 {
     /**
      * Describes the primitive-related properties of the pipeline.

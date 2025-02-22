@@ -1,3 +1,5 @@
+import { Data } from "./Data";
+
 /**
  * 图元拓扑结构。
  *
@@ -5,7 +7,7 @@
  *
  * `stripIndexFormat` 将由引擎自动设置。
  */
-export class PrimitiveState
+export class PrimitiveState extends Data
 {
     /**
      * The type of primitive to be constructed from the vertex inputs.

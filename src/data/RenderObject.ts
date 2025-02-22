@@ -4,11 +4,12 @@ import { ScissorRect } from "./ScissorRect";
 import { Uniforms } from "./Uniforms";
 import { Viewport } from "./Viewport";
 import { Material } from "./Material";
+import { Data } from "./Data";
 
 /**
  * 渲染对象，包含一次渲染时包含的所有数据。
  */
-export class RenderObject
+export class RenderObject extends Data
 {
     /**
      * 数据类型。

@@ -4,7 +4,7 @@ import { Data } from "./Data";
 /**
  * 顶点属性数据映射。
  */
-export class VertexAttributes
+export class VertexAttributes extends Data
 {
     [name: string]: VertexAttribute;
 }

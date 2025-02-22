@@ -1,9 +1,10 @@
+import { Data } from "./Data";
 import { Texture } from "./Texture";
 
 /**
  * 纹理视图。
  */
-export class TextureView
+export class TextureView extends Data
 {
     /**
      * 标签。

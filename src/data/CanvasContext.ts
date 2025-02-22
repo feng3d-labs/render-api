@@ -1,9 +1,11 @@
+import { Data } from "./Data";
+
 /**
  * @see GPUCanvasContext
  * @see HTMLCanvasElement.getContext
  * @see GPUCanvasContext.configure
  */
-export class CanvasContext
+export class CanvasContext extends Data
 {
     /**
      * 画布id

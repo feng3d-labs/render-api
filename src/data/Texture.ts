@@ -1,9 +1,10 @@
+import { Data } from "./Data";
 import { TextureImageSource } from "./TextureImageSource";
 
 /**
  * 纹理
  */
-export class Texture
+export class Texture extends Data
 {
     /**
      * 标签。
@@ -32,7 +33,7 @@ export class Texture
      * @see GPUQueue.copyExternalImageToTexture
      * @see GPUQueue.writeTexture
      */
-    sources?: readonly ITextureSource[];
+    sources?: readonly TextureSource[];
 
     /**
      * 初始化纹理后是否生成mipmap
@@ -50,7 +51,7 @@ export class Texture
      * @see GPUQueue.copyExternalImageToTexture
      * @see GPUQueue.writeTexture
      */
-    writeTextures?: readonly ITextureSource[];
+    writeTextures?: readonly TextureSource[];
 
     /**
      * 纹理维度，默认为 "2d" 。
@@ -88,7 +89,7 @@ export class Texture
 /**
  * 纹理资源。
  */
-export type ITextureSource = ITextureSourceMap[keyof ITextureSourceMap];
+export type TextureSource = ITextureSourceMap[keyof ITextureSourceMap];
 
 export interface ITextureSourceMap
 {

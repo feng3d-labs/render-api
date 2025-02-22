@@ -1,3 +1,5 @@
+import { Data } from "./Data";
+
 /**
  * 剪刀盒。
  *
@@ -17,7 +19,7 @@
  * @see https://www.orillusion.com/zh/webgpu.html#dom-gpurenderpassencoder-setscissorrect
  *
  */
-export class ScissorRect
+export class ScissorRect extends Data
 {
     /**
      * 是否为Y轴朝上。

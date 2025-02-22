@@ -1,3 +1,4 @@
+import { Data } from "./Data";
 import { ITextureOrigin, ITextureSize } from "./Texture";
 import { ITextureLike } from "./TextureView";
 
@@ -6,7 +7,7 @@ import { ITextureLike } from "./TextureView";
  *
  * {@link GPUCommandEncoder.copyTextureToTexture}
  */
-export class CopyTextureToTexture
+export class CopyTextureToTexture extends Data
 {
     /**
      * 数据类型。

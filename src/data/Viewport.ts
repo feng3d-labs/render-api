@@ -1,3 +1,5 @@
+import { Data } from "./Data";
+
 /**
  * 视窗。
  *
@@ -17,7 +19,7 @@
  * @see https://gpuweb.github.io/gpuweb/#dom-gpurenderpassencoder-setviewport
  *
  */
-export class Viewport
+export class Viewport extends Data
 {
     /**
      * 是否为Y轴朝上。

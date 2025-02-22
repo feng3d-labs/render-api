@@ -1,11 +1,12 @@
 import { BlendState } from "./BlendState";
+import { Data } from "./Data";
 
 /**
  * 属性 `format` 将由渲染通道中附件给出。
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpucolortargetstate
  */
-export class ColorTargetState
+export class ColorTargetState extends Data
 {
     /**
      * The blending behavior for this color target. If left undefined, disables blending for this

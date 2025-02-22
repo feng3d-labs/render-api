@@ -1,11 +1,12 @@
 import { ColorTargetState } from "./ColorTargetState";
+import { Data } from "./Data";
 
 /**
  * 片段着色器阶段描述。
  *
  * {@link GPUFragmentState}
  */
-export class FragmentState
+export class FragmentState extends Data
 {
     /**
      * 着色器代码。

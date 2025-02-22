@@ -1,3 +1,4 @@
+import { Data } from "./Data";
 import { ICompareFunction } from "./StencilFaceState";
 
 /**
@@ -10,7 +11,7 @@ import { ICompareFunction } from "./StencilFaceState";
  * @see https://www.orillusion.com/zh/webgpu.html#dictdef-gpusamplerdescriptor
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/samplerParameter
  */
-export class Sampler
+export class Sampler extends Data
 {
     /**
      * 标签。

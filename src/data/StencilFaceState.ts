@@ -1,9 +1,11 @@
+import { Data } from "./Data";
+
 /**
  * {@link GPUStencilFaceState}
  *
  * @see https://www.orillusion.com/zh/webgpu.html#dictdef-gpustencilfacestate
  */
-export class StencilFaceState
+export class StencilFaceState extends Data
 {
     /**
      * 在测试片元与 depthStencilAttachment 模板值时使用的 GPUCompareFunction。

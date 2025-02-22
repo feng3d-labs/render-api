@@ -1,3 +1,4 @@
+import { Data } from "./Data";
 import { DepthStencilState } from "./DepthStencilState";
 import { FragmentState } from "./FragmentState";
 import { VertexState } from "./VertexState";
@@ -7,7 +8,7 @@ import { VertexState } from "./VertexState";
  * 
  * 对应WebGPU的Pipeline。
  */
-export class Material
+export class Material extends Data
 {
     /**
      * 标签。

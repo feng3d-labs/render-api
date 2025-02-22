@@ -1,6 +1,7 @@
+import { Data } from "./Data";
 import { TypedArray } from "./TypedArray";
 
-export class WriteBuffer
+export class WriteBuffer extends Data
 {
     /**
      * GPU缓冲区写入起始位置。

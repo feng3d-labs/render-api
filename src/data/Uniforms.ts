@@ -1,9 +1,10 @@
 import { BufferBinding, IBufferBindingItem } from "./BufferBinding";
+import { Data } from "./Data";
 
 /**
  * Uniform 数据
  */
-export class Uniforms
+export class Uniforms extends Data
 {
     [key: string]: IUniformType;
 }

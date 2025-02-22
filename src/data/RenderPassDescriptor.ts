@@ -1,10 +1,11 @@
+import { Data } from "./Data";
 import { RenderPassColorAttachment } from "./RenderPassColorAttachment";
 import { RenderPassDepthStencilAttachment } from "./RenderPassDepthStencilAttachment";
 
 /**
  * 渲染通道描述
  */
-export class RenderPassDescriptor
+export class RenderPassDescriptor extends Data
 {
     /**
      * 标签。

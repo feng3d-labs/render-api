@@ -1,9 +1,10 @@
+import { Data } from "./Data";
 import { TextureView } from "./TextureView";
 
 /**
  * 渲染通道颜色附件。
  */
-export class RenderPassColorAttachment
+export class RenderPassColorAttachment extends Data
 {
     /**
      * 颜色附件视图。

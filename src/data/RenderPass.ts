@@ -1,12 +1,13 @@
-import { RenderPassDescriptor } from "./RenderPassDescriptor";
+import { Data } from "./Data";
 import { RenderObject } from "./RenderObject";
+import { RenderPassDescriptor } from "./RenderPassDescriptor";
 
 /**
  * WebGL渲染通道
  *
  * 包含渲染通道描述以及需要渲染的对象列表。
  */
-export class RenderPass
+export class RenderPass extends Data
 {
     /**
      * 数据类型。

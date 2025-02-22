@@ -32,7 +32,7 @@ export * from "./data/TextureImageSource";
 export * from "./data/TextureView";
 export * from "./data/TypedArray";
 export * from "./data/Uniforms";
-export * from "./data/UnReadonly";
+export * from "./types/UnReadonly";
 export * from "./data/VertexAttributes";
 export * from "./data/VertexState";
 export * from "./data/Viewport";

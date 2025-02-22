@@ -1,9 +1,10 @@
+import { Data } from "./Data";
 import { TextureView } from "./TextureView";
 
 /**
  * 深度模板附件。
  */
-export class RenderPassDepthStencilAttachment
+export class RenderPassDepthStencilAttachment extends Data
 {
     /**
      * 深度附件视图。
