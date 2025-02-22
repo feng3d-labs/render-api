@@ -49,6 +49,7 @@ describe("Data", () =>
 
             b? = new B();
 
+            @Data.type(B)
             arr?: B[];
         }
 
@@ -70,7 +71,6 @@ describe("Data", () =>
 
     it("getInstance", () =>
     {
-
         const submit: Submit = { // 一次GPU提交
             commandEncoders: [ // 命令编码列表
                 {

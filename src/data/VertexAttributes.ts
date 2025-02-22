@@ -14,6 +14,9 @@ export class VertexAttributes extends Data
     [name: string]: VertexAttribute;
 }
 
+// @ts-ignore
+VertexAttributes.prototype["__type__"] = "VertexAttributes";
+
 /**
  * 顶点属性数据。
  */

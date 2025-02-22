@@ -10,9 +10,12 @@ export class Uniforms extends Data
     // __type__?: "Uniforms" = "Uniforms";
 
     // [key: `u_${string}`]: IUniformType;
-    
+
     [key: string]: IUniformType;
 }
+
+// @ts-ignore
+Uniforms.prototype["__type__"] = "Uniforms";
 
 /**
  * Uniform 类型

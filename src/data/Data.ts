@@ -47,6 +47,21 @@ export class Data
         Data.classMap.set(__type__, cls);
     }
 
+    /**
+     * 使用 @Data.type(Type) 类型标记。
+     * @param type
+     */
+    static type(type: new () => any)
+    {
+        return function (target: any, propertyKey: any)
+        {
+            console.assert(!!type?.["getInstance"], `类型 ${type.name} 未注册，请使用 @Data.reg 进行注册！`);
+            // 实现类型标记逻辑
+            target.constructor.propertyType = target.constructor.propertyType || {};
+            target.constructor.propertyType[propertyKey] = type;
+        };
+    }
+
     static getCls(__type__: string)
     {
         return Data.classMap.get(__type__);
@@ -64,7 +79,7 @@ export class Data
             const value = source[key];
 
             // 基本类型
-            if (!value || typeof value !== 'object' || Array.isArray(value))
+            if (!value || typeof value !== 'object')
             {
                 target[key] = value;
                 return;
@@ -77,17 +92,19 @@ export class Data
                 return;
             }
 
-            // // 处理数组
-            // if (Array.isArray(value))
-            // {
-            //     target[key] = [];
-            //     target[key].length = value.length;
-            //     value.forEach((_item, i) =>
-            //     {
-            //         setValue(target[key], value, i as any);
-            //     });
-            //     return;
-            // }
+            // 处理类型标记
+            const propertyType = target.constructor.propertyType?.[key];
+            if (propertyType)
+            {
+                if (Array.isArray(value))
+                {
+                    target[key] = value.map((v) => propertyType.getInstance(v));
+                    return;
+                }
+
+                target[key] = propertyType.getInstance(value);
+                return;
+            }
 
             // 处理对象
             const oldValue = target[key];
