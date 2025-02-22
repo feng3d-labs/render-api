@@ -29,7 +29,7 @@ describe("Data", () =>
 
     it("getInstance", () =>
     {
-        const a = Data.getInstance({ __type__: 'A1', a: 2 });
+        const a = Data.getInstance({ __type__: 'A', a: 2 });
 
         assert.equal(a.constructor, A);
     });
