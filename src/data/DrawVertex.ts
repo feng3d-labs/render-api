@@ -14,7 +14,7 @@ export class DrawVertex extends Data
     /**
      * 数据类型。
      */
-    readonly __type: "DrawVertex" = "DrawVertex";
+    readonly __type__: "DrawVertex" = "DrawVertex";
 
     /**
      * The number of vertices to draw.

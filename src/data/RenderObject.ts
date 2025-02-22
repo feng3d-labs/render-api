@@ -17,7 +17,7 @@ export class RenderObject extends Data
     /**
      * 数据类型。
      */
-    readonly __type?: "RenderObject" = "RenderObject";
+    readonly __type__?: "RenderObject" = "RenderObject";
 
     /**
      * 视窗。

@@ -115,7 +115,7 @@ export interface ITextureDataSource
     /**
      * 数据类型。
      */
-    readonly __type: "TextureDataSource";
+    readonly __type__: "TextureDataSource";
 
     /**
      * 纹理数据。

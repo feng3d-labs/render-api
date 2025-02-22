@@ -42,7 +42,7 @@ export class Data
         console.assert(cls['getInstance'] === Data.getInstance, `对象 ${cls} 需要继承 ${Data}`);
         //
         const __type__ = new cls().__type__;
-        console.assert(!!__type__, `类型 ${cls} 属性 __type__ 未定义。`);
+        console.assert(!!__type__, `类型 ${cls.name} 属性 __type__ 未定义。`);
         //
         Data.classMap.set(__type__, cls);
     }
@@ -64,7 +64,7 @@ export class Data
             const value = source[key];
 
             // 基本类型
-            if (!value || typeof value !== 'object')
+            if (!value || typeof value !== 'object' || Array.isArray(value))
             {
                 target[key] = value;
                 return;
@@ -77,17 +77,17 @@ export class Data
                 return;
             }
 
-            // 处理数组
-            if (Array.isArray(value))
-            {
-                target[key] = [];
-                target[key].length = value.length;
-                value.forEach((_item, i) =>
-                {
-                    setValue(target[key], value, i as any);
-                });
-                return;
-            }
+            // // 处理数组
+            // if (Array.isArray(value))
+            // {
+            //     target[key] = [];
+            //     target[key].length = value.length;
+            //     value.forEach((_item, i) =>
+            //     {
+            //         setValue(target[key], value, i as any);
+            //     });
+            //     return;
+            // }
 
             // 处理对象
             const oldValue = target[key];

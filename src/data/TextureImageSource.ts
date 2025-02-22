@@ -19,7 +19,7 @@ export class TextureImageSource extends Data
     /**
      * 数据类型。
      */
-    readonly __type?: "TextureImageSource" = "TextureImageSource";
+    readonly __type__?: "TextureImageSource" = "TextureImageSource";
 
     /**
      * 图片资源。

@@ -47,7 +47,7 @@ export class Geometry extends Data
         if (this.indices)
         {
             return {
-                __type: "DrawIndexed",
+                __type__: "DrawIndexed",
                 indexCount: this.indices.length,
                 firstIndex: 0,
                 instanceCount,
@@ -55,7 +55,7 @@ export class Geometry extends Data
         }
 
         return {
-            __type: "DrawVertex",
+            __type__: "DrawVertex",
             vertexCount: Geometry.getNumVertex(this),
             instanceCount,
         };
@@ -67,7 +67,7 @@ export class Geometry extends Data
             this._draw = undefined;
             return;
         }
-        if (value.__type === "DrawVertex")
+        if (value.__type__ === "DrawVertex")
         {
             this._draw = DrawVertex.getInstance(value);
         }

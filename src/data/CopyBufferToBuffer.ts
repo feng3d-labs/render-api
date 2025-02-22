@@ -13,7 +13,7 @@ export class CopyBufferToBuffer extends Data
     /**
      * 数据类型。
      */
-    readonly __type: "CopyBufferToBuffer" = "CopyBufferToBuffer";
+    readonly __type__: "CopyBufferToBuffer" = "CopyBufferToBuffer";
 
     /**
      * 源缓冲区。

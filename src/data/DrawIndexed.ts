@@ -12,7 +12,7 @@ export class DrawIndexed extends Data
     /**
      * 数据类型。
      */
-    readonly __type: "DrawIndexed" = "DrawIndexed";
+    readonly __type__: "DrawIndexed" = "DrawIndexed";
 
     /**
      * The number of indices to draw.

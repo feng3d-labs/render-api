@@ -27,15 +27,15 @@ export class CommandEncoder extends Data
         if (!value) this._passEncoders = [];
         this._passEncoders = value.map((v) =>
         {
-            if (v.__type === "RenderPass")
+            if (v.__type__ === "RenderPass")
             {
                 return RenderPass.getInstance(v);
             }
-            if (v.__type === "CopyTextureToTexture")
+            if (v.__type__ === "CopyTextureToTexture")
             {
                 return CopyTextureToTexture.getInstance(v);
             }
-            if (v.__type === "CopyBufferToBuffer")
+            if (v.__type__ === "CopyBufferToBuffer")
             {
                 return CopyBufferToBuffer.getInstance(v);
             }

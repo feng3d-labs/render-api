@@ -13,7 +13,7 @@ export class CopyTextureToTexture extends Data
     /**
      * 数据类型。
      */
-    readonly __type: "CopyTextureToTexture" = "CopyTextureToTexture";
+    readonly __type__: "CopyTextureToTexture" = "CopyTextureToTexture";
 
     /**
      * Combined with `copySize`, defines the region of the source texture subresources.

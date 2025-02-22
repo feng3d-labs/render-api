@@ -13,7 +13,7 @@ export class RenderPass extends Data
     /**
      * 数据类型。
      */
-    readonly __type?: "RenderPass" = "RenderPass";
+    readonly __type__?: "RenderPass" = "RenderPass";
 
     /**
      * 渲染通道描述
