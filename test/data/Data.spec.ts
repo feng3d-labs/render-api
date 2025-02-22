@@ -1,4 +1,4 @@
-import { CommandEncoder, CopyBufferToBuffer, Data, RenderPass, RenderPassColorAttachment, RenderPassDescriptor, Submit, TextureImageSource } from "@feng3d/render-api";
+import { CommandEncoder, CopyBufferToBuffer, Data, Geometry, Material, PrimitiveState, RenderObject, RenderPass, RenderPassColorAttachment, RenderPassDescriptor, Submit, TextureImageSource, TextureView, VertexAttributes } from "@feng3d/render-api";
 import { assert, describe, it } from "vitest";
 
 describe("Data", () =>
@@ -82,7 +82,7 @@ describe("Data", () =>
                                 }],
                             },
                             renderObjects: [{ // 渲染对象
-                                pipeline: { // 渲染管线
+                                material: { // 渲染管线
                                     vertex: { // 顶点着色器
                                         code: `
                                     @vertex
@@ -127,6 +127,13 @@ describe("Data", () =>
 
         assert.equal(renderpass.descriptor!.constructor, RenderPassDescriptor);
         assert.equal(renderpass.descriptor!.colorAttachments![0].constructor, RenderPassColorAttachment);
+        assert.equal(renderpass.descriptor!.colorAttachments![0].view!.constructor, TextureView);
 
+        assert.equal(renderpass.renderObjects![0].constructor, RenderObject);
+        assert.equal(renderpass.renderObjects![0].material!.constructor, Material);
+        assert.equal(renderpass.renderObjects![0].geometry!.constructor, Geometry);
+
+        assert.equal(renderpass.renderObjects![0].geometry!.vertices!.constructor, VertexAttributes);
+        assert.equal(renderpass.renderObjects![0].geometry!.primitive!.constructor, PrimitiveState);
     });
 });

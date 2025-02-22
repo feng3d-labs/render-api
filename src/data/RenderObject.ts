@@ -35,7 +35,7 @@ export class RenderObject extends Data
      * 渲染管线描述。
      */
     @Data.type(Material)
-    pipeline: Material;
+    material: Material;
 
     /**
      * 渲染几何数据。
