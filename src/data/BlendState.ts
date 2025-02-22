@@ -1,4 +1,5 @@
 import { BlendComponent } from "./BlendComponent";
+import { Data } from "./Data";
 import { IColor } from "./RenderPassColorAttachment";
 
 /**
@@ -10,7 +11,7 @@ import { IColor } from "./RenderPassColorAttachment";
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpublendstate
  */
-export class BlendState
+export class BlendState extends Data
 {
     /**
      * 混合时使用的常量值，默认为 [0,0,0,0]。
@@ -33,15 +34,6 @@ export class BlendState
      * 为alpha通道定义相应渲染目标的混合行为。
      */
     readonly alpha?: BlendComponent = new BlendComponent();
-
-    constructor(blend?: BlendState)
-    {
-        if (!blend) return;
-
-        if (blend.constantColor) this.constantColor = blend.constantColor;
-        if (blend.color) this.color = BlendComponent.getInstance(blend.color);
-        if (blend.alpha) this.alpha = BlendComponent.getInstance(blend.alpha);
-    }
 
     /**
      * 当混合系数用到了混合常量值时设置混合常量值。
@@ -71,16 +63,5 @@ export class BlendState
         }
 
         return undefined;
-    }
-
-    static getInstance(blend: BlendState): BlendState
-    {
-        if (!blend) return undefined;
-
-        if (blend instanceof BlendState)
-        {
-            return blend;
-        }
-        return new BlendState(blend);
     }
 }

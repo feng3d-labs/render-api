@@ -1,4 +1,5 @@
 import { vertexFormatMap } from "../consts/vertexFormatMap";
+import { Data } from "./Data";
 
 /**
  * 顶点属性数据映射。
@@ -11,7 +12,7 @@ export class VertexAttributes
 /**
  * 顶点属性数据。
  */
-export class VertexAttribute
+export class VertexAttribute extends Data
 {
     /**
      * 顶点数据。
