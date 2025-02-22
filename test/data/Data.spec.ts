@@ -119,7 +119,7 @@ describe("Data", () =>
 
         const instance = Submit.getInstance(submit);
         console.log(instance);
-        assert.equal(instance.constructor, Submit);
+        assert.equal(instance.constructor, Submit); 
 
         assert.equal(instance.commandEncoders[0].constructor, CommandEncoder);
 

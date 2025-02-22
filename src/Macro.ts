@@ -1,8 +1,13 @@
+import { Data } from "./data/Data";
+
 /**
  * 着色器宏定义
  */
-export class ShaderMacro
+@Data.reg
+export class ShaderMacro extends Data
 {
+    __type__?: "ShaderMacro" = "ShaderMacro";
+
     /**
      * UV中的U缩放
      */

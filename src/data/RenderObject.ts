@@ -12,8 +12,6 @@ import { Viewport } from "./Viewport";
 @Data.reg
 export class RenderObject extends Data
 {
-    __type__?: "RenderObject" = "RenderObject";
-    
     /**
      * 数据类型。
      */
@@ -24,26 +22,31 @@ export class RenderObject extends Data
      *
      * 描述渲染在画布的哪个区域，默认整个画布。
      */
+    @Data.type(Viewport)
     viewport?: Viewport;
 
     /**
      * 光栅化阶段中使用的剪刀矩形。
      */
+    @Data.type(ScissorRect)
     scissorRect?: ScissorRect;
 
     /**
      * 渲染管线描述。
      */
+    @Data.type(Material)
     pipeline: Material;
 
     /**
      * 渲染几何数据。
      */
+    @Data.type(Geometry)
     geometry: Geometry;
 
     /**
      * Uniform变量数据
      */
+    @Data.type(Uniforms)
     readonly uniforms?: Uniforms = new Uniforms();
 
     _version?: number;
@@ -51,5 +54,6 @@ export class RenderObject extends Data
     /**
      * shader 中的 宏
      */
+    @Data.type(ShaderMacro)
     shaderMacro?: ShaderMacro = new ShaderMacro();
 }

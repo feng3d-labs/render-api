@@ -39,7 +39,7 @@ export class Data
      */
     static reg(cls: new () => any)
     {
-        console.assert(cls['getInstance'] === Data.getInstance, `对象 ${cls} 需要继承 ${Data}`);
+        console.assert(!!cls[getInstance], `对象 ${cls} 需要继承 ${Data.name} 或者 实现 static ${getInstance} 方法！`);
         //
         const __type__ = new cls().__type__;
         console.assert(!!__type__, `类型 ${cls.name} 属性 __type__ 未定义。`);
@@ -98,20 +98,20 @@ export class Data
                 if (Array.isArray(value))
                 {
                     target[key] = value.map((v) =>
-                        (propertyType.getInstance ? propertyType.getInstance(v) : propertyType(v))
+                        (propertyType[getInstance] ? propertyType[getInstance](v) : propertyType(v))
                     );
                     return;
                 }
 
-                target[key] = propertyType.getInstance ? propertyType.getInstance(value) : propertyType(value);
+                target[key] = propertyType[getInstance] ? propertyType[getInstance](value) : propertyType(value);
                 return;
             }
 
             // 处理对象
             const oldValue = target[key];
-            if (oldValue?.constructor?.getInstance)
+            if (oldValue?.constructor?.[getInstance])
             {
-                target[key] = oldValue.constructor.getInstance(value);
+                target[key] = oldValue.constructor[getInstance](value);
                 return;
             }
 
@@ -123,3 +123,5 @@ export class Data
     protected static cache = new Map();
     protected static classMap = new Map();
 }
+
+const getInstance = 'getInstance';

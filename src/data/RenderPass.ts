@@ -18,12 +18,14 @@ export class RenderPass extends Data
     /**
      * 渲染通道描述
      */
-    readonly descriptor?: RenderPassDescriptor = new RenderPassDescriptor();
+    @Data.type(RenderPassDescriptor)
+    readonly descriptor?: RenderPassDescriptor;
 
     /**
      * 渲染对象列表
      */
-    readonly renderObjects?: readonly IRenderPassObject[] = [];
+    @Data.type(RenderObject)
+    readonly renderObjects?: readonly IRenderPassObject[];
 
     // /**
     //  * 渲染不被遮挡查询结果。具体数据保存在各子项的"result"属性中。
