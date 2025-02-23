@@ -69,26 +69,24 @@ export class TextureImageSource extends Data
      * @param texImageSource 纹理的图片资源。
      * @returns
      */
-    static getTexImageSourceSize(source: TextureImageSource): IImageSize
+    static getTexImageSourceSize(image: TexImageSource): IImageSize
     {
-        const texImageSource = source.image;
-
         let width: number;
         let height: number;
-        if (texImageSource instanceof VideoFrame)
+        if (image instanceof VideoFrame)
         {
-            width = texImageSource.codedWidth;
-            height = texImageSource.codedHeight;
+            width = image.codedWidth;
+            height = image.codedHeight;
         }
-        else if (texImageSource instanceof HTMLVideoElement)
+        else if (image instanceof HTMLVideoElement)
         {
-            width = texImageSource.videoWidth;
-            height = texImageSource.videoHeight;
+            width = image.videoWidth;
+            height = image.videoHeight;
         }
         else
         {
-            width = texImageSource.width;
-            height = texImageSource.height;
+            width = image.width;
+            height = image.height;
         }
 
         return [width, height];
