@@ -40,45 +40,7 @@ export class Geometry extends Data
     /**
      * 绘制。
      */
-    get draw(): IDraw
-    {
-        if (this._draw) return this._draw;
-
-        const instanceCount = Geometry.getInstanceCount(this);
-
-        if (this.indices)
-        {
-            return {
-                __type__: "DrawIndexed",
-                indexCount: this.indices.length,
-                firstIndex: 0,
-                instanceCount,
-            };
-        }
-
-        return {
-            __type__: "DrawVertex",
-            vertexCount: Geometry.getNumVertex(this),
-            instanceCount,
-        };
-    }
-    set draw(value: IDraw)
-    {
-        if (!value)
-        {
-            this._draw = undefined;
-            return;
-        }
-        if (value.__type__ === "DrawVertex")
-        {
-            this._draw = DrawVertex.getInstance(value);
-        }
-        else
-        {
-            this._draw = DrawIndexed.getInstance(value);
-        }
-    }
-    protected _draw?: IDraw;
+    draw?: IDraw;
 
     /**
      * 获取顶点数量。
@@ -108,7 +70,7 @@ export class Geometry extends Data
         const attributes = geometry.vertices;
         const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => v.stepMode === "instance");
 
-        const count = VertexAttribute.getVertexCount(vertexList[0]);
+        const count = vertexList.length > 0 ? VertexAttribute.getVertexCount(vertexList[0]) : 1;
 
         // 验证所有顶点属性数据的顶点数量一致。
         console.assert(vertexList.length > 0 && vertexList.every((v) => count === VertexAttribute.getVertexCount(v)));
@@ -116,6 +78,47 @@ export class Geometry extends Data
         return count;
     }
 }
+
+Object.defineProperty(Geometry.prototype, "draw", {
+    get: function getDraw(this: Geometry)
+    {
+        if (this['_draw']) return this['_draw'];
+
+        const instanceCount = Geometry.getInstanceCount(this);
+
+        if (this.indices)
+        {
+            return {
+                __type__: "DrawIndexed",
+                indexCount: this.indices.length,
+                firstIndex: 0,
+                instanceCount,
+            };
+        }
+
+        return {
+            __type__: "DrawVertex",
+            vertexCount: Geometry.getNumVertex(this),
+            instanceCount,
+        };
+    },
+    set: function setDraw(this: Geometry, value: IDraw)
+    {
+        if (!value)
+        {
+            this['_draw'] = undefined;
+            return;
+        }
+        if (value.__type__ === "DrawVertex")
+        {
+            this['_draw'] = DrawVertex.getInstance(value);
+        }
+        else
+        {
+            this['_draw'] = DrawIndexed.getInstance(value);
+        }
+    },
+});
 
 /**
  * 顶点索引数据类型。

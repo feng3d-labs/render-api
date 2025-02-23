@@ -60,11 +60,6 @@ export class VertexAttribute extends Data
      */
     static getVertexCount(attribute: VertexAttribute)
     {
-        if (attribute.stepMode === "instance") 
-        {
-            return 1;
-        }
-
         // 单个顶点属性数据尺寸。
         const attributeSize = VertexAttribute.getVertexByteSize(attribute);
         const offset = attribute.offset || 0;

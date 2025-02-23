@@ -9,7 +9,7 @@ import { ITextureLike } from "./TextureView";
  * {@link GPUImageCopyTexture}
  */
 @Data.reg
-export class ImageCopyTexture
+export class ImageCopyTexture extends Data
 {
     __type__?: "ImageCopyTexture" = "ImageCopyTexture";
 
