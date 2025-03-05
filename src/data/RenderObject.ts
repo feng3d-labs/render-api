@@ -49,11 +49,11 @@ export class RenderObject extends Data
     @Data.type(Uniforms)
     readonly uniforms?: Uniforms = new Uniforms();
 
-    _version?: number;
-
     /**
      * shader 中的 宏
-     */
+    */
     @Data.type(ShaderMacro)
     shaderMacro?: ShaderMacro = new ShaderMacro();
+
+    _version?: number;
 }

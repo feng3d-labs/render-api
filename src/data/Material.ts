@@ -24,13 +24,13 @@ export class Material extends Data
      * 顶点着色器阶段描述。
      */
     @Data.type(VertexState)
-    readonly vertex: VertexState;
+    readonly vertex: VertexState = new VertexState();
 
     /**
      * 片段着色器阶段描述。
      */
     @Data.type(FragmentState)
-    readonly fragment?: FragmentState;
+    readonly fragment?: FragmentState = new FragmentState();
 
     /**
      * 深度模板阶段描述。
