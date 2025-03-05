@@ -1,3 +1,5 @@
+export * from "./Macro";
+
 export * from "./consts/vertexFormatMap";
 
 export * from "./data/BlendComponent";
