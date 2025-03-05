@@ -55,7 +55,10 @@ export class Geometry extends Data
         const count = VertexAttribute.getVertexCount(vertexList[0]);
 
         // 验证所有顶点属性数据的顶点数量一致。
-        console.assert(vertexList.length > 0 && vertexList.every((v) => count === VertexAttribute.getVertexCount(v)));
+        if (vertexList.length > 0)
+        {
+            console.assert(vertexList.every((v) => count === VertexAttribute.getVertexCount(v)));
+        }
 
         return count;
     }
@@ -73,7 +76,10 @@ export class Geometry extends Data
         const count = vertexList.length > 0 ? VertexAttribute.getVertexCount(vertexList[0]) : 1;
 
         // 验证所有顶点属性数据的顶点数量一致。
-        console.assert(vertexList.length > 0 && vertexList.every((v) => count === VertexAttribute.getVertexCount(v)));
+        if (vertexList.length > 0)
+        {
+            console.assert(vertexList.every((v) => count === VertexAttribute.getVertexCount(v)));
+        }
 
         return count;
     }

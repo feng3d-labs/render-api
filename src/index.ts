@@ -1,4 +1,4 @@
-export * from "./Macro";
+export * from "./ShaderMacro";
 
 export * from "./consts/vertexFormatMap";
 

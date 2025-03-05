@@ -1,4 +1,4 @@
-import { ShaderMacro } from "../Macro";
+import { ShaderMacro } from "../ShaderMacro";
 import { Data } from "./Data";
 import { Geometry } from "./Geometry";
 import { Material } from "./Material";
