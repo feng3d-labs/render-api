@@ -50,9 +50,9 @@ export class Geometry extends Data
     static getNumVertex(geometry: Geometry)
     {
         const attributes = geometry.vertices;
-        const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => v.stepMode !== "instance");
+        const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => (v.data && v.stepMode !== "instance"));
 
-        const count = VertexAttribute.getVertexCount(vertexList[0]);
+        const count = vertexList.length > 0 ? VertexAttribute.getVertexCount(vertexList[0]) : 0;
 
         // 验证所有顶点属性数据的顶点数量一致。
         if (vertexList.length > 0)
@@ -71,7 +71,7 @@ export class Geometry extends Data
     static getInstanceCount(geometry: Geometry)
     {
         const attributes = geometry.vertices;
-        const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => v.stepMode === "instance");
+        const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => (v.data && v.stepMode === "instance"));
 
         const count = vertexList.length > 0 ? VertexAttribute.getVertexCount(vertexList[0]) : 1;
 
