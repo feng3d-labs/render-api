@@ -1,5 +1,4 @@
 import { DataProxy } from "../DataProxy";
-import { Data } from "./Data";
 import { DepthStencilState } from "./DepthStencilState";
 import { FragmentState } from "./FragmentState";
 import { VertexState } from "./VertexState";
@@ -41,6 +40,21 @@ export interface Material
 export class Material
 {
     static addInitFunc: (func: (material: Material) => ((material: Material) => void)) => void = DataProxy.addInitFunc;
-    static init: (material: Material) => Material = DataProxy.init;
+    static init: (material: Partial<Material>) => Material = DataProxy.init;
     static del: (material: Material) => Material = DataProxy.del;
 }
+
+Material.addInitFunc((material) =>
+{
+    // Object.defineProperty(material, 'vertex', {
+
+    // });
+    //
+    material.__type__ = "Material";
+    material.vertex = new VertexState();
+    material.fragment = new FragmentState();
+    return (material) =>
+    {
+
+    };
+});
