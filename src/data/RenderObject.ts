@@ -1,4 +1,3 @@
-import { ShaderMacro } from "../ShaderMacro";
 import { Data } from "./Data";
 import { Geometry } from "./Geometry";
 import { Material } from "./Material";
@@ -48,12 +47,6 @@ export class RenderObject extends Data
      */
     @Data.type(Uniforms)
     readonly uniforms?: Uniforms = new Uniforms();
-
-    /**
-     * shader 中的 宏
-    */
-    @Data.type(ShaderMacro)
-    shaderMacro?: ShaderMacro = new ShaderMacro();
 
     _version?: number;
 }

@@ -1,3 +1,4 @@
+import { DataProxy } from "../DataProxy";
 import { Data } from "./Data";
 import { DepthStencilState } from "./DepthStencilState";
 import { FragmentState } from "./FragmentState";
@@ -8,10 +9,9 @@ import { VertexState } from "./VertexState";
  * 
  * 对应WebGPU的Pipeline。
  */
-@Data.reg
-export class Material extends Data
+export interface Material
 {
-    __type__?: "Material" = "Material";
+    __type__?: "Material";
 
     /**
      * 标签。
@@ -23,20 +23,24 @@ export class Material extends Data
     /**
      * 顶点着色器阶段描述。
      */
-    @Data.type(VertexState)
-    readonly vertex: VertexState = new VertexState();
+    vertex: VertexState;
 
     /**
      * 片段着色器阶段描述。
      */
-    @Data.type(FragmentState)
-    readonly fragment?: FragmentState = new FragmentState();
+    fragment?: FragmentState;
 
     /**
      * 深度模板阶段描述。
      */
-    @Data.type(DepthStencilState)
     readonly depthStencil?: DepthStencilState;
 
     _version?: number;
+}
+
+export class Material
+{
+    static addInitFunc: (func: (material: Material) => ((material: Material) => void)) => void = DataProxy.addInitFunc;
+    static init: (material: Material) => Material = DataProxy.init;
+    static del: (material: Material) => Material = DataProxy.del;
 }

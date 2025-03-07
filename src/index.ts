@@ -1,5 +1,3 @@
-export * from "./ShaderMacro";
-
 export * from "./consts/vertexFormatMap";
 
 export * from "./data/BlendComponent";
