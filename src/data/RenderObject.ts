@@ -1,4 +1,3 @@
-import { Data } from "./Data";
 import { Geometry } from "./Geometry";
 import { RenderPipeline } from "./RenderPipeline";
 import { ScissorRect } from "./ScissorRect";
@@ -8,8 +7,7 @@ import { Viewport } from "./Viewport";
 /**
  * 渲染对象，包含一次渲染时包含的所有数据。
  */
-@Data.reg
-export class RenderObject extends Data
+export class RenderObject
 {
     /**
      * 数据类型。
@@ -21,31 +19,26 @@ export class RenderObject extends Data
      *
      * 描述渲染在画布的哪个区域，默认整个画布。
      */
-    @Data.type(Viewport)
     viewport?: Viewport;
 
     /**
      * 光栅化阶段中使用的剪刀矩形。
      */
-    @Data.type(ScissorRect)
     scissorRect?: ScissorRect;
 
     /**
      * 渲染管线描述。
      */
-    @Data.type(RenderPipeline)
     pipeline: RenderPipeline;
 
     /**
      * 渲染几何数据。
      */
-    @Data.type(Geometry)
     geometry: Geometry;
 
     /**
      * Uniform变量数据
      */
-    @Data.type(Uniforms)
     readonly uniforms?: Uniforms = new Uniforms();
 
     _version?: number;

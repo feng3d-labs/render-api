@@ -1,12 +1,10 @@
-import { Data } from "./Data";
 import { RenderPassColorAttachment } from "./RenderPassColorAttachment";
 import { RenderPassDepthStencilAttachment } from "./RenderPassDepthStencilAttachment";
 
 /**
  * 渲染通道描述
  */
-@Data.reg
-export class RenderPassDescriptor extends Data
+export class RenderPassDescriptor
 {
     __type__?: "RenderPassDescriptor" = "RenderPassDescriptor";
 
@@ -20,7 +18,6 @@ export class RenderPassDescriptor extends Data
     /**
      * 颜色附件
      */
-    @Data.type(RenderPassColorAttachment)
     readonly colorAttachments?: readonly RenderPassColorAttachment[] = [];
 
     /**
@@ -28,7 +25,6 @@ export class RenderPassDescriptor extends Data
      *
      * 当使用深度附件时，必须设置 。
      */
-    @Data.type(RenderPassDepthStencilAttachment)
     readonly depthStencilAttachment?: RenderPassDepthStencilAttachment;
 
     /**

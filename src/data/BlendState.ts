@@ -1,5 +1,4 @@
 import { BlendComponent } from "./BlendComponent";
-import { Data } from "./Data";
 import { IColor } from "./RenderPassColorAttachment";
 
 /**
@@ -11,8 +10,7 @@ import { IColor } from "./RenderPassColorAttachment";
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpublendstate
  */
-@Data.reg
-export class BlendState extends Data
+export class BlendState
 {
     __type__?: "BlendState" = "BlendState";
 
@@ -31,13 +29,11 @@ export class BlendState extends Data
     /**
      * 为颜色通道定义相应渲染目标的混合行为。
      */
-    @Data.type(BlendComponent)
     readonly color?: BlendComponent;
 
     /**
      * 为alpha通道定义相应渲染目标的混合行为。
      */
-    @Data.type(BlendComponent)
     readonly alpha?: BlendComponent;
 
     /**

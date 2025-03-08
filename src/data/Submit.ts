@@ -1,19 +1,16 @@
 import { CommandEncoder } from "./CommandEncoder";
-import { Data } from "./Data";
 
 /**
  * 一次 GPU 提交。
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/GPUQueue/submit
  */
-@Data.reg
-export class Submit extends Data
+export class Submit 
 {
     __type__?: "Submit" = "Submit";
 
     /**
      * 命令编码器列表。
      */
-    @Data.type(CommandEncoder)
     commandEncoders: CommandEncoder[];
 }

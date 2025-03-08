@@ -1,11 +1,9 @@
-import { Data } from "./Data";
 import { TextureView } from "./TextureView";
 
 /**
  * 渲染通道颜色附件。
  */
-@Data.reg
-export class RenderPassColorAttachment extends Data
+export class RenderPassColorAttachment
 {
     __type__?: "RenderPassColorAttachment" = "RenderPassColorAttachment";
 
@@ -22,7 +20,6 @@ export class RenderPassColorAttachment extends Data
      * 注：引擎运行中该属性可能是 IGLRenderbuffer 类型，用于处理多重采样。
      *
      */
-    @Data.type(TextureView)
     readonly view?: TextureView = new TextureView();
 
     /**

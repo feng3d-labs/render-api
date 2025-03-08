@@ -1,11 +1,9 @@
-import { Data } from "./Data";
 import { Texture } from "./Texture";
 
 /**
  * 纹理视图。
  */
-@Data.reg
-export class TextureView extends Data
+export class TextureView
 {
     __type__?: "TextureView" = "TextureView";
 
@@ -19,7 +17,6 @@ export class TextureView extends Data
     /**
      * 产生视图的纹理。
      */
-    @Data.type(Texture)
     readonly texture: ITextureLike;
 
     /**

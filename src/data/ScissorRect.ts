@@ -1,5 +1,3 @@
-import { Data } from "./Data";
-
 /**
  * 剪刀盒。
  *
@@ -17,8 +15,7 @@ import { Data } from "./Data";
  * @see https://www.orillusion.com/zh/webgpu.html#dom-gpurenderpassencoder-setscissorrect
  *
  */
-@Data.reg
-export class ScissorRect extends Data
+export class ScissorRect
 {
     __type__?: "ScissorRect" = "ScissorRect";
     

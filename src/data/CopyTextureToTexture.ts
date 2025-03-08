@@ -1,4 +1,3 @@
-import { Data } from "./Data";
 import { ImageCopyTexture } from "./ImageCopyTexture";
 import { ITextureSize } from "./Texture";
 
@@ -7,8 +6,7 @@ import { ITextureSize } from "./Texture";
  *
  * {@link GPUCommandEncoder.copyTextureToTexture}
  */
-@Data.reg
-export class CopyTextureToTexture extends Data
+export class CopyTextureToTexture
 {
     /**
      * 数据类型。

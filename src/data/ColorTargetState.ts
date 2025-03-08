@@ -1,13 +1,11 @@
 import { BlendState } from "./BlendState";
-import { Data } from "./Data";
 
 /**
  * 属性 `format` 将由渲染通道中附件给出。
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpucolortargetstate
  */
-@Data.reg
-export class ColorTargetState extends Data
+export class ColorTargetState
 {
     __type__?: "ColorTargetState" = "ColorTargetState";
 
@@ -19,7 +17,6 @@ export class ColorTargetState extends Data
      *
      * 默认 `undefined`，表示不进行混合。
      */
-    @Data.type(BlendState)
     blend?: BlendState;
 
     /**

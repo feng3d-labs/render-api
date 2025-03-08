@@ -1,5 +1,3 @@
-import { Data } from "./Data";
-
 /**
  * 为颜色或alpha通道定义相应渲染目标的混合行为。
  *
@@ -12,8 +10,7 @@ import { Data } from "./Data";
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpucolortargetstate
  */
-@Data.reg
-export class BlendComponent extends Data
+export class BlendComponent
 {
     __type__?: "BlendComponent" = "BlendComponent";
 

@@ -51,9 +51,7 @@ RenderPipeline.addInitFunc((pipeline) =>
     // });
     //
     pipeline.__type__ = "RenderPipeline";
-    pipeline.vertex = new VertexState();
-    pipeline.fragment = new FragmentState();
-    return (material) =>
+    return () =>
     {
 
     };

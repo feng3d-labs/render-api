@@ -1,4 +1,3 @@
-import { Data } from "./Data";
 import { ITextureOrigin, Texture } from "./Texture";
 import { ITextureLike } from "./TextureView";
 
@@ -8,15 +7,13 @@ import { ITextureLike } from "./TextureView";
  * {@link GPUCommandEncoder.copyTextureToTexture}
  * {@link GPUImageCopyTexture}
  */
-@Data.reg
-export class ImageCopyTexture extends Data
+export class ImageCopyTexture
 {
     __type__?: "ImageCopyTexture" = "ImageCopyTexture";
 
     /**
      * Texture to copy to/from.
      */
-    @Data.type(Texture)
     texture: ITextureLike;
 
     /**

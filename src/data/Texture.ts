@@ -1,12 +1,10 @@
-import { Data } from "./Data";
 import { TextureDataSource } from "./ITextureDataSource";
 import { TextureImageSource } from "./TextureImageSource";
 
 /**
  * 纹理
  */
-@Data.reg
-export class Texture extends Data
+export class Texture 
 {
     __type__?: "Texture" = "Texture";
 
@@ -37,7 +35,6 @@ export class Texture extends Data
      * @see GPUQueue.copyExternalImageToTexture
      * @see GPUQueue.writeTexture
      */
-    @Data.type(TextureImageSource)
     sources?: readonly TextureSource[];
 
     /**
@@ -56,7 +53,6 @@ export class Texture extends Data
      * @see GPUQueue.copyExternalImageToTexture
      * @see GPUQueue.writeTexture
      */
-    @Data.type(TextureImageSource)
     writeTextures?: readonly TextureSource[];
 
     /**

@@ -1,4 +1,3 @@
-import { Data } from "./Data";
 import { IImageOrigin, IImageSize, ITextureOrigin, ITextureSize } from "./Texture";
 
 /**
@@ -13,8 +12,7 @@ import { IImageOrigin, IImageSize, ITextureOrigin, ITextureSize } from "./Textur
  *
  * @see GPUQueue.copyExternalImageToTexture
  */
-@Data.reg
-export class TextureImageSource extends Data
+export class TextureImageSource 
 {
     /**
      * 数据类型。

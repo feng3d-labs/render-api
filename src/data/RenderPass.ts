@@ -1,4 +1,3 @@
-import { Data } from "./Data";
 import { RenderObject } from "./RenderObject";
 import { RenderPassDescriptor } from "./RenderPassDescriptor";
 
@@ -7,8 +6,7 @@ import { RenderPassDescriptor } from "./RenderPassDescriptor";
  *
  * 包含渲染通道描述以及需要渲染的对象列表。
  */
-@Data.reg
-export class RenderPass extends Data
+export class RenderPass
 {
     /**
      * 数据类型。
@@ -18,13 +16,11 @@ export class RenderPass extends Data
     /**
      * 渲染通道描述
      */
-    @Data.type(RenderPassDescriptor)
     readonly descriptor?: RenderPassDescriptor;
 
     /**
      * 渲染对象列表
      */
-    @Data.type(RenderObject)
     readonly renderObjects?: readonly IRenderPassObject[];
 
     // /**

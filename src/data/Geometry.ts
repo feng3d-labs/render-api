@@ -1,4 +1,3 @@
-import { Data } from "./Data";
 import { DrawIndexed } from "./DrawIndexed";
 import { DrawVertex } from "./DrawVertex";
 import { PrimitiveState } from "./PrimitiveState";
@@ -13,8 +12,7 @@ import { VertexAttribute, VertexAttributes } from "./VertexAttributes";
  * - 如何渲染
  * - 拓扑结构
  */
-@Data.reg
-export class Geometry extends Data
+export class Geometry
 {
     __type__?: "Geometry" = "Geometry";
 
@@ -23,13 +21,11 @@ export class Geometry extends Data
      *
      * 图元拓扑结构。
      */
-    @Data.type(PrimitiveState)
     primitive?: PrimitiveState = new PrimitiveState();
 
     /**
      * 顶点属性数据映射。
      */
-    @Data.type(VertexAttributes)
     vertices?: VertexAttributes = new VertexAttributes();
 
     /**
@@ -117,11 +113,11 @@ Object.defineProperty(Geometry.prototype, "draw", {
         }
         if (value.__type__ === "DrawVertex")
         {
-            this['_draw'] = DrawVertex.getInstance(value);
+            this['_draw'] = value;
         }
         else
         {
-            this['_draw'] = DrawIndexed.getInstance(value);
+            this['_draw'] = value;
         }
     },
 });

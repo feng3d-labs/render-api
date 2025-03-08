@@ -1,5 +1,4 @@
 import { Buffer } from "./Buffer";
-import { Data } from "./Data";
 
 /**
  * GPU缓冲区之间拷贝。
@@ -7,8 +6,7 @@ import { Data } from "./Data";
  * {@link WebGL2RenderingContextBase.copyBufferSubData}
  * {@link GPUCommandEncoder.copyBufferToBuffer}
  */
-@Data.reg
-export class CopyBufferToBuffer extends Data
+export class CopyBufferToBuffer
 {
     /**
      * 数据类型。
@@ -18,7 +16,6 @@ export class CopyBufferToBuffer extends Data
     /**
      * 源缓冲区。
      */
-    @Data.type(Buffer)
     source: Buffer;
 
     /**

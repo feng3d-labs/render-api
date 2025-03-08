@@ -1,8 +1,6 @@
 import { TypedArray } from "../types/TypedArray";
-import { Data } from "./Data";
 
-@Data.reg
-export class WriteBuffer extends Data
+export class WriteBuffer
 {
     __type__?: "WriteBuffer" = "WriteBuffer";
 

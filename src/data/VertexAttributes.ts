@@ -1,11 +1,9 @@
 import { vertexFormatMap } from "../consts/vertexFormatMap";
-import { Data } from "./Data";
 
 /**
  * 顶点属性数据映射。
  */
-@Data.reg
-export class VertexAttributes extends Data
+export class VertexAttributes
 {
     __type__?: any = "VertexAttributes";
 
@@ -17,7 +15,7 @@ export class VertexAttributes extends Data
 /**
  * 顶点属性数据。
  */
-export class VertexAttribute extends Data
+export class VertexAttribute
 {
     /**
      * 顶点数据。

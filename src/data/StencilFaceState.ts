@@ -1,12 +1,9 @@
-import { Data } from "./Data";
-
 /**
  * {@link GPUStencilFaceState}
  *
  * @see https://www.orillusion.com/zh/webgpu.html#dictdef-gpustencilfacestate
  */
-@Data.reg
-export class StencilFaceState extends Data
+export class StencilFaceState 
 {
     __type__?: "StencilFaceState" = "StencilFaceState";
 

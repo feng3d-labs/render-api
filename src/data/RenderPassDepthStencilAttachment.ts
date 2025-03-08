@@ -1,11 +1,9 @@
-import { Data } from "./Data";
 import { TextureView } from "./TextureView";
 
 /**
  * 深度模板附件。
  */
-@Data.reg
-export class RenderPassDepthStencilAttachment extends Data
+export class RenderPassDepthStencilAttachment
 {
     __type__?: "RenderPassDepthStencilAttachment" = "RenderPassDepthStencilAttachment";
 
@@ -17,7 +15,6 @@ export class RenderPassDepthStencilAttachment extends Data
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/framebufferTexture2D
      */
-    @Data.type(TextureView)
     readonly view?: TextureView;
 
     /**

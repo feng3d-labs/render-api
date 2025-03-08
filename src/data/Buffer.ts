@@ -1,4 +1,3 @@
-import { Data } from "./Data";
 import { TypedArray } from "../types/TypedArray";
 import { WriteBuffer } from "./WriteBuffer";
 
@@ -11,8 +10,7 @@ import { WriteBuffer } from "./WriteBuffer";
  *
  * {@link GPUBuffer}
  */
-@Data.reg
-export class Buffer extends Data
+export class Buffer
 {
     __type__?: "Buffer" = "Buffer";
 
@@ -40,6 +38,5 @@ export class Buffer extends Data
      *
      * {@link GPUQueue.writeBuffer}
      */
-    @Data.type(WriteBuffer)
     writeBuffers?: WriteBuffer[];
 }

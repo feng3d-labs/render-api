@@ -1,4 +1,3 @@
-import { Data } from "./Data";
 import { ICompareFunction, StencilFaceState } from "./StencilFaceState";
 
 /**
@@ -10,8 +9,7 @@ import { ICompareFunction, StencilFaceState } from "./StencilFaceState";
  *
  * @see https://www.orillusion.com/zh/webgpu.html#depth-stencil-state
  */
-@Data.reg
-export class DepthStencilState extends Data
+export class DepthStencilState
 {
     __type__?: "DepthStencilState" = "DepthStencilState";
 
@@ -38,7 +36,6 @@ export class DepthStencilState extends Data
      *
      * 默认为 {}。
      */
-    @Data.type(StencilFaceState)
     readonly stencilFront?: StencilFaceState = new StencilFaceState();
 
     /**
@@ -46,7 +43,6 @@ export class DepthStencilState extends Data
      *
      * 默认为 {}。
      */
-    @Data.type(StencilFaceState)
     readonly stencilBack?: StencilFaceState = new StencilFaceState();
 
     /**

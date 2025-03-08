@@ -1,13 +1,10 @@
-import { Data } from "./Data";
-
 /**
  * 根据索引数据绘制图元。
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements
  * @see GPURenderCommandsMixin.drawIndexed
  */
-@Data.reg
-export class DrawIndexed extends Data
+export class DrawIndexed
 {
     /**
      * 数据类型。

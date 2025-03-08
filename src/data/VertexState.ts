@@ -1,10 +1,7 @@
-import { Data } from "./Data";
-
 /**
  * 顶点着色器阶段描述。
  */
-@Data.reg
-export class VertexState extends Data
+export class VertexState
 {
     __type__?: "VertexState" = "VertexState";
 

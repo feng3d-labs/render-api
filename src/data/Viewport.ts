@@ -1,4 +1,3 @@
-import { Data } from "./Data";
 
 /**
  * 视窗。
@@ -19,8 +18,7 @@ import { Data } from "./Data";
  * @see https://gpuweb.github.io/gpuweb/#dom-gpurenderpassencoder-setviewport
  *
  */
-@Data.reg
-export class Viewport extends Data
+export class Viewport
 {
     __type__?: "Viewport" = "Viewport";
 

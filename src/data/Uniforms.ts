@@ -1,11 +1,9 @@
 import { BufferBinding, IBufferBindingItem } from "./BufferBinding";
-import { Data } from "./Data";
 
 /**
  * Uniform 数据
  */
-@Data.reg
-export class Uniforms extends Data
+export class Uniforms
 {
     __type__?: any = "Uniforms";
 

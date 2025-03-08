@@ -1,6 +1,5 @@
 import { CopyBufferToBuffer } from "./CopyBufferToBuffer";
 import { CopyTextureToTexture } from "./CopyTextureToTexture";
-import { Data } from "./Data";
 import { RenderPass } from "./RenderPass";
 
 /**
@@ -8,8 +7,7 @@ import { RenderPass } from "./RenderPass";
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/GPUCommandEncoder
  */
-@Data.reg
-export class CommandEncoder extends Data
+export class CommandEncoder
 {
     __type__?: "CommandEncoder" = "CommandEncoder";
 
@@ -18,27 +16,8 @@ export class CommandEncoder extends Data
      *
      * 包括计算通道编码器、渲染通道编码器 以及 GPU中缓存与纹理之间拷贝。
      */
-    @Data.type(getPassEncoder)
     passEncoders: IPassEncoder[]
 }
-
-function getPassEncoder(v: IPassEncoder)
-{
-    if (v.__type__ === "RenderPass" || !v.__type__)
-    {
-        return RenderPass.getInstance(v);
-    }
-    if (v.__type__ === "CopyTextureToTexture")
-    {
-        return CopyTextureToTexture.getInstance(v);
-    }
-    if (v.__type__ === "CopyBufferToBuffer")
-    {
-        return CopyBufferToBuffer.getInstance(v);
-    }
-    return v;
-}
-
 
 /**
  * 通道编码器。

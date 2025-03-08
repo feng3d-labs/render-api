@@ -1,12 +1,9 @@
-import { Data } from "./Data";
-
 /**
  * @see GPUCanvasContext
  * @see HTMLCanvasElement.getContext
  * @see GPUCanvasContext.configure
  */
-@Data.reg
-export class CanvasContext extends Data
+export class CanvasContext 
 {
     __type__?: "CanvasContext" = "CanvasContext";
 
