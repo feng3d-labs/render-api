@@ -4,13 +4,13 @@ import { FragmentState } from "./FragmentState";
 import { VertexState } from "./VertexState";
 
 /**
- * 材质。
+ * 渲染管线。
  * 
  * 对应WebGPU的Pipeline。
  */
 export interface RenderPipeline
 {
-    __type__?: "Material";
+    __type__?: "RenderPipeline";
 
     /**
      * 标签。
@@ -44,15 +44,15 @@ export class RenderPipeline
     static del: (material: RenderPipeline) => RenderPipeline = DataProxy.del;
 }
 
-RenderPipeline.addInitFunc((material) =>
+RenderPipeline.addInitFunc((pipeline) =>
 {
     // Object.defineProperty(material, 'vertex', {
 
     // });
     //
-    material.__type__ = "Material";
-    material.vertex = new VertexState();
-    material.fragment = new FragmentState();
+    pipeline.__type__ = "RenderPipeline";
+    pipeline.vertex = new VertexState();
+    pipeline.fragment = new FragmentState();
     return (material) =>
     {
 

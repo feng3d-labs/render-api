@@ -1,6 +1,6 @@
 import { Data } from "./Data";
 import { Geometry } from "./Geometry";
-import { RenderPipeline } from "./Material";
+import { RenderPipeline } from "./RenderPipeline";
 import { ScissorRect } from "./ScissorRect";
 import { Uniforms } from "./Uniforms";
 import { Viewport } from "./Viewport";
@@ -34,7 +34,7 @@ export class RenderObject extends Data
      * 渲染管线描述。
      */
     @Data.type(RenderPipeline)
-    material: RenderPipeline;
+    pipeline: RenderPipeline;
 
     /**
      * 渲染几何数据。
