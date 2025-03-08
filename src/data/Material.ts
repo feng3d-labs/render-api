@@ -8,7 +8,7 @@ import { VertexState } from "./VertexState";
  * 
  * 对应WebGPU的Pipeline。
  */
-export interface Material
+export interface RenderPipeline
 {
     __type__?: "Material";
 
@@ -37,14 +37,14 @@ export interface Material
     _version?: number;
 }
 
-export class Material
+export class RenderPipeline
 {
-    static addInitFunc: (func: (material: Material) => ((material: Material) => void)) => void = DataProxy.addInitFunc;
-    static init: (material: Partial<Material>) => Material = DataProxy.init;
-    static del: (material: Material) => Material = DataProxy.del;
+    static addInitFunc: (func: (material: RenderPipeline) => ((material: RenderPipeline) => void)) => void = DataProxy.addInitFunc;
+    static init: (material: Partial<RenderPipeline>) => RenderPipeline = DataProxy.init;
+    static del: (material: RenderPipeline) => RenderPipeline = DataProxy.del;
 }
 
-Material.addInitFunc((material) =>
+RenderPipeline.addInitFunc((material) =>
 {
     // Object.defineProperty(material, 'vertex', {
 
