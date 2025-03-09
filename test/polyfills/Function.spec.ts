@@ -3,7 +3,7 @@ import "../../src/polyfills/Function";
 
 describe("Function", () =>
 {
-    it("should register initialization function", () =>
+    it("应该注册初始化函数", () =>
     {
         class TestClass { }
         let initialized = false;
@@ -21,7 +21,7 @@ describe("Function", () =>
         assert.ok(TestClass.__initFuncs);
     });
 
-    it("should execute cleanup functions", () =>
+    it("应该执行清理函数", () =>
     {
         class TestClass { }
         let cleaned = false;
@@ -35,7 +35,7 @@ describe("Function", () =>
         assert.ok(!TestClass.__map.has(instance));
     });
 
-    it("should handle multiple initializations", () =>
+    it("应该处理多次初始化", () =>
     {
         class TestClass { }
         let count = 0;
@@ -53,7 +53,7 @@ describe("Function", () =>
         assert.equal(count, 1);
     });
 
-    it("should handle non-constructor calls", () =>
+    it("应该处理非构造函数调用", () =>
     {
         assert.throws(() => Object._reg(() => () => { }), /只能用于不是Object的构造函数/);
         assert.throws(() => Object._init({}), /只能用于不是Object的构造函数/);

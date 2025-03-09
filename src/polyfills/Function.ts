@@ -1,7 +1,9 @@
 export { };
 // 扩展Function接口用于添加自定义方法
-declare global {
-    interface Function {
+declare global
+{
+    interface Function
+    {
         /**
          * 注册对象初始化函数
          * @template T 构造函数类型
@@ -38,11 +40,13 @@ declare global {
  * 2. 将初始化函数添加到数组
  * 3. 对现有所有已初始化对象应用新添加的初始化函数
  */
-Function.prototype._reg = function (initFunc: (obj: any) => (() => void)) {
-    console.assert(typeof this === 'function' && this !== Object as any, "只能用于不是Object的构造函数！");
+Function.prototype._reg = function (initFunc: (obj: any) => (() => void))
+{
+    if (typeof this !== 'function' || this === Object as any) throw new Error("只能用于不是Object的构造函数！");
     this.__initFuncs || (this.__initFuncs = []);
     this.__initFuncs.push(initFunc);
-    this.__map?.forEach((delFuncs, key) => {
+    this.__map?.forEach((delFuncs, key) =>
+    {
         delFuncs.push(initFunc(key));
     });
 };
@@ -54,8 +58,9 @@ Function.prototype._reg = function (initFunc: (obj: any) => (() => void)) {
  * 3. 为对象执行所有注册的初始化函数
  * 4. 存储生成的清理函数
  */
-Function.prototype._init = function (obj: any) {
-    console.assert(typeof this === 'function' && this !== Object as any, "只能用于不是Object的构造函数！");
+Function.prototype._init = function (obj: any)
+{
+    if (typeof this !== 'function' || this === Object as any) throw new Error("只能用于不是Object的构造函数！");
     this.__map || (this.__map = new Map());
     if (this.__map.has(obj)) return;
     this.__initFuncs || (this.__initFuncs = []);
@@ -70,7 +75,8 @@ Function.prototype._init = function (obj: any) {
  * 2. 依次执行所有关联的清理函数
  * 3. 清理完成后移除映射关系
  */
-Function.prototype._del = function (obj: any) {
+Function.prototype._del = function (obj: any)
+{
     if (!this.__map || !this.__map.has(obj)) return;
     const delFuncs = this.__map.get(obj);
     delFuncs!.forEach((func) => func());
