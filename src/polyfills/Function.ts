@@ -17,7 +17,7 @@ declare global
          * @param obj 要初始化的对象实例
          * @returns 初始化后的对象
          */
-        _init<T>(this: new (...args: any) => T, obj: T & {}): T;
+        _init<T>(this: new (...args: any) => T, obj: Partial<T>): T;
 
         /**
          * 执行对象关联的清理函数
@@ -25,21 +25,12 @@ declare global
          * @param obj 要清理的对象实例
          * @returns 清理后的对象
          */
-        _del<T>(this: new (...args: any) => T, obj: T & {}): T;
+        _del<T>(this: new (...args: any) => T, obj: T): T;
 
         /** @internal 存储初始化函数的集合 */
         __initFuncs: ((obj: any) => (() => void))[];
         /** @internal 维护对象与清理函数的映射关系 */
         __map: Map<any, (() => void)[]>;
-    }
-
-    interface Object
-    {
-        /**
-         * 执行对象清理操作，触发构造函数级的清理逻辑
-         * @returns 清理后的对象实例
-         */
-        _del(): this;
     }
 }
 
@@ -75,8 +66,6 @@ Function.prototype._init = function (obj: any)
     this.__initFuncs || (this.__initFuncs = []);
     const delFuncs = this.__initFuncs.map((func) => func(obj));
     this.__map.set(obj, delFuncs);
-    // 为实例添加_del方法
-    obj._del = () => this._del(obj);
     return obj;
 }
 
@@ -92,6 +81,5 @@ Function.prototype._del = function (obj: any)
     const delFuncs = this.__map.get(obj);
     delFuncs!.forEach((func) => func());
     this.__map.delete(obj);
-    delete obj._del;
     return obj;
 }
