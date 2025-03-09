@@ -37,8 +37,7 @@ export * from "./data/VertexState";
 export * from "./data/Viewport";
 export * from "./data/WriteBuffer";
 
-export * from "./DataProxy";
-
 export * from "./types/TypedArray";
 export * from "./types/UnReadonly";
 
+import "./polyfills/Function";

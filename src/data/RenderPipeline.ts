@@ -1,4 +1,4 @@
-import { DataProxy } from "../DataProxy";
+import "../polyfills/Function";
 import { DepthStencilState } from "./DepthStencilState";
 import { FragmentState } from "./FragmentState";
 import { VertexState } from "./VertexState";
@@ -37,14 +37,9 @@ export interface RenderPipeline
     _version?: number;
 }
 
-export class RenderPipeline
-{
-    static addInitFunc: (func: (material: RenderPipeline) => ((material: RenderPipeline) => void)) => void = DataProxy.addInitFunc;
-    static init: (material: Partial<RenderPipeline>) => RenderPipeline = DataProxy.init;
-    static del: (material: RenderPipeline) => RenderPipeline = DataProxy.del;
-}
+export class RenderPipeline { }
 
-RenderPipeline.addInitFunc((pipeline) =>
+RenderPipeline._reg((pipeline) =>
 {
     // Object.defineProperty(material, 'vertex', {
 
