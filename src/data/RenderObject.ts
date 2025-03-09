@@ -50,13 +50,19 @@ export class RenderObject { }
 RenderObject._reg((renderObject) =>
 {
     const watchSession = watcher.on();
-    //
+
+    // 监听属性变化
+    watchSession.watch(renderObject, "viewport", () => Viewport._init(renderObject.viewport));
+    watchSession.watch(renderObject, "scissorRect", () => ScissorRect._init(renderObject.scissorRect));
     watchSession.watch(renderObject, "pipeline", () => RenderPipeline._init(renderObject.pipeline));
+    watchSession.watch(renderObject, "geometry", () => Geometry._init(renderObject.geometry));
     watchSession.watch(renderObject, "uniforms", () => Uniforms._init(renderObject.uniforms));
 
     // 初始化
     renderObject.__type__ = "RenderObject";
-    renderObject.uniforms = Uniforms._init({});
+    renderObject.pipeline ??= RenderPipeline._init({});
+    renderObject.geometry ??= Geometry._init({});
+    renderObject.uniforms ??= Uniforms._init({});
 
     return () =>
     {

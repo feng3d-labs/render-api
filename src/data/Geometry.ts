@@ -1,3 +1,5 @@
+import { watcher } from "@feng3d/watcher";
+import "../polyfills/Function";
 import { DrawIndexed } from "./DrawIndexed";
 import { DrawVertex } from "./DrawVertex";
 import { PrimitiveState } from "./PrimitiveState";
@@ -80,6 +82,24 @@ export class Geometry
         return count;
     }
 }
+
+Geometry._reg((geometry) =>
+{
+    const watchSession = watcher.on();
+    // 监听属性变化
+    watchSession.watch(geometry, "primitive", () => PrimitiveState._init(geometry.primitive));
+    watchSession.watch(geometry, "vertices", () => VertexAttributes._init(geometry.vertices));
+
+    // 初始化
+    geometry.__type__ = "Geometry";
+    geometry.primitive ??= PrimitiveState._init({});
+    geometry.vertices ??= VertexAttributes._init({});
+
+    return () =>
+    {
+        watchSession.off();
+    };
+})
 
 Object.defineProperty(Geometry.prototype, "draw", {
     get: function getDraw(this: Geometry)
