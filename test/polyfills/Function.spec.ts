@@ -14,7 +14,7 @@ describe("Function", () =>
             return () => initialized = false;
         });
 
-        const instance = new TestClass();
+        const instance: TestClass = {};
         TestClass._init(instance);
 
         assert.ok(initialized);
@@ -27,7 +27,7 @@ describe("Function", () =>
         let cleaned = false;
 
         TestClass._reg(() => () => cleaned = true);
-        const instance = new TestClass();
+        const instance: TestClass = {};
         TestClass._init(instance);
 
         TestClass._del(instance);
@@ -46,7 +46,7 @@ describe("Function", () =>
             return () => count--;
         });
 
-        const instance = new TestClass();
+        const instance: TestClass = {};
         TestClass._init(instance);
         TestClass._init(instance);
 
