@@ -1,3 +1,4 @@
+import { watcher } from "@feng3d/watcher";
 import { Geometry } from "./Geometry";
 import { RenderPipeline } from "./RenderPipeline";
 import { ScissorRect } from "./ScissorRect";
@@ -7,12 +8,12 @@ import { Viewport } from "./Viewport";
 /**
  * 渲染对象，包含一次渲染时包含的所有数据。
  */
-export class RenderObject
+export interface RenderObject
 {
     /**
      * 数据类型。
      */
-    readonly __type__?: "RenderObject" = "RenderObject";
+    __type__?: "RenderObject";
 
     /**
      * 视窗。
@@ -39,7 +40,26 @@ export class RenderObject
     /**
      * Uniform变量数据
      */
-    readonly uniforms?: Uniforms = new Uniforms();
+    uniforms?: Uniforms;
 
     _version?: number;
 }
+
+export class RenderObject { }
+
+RenderObject._reg((renderObject) =>
+{
+    const watchSession = watcher.on();
+    //
+    watchSession.watch(renderObject, "pipeline", () => RenderPipeline._init(renderObject.pipeline));
+    watchSession.watch(renderObject, "uniforms", () => Uniforms._init(renderObject.uniforms));
+
+    // 初始化
+    renderObject.__type__ = "RenderObject";
+    renderObject.uniforms = Uniforms._init({});
+
+    return () =>
+    {
+        watchSession.off();
+    };
+});

@@ -3,6 +3,27 @@ import "../../src/polyfills/Function";
 
 describe("Function", () =>
 {
+    it("应该初始化null时直接返回null", () =>
+    {
+        class TestClass { initialized: boolean }
+
+        TestClass._reg((instance) =>
+        {
+            instance.initialized = true;
+            return () => instance.initialized = false;
+        });
+
+        {
+            const result = TestClass._init(null as any);
+            assert.equal(result, null);
+        }
+
+        {
+            const result = TestClass._init(undefined as any);
+            assert.equal(result, undefined);
+        }
+    });
+
     it("应该注册初始化函数", () =>
     {
         class TestClass { }
@@ -19,6 +40,21 @@ describe("Function", () =>
 
         assert.ok(initialized);
         assert.ok(TestClass.__initFuncs);
+    });
+
+    it("应该调用初始化函数后返回传入的实例", () =>
+    {
+        class TestClass { }
+
+        TestClass._reg((instance) =>
+        {
+            return () => { };
+        });
+
+        const instance: TestClass = {};
+        const ins = TestClass._init(instance);
+
+        assert.equal(ins, instance); // 应该返回传入的实例
     });
 
     it("应该执行清理函数", () =>

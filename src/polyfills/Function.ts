@@ -60,6 +60,7 @@ Function.prototype._reg = function (initFunc: (obj: any) => (() => void))
  */
 Function.prototype._init = function (obj: any)
 {
+    if(!obj) return obj;
     if (typeof this !== 'function' || this === Object as any) throw new Error("只能用于不是Object的构造函数！");
     this.__map || (this.__map = new Map());
     if (this.__map.has(obj)) return;
@@ -77,6 +78,7 @@ Function.prototype._init = function (obj: any)
  */
 Function.prototype._del = function (obj: any)
 {
+    if(!obj) return obj;
     if (!this.__map || !this.__map.has(obj)) return;
     const delFuncs = this.__map.get(obj);
     delFuncs!.forEach((func) => func());
