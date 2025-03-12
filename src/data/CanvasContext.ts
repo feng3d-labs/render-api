@@ -1,7 +1,5 @@
 /**
- * @see GPUCanvasContext
- * @see HTMLCanvasElement.getContext
- * @see GPUCanvasContext.configure
+ * 画布上下文
  */
 export interface CanvasContext 
 {
