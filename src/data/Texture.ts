@@ -22,7 +22,7 @@ export interface Texture
      *
      * 修改尺寸将会引发纹理销毁，使用时重新创建新纹理。
      */
-    size: ITextureSize;
+    size: TextureSize;
 
     /**
      * 初始化纹理资源。
@@ -60,12 +60,12 @@ export interface Texture
      *
      * WebGL中不支持 "1d" "cube-array"。
      */
-    readonly dimension?: ITextureDimension;
+    readonly dimension?: TextureDimension;
 
     /**
      * 纹理格式。 默认为 "rgba8unorm"，
      */
-    readonly format?: ITextureFormat;
+    readonly format?: TextureFormat;
 
     /**
      * The number of mip levels the texture will contain.
@@ -78,13 +78,28 @@ export class Texture
     /**
      * 获取纹理每个像素占用的字节数量。
      *
-     * @param format
+     * @param format 纹理格式。
      */
-    static getTextureBytesPerPixel(format: ITextureFormat = "rgba8unorm")
+    static getTextureBytesPerPixel(format: TextureFormat = "rgba8unorm")
     {
         const bytesPerPixel = formatMap[format]?.bytesPerPixel;
 
         console.assert(!!bytesPerPixel, `未处理格式 ${format} ，无法查询到该格式中每个像素占用的字节数量！`);
+
+        return bytesPerPixel;
+    }
+
+    /**
+     * 获取纹理数据构造函数。
+     
+     * @param format 纹理格式。
+     * @returns 
+     */
+    static getTextureDataConstructor(format: TextureFormat = "rgba8unorm")
+    {
+        const bytesPerPixel = formatMap[format]?.dataConstructor;
+
+        console.assert(!!bytesPerPixel, `未处理格式 ${format} ，无法查询到该格式的纹理数据构造函数！`);
 
         return bytesPerPixel;
     }
@@ -104,7 +119,7 @@ export interface ITextureSourceMap
 /**
  * 纹理数据布局。
  */
-export interface ITextureDataLayout
+export interface TextureDataLayout
 {
     /**
      * 默认为 0。字节偏移，一般用于跳过文件头部非纹理数据部分。
@@ -131,39 +146,39 @@ export interface ITextureDataLayout
 /**
  * 图片中的坐标。
  */
-export type IImageOrigin = readonly [x: number, y: number];
+export type ImageOrigin = readonly [x: number, y: number];
 
 /**
  * 数据图片中的坐标。depthOrArrayLayers 表示数据中包含有多张图片中的第几张，只在纹理为2d纹理数组或者3d纹理时生效。
  */
-export type IDataImageOrigin = readonly [x: number, y: number, depthOrArrayLayers?: number];
+export type DataImageOrigin = readonly [x: number, y: number, depthOrArrayLayers?: number];
 
 /**
  * 图片尺寸
  */
-export type IImageSize = readonly [width: number, height: number];
+export type ImageSize = readonly [width: number, height: number];
 
 /**
  * 纹理尺寸，包含纹理的宽度、高度以及深度或者层数。
  *
  * depthOrArrayLayers: 当纹理为3d纹理时表示深度，2d纹理数组时表示数组索引，cube纹理时表示6个面的索引。
  */
-export type ITextureSize = readonly [width: number, height: number, depthOrArrayLayers?: number];
+export type TextureSize = readonly [width: number, height: number, depthOrArrayLayers?: number];
 
 /**
  * 纹理内的坐标位置。
  */
-export type ITextureOrigin = readonly [x: number, y: number, depthOrArrayLayers?: number];
+export type TextureOrigin = readonly [x: number, y: number, depthOrArrayLayers?: number];
 
 /**
  * 纹理规格维度。
  */
-export type ITextureDimension = "1d" | "2d" | "2d-array" | "cube" | "cube-array" | "3d";
+export type TextureDimension = "1d" | "2d" | "2d-array" | "cube" | "cube-array" | "3d";
 
 /**
  * 参考 GPUTextureFormat
  */
-export type ITextureFormat =
+export type TextureFormat =
 
     | "r8unorm"
     | "r8snorm"
@@ -266,49 +281,57 @@ const formatMap: {
         /**
          * 每个像素占用的字节数量
          */
-        bytesPerPixel: number
+        bytesPerPixel: number,
+
+        /**
+         * 数据构造函数
+         */
+        dataConstructor?: Uint8ArrayConstructor | Int8ArrayConstructor
+        | Uint16ArrayConstructor | Int16ArrayConstructor
+        | Uint32ArrayConstructor | Int32ArrayConstructor
+        | Float32ArrayConstructor,
     }
 } = {
-    r8unorm: { bytesPerPixel: 1 },
-    r8snorm: { bytesPerPixel: 1 },
-    r8uint: { bytesPerPixel: 1 },
-    r8sint: { bytesPerPixel: 1 },
-    r16uint: { bytesPerPixel: 2 },
-    r16sint: { bytesPerPixel: 2 },
-    r16float: { bytesPerPixel: 2 },
-    rg8unorm: { bytesPerPixel: 2 },
-    rg8snorm: { bytesPerPixel: 2 },
-    rg8uint: { bytesPerPixel: 2 },
-    rg8sint: { bytesPerPixel: 2 },
-    r32uint: { bytesPerPixel: 4 },
-    r32sint: { bytesPerPixel: 4 },
-    r32float: { bytesPerPixel: 4 },
-    rg16uint: { bytesPerPixel: 4 },
-    rg16sint: { bytesPerPixel: 4 },
-    rg16float: { bytesPerPixel: 4 },
-    rgba8unorm: { bytesPerPixel: 4 },
-    "rgba8unorm-srgb": { bytesPerPixel: 4 },
-    rgba8snorm: { bytesPerPixel: 4 },
-    rgba8uint: { bytesPerPixel: 4 },
-    rgba8sint: { bytesPerPixel: 4 },
-    bgra8unorm: { bytesPerPixel: 4 },
-    "bgra8unorm-srgb": { bytesPerPixel: 4 },
-    rgb9e5ufloat: { bytesPerPixel: 4 },
-    rgb10a2uint: { bytesPerPixel: 4 },
-    rgb10a2unorm: { bytesPerPixel: 4 },
-    rg11b10ufloat: { bytesPerPixel: 4 },
-    rg32uint: { bytesPerPixel: 8 },
-    rg32sint: { bytesPerPixel: 8 },
-    rg32float: { bytesPerPixel: 8 },
-    rgba16uint: { bytesPerPixel: 8 },
-    rgba16sint: { bytesPerPixel: 8 },
-    rgba16float: { bytesPerPixel: 8 },
-    rgba32uint: { bytesPerPixel: 16 },
-    rgba32sint: { bytesPerPixel: 16 },
-    rgba32float: { bytesPerPixel: 16 },
-    stencil8: { bytesPerPixel: 1 },
-    depth16unorm: { bytesPerPixel: 2 },
-    depth24plus: { bytesPerPixel: 3 },
+    r8unorm: { bytesPerPixel: 1, dataConstructor: Uint8Array },
+    r8snorm: { bytesPerPixel: 1, dataConstructor: Int8Array },
+    r8uint: { bytesPerPixel: 1, dataConstructor: Uint8Array },
+    r8sint: { bytesPerPixel: 1, dataConstructor: Int8Array },
+    r16uint: { bytesPerPixel: 2, dataConstructor: Uint16Array },
+    r16sint: { bytesPerPixel: 2, dataConstructor: Int16Array },
+    r16float: { bytesPerPixel: 2, dataConstructor: Uint16Array },
+    rg8unorm: { bytesPerPixel: 2, dataConstructor: Uint8Array },
+    rg8snorm: { bytesPerPixel: 2, dataConstructor: Int8Array },
+    rg8uint: { bytesPerPixel: 2, dataConstructor: Uint8Array },
+    rg8sint: { bytesPerPixel: 2, dataConstructor: Int8Array },
+    r32uint: { bytesPerPixel: 4, dataConstructor: Uint32Array },
+    r32sint: { bytesPerPixel: 4, dataConstructor: Int32Array },
+    r32float: { bytesPerPixel: 4, dataConstructor: Float32Array },
+    rg16uint: { bytesPerPixel: 4, dataConstructor: Uint16Array },
+    rg16sint: { bytesPerPixel: 4, dataConstructor: Int16Array },
+    rg16float: { bytesPerPixel: 4, dataConstructor: Uint16Array },
+    rgba8unorm: { bytesPerPixel: 4, dataConstructor: Uint8Array },
+    "rgba8unorm-srgb": { bytesPerPixel: 4, dataConstructor: Uint8Array },
+    rgba8snorm: { bytesPerPixel: 4, dataConstructor: Int8Array },
+    rgba8uint: { bytesPerPixel: 4, dataConstructor: Uint8Array },
+    rgba8sint: { bytesPerPixel: 4, dataConstructor: Int8Array },
+    bgra8unorm: { bytesPerPixel: 4, dataConstructor: Uint8Array },
+    "bgra8unorm-srgb": { bytesPerPixel: 4, dataConstructor: Uint8Array },
+    rgb9e5ufloat: { bytesPerPixel: 4, dataConstructor: Uint32Array },
+    rgb10a2uint: { bytesPerPixel: 4, dataConstructor: Uint32Array },
+    rgb10a2unorm: { bytesPerPixel: 4, dataConstructor: Uint32Array },
+    rg11b10ufloat: { bytesPerPixel: 4, dataConstructor: Uint32Array },
+    rg32uint: { bytesPerPixel: 8, dataConstructor: Uint32Array },
+    rg32sint: { bytesPerPixel: 8, dataConstructor: Int32Array },
+    rg32float: { bytesPerPixel: 8, dataConstructor: Float32Array },
+    rgba16uint: { bytesPerPixel: 8, dataConstructor: Uint16Array },
+    rgba16sint: { bytesPerPixel: 8, dataConstructor: Int16Array },
+    rgba16float: { bytesPerPixel: 8, dataConstructor: Uint16Array },
+    rgba32uint: { bytesPerPixel: 16, dataConstructor: Uint32Array },
+    rgba32sint: { bytesPerPixel: 16, dataConstructor: Int32Array },
+    rgba32float: { bytesPerPixel: 16, dataConstructor: Float32Array },
+    stencil8: { bytesPerPixel: 1, dataConstructor: Uint8Array },
+    depth16unorm: { bytesPerPixel: 2, dataConstructor: Uint16Array },
+    depth24plus: { bytesPerPixel: 3, dataConstructor: Uint8Array },
     "depth24plus-stencil8": { bytesPerPixel: 4 },
     depth32float: { bytesPerPixel: 4 },
     "depth32float-stencil8": { bytesPerPixel: 5 },

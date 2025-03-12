@@ -1,5 +1,5 @@
 import { ImageCopyTexture } from "./ImageCopyTexture";
-import { ITextureSize } from "./Texture";
+import { TextureSize } from "./Texture";
 
 /**
  * GPU纹理间拷贝。
@@ -26,5 +26,5 @@ export interface CopyTextureToTexture
     /**
      * 拷贝的尺寸。
      */
-    copySize: ITextureSize;
+    copySize: TextureSize;
 }

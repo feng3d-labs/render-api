@@ -1,4 +1,4 @@
-import { ITextureDataLayout, IDataImageOrigin, ITextureOrigin, ITextureSize } from "./Texture";
+import { TextureDataLayout, DataImageOrigin, TextureOrigin, TextureSize } from "./Texture";
 
 /**
  * 纹理的数据资源。
@@ -27,12 +27,12 @@ export interface TextureDataSource
      *
      * 纹理数据布局。
      */
-    dataLayout?: ITextureDataLayout;
+    dataLayout?: TextureDataLayout;
 
     /**
      * 读取数据图片上的像素坐标。
      */
-    dataImageOrigin?: IDataImageOrigin;
+    dataImageOrigin?: DataImageOrigin;
 
     /**
      * 写入mipmap级别。
@@ -47,12 +47,12 @@ export interface TextureDataSource
      *
      * 写入纹理的位置。
      */
-    textureOrigin?: ITextureOrigin;
+    textureOrigin?: TextureOrigin;
 
     /**
      * Extents of the content to write from `source` to `destination`.
      *
      * 写入尺寸。
      */
-    size?: ITextureSize
+    size?: TextureSize
 }

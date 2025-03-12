@@ -1,4 +1,4 @@
-import { ITextureOrigin, Texture } from "./Texture";
+import { TextureOrigin, Texture } from "./Texture";
 import { TextureLike } from "./TextureView";
 
 /**
@@ -25,7 +25,7 @@ export interface ImageCopyTexture
      * Defines the origin of the copy - the minimum corner of the texture sub-region to copy to/from.
      * Together with `copySize`, defines the full copy sub-region.
      */
-    origin?: ITextureOrigin;
+    origin?: TextureOrigin;
 
     /**
      * Defines which aspects of the {@link GPUImageCopyTexture#texture} to copy to/from.

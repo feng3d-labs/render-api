@@ -1,4 +1,4 @@
-import { IImageOrigin, IImageSize, ITextureOrigin, ITextureSize } from "./Texture";
+import { ImageOrigin, ImageSize, TextureOrigin, TextureSize } from "./Texture";
 
 /**
  * 纹理的图片资源。
@@ -27,7 +27,7 @@ export interface TextureImageSource
     /**
      * 读取图片上的像素坐标。
      */
-    imageOrigin?: IImageOrigin;
+    imageOrigin?: ImageOrigin;
 
     /**
      * 写入纹理的mipmap层级索引。
@@ -40,14 +40,14 @@ export interface TextureImageSource
      *
      * 写入纹理的位置。
      */
-    textureOrigin?: ITextureOrigin;
+    textureOrigin?: TextureOrigin;
 
     /**
      * Extents of the content to write from `source` to `destination`.
      *
      * 写入尺寸。
      */
-    size?: ITextureSize
+    size?: TextureSize
 
     /**
      * 是否Y轴翻转图片。
@@ -70,7 +70,7 @@ export class TextureImageSource
      * @param texImageSource 纹理的图片资源。
      * @returns
      */
-    static getTexImageSourceSize(image: TexImageSource): IImageSize
+    static getTexImageSourceSize(image: TexImageSource): ImageSize
     {
         let width: number;
         let height: number;
