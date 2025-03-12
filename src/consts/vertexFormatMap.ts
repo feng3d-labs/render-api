@@ -1,9 +1,9 @@
-import { IVertexFormat } from "../data/VertexAttributes";
+import { VertexFormat } from "../data/VertexAttributes";
 
 /**
  * 顶点属性格式信息映射。
  */
-export const vertexFormatMap: Record<IVertexFormat, VertexAttributeFormatInfo> = {
+export const vertexFormatMap: Record<VertexFormat, VertexAttributeFormatInfo> = {
     "uint8x2": { "numComponents": 2, "type": "UNSIGNED_BYTE", "normalized": false, "dataType": "unsigned int", "byteSize": 2, "wgslType": "vec2<u32>", "typedArrayConstructor": Uint8Array },
     "uint8x4": { "numComponents": 4, "type": "UNSIGNED_BYTE", "normalized": false, "dataType": "unsigned int", "byteSize": 4, "wgslType": "vec4<u32>", "typedArrayConstructor": Uint8Array },
     "sint8x2": { "numComponents": 2, "type": "BYTE", "normalized": false, "dataType": "signed int", "byteSize": 2, "wgslType": "vec2<i32>", "typedArrayConstructor": Int8Array },

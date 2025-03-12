@@ -39,7 +39,7 @@ export interface RenderPassColorAttachment
      * They are converted [$to a texel value of texture format$] matching the render attachment.
      * If conversion fails, a validation error is generated.
      */
-    readonly clearValue?: IColor;
+    readonly clearValue?: Color;
 
     /**
      * 是否清除颜色附件。
@@ -56,9 +56,9 @@ export interface RenderPassColorAttachment
      * executing the render pass.
      * Note: It is recommended to prefer clearing; see {@link GPULoadOp#"clear"} for details.
      */
-    readonly loadOp?: ILoadOp;
+    readonly loadOp?: LoadOp;
 }
 
-export type IColor = [red: number, green: number, blue: number, alpha: number];
+export type Color = [red: number, green: number, blue: number, alpha: number];
 
-export type ILoadOp = "load" | "clear";
+export type LoadOp = "load" | "clear";

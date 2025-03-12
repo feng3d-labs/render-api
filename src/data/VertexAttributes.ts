@@ -18,14 +18,14 @@ export interface VertexAttribute
     /**
      * 顶点数据。
      */
-    data: IVertexDataTypes;
+    data: VertexDataTypes;
 
     /**
      * 顶点数据格式。
      *
      * 由于提供的数据并不一定与着色器中格式一直，因此必须提供与着色器中兼容的数据格式。
      */
-    readonly format: IVertexFormat;
+    readonly format: VertexFormat;
 
     /**
      * 所在顶点数据中的偏移字节数。
@@ -46,7 +46,7 @@ export interface VertexAttribute
      *
      * 默认 `"vertex"` 。
      */
-    readonly stepMode?: IVertexStepMode;
+    readonly stepMode?: VertexStepMode;
 }
 
 export class VertexAttribute
@@ -83,9 +83,9 @@ export class VertexAttribute
     }
 }
 
-export type IVertexStepMode = "vertex" | "instance";
+export type VertexStepMode = "vertex" | "instance";
 
-export type IVertexDataTypes = | Float32Array
+export type VertexDataTypes = | Float32Array
     | Uint32Array
     | Int32Array
     | Uint16Array
@@ -97,7 +97,7 @@ export type IVertexDataTypes = | Float32Array
 /**
  * 顶点数据格式。
  */
-export type IVertexFormat =
+export type VertexFormat =
     | "uint8x2"
     | "uint8x4"
     | "sint8x2"

@@ -1,5 +1,5 @@
 import { BlendComponent } from "./BlendComponent";
-import { IColor } from "./RenderPassColorAttachment";
+import { Color } from "./RenderPassColorAttachment";
 
 /**
  * 混合状态。
@@ -24,7 +24,7 @@ export interface BlendState
      *
      * 注：只取 renderPipeline.fragment?.targets?.[0]?.blend.constantColor 值。
      */
-    readonly constantColor?: IColor;
+    readonly constantColor?: Color;
 
     /**
      * 为颜色通道定义相应渲染目标的混合行为。
@@ -45,7 +45,7 @@ export class BlendState
      * @param blend
      * @returns
      */
-    static getBlendConstantColor(blendState: BlendState): IColor
+    static getBlendConstantColor(blendState: BlendState): Color
     {
         if (!blendState) return undefined;
 
