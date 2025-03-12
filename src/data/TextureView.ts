@@ -17,7 +17,7 @@ export interface TextureView
     /**
      * 产生视图的纹理。
      */
-    readonly texture: ITextureLike;
+    readonly texture: TextureLike;
 
     /**
      * mipmap级别。
@@ -39,12 +39,12 @@ export interface TextureView
  *
  * 如需扩展 ITextureLike，则需在 ITextureMap 中添加类型。
  */
-export type ITextureLike = ITextureLikeMap[keyof ITextureLikeMap];
+export type TextureLike = TextureLikeMap[keyof TextureLikeMap];
 
 /**
  * 如需扩展 ITextureLike，则需在 ITextureMap 中添加类型。
  */
-export interface ITextureLikeMap
+export interface TextureLikeMap
 {
     /**
      * 正常纹理。

@@ -1,3 +1,4 @@
+import { OcclusionQuery } from "./OcclusionQuery";
 import { RenderObject } from "./RenderObject";
 import { RenderPassDescriptor } from "./RenderPassDescriptor";
 
@@ -23,12 +24,12 @@ export interface RenderPass
      */
     readonly renderObjects?: readonly IRenderPassObject[];
 
-    // /**
-    //  * 渲染不被遮挡查询结果。具体数据保存在各子项的"result"属性中。
-    //  *
-    //  * 当提交WebGL后自动获取结果后填充该属性。
-    //  */
-    // occlusionQueryResults?: IGLOcclusionQuery[];
+    /**
+     * 渲染不被遮挡查询结果。具体数据保存在各子项的"result"属性中。
+     *
+     * 当提交WebGL后自动获取结果后填充该属性。
+     */
+    occlusionQueryResults?: OcclusionQuery[];
 }
 
 export type IRenderPassObject = IRenderPassObjectMap[keyof IRenderPassObjectMap];
@@ -36,4 +37,5 @@ export type IRenderPassObject = IRenderPassObjectMap[keyof IRenderPassObjectMap]
 export interface IRenderPassObjectMap
 {
     IRenderObject: RenderObject;
+    OcclusionQuery: OcclusionQuery
 }

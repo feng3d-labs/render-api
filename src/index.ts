@@ -16,8 +16,9 @@ export * from "./data/DrawVertex";
 export * from "./data/FragmentState";
 export * from "./data/Geometry";
 export * from "./data/ImageCopyTexture";
-export * from "./data/TextureDataSource";
+export * from "./data/OcclusionQuery";
 export * from "./data/PrimitiveState";
+export * from "./data/ReadPixels";
 export * from "./data/RenderObject";
 export * from "./data/RenderPass";
 export * from "./data/RenderPassColorAttachment";
@@ -29,6 +30,7 @@ export * from "./data/ScissorRect";
 export * from "./data/StencilFaceState";
 export * from "./data/Submit";
 export * from "./data/Texture";
+export * from "./data/TextureDataSource";
 export * from "./data/TextureImageSource";
 export * from "./data/TextureView";
 export * from "./data/Uniforms";
@@ -39,3 +41,4 @@ export * from "./data/WriteBuffer";
 
 export * from "./types/TypedArray";
 export * from "./types/UnReadonly";
+

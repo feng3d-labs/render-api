@@ -1,5 +1,5 @@
 import { ITextureOrigin, Texture } from "./Texture";
-import { ITextureLike } from "./TextureView";
+import { TextureLike } from "./TextureView";
 
 /**
  * 被操作的纹理相关信息。
@@ -14,7 +14,7 @@ export interface ImageCopyTexture
     /**
      * Texture to copy to/from.
      */
-    texture: ITextureLike;
+    texture: TextureLike;
 
     /**
      * Mip-map level of the {@link GPUImageCopyTexture#texture} to copy to/from.

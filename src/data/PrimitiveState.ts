@@ -26,7 +26,7 @@ export interface PrimitiveState
      * * LINE_LOOP 绘制循环连线。
      * * TRIANGLE_FAN  绘制三角扇形。
      */
-    topology?: IPrimitiveTopology;
+    topology?: PrimitiveTopology;
 
     /**
      * Defines which polygon orientation will be culled, if any.
@@ -39,22 +39,22 @@ export interface PrimitiveState
      * * `front` 剔除正面
      * * `back` 剔除背面
      */
-    cullFace?: ICullFace;
+    cullFace?: CullFace;
 
     /**
      * Defines which polygons are considered front-facing.
      *
      * 正向方向。默认 "ccw"，表示三角形逆时针方向为正面。
      */
-    frontFace?: IFrontFace;
+    frontFace?: FrontFace;
 }
 
 /**
  * 图元拓扑结构。
  */
-export type IPrimitiveTopology = IPrimitiveTopologyMap[keyof IPrimitiveTopologyMap];
+export type PrimitiveTopology = PrimitiveTopologyMap[keyof PrimitiveTopologyMap];
 
-export interface IPrimitiveTopologyMap
+export interface PrimitiveTopologyMap
 {
     "point-list": "point-list",
     "line-list": "line-list",
@@ -68,9 +68,9 @@ export interface IPrimitiveTopologyMap
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/cullFace
  */
-export type ICullFace = ICullFaceMap[keyof ICullFaceMap];
+export type CullFace = CullFaceMap[keyof CullFaceMap];
 
-export interface ICullFaceMap
+export interface CullFaceMap
 {
     "none": "none",
     "front": "front",
@@ -80,4 +80,4 @@ export interface ICullFaceMap
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/frontFace
  */
-export type IFrontFace = "ccw" | "cw";
+export type FrontFace = "ccw" | "cw";
