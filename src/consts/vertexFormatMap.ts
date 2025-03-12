@@ -3,7 +3,7 @@ import { IVertexFormat } from "../data/VertexAttributes";
 /**
  * 顶点属性格式信息映射。
  */
-export const vertexFormatMap: Record<IVertexFormat, IVertexAttributeFormatInfo> = {
+export const vertexFormatMap: Record<IVertexFormat, VertexAttributeFormatInfo> = {
     "uint8x2": { "numComponents": 2, "type": "UNSIGNED_BYTE", "normalized": false, "dataType": "unsigned int", "byteSize": 2, "wgslType": "vec2<u32>", "typedArrayConstructor": Uint8Array },
     "uint8x4": { "numComponents": 4, "type": "UNSIGNED_BYTE", "normalized": false, "dataType": "unsigned int", "byteSize": 4, "wgslType": "vec4<u32>", "typedArrayConstructor": Uint8Array },
     "sint8x2": { "numComponents": 2, "type": "BYTE", "normalized": false, "dataType": "signed int", "byteSize": 2, "wgslType": "vec2<i32>", "typedArrayConstructor": Int8Array },
@@ -45,7 +45,7 @@ export type TypedArrayConstructor = Int8ArrayConstructor | Uint8ArrayConstructor
 /**
  * GPU顶点数据类型
  */
-export type IVertexDataType =
+export type VertexDataType =
     | "unsigned int"
     | "signed int"
     | "unsigned normalized"
@@ -94,14 +94,14 @@ export type WGSLVertexType =
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/vertexAttribPointer
  */
-export type IGLVertexAttributeTypes = "FLOAT" | "BYTE" | "SHORT" | "UNSIGNED_BYTE" | "UNSIGNED_SHORT" // WebGL1
+export type GLVertexAttributeTypes = "FLOAT" | "BYTE" | "SHORT" | "UNSIGNED_BYTE" | "UNSIGNED_SHORT" // WebGL1
     | "HALF_FLOAT" | "INT" | "UNSIGNED_INT" | "INT_2_10_10_10_REV" | "UNSIGNED_INT_2_10_10_10_REV"; // WebGL2
 
 
 /**
  * 顶点属性格式信息
  */
-export type IVertexAttributeFormatInfo = {
+export type VertexAttributeFormatInfo = {
 
     /**
      * 部件数量。
@@ -113,12 +113,12 @@ export type IVertexAttributeFormatInfo = {
      *
      * 默认从Buffer数据中获取，如果未取到则默认为 "FLOAT" 。
      */
-    type: IGLVertexAttributeTypes;
+    type: GLVertexAttributeTypes;
 
     /**
      * 数据类型。
      */
-    dataType: IVertexDataType,
+    dataType: VertexDataType,
 
     /**
      * 所占字节尺寸。
