@@ -7,13 +7,13 @@ export interface Uniforms
 {
     __type__?: any;
 
-    [key: string]: IUniformType;
+    [key: string]: UniformType;
 }
 
 /**
  * Uniform 类型
  */
-export type IUniformType = UniformTypeMap[keyof UniformTypeMap];
+export type UniformType = UniformTypeMap[keyof UniformTypeMap];
 
 export interface UniformTypeMap
 {
