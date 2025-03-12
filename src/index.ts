@@ -39,5 +39,3 @@ export * from "./data/WriteBuffer";
 
 export * from "./types/TypedArray";
 export * from "./types/UnReadonly";
-
-import "./polyfills/Function";

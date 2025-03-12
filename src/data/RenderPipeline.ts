@@ -1,4 +1,3 @@
-import "../polyfills/Function";
 import { DepthStencilState } from "./DepthStencilState";
 import { FragmentState } from "./FragmentState";
 import { VertexState } from "./VertexState";

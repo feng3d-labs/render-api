@@ -1,4 +1,3 @@
-import "../polyfills/Function";
 import { DrawIndexed } from "./DrawIndexed";
 import { DrawVertex } from "./DrawVertex";
 import { PrimitiveState } from "./PrimitiveState";
