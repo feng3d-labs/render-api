@@ -1,9 +1,9 @@
 /**
  * 顶点着色器阶段描述。
  */
-export class VertexState
+export interface VertexState
 {
-    __type__?: "VertexState" = "VertexState";
+    __type__?: "VertexState";
 
     /**
      * 着色器代码。

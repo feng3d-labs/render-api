@@ -6,12 +6,12 @@ import { RenderPassDescriptor } from "./RenderPassDescriptor";
  *
  * 包含渲染通道描述以及需要渲染的对象列表。
  */
-export class RenderPass
+export interface RenderPass
 {
     /**
      * 数据类型。
      */
-    readonly __type__?: "RenderPass" = "RenderPass";
+    readonly __type__?: "RenderPass";
 
     /**
      * 渲染通道描述

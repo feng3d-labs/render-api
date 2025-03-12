@@ -5,9 +5,9 @@ import { CommandEncoder } from "./CommandEncoder";
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/GPUQueue/submit
  */
-export class Submit 
+export interface Submit 
 {
-    __type__?: "Submit" = "Submit";
+    __type__?: "Submit";
 
     /**
      * 命令编码器列表。

@@ -3,9 +3,9 @@ import { TextureView } from "./TextureView";
 /**
  * 渲染通道颜色附件。
  */
-export class RenderPassColorAttachment
+export interface RenderPassColorAttachment
 {
-    __type__?: "RenderPassColorAttachment" = "RenderPassColorAttachment";
+    __type__?: "RenderPassColorAttachment";
 
     /**
      * 颜色附件视图。
@@ -20,7 +20,7 @@ export class RenderPassColorAttachment
      * 注：引擎运行中该属性可能是 IGLRenderbuffer 类型，用于处理多重采样。
      *
      */
-    readonly view?: TextureView = new TextureView();
+    readonly view?: TextureView;
 
     /**
      * 清除后填充值。
@@ -39,7 +39,7 @@ export class RenderPassColorAttachment
      * They are converted [$to a texel value of texture format$] matching the render attachment.
      * If conversion fails, a validation error is generated.
      */
-    readonly clearValue?: IColor = [0, 0, 0, 0];
+    readonly clearValue?: IColor;
 
     /**
      * 是否清除颜色附件。
@@ -56,7 +56,7 @@ export class RenderPassColorAttachment
      * executing the render pass.
      * Note: It is recommended to prefer clearing; see {@link GPULoadOp#"clear"} for details.
      */
-    readonly loadOp?: ILoadOp = "clear";
+    readonly loadOp?: ILoadOp;
 }
 
 export type IColor = [red: number, green: number, blue: number, alpha: number];

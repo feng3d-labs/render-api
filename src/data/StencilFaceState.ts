@@ -3,37 +3,37 @@
  *
  * @see https://www.orillusion.com/zh/webgpu.html#dictdef-gpustencilfacestate
  */
-export class StencilFaceState 
+export interface StencilFaceState 
 {
-    __type__?: "StencilFaceState" = "StencilFaceState";
+    __type__?: "StencilFaceState";
 
     /**
      * 在测试片元与 depthStencilAttachment 模板值时使用的 GPUCompareFunction。
      *
      * 默认为 "always"。
      */
-    readonly compare?: ICompareFunction = "always";
+    readonly compare?: ICompareFunction;
 
     /**
      * 如果片元模板比较测试（由 compare 描述）失败，则执行的 GPUStencilOperation。
      *
      * 默认为 "keep"。
      */
-    readonly failOp?: IStencilOperation = "keep";
+    readonly failOp?: IStencilOperation;
 
     /**
      * 如果由 depthCompare 描述的片元深度比较失败，则执行的 GPUStencilOperation。
      *
      * 默认为 "keep"。
      */
-    readonly depthFailOp?: IStencilOperation = "keep";
+    readonly depthFailOp?: IStencilOperation;
 
     /**
      * 如果片元模板比较测试通过，则执行由compare描述的GPUStencilOperation。
      *
      * 默认为 "keep"。
      */
-    readonly passOp?: IStencilOperation = "keep";
+    readonly passOp?: IStencilOperation;
 }
 
 export type ICompareFunction = "never" | "less" | "equal" | "less-equal" | "greater" | "not-equal" | "greater-equal" | "always";

@@ -36,18 +36,3 @@ export interface RenderPipeline
 
     _version?: number;
 }
-
-export class RenderPipeline { }
-
-RenderPipeline._reg((pipeline) =>
-{
-    // Object.defineProperty(material, 'vertex', {
-
-    // });
-    //
-    pipeline.__type__ = "RenderPipeline";
-    return () =>
-    {
-
-    };
-});

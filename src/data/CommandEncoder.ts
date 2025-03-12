@@ -7,9 +7,9 @@ import { RenderPass } from "./RenderPass";
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/GPUCommandEncoder
  */
-export class CommandEncoder
+export interface CommandEncoder
 {
-    __type__?: "CommandEncoder" = "CommandEncoder";
+    __type__?: "CommandEncoder";
 
     /**
      * 通道编码器列表。

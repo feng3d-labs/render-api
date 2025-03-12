@@ -3,11 +3,9 @@ import { vertexFormatMap } from "../consts/vertexFormatMap";
 /**
  * 顶点属性数据映射。
  */
-export class VertexAttributes
+export interface VertexAttributes
 {
-    __type__?: any = "VertexAttributes";
-
-    // [name: `a_${string}`]: VertexAttribute;
+    __type__?: any;
 
     [name: string]: VertexAttribute;
 }
@@ -15,7 +13,7 @@ export class VertexAttributes
 /**
  * 顶点属性数据。
  */
-export class VertexAttribute
+export interface VertexAttribute
 {
     /**
      * 顶点数据。
@@ -32,7 +30,7 @@ export class VertexAttribute
     /**
      * 所在顶点数据中的偏移字节数。
      */
-    readonly offset?: number = 0;
+    readonly offset?: number;
 
     /**
      * The stride, in bytes, between elements of this array.
@@ -48,8 +46,11 @@ export class VertexAttribute
      *
      * 默认 `"vertex"` 。
      */
-    readonly stepMode?: IVertexStepMode = "vertex";
+    readonly stepMode?: IVertexStepMode;
+}
 
+export class VertexAttribute
+{
     /**
      * 获取顶点属性数据的顶点数量。 
      * 

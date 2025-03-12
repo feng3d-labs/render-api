@@ -18,9 +18,9 @@
  * @see https://gpuweb.github.io/gpuweb/#dom-gpurenderpassencoder-setviewport
  *
  */
-export class Viewport
+export interface Viewport
 {
-    __type__?: "Viewport" = "Viewport";
+    __type__?: "Viewport";
 
     /**
      * 是否为Y轴朝上。
@@ -29,7 +29,7 @@ export class Viewport
      *
      * 默认为 ture。
      */
-    isYup?: boolean = true;
+    isYup?: boolean;
 
     /**
      * 视窗水平坐标（像素）。
@@ -38,7 +38,7 @@ export class Viewport
      *
      * 默认为 0 。
      */
-    x?: number = 0;
+    x?: number;
 
     /**
      * 视窗垂直坐标（像素）。
@@ -47,7 +47,7 @@ export class Viewport
      *
      * 默认为 0 。
      */
-    y?: number = 0;
+    y?: number;
 
     /**
      * 视窗宽度（像素）。

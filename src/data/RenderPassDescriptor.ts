@@ -4,9 +4,9 @@ import { RenderPassDepthStencilAttachment } from "./RenderPassDepthStencilAttach
 /**
  * 渲染通道描述
  */
-export class RenderPassDescriptor
+export interface RenderPassDescriptor
 {
-    __type__?: "RenderPassDescriptor" = "RenderPassDescriptor";
+    __type__?: "RenderPassDescriptor";
 
     /**
      * 标签。
@@ -18,7 +18,7 @@ export class RenderPassDescriptor
     /**
      * 颜色附件
      */
-    readonly colorAttachments?: readonly RenderPassColorAttachment[] = [];
+    readonly colorAttachments?: readonly RenderPassColorAttachment[];
 
     /**
      * 深度模板附件。
@@ -39,5 +39,5 @@ export class RenderPassDescriptor
      * WebGPU:
      * 是否开启多重采样。WebGPU貌似只支持4重采样。如果在颜色附件中没有给出支持多重采样的纹理时则引擎将会自动为其添加。
      */
-    readonly sampleCount?: 4 = 4;
+    readonly sampleCount?: 4;
 }

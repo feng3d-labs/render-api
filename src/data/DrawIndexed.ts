@@ -4,12 +4,12 @@
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements
  * @see GPURenderCommandsMixin.drawIndexed
  */
-export class DrawIndexed
+export interface DrawIndexed
 {
     /**
      * 数据类型。
      */
-    readonly __type__: "DrawIndexed" = "DrawIndexed";
+    readonly __type__: "DrawIndexed";
 
     /**
      * The number of indices to draw.
@@ -23,12 +23,12 @@ export class DrawIndexed
      *
      * 默认为 1 。
      */
-    readonly instanceCount?: number = 1;
+    readonly instanceCount?: number;
 
     /**
      * Offset into the index buffer, in indices, begin drawing from.
      *
      * 默认为 0 。
      */
-    readonly firstIndex?: number = 0;
+    readonly firstIndex?: number;
 }

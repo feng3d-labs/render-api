@@ -4,9 +4,9 @@ import { TextureImageSource } from "./TextureImageSource";
 /**
  * 纹理
  */
-export class Texture 
+export interface Texture 
 {
-    __type__?: "Texture" = "Texture";
+    __type__?: "Texture";
 
     /**
      * 标签。
@@ -60,19 +60,21 @@ export class Texture
      *
      * WebGL中不支持 "1d" "cube-array"。
      */
-    readonly dimension?: ITextureDimension = "2d";
+    readonly dimension?: ITextureDimension;
 
     /**
      * 纹理格式。 默认为 "rgba8unorm"，
      */
-    readonly format?: ITextureFormat = "rgba8unorm";
+    readonly format?: ITextureFormat;
 
     /**
      * The number of mip levels the texture will contain.
      */
     readonly mipLevelCount?: number;
+}
 
-
+export class Texture
+{
     /**
      * 获取纹理每个像素占用的字节数量。
      *

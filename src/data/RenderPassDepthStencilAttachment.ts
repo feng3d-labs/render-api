@@ -3,9 +3,9 @@ import { TextureView } from "./TextureView";
 /**
  * 深度模板附件。
  */
-export class RenderPassDepthStencilAttachment
+export interface RenderPassDepthStencilAttachment
 {
-    __type__?: "RenderPassDepthStencilAttachment" = "RenderPassDepthStencilAttachment";
+    __type__?: "RenderPassDepthStencilAttachment";
 
     /**
      * 深度附件视图。
@@ -24,7 +24,7 @@ export class RenderPassDepthStencilAttachment
      *
      * @see https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/clearDepth
      */
-    readonly depthClearValue?: number = 1;
+    readonly depthClearValue?: number;
 
     /**
      * 是否清除深度值。
@@ -33,7 +33,7 @@ export class RenderPassDepthStencilAttachment
      *
      * @see https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/clear
      */
-    readonly depthLoadOp?: "load" | "clear" = "load";
+    readonly depthLoadOp?: "load" | "clear";
 
     /**
      * 清除后填充模板值。
@@ -42,7 +42,7 @@ export class RenderPassDepthStencilAttachment
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/clearStencil
      */
-    readonly stencilClearValue?: number = 0;
+    readonly stencilClearValue?: number;
 
     /**
      * 是否清除模板值。
@@ -51,5 +51,5 @@ export class RenderPassDepthStencilAttachment
      *
      * @see https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/clear
      */
-    readonly stencilLoadOp?: "load" | "clear" = "load";
+    readonly stencilLoadOp?: "load" | "clear";
 }

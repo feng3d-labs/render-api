@@ -3,9 +3,9 @@ import { Texture } from "./Texture";
 /**
  * 纹理视图。
  */
-export class TextureView
+export interface TextureView
 {
-    __type__?: "TextureView" = "TextureView";
+    __type__?: "TextureView";
 
     /**
      * 标签。
@@ -24,14 +24,14 @@ export class TextureView
      *
      * 默认为 0。
      */
-    readonly baseMipLevel?: number = 0;
+    readonly baseMipLevel?: number;
 
     /**
      * 3d纹理的深度索引、纹理数组中的层次、立方体纹理的面索引。
      *
      * 默认为 0。
      */
-    readonly baseArrayLayer?: number = 0;
+    readonly baseArrayLayer?: number;
 }
 
 /**

@@ -7,9 +7,9 @@ import { ITextureLike } from "./TextureView";
  * {@link GPUCommandEncoder.copyTextureToTexture}
  * {@link GPUImageCopyTexture}
  */
-export class ImageCopyTexture
+export interface ImageCopyTexture
 {
-    __type__?: "ImageCopyTexture" = "ImageCopyTexture";
+    __type__?: "ImageCopyTexture";
 
     /**
      * Texture to copy to/from.

@@ -3,9 +3,9 @@ import { BufferBinding, IBufferBindingItem } from "./BufferBinding";
 /**
  * Uniform 数据
  */
-export class Uniforms
+export interface Uniforms
 {
-    __type__?: any = "Uniforms";
+    __type__?: any;
 
     [key: string]: IUniformType;
 }

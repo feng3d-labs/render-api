@@ -5,9 +5,9 @@ import { CanvasContext } from "./CanvasContext";
  *
  * 注：只在WebGPU上支持。
  */
-export class CanvasTexture
+export interface CanvasTexture
 {
-    __type__?: "CanvasTexture" = "CanvasTexture";
+    __type__?: "CanvasTexture";
 
     context: CanvasContext;
 }

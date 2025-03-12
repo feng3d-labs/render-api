@@ -12,12 +12,12 @@ import { IImageOrigin, IImageSize, ITextureOrigin, ITextureSize } from "./Textur
  *
  * @see GPUQueue.copyExternalImageToTexture
  */
-export class TextureImageSource 
+export interface TextureImageSource 
 {
     /**
      * 数据类型。
      */
-    readonly __type__?: "TextureImageSource" = "TextureImageSource";
+    readonly __type__?: "TextureImageSource";
 
     /**
      * 图片资源。
@@ -60,7 +60,10 @@ export class TextureImageSource
      * 是否需要预乘透明度。
      */
     premultipliedAlpha?: boolean;
+}
 
+export class TextureImageSource
+{
     /**
      * 获取纹理的图片资源尺寸。
      *

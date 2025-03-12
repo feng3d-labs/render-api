@@ -5,9 +5,9 @@ import { ColorTargetState } from "./ColorTargetState";
  *
  * {@link GPUFragmentState}
  */
-export class FragmentState
+export interface FragmentState
 {
-    __type__?: "FragmentState" = "FragmentState";
+    __type__?: "FragmentState";
 
     /**
      * 着色器代码。
@@ -22,5 +22,5 @@ export class FragmentState
      *
      * 注：WebGL中没法分别对每个颜色附件进行设置，统一使用第一项（targets[0]）设置！
      */
-    readonly targets?: readonly ColorTargetState[] = [];
+    readonly targets?: readonly ColorTargetState[];
 }

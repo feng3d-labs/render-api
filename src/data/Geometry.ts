@@ -1,4 +1,3 @@
-import { watcher } from "@feng3d/watcher";
 import "../polyfills/Function";
 import { DrawIndexed } from "./DrawIndexed";
 import { DrawVertex } from "./DrawVertex";
@@ -14,21 +13,21 @@ import { VertexAttribute, VertexAttributes } from "./VertexAttributes";
  * - 如何渲染
  * - 拓扑结构
  */
-export class Geometry
+export interface Geometry
 {
-    __type__?: "Geometry" = "Geometry";
+    __type__?: "Geometry";
 
     /**
      * Describes the primitive-related properties of the pipeline.
      *
      * 图元拓扑结构。
      */
-    primitive?: PrimitiveState = new PrimitiveState();
+    primitive?: PrimitiveState;
 
     /**
      * 顶点属性数据映射。
      */
-    vertices?: VertexAttributes = new VertexAttributes();
+    vertices?: VertexAttributes;
 
     /**
      * 顶点索引数据。
@@ -39,6 +38,10 @@ export class Geometry
      * 绘制。
      */
     draw?: IDraw;
+}
+
+export class Geometry
+{
 
     /**
      * 获取顶点数量。
@@ -81,38 +84,18 @@ export class Geometry
 
         return count;
     }
-}
 
-Geometry._reg((geometry) =>
-{
-    const watchSession = watcher.on();
-    // 监听属性变化
-    watchSession.watch(geometry, "primitive", () => PrimitiveState._init(geometry.primitive));
-    watchSession.watch(geometry, "vertices", () => VertexAttributes._init(geometry.vertices));
-
-    // 初始化
-    geometry.__type__ = "Geometry";
-    geometry.primitive ??= PrimitiveState._init({});
-    geometry.vertices ??= VertexAttributes._init({});
-
-    return () =>
+    static getDraw(geometry: Geometry): DrawIndexed | DrawVertex
     {
-        watchSession.off();
-    };
-})
+        if (geometry['_draw']) return geometry['_draw'];
 
-Object.defineProperty(Geometry.prototype, "draw", {
-    get: function getDraw(this: Geometry)
-    {
-        if (this['_draw']) return this['_draw'];
+        const instanceCount = Geometry.getInstanceCount(geometry);
 
-        const instanceCount = Geometry.getInstanceCount(this);
-
-        if (this.indices)
+        if (geometry.indices)
         {
             return {
                 __type__: "DrawIndexed",
-                indexCount: this.indices.length,
+                indexCount: geometry.indices.length,
                 firstIndex: 0,
                 instanceCount,
             };
@@ -120,27 +103,11 @@ Object.defineProperty(Geometry.prototype, "draw", {
 
         return {
             __type__: "DrawVertex",
-            vertexCount: Geometry.getNumVertex(this),
+            vertexCount: Geometry.getNumVertex(geometry),
             instanceCount,
         };
-    },
-    set: function setDraw(this: Geometry, value: IDraw)
-    {
-        if (!value)
-        {
-            this['_draw'] = undefined;
-            return;
-        }
-        if (value.__type__ === "DrawVertex")
-        {
-            this['_draw'] = value;
-        }
-        else
-        {
-            this['_draw'] = value;
-        }
-    },
-});
+    }
+}
 
 /**
  * 顶点索引数据类型。

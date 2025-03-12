@@ -8,7 +8,7 @@ import { TypedArray } from "../types/TypedArray";
  *
  * @see GPUBufferBinding
  */
-export class BufferBinding
+export interface BufferBinding
 {
     [name: string]: IBufferBindingItem;
 

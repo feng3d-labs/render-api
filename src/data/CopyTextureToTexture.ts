@@ -6,12 +6,12 @@ import { ITextureSize } from "./Texture";
  *
  * {@link GPUCommandEncoder.copyTextureToTexture}
  */
-export class CopyTextureToTexture
+export interface CopyTextureToTexture
 {
     /**
      * 数据类型。
      */
-    readonly __type__: "CopyTextureToTexture" = "CopyTextureToTexture";
+    readonly __type__: "CopyTextureToTexture";
 
     /**
      * Combined with `copySize`, defines the region of the source texture subresources.

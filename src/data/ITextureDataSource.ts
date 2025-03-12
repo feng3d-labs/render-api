@@ -10,12 +10,12 @@ import { ITextureDataLayout, IDataImageOrigin, ITextureOrigin, ITextureSize } fr
  *
  * @see GPUQueue.writeTexture
  */
-export class TextureDataSource
+export interface TextureDataSource
 {
     /**
      * 数据类型。
      */
-    readonly __type__: "TextureDataSource" = "TextureDataSource";
+    readonly __type__: "TextureDataSource";
 
     /**
      * 纹理数据。

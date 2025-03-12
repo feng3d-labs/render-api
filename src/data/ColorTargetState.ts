@@ -5,9 +5,9 @@ import { BlendState } from "./BlendState";
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpucolortargetstate
  */
-export class ColorTargetState
+export interface ColorTargetState
 {
-    __type__?: "ColorTargetState" = "ColorTargetState";
+    __type__?: "ColorTargetState";
 
     /**
      * The blending behavior for this color target. If left undefined, disables blending for this
@@ -28,7 +28,7 @@ export class ColorTargetState
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/colorMask
      */
-    readonly writeMask?: IWriteMask = [true, true, true, true];
+    readonly writeMask?: IWriteMask;
 }
 
 export type IWriteMask = [red: boolean, green: boolean, blue: boolean, alpha: boolean];

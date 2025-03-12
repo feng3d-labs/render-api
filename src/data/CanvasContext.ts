@@ -3,9 +3,9 @@
  * @see HTMLCanvasElement.getContext
  * @see GPUCanvasContext.configure
  */
-export class CanvasContext 
+export interface CanvasContext 
 {
-    __type__?: "CanvasContext" = "CanvasContext";
+    __type__?: "CanvasContext";
 
     /**
      * 画布id

@@ -10,9 +10,9 @@ import { WriteBuffer } from "./WriteBuffer";
  *
  * {@link GPUBuffer}
  */
-export class Buffer
+export interface Buffer
 {
-    __type__?: "Buffer" = "Buffer";
+    __type__?: "Buffer";
 
     /**
      * 标签。

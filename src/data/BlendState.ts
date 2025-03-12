@@ -10,9 +10,9 @@ import { IColor } from "./RenderPassColorAttachment";
  *
  * @see https://gpuweb.github.io/gpuweb/#dictdef-gpublendstate
  */
-export class BlendState
+export interface BlendState
 {
-    __type__?: "BlendState" = "BlendState";
+    __type__?: "BlendState";
 
     /**
      * 混合时使用的常量值，默认为 [0,0,0,0]。
@@ -24,7 +24,7 @@ export class BlendState
      *
      * 注：只取 renderPipeline.fragment?.targets?.[0]?.blend.constantColor 值。
      */
-    readonly constantColor?: IColor = [0, 0, 0, 0];
+    readonly constantColor?: IColor;
 
     /**
      * 为颜色通道定义相应渲染目标的混合行为。
@@ -35,7 +35,10 @@ export class BlendState
      * 为alpha通道定义相应渲染目标的混合行为。
      */
     readonly alpha?: BlendComponent;
+}
 
+export class BlendState
+{
     /**
      * 当混合系数用到了混合常量值时设置混合常量值。
      *

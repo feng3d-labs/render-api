@@ -5,9 +5,9 @@
  *
  * `stripIndexFormat` 将由引擎自动设置。
  */
-export class PrimitiveState
+export interface PrimitiveState
 {
-    __type__?: "PrimitiveState" = "PrimitiveState";
+    __type__?: "PrimitiveState";
 
     /**
      * The type of primitive to be constructed from the vertex inputs.
@@ -26,7 +26,7 @@ export class PrimitiveState
      * * LINE_LOOP 绘制循环连线。
      * * TRIANGLE_FAN  绘制三角扇形。
      */
-    topology?: IPrimitiveTopology = "triangle-list";
+    topology?: IPrimitiveTopology;
 
     /**
      * Defines which polygon orientation will be culled, if any.
@@ -39,14 +39,14 @@ export class PrimitiveState
      * * `front` 剔除正面
      * * `back` 剔除背面
      */
-    cullFace?: ICullFace = "none";
+    cullFace?: ICullFace;
 
     /**
      * Defines which polygons are considered front-facing.
      *
      * 正向方向。默认 "ccw"，表示三角形逆时针方向为正面。
      */
-    frontFace?: IFrontFace = "ccw";
+    frontFace?: IFrontFace;
 }
 
 /**
