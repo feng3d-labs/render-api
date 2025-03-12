@@ -1,4 +1,4 @@
-import { TextureDataSource } from "./ITextureDataSource";
+import { TextureDataSource } from "./TextureDataSource";
 import { TextureImageSource } from "./TextureImageSource";
 
 /**

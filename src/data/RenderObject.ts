@@ -1,4 +1,3 @@
-import { watcher } from "@feng3d/watcher";
 import { Geometry } from "./Geometry";
 import { RenderPipeline } from "./RenderPipeline";
 import { ScissorRect } from "./ScissorRect";

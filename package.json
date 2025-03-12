@@ -56,6 +56,5 @@
     "vitest": "^0.32.2"
   },
   "dependencies": {
-    "@feng3d/watcher": "^0.8.11"
   }
 }

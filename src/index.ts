@@ -16,7 +16,7 @@ export * from "./data/DrawVertex";
 export * from "./data/FragmentState";
 export * from "./data/Geometry";
 export * from "./data/ImageCopyTexture";
-export * from "./data/ITextureDataSource";
+export * from "./data/TextureDataSource";
 export * from "./data/PrimitiveState";
 export * from "./data/RenderObject";
 export * from "./data/RenderPass";
