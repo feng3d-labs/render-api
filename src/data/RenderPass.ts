@@ -32,9 +32,9 @@ export interface RenderPass
     occlusionQueryResults?: OcclusionQuery[];
 }
 
-export type IRenderPassObject = IRenderPassObjectMap[keyof IRenderPassObjectMap];
+export type IRenderPassObject = RenderPassObjectMap[keyof RenderPassObjectMap];
 
-export interface IRenderPassObjectMap
+export interface RenderPassObjectMap
 {
     IRenderObject: RenderObject;
     OcclusionQuery: OcclusionQuery

@@ -22,14 +22,14 @@ export interface CommandEncoder
 /**
  * 通道编码器。
  *
- * 如需扩展 IPassEncoder ，请在 IPassEncoderMap 中进行添加。
+ * 如需扩展 IPassEncoder ，请在 PassEncoderMap 中进行添加。
  */
-export type IPassEncoder = IPassEncoderMap[keyof IPassEncoderMap];
+export type IPassEncoder = PassEncoderMap[keyof PassEncoderMap];
 
 /**
- * 如需扩展 IPassEncoder ，请在 IPassEncoderMap 中进行添加。
+ * 如需扩展 IPassEncoder ，请在 PassEncoderMap 中进行添加。
  */
-export interface IPassEncoderMap
+export interface PassEncoderMap
 {
     /**
      * 渲染通道。

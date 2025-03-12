@@ -1,4 +1,4 @@
-import { BufferBinding, IBufferBindingItem } from "./BufferBinding";
+import { BufferBinding, BufferBindingItem } from "./BufferBinding";
 
 /**
  * Uniform 数据
@@ -13,13 +13,13 @@ export interface Uniforms
 /**
  * Uniform 类型
  */
-export type IUniformType = IUniformTypeMap[keyof IUniformTypeMap];
+export type IUniformType = UniformTypeMap[keyof UniformTypeMap];
 
-export interface IUniformTypeMap
+export interface UniformTypeMap
 {
     /**
      * 缓冲区绑定。
      */
     IBufferBinding: BufferBinding;
-    IBufferBindingItem: IBufferBindingItem;
+    IBufferBindingItem: BufferBindingItem;
 }
