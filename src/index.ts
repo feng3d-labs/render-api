@@ -39,6 +39,8 @@ export * from "./data/VertexState";
 export * from "./data/Viewport";
 export * from "./data/WriteBuffer";
 
+export * from "./internal/BufferBindingInfo";
+
 export * from "./types/TypedArray";
 export * from "./types/UnReadonly";
 
