@@ -38,5 +38,5 @@ export interface Buffer
      *
      * {@link GPUQueue.writeBuffer}
      */
-    writeBuffers?: WriteBuffer[];
+    readonly writeBuffers?: WriteBuffer[];
 }
