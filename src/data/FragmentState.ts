@@ -7,8 +7,6 @@ import { ColorTargetState } from "./ColorTargetState";
  */
 export interface FragmentState
 {
-    __type__?: "FragmentState";
-
     /**
      * 着色器代码。
      */

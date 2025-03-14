@@ -14,8 +14,6 @@ import { VertexAttribute, VertexAttributes } from "./VertexAttributes";
  */
 export interface Geometry
 {
-    __type__?: "Geometry";
-
     /**
      * Describes the primitive-related properties of the pipeline.
      *

@@ -5,8 +5,6 @@ import { vertexFormatMap } from "../consts/vertexFormatMap";
  */
 export interface VertexAttributes
 {
-    __type__?: any;
-
     [name: string]: VertexAttribute;
 }
 

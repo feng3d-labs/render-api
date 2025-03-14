@@ -5,8 +5,6 @@ import { TextureView } from "./TextureView";
  */
 export interface RenderPassColorAttachment
 {
-    __type__?: "RenderPassColorAttachment";
-
     /**
      * 颜色附件视图。
      *

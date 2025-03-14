@@ -7,8 +7,6 @@
  */
 export interface PrimitiveState
 {
-    __type__?: "PrimitiveState";
-
     /**
      * The type of primitive to be constructed from the vertex inputs.
      *

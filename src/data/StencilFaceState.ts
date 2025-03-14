@@ -5,8 +5,6 @@
  */
 export interface StencilFaceState 
 {
-    __type__?: "StencilFaceState";
-
     /**
      * 在测试片元与 depthStencilAttachment 模板值时使用的 GPUCompareFunction。
      *

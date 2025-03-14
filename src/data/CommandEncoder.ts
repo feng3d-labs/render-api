@@ -9,8 +9,6 @@ import { RenderPass } from "./RenderPass";
  */
 export interface CommandEncoder
 {
-    __type__?: "CommandEncoder";
-
     /**
      * 通道编码器列表。
      *

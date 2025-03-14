@@ -7,8 +7,6 @@ import { CommandEncoder } from "./CommandEncoder";
  */
 export interface Submit 
 {
-    __type__?: "Submit";
-
     /**
      * 命令编码器列表。
      */

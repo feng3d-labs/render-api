@@ -12,8 +12,6 @@
  */
 export interface BlendComponent
 {
-    __type__?: "BlendComponent";
-
     /**
      * 混合方式。
      *

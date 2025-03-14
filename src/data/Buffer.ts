@@ -12,8 +12,6 @@ import { WriteBuffer } from "./WriteBuffer";
  */
 export interface GBuffer
 {
-    __type__?: "Buffer";
-
     /**
      * 标签。
      *

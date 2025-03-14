@@ -7,8 +7,6 @@ import { BlendState } from "./BlendState";
  */
 export interface ColorTargetState
 {
-    __type__?: "ColorTargetState";
-
     /**
      * The blending behavior for this color target. If left undefined, disables blending for this
      * color target.

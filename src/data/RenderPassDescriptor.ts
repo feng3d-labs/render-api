@@ -6,8 +6,6 @@ import { RenderPassDepthStencilAttachment } from "./RenderPassDepthStencilAttach
  */
 export interface RenderPassDescriptor
 {
-    __type__?: "RenderPassDescriptor";
-
     /**
      * 标签。
      *

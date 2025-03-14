@@ -12,8 +12,6 @@ import { ICompareFunction } from "./StencilFaceState";
  */
 export interface Sampler
 {
-    __type__?: "Sampler";
-
     /**
      * 标签。
      *

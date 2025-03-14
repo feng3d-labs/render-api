@@ -5,8 +5,6 @@ import { TextureView } from "./TextureView";
  */
 export interface RenderPassDepthStencilAttachment
 {
-    __type__?: "RenderPassDepthStencilAttachment";
-
     /**
      * 深度附件视图。
      *

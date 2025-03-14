@@ -7,8 +7,6 @@ import { BufferBinding, BufferBindingItem } from "./BufferBinding";
  */
 export interface BindingResources
 {
-    __type__?: any;
-
     [key: string]: BindingResource;
 }
 

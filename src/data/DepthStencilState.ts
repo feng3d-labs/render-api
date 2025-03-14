@@ -11,8 +11,6 @@ import { ICompareFunction, StencilFaceState } from "./StencilFaceState";
  */
 export interface DepthStencilState
 {
-    __type__?: "DepthStencilState";
-
     /**
      * 指示这个 GPURenderPipeline 是否可以修改 depthStencilAttachment 深度值。
      *

@@ -1,5 +1,4 @@
-import { TextureOrigin, Texture } from "./Texture";
-import { TextureLike } from "./TextureView";
+import { TextureLike, TextureOrigin } from "./Texture";
 
 /**
  * 被操作的纹理相关信息。
@@ -9,8 +8,6 @@ import { TextureLike } from "./TextureView";
  */
 export interface ImageCopyTexture
 {
-    __type__?: "ImageCopyTexture";
-
     /**
      * Texture to copy to/from.
      */

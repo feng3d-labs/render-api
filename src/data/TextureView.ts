@@ -1,12 +1,10 @@
-import { Texture } from "./Texture";
+import { TextureLike } from "./Texture";
 
 /**
  * 纹理视图。
  */
 export interface TextureView
 {
-    __type__?: "TextureView";
-
     /**
      * 标签。
      *
@@ -32,22 +30,4 @@ export interface TextureView
      * 默认为 0。
      */
     readonly baseArrayLayer?: number;
-}
-
-/**
- * 类似纹理，包含画布纹理以及正常纹理。
- *
- * 如需扩展 ITextureLike，则需在 ITextureMap 中添加类型。
- */
-export type TextureLike = TextureLikeMap[keyof TextureLikeMap];
-
-/**
- * 如需扩展 ITextureLike，则需在 ITextureMap 中添加类型。
- */
-export interface TextureLikeMap
-{
-    /**
-     * 正常纹理。
-     */
-    Texture: Texture;
 }

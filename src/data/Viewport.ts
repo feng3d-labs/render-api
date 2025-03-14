@@ -20,8 +20,6 @@
  */
 export interface Viewport
 {
-    __type__?: "Viewport";
-
     /**
      * 是否为Y轴朝上。
      *

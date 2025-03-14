@@ -5,8 +5,6 @@ import { CanvasContext } from "./CanvasContext";
  */
 export interface CanvasTexture
 {
-    __type__?: "CanvasTexture";
-
     /**
      * 画布上下文。
      */

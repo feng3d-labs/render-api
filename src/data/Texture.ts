@@ -2,12 +2,28 @@ import { TextureDataSource } from "./TextureDataSource";
 import { TextureImageSource } from "./TextureImageSource";
 
 /**
+ * 类似纹理，包含画布纹理以及正常纹理。
+ *
+ * 如需扩展 ITextureLike，则需在 ITextureMap 中添加类型。
+ */
+export type TextureLike = TextureLikeMap[keyof TextureLikeMap];
+
+/**
+ * 如需扩展 ITextureLike，则需在 ITextureMap 中添加类型。
+ */
+export interface TextureLikeMap
+{
+    /**
+     * 正常纹理。
+     */
+    Texture: Texture;
+}
+
+/**
  * 纹理
  */
 export interface Texture 
 {
-    __type__?: "Texture";
-
     /**
      * 标签。
      *

@@ -3,8 +3,6 @@
  */
 export interface CanvasContext 
 {
-    __type__?: "CanvasContext";
-
     /**
      * 画布id
      */

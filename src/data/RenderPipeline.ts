@@ -9,8 +9,6 @@ import { VertexState } from "./VertexState";
  */
 export interface RenderPipeline
 {
-    __type__?: "RenderPipeline";
-
     /**
      * 标签。
      *

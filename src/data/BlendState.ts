@@ -12,8 +12,6 @@ import { Color } from "./RenderPassColorAttachment";
  */
 export interface BlendState
 {
-    __type__?: "BlendState";
-
     /**
      * 混合时使用的常量值，默认为 [0,0,0,0]。
      *

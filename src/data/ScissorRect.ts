@@ -17,8 +17,6 @@
  */
 export interface ScissorRect
 {
-    __type__?: "ScissorRect";
-    
     /**
      * 是否为Y轴朝上。
      *
