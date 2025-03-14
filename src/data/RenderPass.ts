@@ -22,7 +22,7 @@ export interface RenderPass
     /**
      * 渲染对象列表
      */
-    readonly renderObjects?: readonly IRenderPassObject[];
+    readonly renderObjects?: readonly RenderPassObject[];
 
     /**
      * 渲染不被遮挡查询结果。具体数据保存在各子项的"result"属性中。
@@ -32,7 +32,7 @@ export interface RenderPass
     occlusionQueryResults?: OcclusionQuery[];
 }
 
-export type IRenderPassObject = RenderPassObjectMap[keyof RenderPassObjectMap];
+export type RenderPassObject = RenderPassObjectMap[keyof RenderPassObjectMap];
 
 export interface RenderPassObjectMap
 {

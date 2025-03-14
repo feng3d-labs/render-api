@@ -1,0 +1,27 @@
+import { BufferBinding, BufferBindingItem } from "./BufferBinding";
+
+/**
+ * 绑定资源。
+ * 
+ * 与WGSL中名称对应的绑定资源（纹理、采样器、统一数据、存储数据等）。
+ */
+export interface BindingResources
+{
+    __type__?: any;
+
+    [key: string]: BindingResource;
+}
+
+/**
+ * 绑定资源 类型
+ */
+export type BindingResource = BindingResourceTypeMap[keyof BindingResourceTypeMap];
+
+export interface BindingResourceTypeMap
+{
+    /**
+     * 缓冲区绑定。
+     */
+    IBufferBinding: BufferBinding;
+    IBufferBindingItem: BufferBindingItem;
+}

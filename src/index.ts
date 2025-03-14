@@ -33,7 +33,7 @@ export * from "./data/Texture";
 export * from "./data/TextureDataSource";
 export * from "./data/TextureImageSource";
 export * from "./data/TextureView";
-export * from "./data/Uniforms";
+export * from "./data/BindingResources";
 export * from "./data/VertexAttributes";
 export * from "./data/VertexState";
 export * from "./data/Viewport";
