@@ -56,5 +56,6 @@
     "vitest": "^0.32.2"
   },
   "dependencies": {
+    "@vue/reactivity": "^3.5.13"
   }
 }

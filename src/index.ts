@@ -1,5 +1,6 @@
 export * from "./consts/vertexFormatMap";
 
+export * from "./data/BindingResources";
 export * from "./data/BlendComponent";
 export * from "./data/BlendState";
 export * from "./data/Buffer";
@@ -33,11 +34,12 @@ export * from "./data/Texture";
 export * from "./data/TextureDataSource";
 export * from "./data/TextureImageSource";
 export * from "./data/TextureView";
-export * from "./data/BindingResources";
 export * from "./data/VertexAttributes";
 export * from "./data/VertexState";
 export * from "./data/Viewport";
 export * from "./data/WriteBuffer";
+
+export * from "./reactivity";
 
 export * from "./internal/BufferBindingInfo";
 
