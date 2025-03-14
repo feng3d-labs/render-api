@@ -1,5 +1,8 @@
 import { RenderObject } from "./RenderObject";
 
+/**
+ * 遮挡查询
+ */
 export interface OcclusionQuery
 {
     /**
@@ -13,12 +16,9 @@ export interface OcclusionQuery
     renderObjects: RenderObject[];
 
     /**
-     * 渲染完成后由引擎自动填充。
+     * 查询结束回调。
+     * 
+     * @param result 是否被渲染。true表示被渲染，false表示未被渲染。
      */
-    result?: {
-        /**
-         * 查询结果。
-         */
-        result: number;
-    };
+    onQuery?(result: boolean): void;
 }

@@ -23,13 +23,6 @@ export interface RenderPass
      * 渲染对象列表
      */
     readonly renderObjects?: readonly RenderPassObject[];
-
-    /**
-     * 渲染不被遮挡查询结果。具体数据保存在各子项的"result"属性中。
-     *
-     * 当提交WebGL后自动获取结果后填充该属性。
-     */
-    occlusionQueryResults?: OcclusionQuery[];
 }
 
 export type RenderPassObject = RenderPassObjectMap[keyof RenderPassObjectMap];
