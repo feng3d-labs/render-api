@@ -14,7 +14,7 @@ export interface CommandEncoder
      *
      * 包括计算通道编码器、渲染通道编码器 以及 GPU中缓存与纹理之间拷贝。
      */
-    passEncoders: IPassEncoder[]
+    passEncoders: PassEncoder[]
 }
 
 /**
@@ -22,7 +22,7 @@ export interface CommandEncoder
  *
  * 如需扩展 IPassEncoder ，请在 PassEncoderMap 中进行添加。
  */
-export type IPassEncoder = PassEncoderMap[keyof PassEncoderMap];
+export type PassEncoder = PassEncoderMap[keyof PassEncoderMap];
 
 /**
  * 如需扩展 IPassEncoder ，请在 PassEncoderMap 中进行添加。
@@ -32,13 +32,13 @@ export interface PassEncoderMap
     /**
      * 渲染通道。
      */
-    IRenderPass: RenderPass;
+    RenderPass: RenderPass;
 
     /**
      * 纹理之间拷贝。
      */
-    ICopyTextureToTexture: CopyTextureToTexture;
+    CopyTextureToTexture: CopyTextureToTexture;
 
-    ICopyBufferToBuffer: CopyBufferToBuffer;
+    CopyBufferToBuffer: CopyBufferToBuffer;
 }
 
