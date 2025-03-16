@@ -10,7 +10,7 @@ export interface FragmentState
     /**
      * 着色器代码。
      */
-    code: string;
+    readonly code: string;
 
     /**
      * A list of {@link GPUColorTargetState} defining the formats and behaviors of the color targets
