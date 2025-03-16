@@ -7,7 +7,7 @@
  */
 export class ChainMap<K extends Array<any>, V>
 {
-    private _map: Map<any, any> | WeakMap<any, any>;
+    private _map = new Map<any, any>();
 
     /**
      * 获取键对应的值。
@@ -17,7 +17,6 @@ export class ChainMap<K extends Array<any>, V>
      */
     get(keys: K): V
     {
-        if (!this._map) return undefined;
         let map = this._map;
 
         for (let i = 0, n = keys.length - 1; i < n; i++)
@@ -38,7 +37,7 @@ export class ChainMap<K extends Array<any>, V>
      */
     set(keys: K, value: V)
     {
-        let map = this._map = this._map || ((typeof keys[0] === "string") ? new Map() : new WeakMap());
+        let map = this._map;
 
         for (let i = 0; i < keys.length - 1; i++)
         {
@@ -46,7 +45,7 @@ export class ChainMap<K extends Array<any>, V>
 
             if (!map.has(key))
             {
-                map.set(key, typeof key === "string" ? new Map() : new WeakMap());
+                map.set(key, new Map());
             }
 
             map = map.get(key);
@@ -63,7 +62,6 @@ export class ChainMap<K extends Array<any>, V>
      */
     delete(keys: K): boolean
     {
-        if (!this._map) return false;
         let map = this._map;
 
         for (let i = 0; i < keys.length - 1; i++)
