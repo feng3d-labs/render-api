@@ -26,7 +26,7 @@ export interface ColorTargetState
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/colorMask
      */
-    readonly writeMask?: IWriteMask;
+    readonly writeMask?: WriteMask;
 }
 
-export type IWriteMask = [red: boolean, green: boolean, blue: boolean, alpha: boolean];
+export type WriteMask = [red: boolean, green: boolean, blue: boolean, alpha: boolean];
