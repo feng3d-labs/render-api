@@ -15,7 +15,7 @@ export interface ColorTargetState
      *
      * 默认 `undefined`，表示不进行混合。
      */
-    blend?: BlendState;
+    readonly blend?: BlendState;
 
     /**
      * 控制那些颜色分量是否可以被写入到颜色中。
@@ -29,4 +29,4 @@ export interface ColorTargetState
     readonly writeMask?: WriteMask;
 }
 
-export type WriteMask = [red: boolean, green: boolean, blue: boolean, alpha: boolean];
+export type WriteMask = readonly [red: boolean, green: boolean, blue: boolean, alpha: boolean];

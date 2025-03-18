@@ -1,4 +1,3 @@
-import { readonly } from "@vue/reactivity";
 import { DepthStencilState } from "./DepthStencilState";
 import { FragmentState } from "./FragmentState";
 import { PrimitiveState } from "./PrimitiveState";
