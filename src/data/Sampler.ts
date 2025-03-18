@@ -1,4 +1,4 @@
-import { ICompareFunction } from "./StencilFaceState";
+import { CompareFunction } from "./StencilFaceState";
 
 /**
  * 纹理采样器。
@@ -115,7 +115,7 @@ export interface Sampler
      *
      * 注：比较采样器可能会使用过滤，但采样结果将是 依赖于实现并且可能不同于正常的过滤规则。
      */
-    compare?: ICompareFunction;
+    compare?: CompareFunction;
 }
 
 /**

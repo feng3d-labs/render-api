@@ -15,13 +15,6 @@ import { VertexAttribute, VertexAttributes } from "./VertexAttributes";
 export interface Geometry
 {
     /**
-     * Describes the primitive-related properties of the pipeline.
-     *
-     * 图元拓扑结构。
-     */
-    primitive?: PrimitiveState;
-
-    /**
      * 顶点属性数据映射。
      */
     vertices?: VertexAttributes;

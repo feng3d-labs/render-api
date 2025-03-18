@@ -1,5 +1,7 @@
+import { readonly } from "@vue/reactivity";
 import { DepthStencilState } from "./DepthStencilState";
 import { FragmentState } from "./FragmentState";
+import { PrimitiveState } from "./PrimitiveState";
 import { VertexState } from "./VertexState";
 
 /**
@@ -19,12 +21,19 @@ export interface RenderPipeline
     /**
      * 顶点着色器阶段描述。
      */
-    vertex: VertexState;
+    readonly vertex: VertexState;
 
     /**
      * 片段着色器阶段描述。
      */
-    fragment?: FragmentState;
+    readonly fragment?: FragmentState;
+
+    /**
+     * Describes the primitive-related properties of the pipeline.
+     *
+     * 图元拓扑结构。
+     */
+    readonly primitive?: PrimitiveState;
 
     /**
      * 深度模板阶段描述。

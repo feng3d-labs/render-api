@@ -1,4 +1,4 @@
-import { ICompareFunction, StencilFaceState } from "./StencilFaceState";
+import { CompareFunction as CompareFunction, StencilFaceState } from "./StencilFaceState";
 
 /**
  * 深度模板阶段描述。
@@ -27,7 +27,7 @@ export interface DepthStencilState
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/depthFunc
      */
-    readonly depthCompare?: ICompareFunction;
+    readonly depthCompare?: CompareFunction;
 
     /**
      * 定义了如何为朝前的图元执行模板比较和操作。

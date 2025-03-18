@@ -10,30 +10,30 @@ export interface StencilFaceState
      *
      * 默认为 "always"。
      */
-    readonly compare?: ICompareFunction;
+    readonly compare?: CompareFunction;
 
     /**
      * 如果片元模板比较测试（由 compare 描述）失败，则执行的 GPUStencilOperation。
      *
      * 默认为 "keep"。
      */
-    readonly failOp?: IStencilOperation;
+    readonly failOp?: StencilOperation;
 
     /**
      * 如果由 depthCompare 描述的片元深度比较失败，则执行的 GPUStencilOperation。
      *
      * 默认为 "keep"。
      */
-    readonly depthFailOp?: IStencilOperation;
+    readonly depthFailOp?: StencilOperation;
 
     /**
      * 如果片元模板比较测试通过，则执行由compare描述的GPUStencilOperation。
      *
      * 默认为 "keep"。
      */
-    readonly passOp?: IStencilOperation;
+    readonly passOp?: StencilOperation;
 }
 
-export type ICompareFunction = "never" | "less" | "equal" | "less-equal" | "greater" | "not-equal" | "greater-equal" | "always";
+export type CompareFunction = "never" | "less" | "equal" | "less-equal" | "greater" | "not-equal" | "greater-equal" | "always";
 
-export type IStencilOperation = "keep" | "zero" | "replace" | "invert" | "increment-clamp" | "decrement-clamp" | "increment-wrap" | "decrement-wrap";
+export type StencilOperation = "keep" | "zero" | "replace" | "invert" | "increment-clamp" | "decrement-clamp" | "increment-wrap" | "decrement-wrap";

@@ -1,5 +1,5 @@
 import { UnReadonly } from "@feng3d/render-api";
-import { reactive as vueReactive } from "@vue/reactivity";
+import { toRaw as vueToRaw, reactive as vueReactive } from "@vue/reactivity";
 
 export { computed, type ComputedRef, effect } from "@vue/reactivity";
 
@@ -10,3 +10,8 @@ export { computed, type ComputedRef, effect } from "@vue/reactivity";
  */
 export const reactive: <T extends object>(target: T) => UnReadonly<T> = vueReactive as any;
 
+/**
+ * Vue原始数据。
+ * 
+ */
+export const toRaw: <T>(observed: T) => T = vueToRaw as any;
