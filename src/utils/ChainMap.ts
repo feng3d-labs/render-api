@@ -7,7 +7,14 @@
  */
 export class ChainMap<K extends Array<any>, V>
 {
+    /**
+     * 根字典。
+     */
     private _map = new Map<any, any>();
+    /**
+     * 键长度。
+     */
+    private _keyLength: number;
 
     /**
      * 获取键对应的值。
@@ -17,16 +24,22 @@ export class ChainMap<K extends Array<any>, V>
      */
     get(keys: K): V
     {
-        let map = this._map;
+        __DEV__ && console.assert(keys.length === this._keyLength, `键长度必须为${this._keyLength}。`);
 
-        for (let i = 0, n = keys.length - 1; i < n; i++)
+        const keysLength = keys.length;
+        let map = this._map;
+        let key: any;
+
+        for (let i = 0, n = keysLength - 1; i < n; i++)
         {
-            map = map.get(keys[i]);
+            key = keys[i];
+            map = map.get(key);
 
             if (map === undefined) return undefined;
         }
 
-        return map.get(keys[keys.length - 1]);
+        key = keys[keysLength - 1];
+        return map.get(key);
     }
 
     /**
@@ -34,14 +47,21 @@ export class ChainMap<K extends Array<any>, V>
      *
      * @param keys 键。
      * @param value 值。
+     * 
+     * @returns 返回设置的值。
      */
     set(keys: K, value: V)
     {
-        let map = this._map;
+        this._keyLength ??= keys.length;
+        __DEV__ && console.assert(keys.length === this._keyLength, `键长度必须为${this._keyLength}。`);
 
-        for (let i = 0; i < keys.length - 1; i++)
+        const keysLength = keys.length;
+        let map = this._map;
+        let key: any;
+
+        for (let i = 0; i < keysLength - 1; i++)
         {
-            const key = keys[i];
+            key = keys[i];
 
             if (!map.has(key))
             {
@@ -51,7 +71,10 @@ export class ChainMap<K extends Array<any>, V>
             map = map.get(key);
         }
 
-        map.set(keys[keys.length - 1], value);
+        key = keys[keysLength - 1];
+        map.set(key, value);
+
+        return value;
     }
 
     /**
@@ -62,16 +85,21 @@ export class ChainMap<K extends Array<any>, V>
      */
     delete(keys: K): boolean
     {
-        let map = this._map;
+        __DEV__ && console.assert(keys.length === this._keyLength, `键长度必须为${this._keyLength}。`);
 
-        for (let i = 0; i < keys.length - 1; i++)
+        const keysLength = keys.length;
+        let map = this._map;
+        let key: any;
+
+        for (let i = 0; i < keysLength - 1; i++)
         {
-            map = map.get(keys[i]);
+            key = keys[i];
+            map = map.get(key);
 
             if (map === undefined) return false;
         }
 
-        return map.delete(keys[keys.length - 1]);
+        key = keys[keysLength - 1];
+        return map.delete(key);
     }
 }
-
