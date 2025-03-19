@@ -1,3 +1,4 @@
+import { readonly } from "@vue/reactivity";
 import { TextureDataSource } from "./TextureDataSource";
 import { TextureImageSource } from "./TextureImageSource";
 
@@ -38,7 +39,7 @@ export interface Texture
      *
      * 修改尺寸将会引发纹理销毁，使用时重新创建新纹理。
      */
-    size: TextureSize;
+    readonly size: TextureSize;
 
     /**
      * 初始化纹理资源。
@@ -51,7 +52,7 @@ export interface Texture
      * @see GPUQueue.copyExternalImageToTexture
      * @see GPUQueue.writeTexture
      */
-    sources?: readonly TextureSource[];
+    readonly sources?: readonly TextureSource[];
 
     /**
      * 初始化纹理后是否生成mipmap
@@ -69,7 +70,7 @@ export interface Texture
      * @see GPUQueue.copyExternalImageToTexture
      * @see GPUQueue.writeTexture
      */
-    writeTextures?: readonly TextureSource[];
+    readonly writeTextures?: readonly TextureSource[];
 
     /**
      * 纹理维度，默认为 "2d" 。
