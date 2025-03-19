@@ -11,10 +11,6 @@ export class ChainMap<K extends Array<any>, V>
      * 根字典。
      */
     private _map = new Map<any, any>();
-    /**
-     * 键长度。
-     */
-    private _keyLength: number;
 
     /**
      * 获取键对应的值。
@@ -24,9 +20,6 @@ export class ChainMap<K extends Array<any>, V>
      */
     get(keys: K): V
     {
-        if (!this._keyLength) return undefined;
-        __DEV__ && console.assert(keys.length === this._keyLength, `键长度必须为${this._keyLength}。`);
-
         const keysLength = keys.length;
         let map = this._map;
         let key: any;
@@ -53,9 +46,6 @@ export class ChainMap<K extends Array<any>, V>
      */
     set(keys: K, value: V)
     {
-        this._keyLength ??= keys.length;
-        __DEV__ && console.assert(keys.length === this._keyLength, `键长度必须为${this._keyLength}。`);
-
         const keysLength = keys.length;
         let map = this._map;
         let key: any;
@@ -86,9 +76,6 @@ export class ChainMap<K extends Array<any>, V>
      */
     delete(keys: K): boolean
     {
-        if (!this._keyLength) return false;
-        __DEV__ && console.assert(keys.length === this._keyLength, `键长度必须为${this._keyLength}。`);
-
         const keysLength = keys.length;
         let map = this._map;
         let key: any;
