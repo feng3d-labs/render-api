@@ -24,6 +24,7 @@ export class ChainMap<K extends Array<any>, V>
      */
     get(keys: K): V
     {
+        if (!this._keyLength) return undefined;
         __DEV__ && console.assert(keys.length === this._keyLength, `键长度必须为${this._keyLength}。`);
 
         const keysLength = keys.length;
@@ -85,6 +86,7 @@ export class ChainMap<K extends Array<any>, V>
      */
     delete(keys: K): boolean
     {
+        if (!this._keyLength) return false;
         __DEV__ && console.assert(keys.length === this._keyLength, `键长度必须为${this._keyLength}。`);
 
         const keysLength = keys.length;
