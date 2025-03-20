@@ -22,7 +22,7 @@ export interface Geometry
     /**
      * 顶点索引数据。
      */
-    indices?: IIndicesDataTypes;
+    indices?: IndicesDataTypes;
 
     /**
      * 绘制。
@@ -102,7 +102,7 @@ export class Geometry
 /**
  * 顶点索引数据类型。
  */
-export type IIndicesDataTypes = Uint16Array | Uint32Array;
+export type IndicesDataTypes = Uint16Array | Uint32Array;
 
 /**
  * 绘制图形。
