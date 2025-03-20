@@ -15,7 +15,6 @@ export * from "./data/DepthStencilState";
 export * from "./data/DrawIndexed";
 export * from "./data/DrawVertex";
 export * from "./data/FragmentState";
-export * from "./data/Geometry";
 export * from "./data/ImageCopyTexture";
 export * from "./data/OcclusionQuery";
 export * from "./data/PrimitiveState";
