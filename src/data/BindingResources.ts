@@ -20,6 +20,6 @@ export interface BindingResourceTypeMap
     /**
      * 缓冲区绑定。
      */
-    IBufferBinding: BufferBinding;
-    IBufferBindingItem: BufferBindingItem;
+    BufferBinding: BufferBinding;
+    BufferBindingItem: BufferBindingItem;
 }
