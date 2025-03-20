@@ -10,7 +10,7 @@ import { TypedArray } from "../types/TypedArray";
  */
 export interface BufferBinding
 {
-    [name: string]: BufferBindingItem;
+    readonly [name: string]: BufferBindingItem;
 
     /**
      * 如果未设置引擎将自动生成。
@@ -18,8 +18,8 @@ export interface BufferBinding
     readonly bufferView?: TypedArray;
 }
 
-export type UniformDataItem = number | number[] | number[][] | TypedArray | TypedArray[]
-    | { toArray(): number[] | Float32Array }
-    | { toArray(): number[] | Float32Array }[]
+export type UniformDataItem = number | readonly number[] | readonly number[][] | TypedArray | readonly TypedArray[]
+    | { toArray(): number[] | TypedArray }
+    | readonly { toArray(): number[] | TypedArray }[]
     ;
-export type BufferBindingItem = UniformDataItem | { [key: string]: BufferBindingItem };
+export type BufferBindingItem = UniformDataItem | { readonly [key: string]: BufferBindingItem };

@@ -7,7 +7,7 @@ import { BufferBinding, BufferBindingItem } from "./BufferBinding";
  */
 export interface BindingResources
 {
-    [key: string]: BindingResource;
+    readonly [key: string]: BindingResource;
 }
 
 /**
