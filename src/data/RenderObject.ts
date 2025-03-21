@@ -1,4 +1,3 @@
-import { readonly } from "@vue/reactivity";
 import { BindingResources } from "./BindingResources";
 import { DrawIndexed } from "./DrawIndexed";
 import { DrawVertex } from "./DrawVertex";
