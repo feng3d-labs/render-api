@@ -1,3 +1,4 @@
+import { readonly } from "@vue/reactivity";
 import { BindingResources } from "./BindingResources";
 import { DrawIndexed } from "./DrawIndexed";
 import { DrawVertex } from "./DrawVertex";
@@ -21,41 +22,39 @@ export interface RenderObject
      *
      * 描述渲染在画布的哪个区域，默认整个画布。
      */
-    viewport?: Viewport;
+    readonly viewport?: Viewport;
 
     /**
      * 光栅化阶段中使用的剪刀矩形。
      */
-    scissorRect?: ScissorRect;
+    readonly scissorRect?: ScissorRect;
 
     /**
      * 渲染管线描述。
      */
-    pipeline: RenderPipeline;
+    readonly pipeline: RenderPipeline;
 
     /**
      * 顶点属性数据映射。
      */
-    vertices?: VertexAttributes;
+    readonly vertices?: VertexAttributes;
 
     /**
      * 顶点索引数据。
      */
-    indices?: IndicesDataTypes;
+    readonly indices?: IndicesDataTypes;
 
     /**
      * 绘制。
      */
-    draw?: IDraw;
+    readonly draw?: IDraw;
 
     /**
      * 绑定资源。
      * 
      * 与着色器中名称对应的绑定资源（纹理、采样器、统一数据、存储数据等）。
      */
-    bindingResources?: BindingResources;
-
-    _version?: number;
+    readonly bindingResources?: BindingResources;
 }
 
 
