@@ -10,7 +10,8 @@ export class ChainMap<K extends Array<any>, V>
     /**
      * 根字典。
      */
-    private _map = new Map<any, any>();
+    private _根字典 = new Map<any, any>();
+    private _数量 = 0;
 
     /**
      * 获取键对应的值。
@@ -21,7 +22,7 @@ export class ChainMap<K extends Array<any>, V>
     get(keys: K): V
     {
         const keysLength = keys.length;
-        let map = this._map;
+        let map = this._根字典;
         let key: any;
 
         for (let i = 0, n = keysLength - 1; i < n; i++)
@@ -47,7 +48,7 @@ export class ChainMap<K extends Array<any>, V>
     set(keys: K, value: V)
     {
         const keysLength = keys.length;
-        let map = this._map;
+        let map = this._根字典;
         let key: any;
 
         for (let i = 0; i < keysLength - 1; i++)
@@ -63,7 +64,11 @@ export class ChainMap<K extends Array<any>, V>
         }
 
         key = keys[keysLength - 1];
-        map.set(key, value);
+        if (!map.has(key))
+        {
+            map.set(key, value);
+            this._数量++;
+        }
 
         return value;
     }
@@ -77,7 +82,7 @@ export class ChainMap<K extends Array<any>, V>
     delete(keys: K): boolean
     {
         const keysLength = keys.length;
-        let map = this._map;
+        let map = this._根字典;
         let key: any;
 
         for (let i = 0; i < keysLength - 1; i++)
@@ -89,6 +94,9 @@ export class ChainMap<K extends Array<any>, V>
         }
 
         key = keys[keysLength - 1];
-        return map.delete(key);
+        const result = map.delete(key);
+        if (result) this._数量--;
+
+        return result;
     }
 }
