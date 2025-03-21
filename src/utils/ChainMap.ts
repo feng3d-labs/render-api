@@ -1,16 +1,14 @@
 /**
- * 链式Map。
- *
- * 多个key数组对应一个值。
- *
- * 由于键值可能是字面值也可能是对象，因此无法使用 {@link WeakMap} 来构建{@link ChainMap}，只能使用 {@link Map}。
+ * 链式字典。
+ * 
+ * 使用WeakMap构建的，支持多个key数组对应一个值。
  */
 export class ChainMap<K extends Array<any>, V>
 {
     /**
      * 根字典。
      */
-    private _根字典 = new Map<any, any>();
+    private _根字典 = new WeakMap<any, any>();
     private _数量 = 0;
 
     /**
@@ -27,13 +25,13 @@ export class ChainMap<K extends Array<any>, V>
 
         for (let i = 0, n = keysLength - 1; i < n; i++)
         {
-            key = keys[i];
+            key = wrapKey(keys[i]);
             map = map.get(key);
 
             if (map === undefined) return undefined;
         }
 
-        key = keys[keysLength - 1];
+        key = wrapKey(keys[keysLength - 1]);
         return map.get(key);
     }
 
@@ -53,17 +51,17 @@ export class ChainMap<K extends Array<any>, V>
 
         for (let i = 0; i < keysLength - 1; i++)
         {
-            key = keys[i];
+            key = wrapKey(keys[i]);
 
             if (!map.has(key))
             {
-                map.set(key, new Map());
+                map.set(key, new WeakMap());
             }
 
             map = map.get(key);
         }
 
-        key = keys[keysLength - 1];
+        key = wrapKey(keys[keysLength - 1]);
         if (!map.has(key))
         {
             map.set(key, value);
@@ -87,16 +85,46 @@ export class ChainMap<K extends Array<any>, V>
 
         for (let i = 0; i < keysLength - 1; i++)
         {
-            key = keys[i];
+            key = wrapKey(keys[i]);
             map = map.get(key);
 
             if (map === undefined) return false;
         }
 
-        key = keys[keysLength - 1];
+        key = wrapKey(keys[keysLength - 1]);
         const result = map.delete(key);
         if (result) this._数量--;
 
         return result;
     }
+}
+
+// 创建一个普通 Map 用于存储原始值和包装对象的映射
+const keyMap = new Map();
+// 用于生成唯一 ID 的计数器
+let idCounter = 0;
+
+// 包装函数，将非对象值包装成对象
+function wrapKey(key: any)
+{
+    if (typeof key === 'object' && key !== null)
+    {
+        // 如果 key 已经是对象，则直接返回
+        return key;
+    }
+    if (keyMap.has(key))
+    {
+        // 如果原始值已经有对应的包装对象，直接返回
+        return keyMap.get(key);
+    }
+    // 为非对象 key 生成一个唯一 ID
+    const id = idCounter++;
+    // 创建一个包装对象
+    const wrapper = {
+        __id: id,
+        __value: key
+    };
+    // 存储原始值和包装对象的映射
+    keyMap.set(key, wrapper);
+    return wrapper;
 }
