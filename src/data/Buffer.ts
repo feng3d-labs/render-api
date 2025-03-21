@@ -10,7 +10,7 @@ import { WriteBuffer } from "./WriteBuffer";
  *
  * {@link GPUBuffer}
  */
-export interface GBuffer
+export interface Buffer
 {
     /**
      * 标签。
@@ -23,13 +23,15 @@ export interface GBuffer
      * 缓冲区尺寸，单位为字节。
      *
      * 尺寸必须为4的倍数。
+     * 
+     * 注：修改尺寸时，会重新创建缓冲区。
      */
     readonly size: number;
 
     /**
      * 缓冲区数据。
      */
-    data?: TypedArray;
+    readonly data?: TypedArray;
 
     /**
      * 写缓冲区。
