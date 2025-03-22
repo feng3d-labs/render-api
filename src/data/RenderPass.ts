@@ -22,7 +22,7 @@ export interface RenderPass
     /**
      * 渲染对象列表
      */
-    readonly renderObjects?: readonly RenderPassObject[];
+    readonly renderPassObjects?: readonly RenderPassObject[];
 
     /**
      * 当渲染通道中存在遮挡查询时，在查询结束后调用该函数返回查询结果。
