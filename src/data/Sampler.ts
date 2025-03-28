@@ -1,4 +1,3 @@
-import { readonly } from "@vue/reactivity";
 import { CompareFunction } from "./StencilFaceState";
 
 /**

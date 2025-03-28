@@ -1,4 +1,3 @@
-import { readonly } from "@vue/reactivity";
 import { TextureDataSource } from "./TextureDataSource";
 import { TextureImageSource } from "./TextureImageSource";
 
