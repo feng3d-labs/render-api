@@ -1,10 +1,10 @@
 import { UnReadonly } from "@feng3d/render-api";
 
-// import { reactive as vueReactive, toRaw as vueToRaw } from "@feng3d/reactivity";
-// export { computed, type Computed, effect } from "@feng3d/reactivity";
+import { reactive as vueReactive, toRaw as vueToRaw } from "@feng3d/reactivity";
+export { computed, type Computed, effect } from "@feng3d/reactivity";
 
-import { reactive as vueReactive, toRaw as vueToRaw } from "@vue/reactivity";
-export { computed, effect, type ComputedRef as Computed } from "@vue/reactivity";
+// import { reactive as vueReactive, toRaw as vueToRaw } from "@vue/reactivity";
+// export { computed, effect, type ComputedRef as Computed } from "@vue/reactivity";
 
 
 /**
