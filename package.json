@@ -56,7 +56,6 @@
     "vitest": "^0.32.2"
   },
   "dependencies": {
-    "@feng3d/reactivity": "^1.0.2",
-    "@vue/reactivity": "^3.5.13"
+    "@feng3d/reactivity": "^1.0.4"
   }
 }
