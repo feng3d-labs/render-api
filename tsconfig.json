@@ -8,9 +8,6 @@
         "declaration": true,
         "experimentalDecorators": true,
         "emitDeclarationOnly": true,
-        "types": [
-            "@webgpu/types"
-        ],
         "lib": [
             "ESNext",
             "DOM",
