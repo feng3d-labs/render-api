@@ -1,6 +1,6 @@
 # @feng3d/render-api
 
-WebGL/WebGPU渲染API接口库，提供给@feng3d/webgl与@feng3d/webgpu使用。
+提供WebGL/WebGPU统一的渲染数据结构，描述渲染所需的所有数据以及流程，用于@feng3d/webgl与@feng3d/webgpu。
 
 ## 功能特性
 
