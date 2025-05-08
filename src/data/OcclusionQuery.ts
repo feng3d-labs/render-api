@@ -17,7 +17,7 @@ export interface OcclusionQuery
 
     /**
      * 查询结束回调。
-     * 
+     *
      * @param result 是否被渲染。true表示被渲染，false表示未被渲染。
      */
     onQuery?(result: number): void;

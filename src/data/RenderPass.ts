@@ -26,7 +26,7 @@ export interface RenderPass
 
     /**
      * 当渲染通道中存在遮挡查询时，在查询结束后调用该函数返回查询结果。
-     * 
+     *
      * @param occlusionQuerys 遮挡查询列表
      * @param results 是否被渲染。true表示被渲染，false表示未被渲染。
      */

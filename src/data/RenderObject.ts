@@ -50,20 +50,18 @@ export interface RenderObject
 
     /**
      * 绑定资源。
-     * 
+     *
      * 与着色器中名称对应的绑定资源（纹理、采样器、统一数据、存储数据等）。
      */
     readonly bindingResources?: BindingResources;
 }
 
-
 export class RenderObject
 {
-
     /**
      * 获取顶点数量。
      *
-     * @returns 顶点数量。 
+     * @returns 顶点数量。
      */
     static getNumVertex(geometry: RenderObject)
     {
@@ -104,7 +102,7 @@ export class RenderObject
 
     static getDraw(geometry: RenderObject): DrawIndexed | DrawVertex
     {
-        if (geometry['_draw']) return geometry['_draw'];
+        if (geometry["_draw"]) return geometry["_draw"];
 
         const instanceCount = RenderObject.getInstanceCount(geometry);
 

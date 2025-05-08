@@ -12,9 +12,9 @@ export interface CanvasTexture
 
     /**
      * 画布尺寸发生变化后引擎自动递增。
-     * 
+     *
      * 引擎内部监听这个值，在画布尺寸发生变化后重新获取纹理。
-     * 
+     *
      * @private
      */
     _canvasSizeVersion?: number;

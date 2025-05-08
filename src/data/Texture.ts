@@ -22,7 +22,7 @@ export interface TextureLikeMap
 /**
  * 纹理
  */
-export interface Texture 
+export interface Texture
 {
     /**
      * 标签。
@@ -107,9 +107,9 @@ export class Texture
 
     /**
      * 获取纹理数据构造函数。
-     
+
      * @param format 纹理格式。
-     * @returns 
+     * @returns
      */
     static getTextureDataConstructor(format: TextureFormat = "rgba8unorm")
     {

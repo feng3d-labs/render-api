@@ -4,5 +4,5 @@ declare global
     /**
      * 是否为开发模式。
      */
-    var __DEV__: boolean;
+    let __DEV__: boolean;
 }

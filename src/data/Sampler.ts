@@ -86,7 +86,7 @@ export interface Sampler
      * 各向异性过滤。使用各向异性过滤能够使纹理的效果更好，但是会消耗更多的内存、CPU、GPU时间。默认为1。
      *
      * 仅当 minFilter 、magFilter 或 mipmapFilter 为 "linear" 时才有效，否则取 1。
-     * 
+     *
      * 默认 1。
      *
      * 注：大多数实现支持范围在1到16之间（包括1和16）的maxAnisotropy值。所使用的maxAnisotropy值将被限制在平台支持的最大值内

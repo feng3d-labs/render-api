@@ -17,7 +17,7 @@ export interface PrimitiveState
      * * `triangle-strip` 绘制三角形条带。
      *
      * 默认 `triangle-list` ,默认每三个顶点绘制一个三角形。
-     * 
+     *
      * 图形拓扑结构。
      *
      * 以下仅在WebGL生效

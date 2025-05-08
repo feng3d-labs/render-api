@@ -45,4 +45,4 @@ export * from "./types/UnReadonly";
 
 export * from "./utils/ChainMap";
 
-import "./global"
+import "./global";

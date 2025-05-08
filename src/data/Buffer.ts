@@ -23,7 +23,7 @@ export interface Buffer
      * 缓冲区尺寸，单位为字节。
      *
      * 尺寸必须为4的倍数。
-     * 
+     *
      * 注：修改尺寸时，会重新创建缓冲区。
      */
     readonly size: number;

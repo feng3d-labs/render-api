@@ -2,7 +2,7 @@ import { BufferBinding, BufferBindingItem } from "./BufferBinding";
 
 /**
  * 绑定资源。
- * 
+ *
  * 与着色器中名称对应的绑定资源（纹理、采样器、统一数据、存储数据等）。
  */
 export interface BindingResources

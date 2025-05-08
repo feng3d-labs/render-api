@@ -1,6 +1,6 @@
 /**
  * 链式字典。
- * 
+ *
  * 使用WeakMap构建的，支持多个key数组对应一个值。
  */
 export class ChainMap<K extends Array<any>, V>
@@ -32,7 +32,8 @@ export class ChainMap<K extends Array<any>, V>
         }
 
         key = wrapKey(keys[keysLength - 1]);
-        return map.get(key);
+
+return map.get(key);
     }
 
     /**
@@ -40,7 +41,7 @@ export class ChainMap<K extends Array<any>, V>
      *
      * @param keys 键。
      * @param value 值。
-     * 
+     *
      * @returns 返回设置的值。
      */
     set(keys: K, value: V)
@@ -107,7 +108,7 @@ let idCounter = 0;
 // 包装函数，将非对象值包装成对象
 function wrapKey(key: any)
 {
-    if (typeof key === 'object' && key !== null)
+    if (typeof key === "object" && key !== null)
     {
         // 如果 key 已经是对象，则直接返回
         return key;
@@ -126,5 +127,6 @@ function wrapKey(key: any)
     };
     // 存储原始值和包装对象的映射
     keyMap.set(key, wrapper);
-    return wrapper;
+
+return wrapper;
 }
