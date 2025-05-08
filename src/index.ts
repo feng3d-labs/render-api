@@ -38,8 +38,6 @@ export * from "./data/VertexState";
 export * from "./data/Viewport";
 export * from "./data/WriteBuffer";
 
-export * from "./reactivity";
-
 export * from "./internal/BufferBindingInfo";
 
 export * from "./types/TypedArray";
