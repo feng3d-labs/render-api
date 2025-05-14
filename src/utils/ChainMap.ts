@@ -33,7 +33,7 @@ export class ChainMap<K extends Array<any>, V>
 
         key = wrapKey(keys[keysLength - 1]);
 
-return map.get(key);
+        return map.get(key);
     }
 
     /**
@@ -128,5 +128,5 @@ function wrapKey(key: any)
     // 存储原始值和包装对象的映射
     keyMap.set(key, wrapper);
 
-return wrapper;
+    return wrapper;
 }
