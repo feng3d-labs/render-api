@@ -57,6 +57,6 @@ export interface RenderPassColorAttachment
     readonly loadOp?: LoadOp;
 }
 
-export type Color = [red: number, green: number, blue: number, alpha: number];
+export type Color = readonly [red: number, green: number, blue: number, alpha: number];
 
 export type LoadOp = "load" | "clear";

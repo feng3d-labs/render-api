@@ -47,7 +47,7 @@ export class BlendState
     {
         if (!blendState) return undefined;
 
-        const { color, alpha, constantColor } = blendState;
+        const { color, alpha } = blendState;
 
         // 当混合系数用到了混合常量值时设置混合常量值。
         if (0
@@ -61,6 +61,12 @@ export class BlendState
             || alpha?.dstFactor === "one-minus-constant"
         )
         {
+            const constantColor = blendState.constantColor;
+            if (constantColor)
+            {
+                return [constantColor[0], constantColor[1], constantColor[2], constantColor[3]];
+            }
+
             return constantColor ?? [0, 0, 0, 0];
         }
 
