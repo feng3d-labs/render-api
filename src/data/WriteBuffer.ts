@@ -1,4 +1,4 @@
-import { TypedArray } from "../types/TypedArray";
+import { TypedArray } from '../types/TypedArray';
 
 export interface WriteBuffer
 {

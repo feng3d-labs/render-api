@@ -1,4 +1,4 @@
-import { TextureView } from "./TextureView";
+import { TextureView } from './TextureView';
 
 /**
  * 深度模板附件。
@@ -31,7 +31,7 @@ export interface RenderPassDepthStencilAttachment
      *
      * @see https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/clear
      */
-    readonly depthLoadOp?: "load" | "clear";
+    readonly depthLoadOp?: 'load' | 'clear';
 
     /**
      * 清除后填充模板值。
@@ -49,5 +49,5 @@ export interface RenderPassDepthStencilAttachment
      *
      * @see https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/clear
      */
-    readonly stencilLoadOp?: "load" | "clear";
+    readonly stencilLoadOp?: 'load' | 'clear';
 }

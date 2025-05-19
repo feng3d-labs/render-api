@@ -11,7 +11,7 @@ export interface DrawVertex
     /**
      * 数据类型。
      */
-    readonly __type__: "DrawVertex";
+    readonly __type__: 'DrawVertex';
 
     /**
      * The number of vertices to draw.

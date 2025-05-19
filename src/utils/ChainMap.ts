@@ -94,6 +94,7 @@ export class ChainMap<K extends Array<any>, V>
 
         key = wrapKey(keys[keysLength - 1]);
         const result = map.delete(key);
+
         if (result) this._数量--;
 
         return result;
@@ -108,7 +109,7 @@ let idCounter = 0;
 // 包装函数，将非对象值包装成对象
 function wrapKey(key: any)
 {
-    if (typeof key === "object" && key !== null)
+    if (typeof key === 'object' && key !== null)
     {
         // 如果 key 已经是对象，则直接返回
         return key;
@@ -123,8 +124,9 @@ function wrapKey(key: any)
     // 创建一个包装对象
     const wrapper = {
         __id: id,
-        __value: key
+        __value: key,
     };
+
     // 存储原始值和包装对象的映射
     keyMap.set(key, wrapper);
 

@@ -1,4 +1,4 @@
-import { TextureView } from "./TextureView";
+import { TextureView } from './TextureView';
 
 /**
  * 渲染通道颜色附件。
@@ -59,4 +59,4 @@ export interface RenderPassColorAttachment
 
 export type Color = readonly [red: number, green: number, blue: number, alpha: number];
 
-export type LoadOp = "load" | "clear";
+export type LoadOp = 'load' | 'clear';

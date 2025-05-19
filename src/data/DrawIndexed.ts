@@ -9,7 +9,7 @@ export interface DrawIndexed
     /**
      * 数据类型。
      */
-    readonly __type__: "DrawIndexed";
+    readonly __type__: 'DrawIndexed';
 
     /**
      * The number of indices to draw.

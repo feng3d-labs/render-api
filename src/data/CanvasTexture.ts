@@ -1,4 +1,4 @@
-import { CanvasContext } from "./CanvasContext";
+import { CanvasContext } from './CanvasContext';
 
 /**
  * 画布纹理，从画布的上下文获取纹理

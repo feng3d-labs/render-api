@@ -42,7 +42,7 @@ export interface BlendComponent
     readonly dstFactor?: IBlendFactor;
 }
 
-export type IBlendOperation = "add" | "subtract" | "reverse-subtract" | "min" | "max";
+export type IBlendOperation = 'add' | 'subtract' | 'reverse-subtract' | 'min' | 'max';
 
 /**
  * @see https://gpuweb.github.io/gpuweb/#enumdef-gpublendfactor
@@ -51,17 +51,17 @@ export type IBlendFactor = IBlendFactorMap[keyof IBlendFactorMap];
 
 export interface IBlendFactorMap
 {
-    "zero": "zero";
-    "one": "one";
-    "src": "src";
-    "one-minus-src": "one-minus-src";
-    "src-alpha": "src-alpha";
-    "one-minus-src-alpha": "one-minus-src-alpha";
-    "dst": "dst";
-    "one-minus-dst": "one-minus-dst";
-    "dst-alpha": "dst-alpha";
-    "one-minus-dst-alpha": "one-minus-dst-alpha";
-    "src-alpha-saturated": "src-alpha-saturated";
-    "constant": "constant";
-    "one-minus-constant": "one-minus-constant";
+    'zero': 'zero';
+    'one': 'one';
+    'src': 'src';
+    'one-minus-src': 'one-minus-src';
+    'src-alpha': 'src-alpha';
+    'one-minus-src-alpha': 'one-minus-src-alpha';
+    'dst': 'dst';
+    'one-minus-dst': 'one-minus-dst';
+    'dst-alpha': 'dst-alpha';
+    'one-minus-dst-alpha': 'one-minus-dst-alpha';
+    'src-alpha-saturated': 'src-alpha-saturated';
+    'constant': 'constant';
+    'one-minus-constant': 'one-minus-constant';
 }

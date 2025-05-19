@@ -1,4 +1,4 @@
-import { RenderObject } from "./RenderObject";
+import { RenderObject } from './RenderObject';
 
 /**
  * 遮挡查询
@@ -8,7 +8,7 @@ export interface OcclusionQuery
     /**
      * 数据类型。
      */
-    readonly __type__: "OcclusionQuery";
+    readonly __type__: 'OcclusionQuery';
 
     /**
      * GPU渲染对象列表。

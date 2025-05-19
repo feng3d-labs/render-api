@@ -1,4 +1,4 @@
-import { CompareFunction } from "./StencilFaceState";
+import { CompareFunction } from './StencilFaceState';
 
 /**
  * 纹理采样器。
@@ -123,14 +123,14 @@ export interface Sampler
 /**
  * 纹理坐标寻址模式。
  */
-export type IAddressMode = "clamp-to-edge" | "repeat" | "mirror-repeat";
+export type IAddressMode = 'clamp-to-edge' | 'repeat' | 'mirror-repeat';
 
 /**
  * 描述采样器在采样足迹与一个纹素不完全匹配时的行为。
  */
-export type IFilterMode = "nearest" | "linear";
+export type IFilterMode = 'nearest' | 'linear';
 
 /**
  * 描述采样器在采样足迹与mipmap层级不完全匹配时的行为。
  */
-export type IMipmapFilterMode = "nearest" | "linear";
+export type IMipmapFilterMode = 'nearest' | 'linear';

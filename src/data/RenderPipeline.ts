@@ -1,7 +1,7 @@
-import { DepthStencilState } from "./DepthStencilState";
-import { FragmentState } from "./FragmentState";
-import { PrimitiveState } from "./PrimitiveState";
-import { VertexState } from "./VertexState";
+import { DepthStencilState } from './DepthStencilState';
+import { FragmentState } from './FragmentState';
+import { PrimitiveState } from './PrimitiveState';
+import { VertexState } from './VertexState';
 
 /**
  * 渲染管线。

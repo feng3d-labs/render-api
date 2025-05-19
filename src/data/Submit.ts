@@ -1,4 +1,4 @@
-import { CommandEncoder } from "./CommandEncoder";
+import { CommandEncoder } from './CommandEncoder';
 
 /**
  * 一次 GPU 提交。

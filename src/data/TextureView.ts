@@ -1,4 +1,4 @@
-import { TextureLike } from "./Texture";
+import { TextureLike } from './Texture';
 
 /**
  * 纹理视图。

@@ -1,4 +1,4 @@
-import { CompareFunction, StencilFaceState } from "./StencilFaceState";
+import { CompareFunction, StencilFaceState } from './StencilFaceState';
 
 /**
  * 深度模板阶段描述。

@@ -1,9 +1,9 @@
-import { TextureImageSource } from "@feng3d/render-api";
-import { assert, describe, it } from "vitest";
+import { TextureImageSource } from '@feng3d/render-api';
+import { assert, describe, it } from 'vitest';
 
-describe("test", () =>
+describe('test', () =>
 {
-    it("test", () =>
+    it('test', () =>
     {
         assert.equal(true, true);
     });

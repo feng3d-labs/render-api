@@ -1,4 +1,4 @@
-import { ColorTargetState } from "./ColorTargetState";
+import { ColorTargetState } from './ColorTargetState';
 
 /**
  * 片段着色器阶段描述。

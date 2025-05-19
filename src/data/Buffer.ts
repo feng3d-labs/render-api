@@ -1,5 +1,5 @@
-import { TypedArray } from "../types/TypedArray";
-import { WriteBuffer } from "./WriteBuffer";
+import { TypedArray } from '../types/TypedArray';
+import { WriteBuffer } from './WriteBuffer';
 
 /**
  * 缓冲区

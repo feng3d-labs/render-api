@@ -1,6 +1,6 @@
-import { CopyBufferToBuffer } from "./CopyBufferToBuffer";
-import { CopyTextureToTexture } from "./CopyTextureToTexture";
-import { RenderPass } from "./RenderPass";
+import { CopyBufferToBuffer } from './CopyBufferToBuffer';
+import { CopyTextureToTexture } from './CopyTextureToTexture';
+import { RenderPass } from './RenderPass';
 
 /**
  * 命令编码器。

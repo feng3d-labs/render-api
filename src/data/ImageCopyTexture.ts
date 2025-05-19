@@ -1,4 +1,4 @@
-import { TextureLike, TextureOrigin } from "./Texture";
+import { TextureLike, TextureOrigin } from './Texture';
 
 /**
  * 被操作的纹理相关信息。
@@ -30,4 +30,4 @@ export interface ImageCopyTexture
     aspect?: ITextureAspect;
 }
 
-export type ITextureAspect = "all" | "stencil-only" | "depth-only";
+export type ITextureAspect = 'all' | 'stencil-only' | 'depth-only';

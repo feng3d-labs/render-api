@@ -1,4 +1,4 @@
-import { BufferBinding, BufferBindingItem } from "./BufferBinding";
+import { BufferBinding, BufferBindingItem } from './BufferBinding';
 
 /**
  * 绑定资源。

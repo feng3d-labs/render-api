@@ -1,4 +1,4 @@
-import { ImageOrigin, ImageSize, TextureOrigin, TextureSize } from "./Texture";
+import { ImageOrigin, ImageSize, TextureOrigin, TextureSize } from './Texture';
 
 /**
  * 纹理的图片资源。
@@ -17,7 +17,7 @@ export interface TextureImageSource
     /**
      * 数据类型。
      */
-    readonly __type__?: "TextureImageSource";
+    readonly __type__?: 'TextureImageSource';
 
     /**
      * 图片资源。
@@ -74,6 +74,7 @@ export class TextureImageSource
     {
         let width: number;
         let height: number;
+
         if (image instanceof VideoFrame)
         {
             width = image.codedWidth;

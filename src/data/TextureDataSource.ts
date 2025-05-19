@@ -1,4 +1,4 @@
-import { TextureDataLayout, DataImageOrigin, TextureOrigin, TextureSize } from "./Texture";
+import { TextureDataLayout, DataImageOrigin, TextureOrigin, TextureSize } from './Texture';
 
 /**
  * 纹理的数据资源。
@@ -15,7 +15,7 @@ export interface TextureDataSource
     /**
      * 数据类型。
      */
-    readonly __type__: "TextureDataSource";
+    readonly __type__: 'TextureDataSource';
 
     /**
      * 纹理数据。
