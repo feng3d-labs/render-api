@@ -21,7 +21,7 @@ export interface BlendComponent
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquation
      */
-    readonly operation?: IBlendOperation;
+    readonly operation?: BlendOperation;
 
     /**
      * 源混合因子。
@@ -30,7 +30,7 @@ export interface BlendComponent
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
      */
-    readonly srcFactor?: IBlendFactor;
+    readonly srcFactor?: BlendFactor;
 
     /**
      * 目标混合因子。
@@ -39,15 +39,15 @@ export interface BlendComponent
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
      */
-    readonly dstFactor?: IBlendFactor;
+    readonly dstFactor?: BlendFactor;
 }
 
-export type IBlendOperation = 'add' | 'subtract' | 'reverse-subtract' | 'min' | 'max';
+export type BlendOperation = 'add' | 'subtract' | 'reverse-subtract' | 'min' | 'max';
 
 /**
  * @see https://gpuweb.github.io/gpuweb/#enumdef-gpublendfactor
  */
-export type IBlendFactor = IBlendFactorMap[keyof IBlendFactorMap];
+export type BlendFactor = IBlendFactorMap[keyof IBlendFactorMap];
 
 export interface IBlendFactorMap
 {
