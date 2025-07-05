@@ -54,7 +54,9 @@ export interface Texture
     readonly sources?: readonly TextureSource[];
 
     /**
-     * 初始化纹理后是否生成mipmap
+     * 是否生成mipmap
+     *
+     * 仅在纹理创建时执行。
      */
     readonly generateMipmap?: boolean;
 
