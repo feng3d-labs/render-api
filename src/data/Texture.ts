@@ -20,9 +20,9 @@ export interface TextureLikeMap
 }
 
 /**
- * 纹理
+ * 纹理描述。
  */
-export interface Texture
+export interface TextureDescriptor
 {
     /**
      * 标签。
@@ -41,39 +41,6 @@ export interface Texture
     readonly size: TextureSize;
 
     /**
-     * 初始化纹理资源。
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texImage2D
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/texImage3D
-     *
-     * ### WebGPU
-     *
-     * @see GPUQueue.copyExternalImageToTexture
-     * @see GPUQueue.writeTexture
-     */
-    readonly sources?: readonly TextureSource[];
-
-    /**
-     * 是否生成mipmap
-     *
-     * 仅在纹理创建时执行。
-     */
-    readonly generateMipmap?: boolean;
-
-    /**
-     * 写入纹理资源。
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/texSubImage3D
-     *
-     * ### WebGPU
-     *
-     * @see GPUQueue.copyExternalImageToTexture
-     * @see GPUQueue.writeTexture
-     */
-    readonly writeTextures?: readonly TextureSource[];
-
-    /**
      * 纹理维度，默认为 "2d" 。
      *
      * WebGL中不支持 "1d" "cube-array"。
@@ -89,6 +56,50 @@ export interface Texture
      * The number of mip levels the texture will contain.
      */
     readonly mipLevelCount?: number;
+
+    /**
+     * 是否生成mipmap
+     *
+     * 仅在纹理创建时执行。
+     */
+    readonly generateMipmap?: boolean;
+}
+
+/**
+ * 纹理
+ */
+export interface Texture
+{
+    /**
+     * 纹理描述。
+     */
+    readonly descriptor: TextureDescriptor;
+
+    /**
+     * 初始化纹理资源。
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texImage2D
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/texImage3D
+     *
+     * ### WebGPU
+     *
+     * @see GPUQueue.copyExternalImageToTexture
+     * @see GPUQueue.writeTexture
+     */
+    readonly sources?: readonly TextureSource[];
+
+    /**
+     * 写入纹理资源。
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/texSubImage3D
+     *
+     * ### WebGPU
+     *
+     * @see GPUQueue.copyExternalImageToTexture
+     * @see GPUQueue.writeTexture
+     */
+    readonly writeTextures?: readonly TextureSource[];
 }
 
 export class Texture
