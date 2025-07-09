@@ -63,6 +63,14 @@ export interface TextureDescriptor
      * 仅在纹理创建时执行。
      */
     readonly generateMipmap?: boolean;
+
+    /**
+     * The sample count of the texture. A {@link GPUTextureDescriptor#sampleCount} &gt; `1` indicates
+     * a multisampled texture.
+     *
+     * WebGPU只支持4重采样。
+     */
+    readonly sampleCount?: 4;
 }
 
 /**
