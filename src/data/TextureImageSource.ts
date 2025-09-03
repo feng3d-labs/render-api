@@ -12,7 +12,7 @@ import { ImageOrigin, ImageSize, TextureOrigin, TextureSize } from "./Texture";
  *
  * @see GPUQueue.copyExternalImageToTexture
  */
-export interface TextureImageSource 
+export interface TextureImageSource
 {
     /**
      * 数据类型。

@@ -3,7 +3,7 @@
  *
  * @see https://www.orillusion.com/zh/webgpu.html#dictdef-gpustencilfacestate
  */
-export interface StencilFaceState 
+export interface StencilFaceState
 {
     __type__?: "StencilFaceState";
 

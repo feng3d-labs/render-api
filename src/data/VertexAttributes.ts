@@ -52,10 +52,10 @@ export interface VertexAttribute
 export class VertexAttribute
 {
     /**
-     * 获取顶点属性数据的顶点数量。 
-     * 
+     * 获取顶点属性数据的顶点数量。
+     *
      * @param attribute 顶点属性数据。
-     * @returns 
+     * @returns
      */
     static getVertexCount(attribute: VertexAttribute)
     {

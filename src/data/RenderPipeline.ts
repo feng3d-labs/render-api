@@ -4,7 +4,7 @@ import { VertexState } from "./VertexState";
 
 /**
  * 渲染管线。
- * 
+ *
  * 对应WebGPU的Pipeline。
  */
 export interface RenderPipeline

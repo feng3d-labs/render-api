@@ -5,7 +5,7 @@ import { VertexAttribute, VertexAttributes } from "./VertexAttributes";
 
 /**
  * 几何数据。
- * 
+ *
  * 包含以下数据：
  * - 顶点属性数据
  * - 顶点索引数据
@@ -41,11 +41,10 @@ export interface Geometry
 
 export class Geometry
 {
-
     /**
      * 获取顶点数量。
      *
-     * @returns 顶点数量。 
+     * @returns 顶点数量。
      */
     static getNumVertex(geometry: Geometry)
     {
@@ -86,7 +85,7 @@ export class Geometry
 
     static getDraw(geometry: Geometry): DrawIndexed | DrawVertex
     {
-        if (geometry['_draw']) return geometry['_draw'];
+        if (geometry["_draw"]) return geometry["_draw"];
 
         const instanceCount = Geometry.getInstanceCount(geometry);
 

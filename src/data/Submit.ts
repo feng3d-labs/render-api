@@ -5,7 +5,7 @@ import { CommandEncoder } from "./CommandEncoder";
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/GPUQueue/submit
  */
-export interface Submit 
+export interface Submit
 {
     __type__?: "Submit";
 
