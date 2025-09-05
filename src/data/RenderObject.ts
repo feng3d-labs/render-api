@@ -1,7 +1,7 @@
 import { Geometry } from "./Geometry";
 import { RenderPipeline } from "./RenderPipeline";
 import { ScissorRect } from "./ScissorRect";
-import { Uniforms } from "./Uniforms";
+import { BindingResources } from "./BindingResources";
 import { Viewport } from "./Viewport";
 
 /**
@@ -39,7 +39,7 @@ export interface RenderObject
     /**
      * Uniform变量数据
      */
-    uniforms?: Uniforms;
+    uniforms?: BindingResources;
 
     _version?: number;
 }
