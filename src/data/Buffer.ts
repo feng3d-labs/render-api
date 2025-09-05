@@ -1,5 +1,5 @@
-import { TypedArray } from "../types/TypedArray";
-import { WriteBuffer } from "./WriteBuffer";
+import { TypedArray } from '../types/TypedArray';
+import { WriteBuffer } from './WriteBuffer';
 
 /**
  * 缓冲区
@@ -12,8 +12,6 @@ import { WriteBuffer } from "./WriteBuffer";
  */
 export interface Buffer
 {
-    __type__?: "Buffer";
-
     /**
      * 标签。
      *
@@ -25,6 +23,8 @@ export interface Buffer
      * 缓冲区尺寸，单位为字节。
      *
      * 尺寸必须为4的倍数。
+     *
+     * 注：修改尺寸时，会重新创建缓冲区。
      */
     readonly size: number;
 

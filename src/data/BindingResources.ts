@@ -1,4 +1,4 @@
-import { BufferBinding, BufferBindingItem } from "./BufferBinding";
+import { BufferBinding, BufferBindingItem } from './BufferBinding';
 
 /**
  * 绑定资源。
@@ -7,7 +7,7 @@ import { BufferBinding, BufferBindingItem } from "./BufferBinding";
  */
 export interface BindingResources
 {
-    readonly [key: string]: BindingResource;
+    [key: string]: BindingResource;
 }
 
 /**
