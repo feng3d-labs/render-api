@@ -16,6 +16,8 @@ export interface Buffer
      * 标签。
      *
      * 用于调试。
+     *
+     * 注：初始化GPUBuffer后将无法修改。
      */
     readonly label?: string;
 
@@ -24,12 +26,14 @@ export interface Buffer
      *
      * 尺寸必须为4的倍数。
      *
-     * 注：修改尺寸时，会重新创建缓冲区。
+     * 注：初始化GPUBuffer后将无法修改。
      */
     readonly size: number;
 
     /**
      * 缓冲区数据。
+     *
+     * 注：初始化GPUBuffer后将无法直接修改数据，只能通过 {@link writeBuffers} 修改。
      */
     readonly data?: TypedArray;
 
