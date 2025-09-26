@@ -1,4 +1,3 @@
-import { TypedArray } from '../types/TypedArray';
 import { WriteBuffer } from './WriteBuffer';
 
 /**
@@ -35,7 +34,7 @@ export interface Buffer
      *
      * 注：修改后将重新创建GPUBuffer。
      */
-    readonly data?: TypedArray;
+    readonly data?: ArrayBuffer;
 
     /**
      * 写缓冲区。
@@ -43,4 +42,33 @@ export interface Buffer
      * {@link GPUQueue.writeBuffer}
      */
     readonly writeBuffers?: WriteBuffer[];
+}
+
+export class Buffer
+{
+    /**
+     * 从TypedArray创建或获取缓冲区配置
+     * 自动处理缓冲区大小对齐（4字节对齐）
+     * @param arrayBuffer 源数据数组
+     * @returns 缓冲区配置对象
+     */
+    static fromArrayBuffer(arrayBuffer: ArrayBuffer)
+    {
+        // 检查是否已存在对应的缓冲区配置
+        let buffer = this.bufferMap.get(arrayBuffer);
+
+        if (buffer) return buffer;
+
+        // 创建新的缓冲区配置，确保大小为4的倍数
+        buffer = {
+            size: Math.ceil(arrayBuffer.byteLength / 4) * 4,
+            data: arrayBuffer,
+        };
+        this.bufferMap.set(arrayBuffer, buffer);
+
+        return buffer;
+    }
+
+    /** 缓冲区配置缓存映射表 */
+    private static readonly bufferMap = new WeakMap<ArrayBuffer, Buffer>();
 }
