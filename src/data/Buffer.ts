@@ -1,3 +1,4 @@
+import { TypedArray } from '../types/TypedArray';
 import { WriteBuffer } from './WriteBuffer';
 
 /**
@@ -34,7 +35,7 @@ export interface Buffer
      *
      * 注：修改后将重新创建GPUBuffer。
      */
-    readonly data?: ArrayBuffer;
+    readonly data?: ArrayBufferLike;
 
     /**
      * 写缓冲区。
@@ -52,8 +53,15 @@ export class Buffer
      * @param arrayBuffer 源数据数组
      * @returns 缓冲区配置对象
      */
-    static fromArrayBuffer(arrayBuffer: ArrayBuffer)
+    static getBuffer(data: TypedArray | ArrayBufferLike)
     {
+        let arrayBuffer = data as ArrayBuffer;
+
+        if ((data as ArrayBufferView).buffer)
+        {
+            arrayBuffer = (data as ArrayBufferView).buffer as ArrayBuffer;
+        }
+
         // 检查是否已存在对应的缓冲区配置
         let buffer = this.bufferMap.get(arrayBuffer);
 
