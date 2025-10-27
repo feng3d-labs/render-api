@@ -16,7 +16,7 @@ export interface VertexAttribute
     /**
      * 顶点数据。
      */
-    data: VertexDataTypes;
+    data: VertexData;
 
     /**
      * 顶点数据格式。
@@ -83,7 +83,7 @@ export class VertexAttribute
 
 export type VertexStepMode = 'vertex' | 'instance';
 
-export type VertexDataTypes = | Float32Array
+export type VertexData = | Float32Array
     | Uint32Array
     | Int32Array
     | Uint16Array
