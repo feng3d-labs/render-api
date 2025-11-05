@@ -51,11 +51,3 @@ export interface RenderPassDepthStencilAttachment
      */
     readonly stencilLoadOp?: 'load' | 'clear';
 }
-
-export const defaultRenderPassDepthStencilAttachment: RenderPassDepthStencilAttachment = {
-    view: undefined,
-    depthClearValue: 1,
-    depthLoadOp: 'load',
-    stencilClearValue: 0,
-    stencilLoadOp: 'load',
-};
