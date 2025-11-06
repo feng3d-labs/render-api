@@ -87,3 +87,40 @@ export interface DepthStencilState
      */
     readonly depthBiasSlopeScale?: number;
 }
+
+/**
+ * 如果任意模板测试结果使用了 "replace" 运算，则需要再渲染前设置 `stencilReference` 值。
+ *
+ * @param depthStencil
+ * @returns
+ */
+export function getStencilReference(depthStencil?: DepthStencilState)
+{
+    if (!depthStencil) return undefined;
+
+    const { stencilFront, stencilBack } = depthStencil;
+
+    // 如果开启了模板测试，则需要设置模板索引值
+    let stencilReference: number;
+
+    if (stencilFront)
+    {
+        const { failOp, depthFailOp, passOp } = stencilFront;
+
+        if (failOp === 'replace' || depthFailOp === 'replace' || passOp === 'replace')
+        {
+            stencilReference = depthStencil?.stencilReference ?? 0;
+        }
+    }
+    if (stencilBack)
+    {
+        const { failOp, depthFailOp, passOp } = stencilBack;
+
+        if (failOp === 'replace' || depthFailOp === 'replace' || passOp === 'replace')
+        {
+            stencilReference = depthStencil?.stencilReference ?? 0;
+        }
+    }
+
+    return stencilReference;
+}
