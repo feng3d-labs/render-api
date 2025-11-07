@@ -94,7 +94,7 @@ export interface DepthStencilState
  * @param depthStencil
  * @returns
  */
-export function getStencilReference(depthStencil?: DepthStencilState)
+export function getStencilReference(depthStencil?: DepthStencilState): number | undefined
 {
     if (!depthStencil) return undefined;
 
