@@ -28,7 +28,7 @@ export interface TextureDescriptor
      * 标签。
      *
      * 用于调试。
-     * 
+     *
      * 注：修改后将重新创建纹理。
      */
     readonly label?: string;
@@ -46,21 +46,21 @@ export interface TextureDescriptor
      * 纹理维度，默认为 "2d" 。
      *
      * WebGL中不支持 "1d" "cube-array"。
-     * 
+     *
      * 注：修改后将重新创建纹理。
      */
     readonly dimension?: TextureDimension;
 
     /**
      * 纹理格式。 默认为 "rgba8unorm"，
-     * 
+     *
      * 注：修改后将重新创建纹理。
      */
     readonly format?: TextureFormat;
 
     /**
      * The number of mip levels the texture will contain.
-     * 
+     *
      * 注：修改后将重新创建纹理。
      */
     readonly mipLevelCount?: number;
@@ -69,7 +69,7 @@ export interface TextureDescriptor
      * 是否生成mipmap
      *
      * 仅在纹理创建时执行。
-     * 
+     *
      * 注：修改后将重新创建纹理。
      */
     readonly generateMipmap?: boolean;
@@ -79,7 +79,7 @@ export interface TextureDescriptor
      * a multisampled texture.
      *
      * WebGPU只支持4重采样。
-     * 
+     *
      * 注：修改后将重新创建纹理。
      */
     readonly sampleCount?: 4;
@@ -92,7 +92,7 @@ export interface Texture
 {
     /**
      * 纹理描述。
-     * 
+     *
      * 注：修改后将重新创建纹理。
      */
     readonly descriptor: TextureDescriptor;
@@ -107,7 +107,7 @@ export interface Texture
      *
      * @see GPUQueue.copyExternalImageToTexture
      * @see GPUQueue.writeTexture
-     * 
+     *
      * 注：修改后将重新创建纹理。
      */
     readonly sources?: readonly TextureSource[];

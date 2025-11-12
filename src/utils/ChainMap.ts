@@ -9,7 +9,11 @@ export class ChainMap<K extends Array<any>, V>
      * 根字典。
      */
     private _map = new WeakMap<any, any>();
-    get size() { return this._size; }
+    get size()
+    {
+        return this._size;
+    }
+
     private _size = 0;
 
     /**
