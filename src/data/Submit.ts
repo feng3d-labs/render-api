@@ -1,4 +1,4 @@
-import { CommandEncoder } from "./CommandEncoder";
+import { CommandEncoder } from './CommandEncoder';
 
 /**
  * 一次 GPU 提交。
@@ -7,8 +7,6 @@ import { CommandEncoder } from "./CommandEncoder";
  */
 export interface Submit
 {
-    __type__?: "Submit";
-
     /**
      * 命令编码器列表。
      */

@@ -1,21 +1,23 @@
-import { Texture } from "./Texture";
+import { TextureLike } from './Texture';
 
 /**
  * 纹理视图。
  */
 export interface TextureView
 {
-    __type__?: "TextureView";
-
     /**
      * 标签。
      *
      * 用于调试。
+     *
+     * 注：修改后将重新创建视图。
      */
     readonly label?: string;
 
     /**
      * 产生视图的纹理。
+     *
+     * 注：修改后将重新创建视图。
      */
     readonly texture: TextureLike;
 
@@ -23,6 +25,8 @@ export interface TextureView
      * mipmap级别。
      *
      * 默认为 0。
+     *
+     * 注：修改后将重新创建视图。
      */
     readonly baseMipLevel?: number;
 
@@ -30,24 +34,8 @@ export interface TextureView
      * 3d纹理的深度索引、纹理数组中的层次、立方体纹理的面索引。
      *
      * 默认为 0。
+     *
+     * 注：修改后将重新创建视图。
      */
     readonly baseArrayLayer?: number;
-}
-
-/**
- * 类似纹理，包含画布纹理以及正常纹理。
- *
- * 如需扩展 ITextureLike，则需在 ITextureMap 中添加类型。
- */
-export type TextureLike = TextureLikeMap[keyof TextureLikeMap];
-
-/**
- * 如需扩展 ITextureLike，则需在 ITextureMap 中添加类型。
- */
-export interface TextureLikeMap
-{
-    /**
-     * 正常纹理。
-     */
-    Texture: Texture;
 }

@@ -1,4 +1,4 @@
-import { TextureView } from "./TextureView";
+import { TextureView } from './TextureView';
 
 /**
  * 读取渲染缓冲区或者纹理视图中的像素值。

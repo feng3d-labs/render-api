@@ -1,6 +1,6 @@
-import { OcclusionQuery } from "./OcclusionQuery";
-import { RenderObject } from "./RenderObject";
-import { RenderPassDescriptor } from "./RenderPassDescriptor";
+import { OcclusionQuery } from './OcclusionQuery';
+import { RenderObject } from './RenderObject';
+import { RenderPassDescriptor } from './RenderPassDescriptor';
 
 /**
  * WebGL渲染通道
@@ -12,7 +12,7 @@ export interface RenderPass
     /**
      * 数据类型。
      */
-    readonly __type__?: "RenderPass";
+    readonly __type__?: 'RenderPass';
 
     /**
      * 渲染通道描述
@@ -22,17 +22,18 @@ export interface RenderPass
     /**
      * 渲染对象列表
      */
-    readonly renderObjects?: readonly IRenderPassObject[];
+    readonly renderPassObjects?: readonly RenderPassObject[];
 
     /**
-     * 渲染不被遮挡查询结果。具体数据保存在各子项的"result"属性中。
+     * 当渲染通道中存在遮挡查询时，在查询结束后调用该函数返回查询结果。
      *
-     * 当提交WebGL后自动获取结果后填充该属性。
+     * @param occlusionQuerys 遮挡查询列表
+     * @param results 是否被渲染。true表示被渲染，false表示未被渲染。
      */
-    occlusionQueryResults?: OcclusionQuery[];
+    onOcclusionQuery?(occlusionQuerys: OcclusionQuery[], results: number[]): void;
 }
 
-export type IRenderPassObject = RenderPassObjectMap[keyof RenderPassObjectMap];
+export type RenderPassObject = RenderPassObjectMap[keyof RenderPassObjectMap];
 
 export interface RenderPassObjectMap
 {

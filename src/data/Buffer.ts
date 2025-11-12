@@ -16,6 +16,8 @@ export interface Buffer
      * 标签。
      *
      * 用于调试。
+     *
+     * 注：修改后将重新创建GPUBuffer。
      */
     readonly label?: string;
 
@@ -24,19 +26,57 @@ export interface Buffer
      *
      * 尺寸必须为4的倍数。
      *
-     * 注：修改尺寸时，会重新创建缓冲区。
+     * 注：修改后将重新创建GPUBuffer。
      */
     readonly size: number;
 
     /**
      * 缓冲区数据。
+     *
+     * 注：修改后将重新创建GPUBuffer。
      */
-    data?: TypedArray;
+    readonly data?: ArrayBufferLike;
 
     /**
      * 写缓冲区。
      *
      * {@link GPUQueue.writeBuffer}
      */
-    writeBuffers?: WriteBuffer[];
+    readonly writeBuffers?: WriteBuffer[];
+}
+
+export class Buffer
+{
+    /**
+     * 从TypedArray创建或获取缓冲区配置
+     * 自动处理缓冲区大小对齐（4字节对齐）
+     * @param arrayBuffer 源数据数组
+     * @returns 缓冲区配置对象
+     */
+    static getBuffer(data: TypedArray | ArrayBufferLike)
+    {
+        let arrayBuffer = data as ArrayBuffer;
+
+        if ((data as ArrayBufferView).buffer)
+        {
+            arrayBuffer = (data as ArrayBufferView).buffer as ArrayBuffer;
+        }
+
+        // 检查是否已存在对应的缓冲区配置
+        let buffer = this.bufferMap.get(arrayBuffer);
+
+        if (buffer) return buffer;
+
+        // 创建新的缓冲区配置，确保大小为4的倍数
+        buffer = {
+            size: Math.ceil(arrayBuffer.byteLength / 4) * 4,
+            data: arrayBuffer,
+        };
+        this.bufferMap.set(arrayBuffer, buffer);
+
+        return buffer;
+    }
+
+    /** 缓冲区配置缓存映射表 */
+    private static readonly bufferMap = new WeakMap<ArrayBuffer, Buffer>();
 }

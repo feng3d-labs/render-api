@@ -7,8 +7,6 @@
  */
 export interface PrimitiveState
 {
-    __type__?: "PrimitiveState";
-
     /**
      * The type of primitive to be constructed from the vertex inputs.
      *
@@ -26,7 +24,7 @@ export interface PrimitiveState
      * * LINE_LOOP 绘制循环连线。
      * * TRIANGLE_FAN  绘制三角扇形。
      */
-    topology?: PrimitiveTopology;
+    readonly topology?: PrimitiveTopology;
 
     /**
      * Defines which polygon orientation will be culled, if any.
@@ -39,14 +37,14 @@ export interface PrimitiveState
      * * `front` 剔除正面
      * * `back` 剔除背面
      */
-    cullFace?: CullFace;
+    readonly cullFace?: CullFace;
 
     /**
      * Defines which polygons are considered front-facing.
      *
      * 正向方向。默认 "ccw"，表示三角形逆时针方向为正面。
      */
-    frontFace?: FrontFace;
+    readonly frontFace?: FrontFace;
 }
 
 /**
@@ -56,11 +54,11 @@ export type PrimitiveTopology = PrimitiveTopologyMap[keyof PrimitiveTopologyMap]
 
 export interface PrimitiveTopologyMap
 {
-    "point-list": "point-list",
-    "line-list": "line-list",
-    "line-strip": "line-strip",
-    "triangle-list": "triangle-list",
-    "triangle-strip": "triangle-strip",
+    'point-list': 'point-list',
+    'line-list': 'line-list',
+    'line-strip': 'line-strip',
+    'triangle-list': 'triangle-list',
+    'triangle-strip': 'triangle-strip',
 }
 
 /**
@@ -72,12 +70,12 @@ export type CullFace = CullFaceMap[keyof CullFaceMap];
 
 export interface CullFaceMap
 {
-    "none": "none",
-    "front": "front",
-    "back": "back",
+    'none': 'none',
+    'front': 'front',
+    'back': 'back',
 }
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/frontFace
  */
-export type FrontFace = "ccw" | "cw";
+export type FrontFace = 'ccw' | 'cw';

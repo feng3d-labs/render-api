@@ -1,4 +1,4 @@
-import { ColorTargetState } from "./ColorTargetState";
+import { ColorTargetState } from './ColorTargetState';
 
 /**
  * 片段着色器阶段描述。
@@ -7,12 +7,10 @@ import { ColorTargetState } from "./ColorTargetState";
  */
 export interface FragmentState
 {
-    __type__?: "FragmentState";
-
     /**
      * 着色器代码。
      */
-    code: string;
+    readonly code: string;
 
     /**
      * A list of {@link GPUColorTargetState} defining the formats and behaviors of the color targets

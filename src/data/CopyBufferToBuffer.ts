@@ -1,4 +1,4 @@
-import { Buffer } from "./Buffer";
+import { Buffer } from './Buffer';
 
 /**
  * GPU缓冲区之间拷贝。
@@ -11,7 +11,7 @@ export interface CopyBufferToBuffer
     /**
      * 数据类型。
      */
-    readonly __type__: "CopyBufferToBuffer";
+    readonly __type__: 'CopyBufferToBuffer';
 
     /**
      * 源缓冲区。

@@ -1,9 +1,7 @@
-import { TypedArray } from "../types/TypedArray";
+import { TypedArray } from '../types/TypedArray';
 
 export interface WriteBuffer
 {
-    __type__?: "WriteBuffer";
-
     /**
      * GPU缓冲区写入起始位置。
      */

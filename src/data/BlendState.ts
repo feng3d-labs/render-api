@@ -43,7 +43,7 @@ export class BlendState
      * @param blend
      * @returns
      */
-    static getBlendConstantColor(blendState: BlendState): Color
+    static getBlendConstantColor(blendState: BlendState): Color | undefined
     {
         if (!blendState) return undefined;
 
@@ -65,7 +65,7 @@ export class BlendState
 
             if (constantColor)
             {
-                return [constantColor[0], constantColor[1], constantColor[2], constantColor[3]];
+                return constantColor;
             }
 
             return constantColor ?? [0, 0, 0, 0];

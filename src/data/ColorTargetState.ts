@@ -1,4 +1,4 @@
-import { BlendState } from "./BlendState";
+import { BlendState } from './BlendState';
 
 /**
  * 属性 `format` 将由渲染通道中附件给出。
@@ -7,8 +7,6 @@ import { BlendState } from "./BlendState";
  */
 export interface ColorTargetState
 {
-    __type__?: "ColorTargetState";
-
     /**
      * The blending behavior for this color target. If left undefined, disables blending for this
      * color target.
@@ -17,7 +15,7 @@ export interface ColorTargetState
      *
      * 默认 `undefined`，表示不进行混合。
      */
-    blend?: BlendState;
+    readonly blend?: BlendState;
 
     /**
      * 控制那些颜色分量是否可以被写入到颜色中。
@@ -28,7 +26,7 @@ export interface ColorTargetState
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/colorMask
      */
-    readonly writeMask?: IWriteMask;
+    readonly writeMask?: WriteMask;
 }
 
-export type IWriteMask = [red: boolean, green: boolean, blue: boolean, alpha: boolean];
+export type WriteMask = readonly [red: boolean, green: boolean, blue: boolean, alpha: boolean];
