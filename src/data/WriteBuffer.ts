@@ -10,21 +10,12 @@ export interface WriteBuffer
     /**
      * 写入缓冲区数据。
      */
-    data: ArrayBufferLike | TypedArray;
+    data: TypedArray;
 
     /**
-     * 读取数据的起始位置。
+     * 写入数据数量。
      *
-     * 默认为 0 。
-     *
-     * 当写入的数据类型为 {@link ArrayBufferLike} 时单位为字节，当数据类型为 {@link TypedArray} 时单位为元素。
-     */
-    dataOffset?: number;
-
-    /**
-     * 写入数据尺寸。
-     *
-     * 当写入的数据类型为 {@link ArrayBufferLike} 时单位为字节，当数据类型为 {@link TypedArray} 时单位为元素。
+     * 默认为 {@link data.length} 。
      */
     size?: number;
 }
