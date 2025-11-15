@@ -1,4 +1,3 @@
-import { TypedArray } from '../types/TypedArray';
 import { WriteBuffer } from './WriteBuffer';
 
 /**
@@ -53,15 +52,8 @@ export class Buffer
      * @param arrayBuffer 源数据数组
      * @returns 缓冲区配置对象
      */
-    static getBuffer(data: TypedArray | ArrayBufferLike)
+    static getBuffer(arrayBuffer: ArrayBufferLike)
     {
-        let arrayBuffer = data as ArrayBuffer;
-
-        if ((data as ArrayBufferView).buffer)
-        {
-            arrayBuffer = (data as ArrayBufferView).buffer as ArrayBuffer;
-        }
-
         // 检查是否已存在对应的缓冲区配置
         let buffer = this.bufferMap.get(arrayBuffer);
 
@@ -78,5 +70,19 @@ export class Buffer
     }
 
     /** 缓冲区配置缓存映射表 */
-    private static readonly bufferMap = new WeakMap<ArrayBuffer, Buffer>();
+    private static readonly bufferMap = new WeakMap<ArrayBufferLike, Buffer>();
+}
+
+declare global
+{
+    interface ArrayBuffer
+    {
+        // 并不会实际赋值， 只是用于 ArrayBuffer 与 TypedArray 在类型上做区分。
+        __type__: 'ArrayBuffer';
+    }
+    interface SharedArrayBuffer
+    {
+        // 并不会实际赋值， 只是用于 SharedArrayBuffer 与 TypedArray 在类型上做区分。
+        __type__: 'SharedArrayBuffer';
+    }
 }
