@@ -44,5 +44,6 @@ export * from './internal/BufferBindingInfo';
 export * from './types/TypedArray';
 
 export * from './utils/ChainMap';
+export * from './utils/unreadonly';
 
 import './global';
