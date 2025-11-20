@@ -6,6 +6,7 @@ export * from './data/BlendState';
 export * from './data/Buffer';
 export * from './data/BufferBinding';
 export * from './data/CanvasContext';
+export * from './data/CanvasRenderPassDescriptor';
 export * from './data/CanvasTexture';
 export * from './data/ColorTargetState';
 export * from './data/CommandEncoder';
