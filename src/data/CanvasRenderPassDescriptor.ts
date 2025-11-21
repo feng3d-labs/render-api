@@ -1,4 +1,3 @@
-import { CanvasContext } from './CanvasContext';
 import { Color, LoadOp } from './RenderPassColorAttachment';
 
 /**
@@ -61,6 +60,22 @@ export interface CanvasRenderPassDescriptor
     readonly depthLoadOp?: 'load' | 'clear';
 
     /**
+     * The store operation to perform on {@link GPURenderPassDepthStencilAttachment#view}'s
+     * depth component after executing the render pass.
+     *
+     * 默认 `"store"` 。
+     */
+    readonly depthStoreOp?: GPUStoreOp;
+
+    /**
+     * Indicates that the depth component of {@link GPURenderPassDepthStencilAttachment#view}
+     * is read only.
+     *
+     * 默认 `false` 。
+     */
+    readonly depthReadOnly?: boolean;
+
+    /**
      * 清除后填充模板值。
      *
      * 默认为 0。
@@ -77,6 +92,22 @@ export interface CanvasRenderPassDescriptor
      * @see https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/clear
      */
     readonly stencilLoadOp?: 'load' | 'clear';
+
+    /**
+     * The store operation to perform on {@link GPURenderPassDepthStencilAttachment#view}'s
+     * stencil component after executing the render pass.
+     *
+     * 默认 `"store"` 。
+     */
+    readonly stencilStoreOp?: GPUStoreOp;
+
+    /**
+     * Indicates that the stencil component of {@link GPURenderPassDepthStencilAttachment#view}
+     * is read only.
+     *
+     * 默认 `false` 。
+     */
+    readonly stencilReadOnly?: boolean;
 
     /**
      * 采用次数。
