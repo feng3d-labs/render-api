@@ -16,6 +16,9 @@ export interface RenderPass
 
     /**
      * 渲染通道描述
+     *
+     * 如果缺省（undefined），将会使用 WebGL/WebGPU 构造函数中的 `canvasRenderPassDescriptor` 参数来绘制到画布上。
+     * 如果提供了 `descriptor`，则使用该 `descriptor` 进行渲染。
      */
     readonly descriptor?: RenderPassDescriptor;
 
