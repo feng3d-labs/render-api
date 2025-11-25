@@ -1,3 +1,8 @@
+/// <reference types="@webgpu/types" />
+
+/// <reference types="./debug.d.ts" />
+/// <reference types="./shader.d.ts" />
+
 export * from './consts/vertexFormatMap';
 
 export * from './data/BindingResources';
@@ -45,5 +50,3 @@ export * from './types/TypedArray';
 
 export * from './utils/ChainMap';
 export * from './utils/unreadonly';
-
-import './global';
