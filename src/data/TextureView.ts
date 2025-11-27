@@ -44,12 +44,16 @@ export interface TextureView
      *
      * 默认为 1。
      *
-     * **WebGPU 与 WebGL 的差异：**
-     * - **WebGPU**：当纹理视图用作渲染通道的颜色附件时，`arrayLayerCount` 必须为 1。
-     *   如果未指定，默认值为 1，以确保每个颜色附件只绑定一个纹理层。
-     * - **WebGL**：WebGL 不支持纹理数组作为渲染目标，此属性在 WebGL 中无效。
+     * 被用作颜色附件时，必须为 1。而其他情况默认为 undefined（使用所有剩余层）。
      *
      * 注：修改后将重新创建视图。
      */
     readonly arrayLayerCount?: number;
+
+    /**
+     * 是否被用作颜色附件。
+     *
+     * 注：由 WebGPU 渲染通道颜色附件自动设置。
+     */
+    readonly isUsedAsColorAttachment?: boolean;
 }
