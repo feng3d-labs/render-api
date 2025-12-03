@@ -1,3 +1,4 @@
+import { CanvasTexture } from './CanvasTexture';
 import { TextureDataSource } from './TextureDataSource';
 import { TextureImageSource } from './TextureImageSource';
 
@@ -17,6 +18,11 @@ export interface TextureLikeMap
      * 正常纹理。
      */
     Texture: Texture;
+
+    /**
+     * 画布纹理。
+     */
+    CanvasTexture: CanvasTexture;
 }
 
 /**
