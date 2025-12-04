@@ -1,5 +1,4 @@
-import { TextureFormat } from './Texture';
-import { TextureView } from './TextureView';
+import { TextureFormat, TextureLike } from './Texture';
 
 /**
  * 读取渲染缓冲区或者纹理视图中的像素值。
@@ -9,9 +8,13 @@ import { TextureView } from './TextureView';
 export interface ReadPixels
 {
     /**
-     * 读取的纹理视图。
+     * GPU纹理
+     *
+     * 当 texture 为 undefined 时，表示从当前画布纹理读取。
+     *
+     * @default undefined
      */
-    textureView: TextureView;
+    texture?: TextureLike,
 
     /**
      * 读取位置。
