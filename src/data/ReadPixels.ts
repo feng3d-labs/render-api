@@ -1,3 +1,4 @@
+import { TextureFormat } from './Texture';
 import { TextureView } from './TextureView';
 
 /**
@@ -26,4 +27,12 @@ export interface ReadPixels
      * 用于保存最后结果。
      */
     result?: ArrayBufferView;
+
+    /**
+     * 纹理数据格式。
+     *
+     * 由 readPixels 方法设置，表示返回数据的格式（例如 'rgba8unorm' 或 'bgra8unorm'）。
+     * 调用者可以根据此格式正确处理颜色通道顺序。
+     */
+    format?: TextureFormat;
 }
