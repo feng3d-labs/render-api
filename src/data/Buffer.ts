@@ -15,8 +15,6 @@ export interface Buffer
      * 标签。
      *
      * 用于调试。
-     *
-     * 注：修改后将重新创建GPUBuffer。
      */
     readonly label?: string;
 
@@ -31,8 +29,6 @@ export interface Buffer
 
     /**
      * 缓冲区数据。
-     *
-     * 注：修改后将重新创建GPUBuffer。
      */
     readonly data?: ArrayBufferLike;
 
