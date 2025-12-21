@@ -19,6 +19,8 @@ export interface BlendComponent
      *
      * 当 `operation` 值为 "min" 或 "max" 时， `srcFactor` 与 `dstFactor` 将会被引擎自动使用 "one"。
      *
+     * 对于 alpha 通道，未设置时会继承 color 通道的设置。
+     *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquation
      */
     readonly operation?: BlendOperation;
@@ -26,7 +28,9 @@ export interface BlendComponent
     /**
      * 源混合因子。
      *
-     * 默认为 "one"。
+     * 默认为 "src-alpha"。
+     *
+     * 对于 alpha 通道，未设置时会继承 color 通道的设置。
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
      */
@@ -35,7 +39,9 @@ export interface BlendComponent
     /**
      * 目标混合因子。
      *
-     * 默认为 "zero"。
+     * 默认为 "one-minus-src-alpha"。
+     *
+     * 对于 alpha 通道，未设置时会继承 color 通道的设置。
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
      */
@@ -65,3 +71,14 @@ export interface IBlendFactorMap
     'constant': 'constant';
     'one-minus-constant': 'one-minus-constant';
 }
+
+/**
+ * 默认混合组件配置。
+ *
+ * 用于 WebGL 和 WebGPU 在未指定混合组件时使用相同的默认值，确保渲染效果一致。
+ */
+export const defaultBlendComponent: BlendComponent = {
+    operation: 'add',
+    srcFactor: 'src-alpha',
+    dstFactor: 'one-minus-src-alpha',
+};
