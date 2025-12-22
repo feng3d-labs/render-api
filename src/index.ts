@@ -49,3 +49,8 @@ export * from './types/TypedArray';
 
 export * from './utils/ChainMap';
 export * from './utils/unreadonly';
+
+export const shared = {
+    isRunWebGPU: false,
+    isRunWebGL: false,
+}
