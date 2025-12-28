@@ -6,3 +6,10 @@ public
 out
 package-lock.json
 pnpm-lock.yaml
+
+# 以下文件可由 feng3d-cli 自动生成，无需提交
+# 运行 `feng3d-cli update` 可重新生成
+.github/workflows/publish.yml
+feng3d.json
+.cursorrules
+eslint.config.js

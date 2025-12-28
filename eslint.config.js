@@ -16,7 +16,6 @@ export default [
             '**/public/**',          // 忽略所有 public 目录
             '**/coverage/**',        // 忽略所有 coverage 目录
             '**/.git/**',            // 忽略所有 .git 目录
-            '**/packages/**',        // 忽略所有 packages 目录
         ],
     },
     // 使用 ESLint 推荐配置
