@@ -31,8 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/feng3d-labs/webgl.git",
-    "directory": "packages/render-api"
+    "url": "https://github.com/feng3d-labs/render-api.git"
   },
   "publishConfig": {
     "access": "public"
