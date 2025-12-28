@@ -1,4 +1,4 @@
-import { CompareFunction } from "./StencilFaceState";
+import { CompareFunction } from './StencilFaceState';
 
 /**
  * 纹理采样器。
@@ -106,7 +106,7 @@ export interface Sampler
     /**
      * 采样时使用的最大Lod等级。
      *
-     * 默认 16 。
+     * 默认 16。当未设置 {@link mipmapFilter} 时默认为 0（不使用 mipmap），以保持与 WebGL 行为一致。
      */
     readonly lodMaxClamp?: number;
 
@@ -123,14 +123,30 @@ export interface Sampler
 /**
  * 纹理坐标寻址模式。
  */
-export type IAddressMode = "clamp-to-edge" | "repeat" | "mirror-repeat";
+export type IAddressMode = 'clamp-to-edge' | 'repeat' | 'mirror-repeat';
 
 /**
  * 描述采样器在采样足迹与一个纹素不完全匹配时的行为。
  */
-export type IFilterMode = "nearest" | "linear";
+export type IFilterMode = 'nearest' | 'linear';
 
 /**
  * 描述采样器在采样足迹与mipmap层级不完全匹配时的行为。
  */
-export type IMipmapFilterMode = "nearest" | "linear";
+export type IMipmapFilterMode = 'nearest' | 'linear';
+
+/**
+ * 采样器默认值。
+ */
+export const defaultSampler: Sampler = {
+    addressModeU: 'repeat',
+    addressModeV: 'repeat',
+    addressModeW: 'repeat',
+    magFilter: 'nearest',
+    minFilter: 'nearest',
+    mipmapFilter: 'nearest',
+    lodMinClamp: 0,
+    lodMaxClamp: 16,
+    compare: undefined,
+    maxAnisotropy: 1,
+};

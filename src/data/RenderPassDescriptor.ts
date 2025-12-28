@@ -1,5 +1,5 @@
-import { RenderPassColorAttachment } from "./RenderPassColorAttachment";
-import { RenderPassDepthStencilAttachment } from "./RenderPassDepthStencilAttachment";
+import { RenderPassColorAttachment } from './RenderPassColorAttachment';
+import { RenderPassDepthStencilAttachment } from './RenderPassDepthStencilAttachment';
 
 /**
  * 渲染通道描述

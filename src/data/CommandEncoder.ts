@@ -1,6 +1,7 @@
-import { CopyBufferToBuffer } from "./CopyBufferToBuffer";
-import { CopyTextureToTexture } from "./CopyTextureToTexture";
-import { RenderPass } from "./RenderPass";
+import { CopyBufferToBuffer } from './CopyBufferToBuffer';
+import { CopyTextureToTexture } from './CopyTextureToTexture';
+import { RenderPass } from './RenderPass';
+import { TransformFeedbackPass } from './TransformFeedbackPass';
 
 /**
  * 命令编码器。
@@ -40,5 +41,10 @@ export interface PassEncoderMap
     CopyTextureToTexture: CopyTextureToTexture;
 
     CopyBufferToBuffer: CopyBufferToBuffer;
+
+    /**
+     * Transform Feedback 通道（WebGL2 特有，WebGPU 使用计算着色器模拟）。
+     */
+    TransformFeedbackPass: TransformFeedbackPass;
 }
 

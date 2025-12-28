@@ -1,6 +1,6 @@
-import { OcclusionQuery } from "./OcclusionQuery";
-import { RenderObject } from "./RenderObject";
-import { RenderPassDescriptor } from "./RenderPassDescriptor";
+import { OcclusionQuery } from './OcclusionQuery';
+import { RenderObject } from './RenderObject';
+import { RenderPassDescriptor } from './RenderPassDescriptor';
 
 /**
  * WebGL渲染通道
@@ -12,12 +12,14 @@ export interface RenderPass
     /**
      * 数据类型。
      */
-    readonly __type__?: "RenderPass";
+    readonly __type__?: 'RenderPass';
 
     /**
      * 渲染通道描述
+     *
+     * 必须提供。第一个颜色附件中的纹理视图可以缺省，当缺省时使用 WebGL/WebGPU 构造函数中传递的 canvasContext。
      */
-    readonly descriptor?: RenderPassDescriptor;
+    readonly descriptor: RenderPassDescriptor;
 
     /**
      * 渲染对象列表

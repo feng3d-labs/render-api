@@ -1,4 +1,4 @@
-import { BufferBinding, BufferBindingItem } from "./BufferBinding";
+import { BufferBinding } from './BufferBinding';
 
 /**
  * 绑定资源。
@@ -21,5 +21,4 @@ export interface BindingResourceTypeMap
      * 缓冲区绑定。
      */
     BufferBinding: BufferBinding;
-    BufferBindingItem: BufferBindingItem;
 }

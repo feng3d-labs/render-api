@@ -1,4 +1,4 @@
-import { ColorTargetState } from "./ColorTargetState";
+import { ColorTargetState } from './ColorTargetState';
 
 /**
  * 片段着色器阶段描述。
@@ -10,7 +10,17 @@ export interface FragmentState
     /**
      * 着色器代码。
      */
-    readonly code: string;
+    readonly code?: string;
+
+    /**
+     * GLSL着色器代码。适用于WebGL。
+     */
+    readonly glsl?: string;
+
+    /**
+     * WGSL着色器代码。适用于WebGPU。
+     */
+    readonly wgsl?: string;
 
     /**
      * A list of {@link GPUColorTargetState} defining the formats and behaviors of the color targets

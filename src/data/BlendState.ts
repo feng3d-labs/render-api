@@ -1,5 +1,5 @@
-import { BlendComponent } from "./BlendComponent";
-import { Color } from "./RenderPassColorAttachment";
+import { BlendComponent } from './BlendComponent';
+import { Color } from './RenderPassColorAttachment';
 
 /**
  * 混合状态。
@@ -43,24 +43,31 @@ export class BlendState
      * @param blend
      * @returns
      */
-    static getBlendConstantColor(blendState: BlendState): Color
+    static getBlendConstantColor(blendState: BlendState): Color | undefined
     {
         if (!blendState) return undefined;
 
-        const { color, alpha, constantColor } = blendState;
+        const { color, alpha } = blendState;
 
         // 当混合系数用到了混合常量值时设置混合常量值。
         if (0
-            || color?.srcFactor === "constant"
-            || color?.srcFactor === "one-minus-constant"
-            || color?.dstFactor === "constant"
-            || color?.dstFactor === "one-minus-constant"
-            || alpha?.srcFactor === "constant"
-            || alpha?.srcFactor === "one-minus-constant"
-            || alpha?.dstFactor === "constant"
-            || alpha?.dstFactor === "one-minus-constant"
+            || color?.srcFactor === 'constant'
+            || color?.srcFactor === 'one-minus-constant'
+            || color?.dstFactor === 'constant'
+            || color?.dstFactor === 'one-minus-constant'
+            || alpha?.srcFactor === 'constant'
+            || alpha?.srcFactor === 'one-minus-constant'
+            || alpha?.dstFactor === 'constant'
+            || alpha?.dstFactor === 'one-minus-constant'
         )
         {
+            const constantColor = blendState.constantColor;
+
+            if (constantColor)
+            {
+                return constantColor;
+            }
+
             return constantColor ?? [0, 0, 0, 0];
         }
 

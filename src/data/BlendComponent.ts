@@ -19,49 +19,66 @@ export interface BlendComponent
      *
      * 当 `operation` 值为 "min" 或 "max" 时， `srcFactor` 与 `dstFactor` 将会被引擎自动使用 "one"。
      *
+     * 对于 alpha 通道，未设置时会继承 color 通道的设置。
+     *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendEquation
      */
-    readonly operation?: IBlendOperation;
+    readonly operation?: BlendOperation;
 
     /**
      * 源混合因子。
      *
-     * 默认为 "one"。
+     * 默认为 "src-alpha"。
+     *
+     * 对于 alpha 通道，未设置时会继承 color 通道的设置。
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
      */
-    readonly srcFactor?: IBlendFactor;
+    readonly srcFactor?: BlendFactor;
 
     /**
      * 目标混合因子。
      *
-     * 默认为 "zero"。
+     * 默认为 "one-minus-src-alpha"。
+     *
+     * 对于 alpha 通道，未设置时会继承 color 通道的设置。
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/blendFunc
      */
-    readonly dstFactor?: IBlendFactor;
+    readonly dstFactor?: BlendFactor;
 }
 
-export type IBlendOperation = "add" | "subtract" | "reverse-subtract" | "min" | "max";
+export type BlendOperation = 'add' | 'subtract' | 'reverse-subtract' | 'min' | 'max';
 
 /**
  * @see https://gpuweb.github.io/gpuweb/#enumdef-gpublendfactor
  */
-export type IBlendFactor = IBlendFactorMap[keyof IBlendFactorMap];
+export type BlendFactor = IBlendFactorMap[keyof IBlendFactorMap];
 
 export interface IBlendFactorMap
 {
-    "zero": "zero";
-    "one": "one";
-    "src": "src";
-    "one-minus-src": "one-minus-src";
-    "src-alpha": "src-alpha";
-    "one-minus-src-alpha": "one-minus-src-alpha";
-    "dst": "dst";
-    "one-minus-dst": "one-minus-dst";
-    "dst-alpha": "dst-alpha";
-    "one-minus-dst-alpha": "one-minus-dst-alpha";
-    "src-alpha-saturated": "src-alpha-saturated";
-    "constant": "constant";
-    "one-minus-constant": "one-minus-constant";
+    'zero': 'zero';
+    'one': 'one';
+    'src': 'src';
+    'one-minus-src': 'one-minus-src';
+    'src-alpha': 'src-alpha';
+    'one-minus-src-alpha': 'one-minus-src-alpha';
+    'dst': 'dst';
+    'one-minus-dst': 'one-minus-dst';
+    'dst-alpha': 'dst-alpha';
+    'one-minus-dst-alpha': 'one-minus-dst-alpha';
+    'src-alpha-saturated': 'src-alpha-saturated';
+    'constant': 'constant';
+    'one-minus-constant': 'one-minus-constant';
 }
+
+/**
+ * 默认混合组件配置。
+ *
+ * 用于 WebGL 和 WebGPU 在未指定混合组件时使用相同的默认值，确保渲染效果一致。
+ */
+export const defaultBlendComponent: BlendComponent = {
+    operation: 'add',
+    srcFactor: 'src-alpha',
+    dstFactor: 'one-minus-src-alpha',
+};

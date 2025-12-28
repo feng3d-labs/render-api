@@ -8,8 +8,13 @@ export class ChainMap<K extends Array<any>, V>
     /**
      * 根字典。
      */
-    private _根字典 = new WeakMap<any, any>();
-    private _数量 = 0;
+    private _map = new WeakMap<any, any>();
+    get size()
+    {
+        return this._size;
+    }
+
+    private _size = 0;
 
     /**
      * 获取键对应的值。
@@ -20,7 +25,7 @@ export class ChainMap<K extends Array<any>, V>
     get(keys: K): V
     {
         const keysLength = keys.length;
-        let map = this._根字典;
+        let map = this._map;
         let key: any;
 
         for (let i = 0, n = keysLength - 1; i < n; i++)
@@ -33,7 +38,7 @@ export class ChainMap<K extends Array<any>, V>
 
         key = wrapKey(keys[keysLength - 1]);
 
-return map.get(key);
+        return map.get(key);
     }
 
     /**
@@ -47,7 +52,7 @@ return map.get(key);
     set(keys: K, value: V)
     {
         const keysLength = keys.length;
-        let map = this._根字典;
+        let map = this._map;
         let key: any;
 
         for (let i = 0; i < keysLength - 1; i++)
@@ -66,7 +71,7 @@ return map.get(key);
         if (!map.has(key))
         {
             map.set(key, value);
-            this._数量++;
+            this._size++;
         }
 
         return value;
@@ -81,7 +86,7 @@ return map.get(key);
     delete(keys: K): boolean
     {
         const keysLength = keys.length;
-        let map = this._根字典;
+        let map = this._map;
         let key: any;
 
         for (let i = 0; i < keysLength - 1; i++)
@@ -94,7 +99,8 @@ return map.get(key);
 
         key = wrapKey(keys[keysLength - 1]);
         const result = map.delete(key);
-        if (result) this._数量--;
+
+        if (result) this._size--;
 
         return result;
     }
@@ -108,7 +114,7 @@ let idCounter = 0;
 // 包装函数，将非对象值包装成对象
 function wrapKey(key: any)
 {
-    if (typeof key === "object" && key !== null)
+    if (typeof key === 'object' && key !== null)
     {
         // 如果 key 已经是对象，则直接返回
         return key;
@@ -123,10 +129,11 @@ function wrapKey(key: any)
     // 创建一个包装对象
     const wrapper = {
         __id: id,
-        __value: key
+        __value: key,
     };
+
     // 存储原始值和包装对象的映射
     keyMap.set(key, wrapper);
 
-return wrapper;
+    return wrapper;
 }

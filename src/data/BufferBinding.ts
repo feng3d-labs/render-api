@@ -1,4 +1,4 @@
-import { TypedArray } from "../types/TypedArray";
+import { TypedArray } from '../types/TypedArray';
 
 /**
  * 缓冲区绑定。
@@ -10,7 +10,7 @@ import { TypedArray } from "../types/TypedArray";
  */
 export interface BufferBinding
 {
-    readonly [name: string]: BufferBindingItem;
+    readonly value?: BufferBindingItem;
 
     /**
      * 如果未设置引擎将自动生成。

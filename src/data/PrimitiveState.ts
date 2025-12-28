@@ -54,11 +54,11 @@ export type PrimitiveTopology = PrimitiveTopologyMap[keyof PrimitiveTopologyMap]
 
 export interface PrimitiveTopologyMap
 {
-    "point-list": "point-list",
-    "line-list": "line-list",
-    "line-strip": "line-strip",
-    "triangle-list": "triangle-list",
-    "triangle-strip": "triangle-strip",
+    'point-list': 'point-list',
+    'line-list': 'line-list',
+    'line-strip': 'line-strip',
+    'triangle-list': 'triangle-list',
+    'triangle-strip': 'triangle-strip',
 }
 
 /**
@@ -70,12 +70,12 @@ export type CullFace = CullFaceMap[keyof CullFaceMap];
 
 export interface CullFaceMap
 {
-    "none": "none",
-    "front": "front",
-    "back": "back",
+    'none': 'none',
+    'front': 'front',
+    'back': 'back',
 }
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/frontFace
  */
-export type FrontFace = "ccw" | "cw";
+export type FrontFace = 'ccw' | 'cw';

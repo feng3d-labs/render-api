@@ -1,4 +1,4 @@
-import { BlendState } from "./BlendState";
+import { BlendState } from './BlendState';
 
 /**
  * 属性 `format` 将由渲染通道中附件给出。

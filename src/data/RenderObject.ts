@@ -1,10 +1,10 @@
-import { BindingResources } from "./BindingResources";
-import { DrawIndexed } from "./DrawIndexed";
-import { DrawVertex } from "./DrawVertex";
-import { RenderPipeline } from "./RenderPipeline";
-import { ScissorRect } from "./ScissorRect";
-import { VertexAttribute, VertexAttributes } from "./VertexAttributes";
-import { Viewport } from "./Viewport";
+import { BindingResources } from './BindingResources';
+import { DrawIndexed } from './DrawIndexed';
+import { DrawVertex } from './DrawVertex';
+import { RenderPipeline } from './RenderPipeline';
+import { ScissorRect } from './ScissorRect';
+import { VertexAttribute, VertexAttributes } from './VertexAttributes';
+import { Viewport } from './Viewport';
 
 /**
  * 渲染对象，包含一次渲染时包含的所有数据。
@@ -14,7 +14,7 @@ export interface RenderObject
     /**
      * 数据类型。
      */
-    __type__?: "RenderObject";
+    __type__?: 'RenderObject';
 
     /**
      * 视窗。
@@ -66,7 +66,7 @@ export class RenderObject
     static getNumVertex(geometry: RenderObject)
     {
         const attributes = geometry.vertices;
-        const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => (v.data && v.stepMode !== "instance"));
+        const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => (v.data && v.stepMode !== 'instance'));
 
         const count = vertexList.length > 0 ? VertexAttribute.getVertexCount(vertexList[0]) : 0;
 
@@ -87,7 +87,7 @@ export class RenderObject
     static getInstanceCount(geometry: RenderObject)
     {
         const attributes = geometry.vertices;
-        const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => (v.data && v.stepMode === "instance"));
+        const vertexList = Object.keys(attributes).map((v) => attributes[v]).filter((v) => (v.data && v.stepMode === 'instance'));
 
         const count = vertexList.length > 0 ? VertexAttribute.getVertexCount(vertexList[0]) : 1;
 
@@ -102,14 +102,14 @@ export class RenderObject
 
     static getDraw(geometry: RenderObject): DrawIndexed | DrawVertex
     {
-        if (geometry["_draw"]) return geometry["_draw"];
+        if (geometry['_draw']) return geometry['_draw'];
 
         const instanceCount = RenderObject.getInstanceCount(geometry);
 
         if (geometry.indices)
         {
             return {
-                __type__: "DrawIndexed",
+                __type__: 'DrawIndexed',
                 indexCount: geometry.indices.length,
                 firstIndex: 0,
                 instanceCount,
@@ -117,7 +117,7 @@ export class RenderObject
         }
 
         return {
-            __type__: "DrawVertex",
+            __type__: 'DrawVertex',
             vertexCount: RenderObject.getNumVertex(geometry),
             instanceCount,
         };
