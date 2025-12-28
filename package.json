@@ -1,6 +1,6 @@
 {
     "name": "@feng3d/render-api",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "提供WebGL/WebGPU统一的渲染数据结构，描述渲染所需的所有数据以及流程，用于@feng3d/webgl与@feng3d/webgpu。",
     "homepage": "https://feng3d.com/render-api/",
     "author": "feng",
@@ -24,7 +24,7 @@
         "lint": "eslint . --ext .js,.ts --max-warnings 0",
         "lintfix": "npm run lint -- --fix",
         "docs": "typedoc",
-        "upload_oss": "npm run docs && feng3d-cli oss_upload_dir",
+        "upload_oss": "npm run docs && npx feng3d-cli oss_upload_dir",
         "update": "npx feng3d-cli update && npm install",
         "release": "npm run clean && npm run lint && npm run build && npm run docs && npm run types && npm publish",
         "prepublishOnly": "node scripts/prepublish.js",
@@ -48,7 +48,6 @@
     ],
     "devDependencies": {
         "@eslint/js": "^9.0.0",
-        "feng3d-cli": "^0.0.3",
         "@typescript-eslint/eslint-plugin": "8.32.1",
         "@typescript-eslint/parser": "8.32.1",
         "typescript-eslint": "^8.32.1",
