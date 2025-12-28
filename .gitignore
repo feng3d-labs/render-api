@@ -16,3 +16,4 @@ typedoc.json
 test/index.test.ts
 test/_.test.ts
 .husky/pre-commit
+.vscode/settings.json
