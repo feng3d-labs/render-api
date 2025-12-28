@@ -31,7 +31,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/feng3d/render-api.git"
+    "url": "https://github.com/feng3d-labs/webgl.git",
+    "directory": "packages/render-api"
   },
   "publishConfig": {
     "access": "public"
