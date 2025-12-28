@@ -14,3 +14,4 @@ feng3d.json
 eslint.config.js
 typedoc.json
 test/index.test.ts
+test/_.test.ts
