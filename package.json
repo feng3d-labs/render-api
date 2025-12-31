@@ -27,7 +27,7 @@
         "update": "npx feng3d-cli update && npm install",
         "postinstall": "npx feng3d-cli update || exit 0",
         "prepublishOnly": "node scripts/prepublish.js",
-        "release": "npm run clean && npm run lint && npm run build && npm run docs && npm publish",
+        "release": "npm run clean && npm run lint && npm test && npm run build && npm run docs && npm publish",
         "postpublish": "node scripts/postpublish.js",
         "prepare": "husky"
     },
@@ -60,7 +60,8 @@
         "vite": "^6.3.5",
         "vitest": "^3.1.3",
         "husky": "^9.1.7",
-        "lint-staged": "^15.2.10"
+        "lint-staged": "^15.2.10",
+        "concurrently": "^9.1.2"
     },
     "dependencies": {
         "@webgpu/types": "0.1.60",
