@@ -1,6 +1,6 @@
 {
     "name": "@feng3d/render-api",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "description": "提供WebGL/WebGPU统一的渲染数据结构，描述渲染所需的所有数据以及流程，用于@feng3d/webgl与@feng3d/webgpu。",
     "homepage": "https://feng3d.com/render-api/",
     "author": "feng",
@@ -17,7 +17,7 @@
     },
     "scripts": {
         "clean": "rimraf lib dist public",
-        "build": "vite build && tsc",
+        "build": "vite build && tsc && node scripts/postbuild.js",
         "test": "vitest",
         "watch": "tsc -w",
         "lint": "eslint . --ext .js,.ts --max-warnings 0",
