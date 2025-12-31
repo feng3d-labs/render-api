@@ -16,21 +16,20 @@
         }
     },
     "scripts": {
-        "clean": "rimraf \"{lib,dist,public}\"",
-        "build": "vite build",
+        "clean": "rimraf lib dist public",
+        "build": "vite build && tsc",
         "test": "vitest",
-        "types": "tsc",
         "watch": "tsc -w",
         "lint": "eslint . --ext .js,.ts --max-warnings 0",
         "lintfix": "npm run lint -- --fix",
         "docs": "typedoc",
         "upload_oss": "npm run docs && npx feng3d-cli oss_upload_dir",
         "update": "npx feng3d-cli update && npm install",
-        "release": "npm run clean && npm run lint && npm run build && npm run docs && npm run types && npm publish",
+        "postinstall": "npx feng3d-cli update || exit 0",
         "prepublishOnly": "node scripts/prepublish.js",
+        "release": "npm run clean && npm run lint && npm run build && npm run docs && npm publish",
         "postpublish": "node scripts/postpublish.js",
-        "prepare": "husky",
-        "postinstall": "npx feng3d-cli update || exit 0"
+        "prepare": "husky"
     },
     "repository": {
         "type": "git",
