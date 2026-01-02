@@ -17,7 +17,7 @@
     },
     "scripts": {
         "clean": "rimraf lib dist public",
-        "build": "vite build && tsc",
+        "build": "vite build && tsc && node scripts/postbuild.js",
         "watch": "concurrently \"vite build --watch\" \"tsc -w\" \"vitest\"",
         "test": "vitest run",
         "lint": "eslint . --ext .js,.ts --max-warnings 0",
@@ -68,5 +68,12 @@
         "*.{js,ts}": [
             "eslint --fix --max-warnings 0"
         ]
-    }
+    },
+    "workspaces": [
+        ".",
+        "./examples",
+        "./test_web",
+        "packages/*",
+        "packages/*/examples"
+    ]
 }
